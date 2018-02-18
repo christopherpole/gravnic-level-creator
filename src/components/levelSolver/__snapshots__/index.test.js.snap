@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the current snapshot 1`] = `
+<styled.div>
+  <p>
+    Level Solver goes here
+  </p>
+</styled.div>
+`;
