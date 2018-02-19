@@ -5,7 +5,7 @@ import Grid from './grid';
 import TileSelector from './tileSelector';
 
 const Wrapper = styled.div`
-  border: 1px solid blue;
+  border-bottom: 1px solid ${props => props.theme.foregroundColor};
   padding: ${props => props.theme.structureSpacing};
   grid-column-gap: ${props => props.theme.structureSpacing};
   display: grid;

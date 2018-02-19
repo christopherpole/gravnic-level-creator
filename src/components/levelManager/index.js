@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border: 1px solid brown;
+  border-left: 1px solid ${props => props.theme.foregroundColor};
   padding: ${props => props.theme.structureSpacing};
+  grid-column: 2;
+  grid-row: 1 / 3;
 `;
 
 const LevelManager = () => (
