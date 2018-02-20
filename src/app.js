@@ -1,6 +1,5 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import 'normalize.css';
 
 import theme from './theme';
 import Layout from './components/layout';

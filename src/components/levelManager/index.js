@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   border-left: 1px solid ${props => props.theme.foregroundColor};
   padding: ${props => props.theme.structureSpacing};
   grid-column: 2;

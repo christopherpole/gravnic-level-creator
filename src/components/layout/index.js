@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import 'normalize.css';
 
 import LevelEditor from '../levelEditor';
 import LevelManager from '../levelManager';
@@ -10,8 +11,11 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  height: 100%;
-  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: ${props => props.theme.structureSpacing};
   background: ${props => props.theme.maskColor};
 `;
 
@@ -19,7 +23,6 @@ const AppContainer = styled.div`
   background: ${props => props.theme.backgroundColor};
   font-family: ${props => props.theme.fontFamily};
   color: ${props => props.theme.foregroundColor};
-  margin: ${props => props.theme.structureSpacing};
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 2fr 1fr;

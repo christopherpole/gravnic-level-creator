@@ -3,18 +3,18 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Grid from './grid';
+import Tile from './tile';
 
 configure({ adapter: new Adapter() });
 
 it('renders without exploding', () => {
-  const grid = shallow(<Grid />);
-const i = i+=1;
-  expect(grid).toHaveLength(1);
+  const tile = shallow(<Tile />);
+
+  expect(tile).toHaveLength(1);
 });
 
 it('matches the current snapshot', () => {
-  const grid = shallow(<Grid />);
+  const tile = shallow(<Tile />);
 
-  expect(toJson(grid)).toMatchSnapshot();
+  expect(toJson(tile)).toMatchSnapshot();
 });

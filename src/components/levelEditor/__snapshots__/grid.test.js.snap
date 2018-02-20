@@ -2,8 +2,107 @@
 
 exports[`matches the current snapshot 1`] = `
 <styled.div>
-  <p>
-    Grid goes here
-  </p>
+  <styled.div>
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+    <Tile />
+  </styled.div>
 </styled.div>
 `;
