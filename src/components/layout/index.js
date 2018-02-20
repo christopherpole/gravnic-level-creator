@@ -29,7 +29,7 @@ const AppContainer = styled.div`
 `;
 
 const Layout = () => (
-  <Wrapper>
+  <Wrapper id="level-creator">
     <AppContainer>
       <LevelEditor />
       <LevelManager />

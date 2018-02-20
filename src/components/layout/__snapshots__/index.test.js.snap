@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches the current snapshot 1`] = `
-<styled.div>
+<styled.div
+  id="level-creator"
+>
   <styled.div>
     <LevelEditor />
     <LevelManager />

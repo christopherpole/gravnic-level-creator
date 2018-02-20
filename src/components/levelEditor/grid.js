@@ -25,8 +25,8 @@ const TilesWrapper = styled.div`
 const Grid = () => (
   <Wrapper>
     <TilesWrapper>
-      {[...Array(100)].map(() => (
-        <Tile />
+      {[...Array(100)].map((tile, index) => (
+        <Tile key={index} />
       ))}
     </TilesWrapper>
   </Wrapper>

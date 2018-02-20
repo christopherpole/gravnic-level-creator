@@ -3,106 +3,306 @@
 exports[`matches the current snapshot 1`] = `
 <styled.div>
   <styled.div>
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
-    <Tile />
+    <Tile
+      key="0"
+    />
+    <Tile
+      key="1"
+    />
+    <Tile
+      key="2"
+    />
+    <Tile
+      key="3"
+    />
+    <Tile
+      key="4"
+    />
+    <Tile
+      key="5"
+    />
+    <Tile
+      key="6"
+    />
+    <Tile
+      key="7"
+    />
+    <Tile
+      key="8"
+    />
+    <Tile
+      key="9"
+    />
+    <Tile
+      key="10"
+    />
+    <Tile
+      key="11"
+    />
+    <Tile
+      key="12"
+    />
+    <Tile
+      key="13"
+    />
+    <Tile
+      key="14"
+    />
+    <Tile
+      key="15"
+    />
+    <Tile
+      key="16"
+    />
+    <Tile
+      key="17"
+    />
+    <Tile
+      key="18"
+    />
+    <Tile
+      key="19"
+    />
+    <Tile
+      key="20"
+    />
+    <Tile
+      key="21"
+    />
+    <Tile
+      key="22"
+    />
+    <Tile
+      key="23"
+    />
+    <Tile
+      key="24"
+    />
+    <Tile
+      key="25"
+    />
+    <Tile
+      key="26"
+    />
+    <Tile
+      key="27"
+    />
+    <Tile
+      key="28"
+    />
+    <Tile
+      key="29"
+    />
+    <Tile
+      key="30"
+    />
+    <Tile
+      key="31"
+    />
+    <Tile
+      key="32"
+    />
+    <Tile
+      key="33"
+    />
+    <Tile
+      key="34"
+    />
+    <Tile
+      key="35"
+    />
+    <Tile
+      key="36"
+    />
+    <Tile
+      key="37"
+    />
+    <Tile
+      key="38"
+    />
+    <Tile
+      key="39"
+    />
+    <Tile
+      key="40"
+    />
+    <Tile
+      key="41"
+    />
+    <Tile
+      key="42"
+    />
+    <Tile
+      key="43"
+    />
+    <Tile
+      key="44"
+    />
+    <Tile
+      key="45"
+    />
+    <Tile
+      key="46"
+    />
+    <Tile
+      key="47"
+    />
+    <Tile
+      key="48"
+    />
+    <Tile
+      key="49"
+    />
+    <Tile
+      key="50"
+    />
+    <Tile
+      key="51"
+    />
+    <Tile
+      key="52"
+    />
+    <Tile
+      key="53"
+    />
+    <Tile
+      key="54"
+    />
+    <Tile
+      key="55"
+    />
+    <Tile
+      key="56"
+    />
+    <Tile
+      key="57"
+    />
+    <Tile
+      key="58"
+    />
+    <Tile
+      key="59"
+    />
+    <Tile
+      key="60"
+    />
+    <Tile
+      key="61"
+    />
+    <Tile
+      key="62"
+    />
+    <Tile
+      key="63"
+    />
+    <Tile
+      key="64"
+    />
+    <Tile
+      key="65"
+    />
+    <Tile
+      key="66"
+    />
+    <Tile
+      key="67"
+    />
+    <Tile
+      key="68"
+    />
+    <Tile
+      key="69"
+    />
+    <Tile
+      key="70"
+    />
+    <Tile
+      key="71"
+    />
+    <Tile
+      key="72"
+    />
+    <Tile
+      key="73"
+    />
+    <Tile
+      key="74"
+    />
+    <Tile
+      key="75"
+    />
+    <Tile
+      key="76"
+    />
+    <Tile
+      key="77"
+    />
+    <Tile
+      key="78"
+    />
+    <Tile
+      key="79"
+    />
+    <Tile
+      key="80"
+    />
+    <Tile
+      key="81"
+    />
+    <Tile
+      key="82"
+    />
+    <Tile
+      key="83"
+    />
+    <Tile
+      key="84"
+    />
+    <Tile
+      key="85"
+    />
+    <Tile
+      key="86"
+    />
+    <Tile
+      key="87"
+    />
+    <Tile
+      key="88"
+    />
+    <Tile
+      key="89"
+    />
+    <Tile
+      key="90"
+    />
+    <Tile
+      key="91"
+    />
+    <Tile
+      key="92"
+    />
+    <Tile
+      key="93"
+    />
+    <Tile
+      key="94"
+    />
+    <Tile
+      key="95"
+    />
+    <Tile
+      key="96"
+    />
+    <Tile
+      key="97"
+    />
+    <Tile
+      key="98"
+    />
+    <Tile
+      key="99"
+    />
   </styled.div>
 </styled.div>
 `;

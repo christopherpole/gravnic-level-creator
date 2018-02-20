@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() });
 
 it('renders without exploding', () => {
   const grid = shallow(<Grid />);
-const i = i+=1;
+
   expect(grid).toHaveLength(1);
 });
 
