@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Tile from '../common/tile';
 
@@ -28,13 +30,12 @@ const TileWrapper = styled.div`
   position: relative;
 `;
 
-
-const Grid = () => (
+export const Grid = ({ tiles }) => (
   <Wrapper>
     <TilesWrapper>
-      {[...Array(Grid.SIZE * Grid.SIZE)].map((tile, index) => (
-        <TileWrapper key={index} >
-          <Tile />
+      {tiles.map(editorTile => (
+        <TileWrapper key={editorTile.position} >
+          <Tile id={editorTile.selectedTileId} />
         </TileWrapper>
       ))}
     </TilesWrapper>
@@ -43,4 +44,15 @@ const Grid = () => (
 
 Grid.SIZE = 10;
 
-export default Grid;
+Grid.propTypes = {
+  tiles: PropTypes.arrayOf(PropTypes.shape({
+    selectedTileId: PropTypes.number,
+    position: PropTypes.number.isRequired,
+  }).isRequired).isRequired,
+};
+
+const mapStateToProps = state => ({
+  tiles: state.levelEditor.tiles,
+});
+
+export default connect(mapStateToProps)(Grid);

@@ -2,10 +2,13 @@
   "extends": "airbnb",
   "plugins": ["jest"],
   "globals": {
-    "document": true
+    "document": true,
+    "window": true
   },
   "rules": {
-    "react/jsx-filename-extension": false
+    "import/no-named-as-default": false,
+    "react/jsx-filename-extension": false,
+    "react/forbid-prop-types": false
   },
   "env": {
     "jest/globals": true

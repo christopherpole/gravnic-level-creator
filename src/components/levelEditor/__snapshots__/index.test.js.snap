@@ -2,7 +2,7 @@
 
 exports[`matches the current snapshot 1`] = `
 <styled.section>
-  <Grid />
+  <Connect(Component) />
   <TileSelector />
 </styled.section>
 `;
