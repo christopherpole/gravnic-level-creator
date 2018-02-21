@@ -3,225 +3,66 @@
 exports[`matches the current snapshot 1`] = `
 <styled.div>
   <styled.div>
-    <styled.div
-      key="0"
-    >
-      <Tile />
+    <styled.div>
+      <Tile
+        id={0}
+      />
     </styled.div>
     <styled.div
       key="1"
     >
-      <Tile />
+      <Tile
+        id={1}
+      />
     </styled.div>
     <styled.div
       key="2"
     >
-      <Tile />
+      <Tile
+        id={2}
+      />
     </styled.div>
     <styled.div
       key="3"
     >
-      <Tile />
+      <Tile
+        id={3}
+      />
     </styled.div>
     <styled.div
       key="4"
     >
-      <Tile />
+      <Tile
+        id={4}
+      />
     </styled.div>
     <styled.div
       key="5"
     >
-      <Tile />
+      <Tile
+        id={5}
+      />
     </styled.div>
     <styled.div
       key="6"
     >
-      <Tile />
+      <Tile
+        id={6}
+      />
     </styled.div>
     <styled.div
       key="7"
     >
-      <Tile />
+      <Tile
+        id={7}
+      />
     </styled.div>
     <styled.div
       key="8"
     >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="9"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="10"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="11"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="12"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="13"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="14"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="15"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="16"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="17"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="18"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="19"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="20"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="21"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="22"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="23"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="24"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="25"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="26"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="27"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="28"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="29"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="30"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="31"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="32"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="33"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="34"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="35"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="36"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="37"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="38"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="39"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="40"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="41"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="42"
-    >
-      <Tile />
-    </styled.div>
-    <styled.div
-      key="43"
-    >
-      <Tile />
+      <Tile
+        id={8}
+      />
     </styled.div>
   </styled.div>
 </styled.div>

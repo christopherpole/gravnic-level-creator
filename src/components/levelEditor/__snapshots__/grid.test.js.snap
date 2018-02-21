@@ -3,306 +3,706 @@
 exports[`matches the current snapshot 1`] = `
 <styled.div>
   <styled.div>
-    <Tile
+    <styled.div
       key="0"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="1"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="2"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="3"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="4"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="5"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="6"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="7"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="8"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="9"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="10"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="11"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="12"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="13"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="14"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="15"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="16"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="17"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="18"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="19"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="20"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="21"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="22"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="23"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="24"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="25"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="26"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="27"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="28"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="29"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="30"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="31"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="32"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="33"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="34"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="35"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="36"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="37"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="38"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="39"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="40"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="41"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="42"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="43"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="44"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="45"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="46"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="47"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="48"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="49"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="50"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="51"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="52"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="53"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="54"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="55"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="56"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="57"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="58"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="59"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="60"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="61"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="62"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="63"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="64"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="65"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="66"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="67"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="68"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="69"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="70"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="71"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="72"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="73"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="74"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="75"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="76"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="77"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="78"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="79"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="80"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="81"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="82"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="83"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="84"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="85"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="86"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="87"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="88"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="89"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="90"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="91"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="92"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="93"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="94"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="95"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="96"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="97"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="98"
-    />
-    <Tile
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
+    <styled.div
       key="99"
-    />
+    >
+      <Tile
+        id={null}
+      />
+    </styled.div>
   </styled.div>
 </styled.div>
 `;

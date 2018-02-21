@@ -11,6 +11,8 @@ const Wrapper = styled.div`
 `;
 
 const TilesWrapper = styled.div`
+  border: 1px solid white;
+  background: white;
   display: grid;
   position: absolute;
   top: 0;
@@ -22,14 +24,23 @@ const TilesWrapper = styled.div`
   grid-gap: 1px;
 `;
 
+const TileWrapper = styled.div`
+  position: relative;
+`;
+
+
 const Grid = () => (
   <Wrapper>
     <TilesWrapper>
-      {[...Array(100)].map((tile, index) => (
-        <Tile key={index} />
+      {[...Array(Grid.SIZE * Grid.SIZE)].map((tile, index) => (
+        <TileWrapper key={index} >
+          <Tile />
+        </TileWrapper>
       ))}
     </TilesWrapper>
   </Wrapper>
 );
+
+Grid.SIZE = 10;
 
 export default Grid;

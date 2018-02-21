@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Tile from '../common/tile';
+import tiles from '../../config/tiles.json';
 
 const Wrapper = styled.div`
   position: relative;
@@ -27,22 +28,18 @@ const TileWrapper = styled.div`
   height: 0;
   padding-bottom: 25%;
   position: relative;
-
-  & > div {
-    position: absolute;
-    top: .5px;
-    left: .5px;
-    right: .5px;
-    bottom: .5px;
-  }
 `;
 
 const TileSelector = () => (
   <Wrapper>
     <WrapperInner>
-      {[...Array(44)].map((tile, index) => (
-        <TileWrapper key={index}>
-          <Tile />
+      <TileWrapper>
+        <Tile id={0} />
+      </TileWrapper>
+
+      {tiles.map(tile => (
+        <TileWrapper key={tile.id}>
+          <Tile id={tile.id} />
         </TileWrapper>
       ))}
     </WrapperInner>
