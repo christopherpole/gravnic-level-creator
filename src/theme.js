@@ -3,5 +3,5 @@ export default {
   maskColor: '#aaa',
   backgroundColor: '#333',
   foregroundColor: '#eee',
-  structureSpacing: '1rem',
+  structureSpacing: '3vw',
 };

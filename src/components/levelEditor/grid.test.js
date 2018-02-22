@@ -8,14 +8,16 @@ import { initialState as levelEditorInitialState } from '../../reducers/levelEdi
 
 configure({ adapter: new Adapter() });
 
-it('renders without exploding', () => {
-  const grid = shallow(<Grid tiles={levelEditorInitialState.tiles} />);
+describe('The editor grid', () => {
+  it('Renders without exploding', () => {
+    const grid = shallow(<Grid tiles={levelEditorInitialState.tiles} />);
 
-  expect(grid).toHaveLength(1);
-});
+    expect(grid).toHaveLength(1);
+  });
 
-it('matches the current snapshot', () => {
-  const grid = shallow(<Grid tiles={levelEditorInitialState.tiles} />);
+  it('Matches the current snapshot', () => {
+    const grid = shallow(<Grid tiles={levelEditorInitialState.tiles} />);
 
-  expect(toJson(grid)).toMatchSnapshot();
+    expect(toJson(grid)).toMatchSnapshot();
+  });
 });

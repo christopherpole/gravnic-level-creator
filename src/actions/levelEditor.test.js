@@ -1,7 +1,21 @@
-import { UPDATE_TILE, updateTile } from './levelEditor';
+import {
+  UPDATE_TILE,
+  SELECT_TILE,
+  updateTile,
+  selectTile,
+} from './levelEditor';
 
-describe('editor tiles actions', () => {
-  it('should create an action to update a tile', () => {
+describe('The level editor actions', () => {
+  it('Should create an action select a tile', () => {
+    const expectedAction = {
+      type: SELECT_TILE,
+      selectedTileId: 2,
+    };
+
+    expect(selectTile(2)).toEqual(expectedAction);
+  });
+
+  it('Should create an action to update a tile', () => {
     const expectedAction = {
       type: UPDATE_TILE,
       pos: 1,

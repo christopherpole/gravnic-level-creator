@@ -1,21 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react';
+import styled, { css } from 'styled-components';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 
+import { selectTile } from '../../actions/levelEditor';
 import Tile from '../common/tile';
 import tiles from '../../config/tiles.json';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   position: relative;
 `;
 
-const WrapperInner = styled.div`
+export const WrapperInner = styled.div`
   border: 1px solid ${props => props.theme.foregroundColor};
   padding: ${props => props.theme.structureSpacing};
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
   align-content: flex-start;
-  margin: -1px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -23,27 +26,78 @@ const WrapperInner = styled.div`
   right: 0;
 `;
 
-const TileWrapper = styled.div`
-  width: 25%;
+export const TileWrapper = styled.div`
+  width: 33%;
   height: 0;
-  padding-bottom: 25%;
+  padding-bottom: 33%;
   position: relative;
+  cursor: pointer;
+
+  ${props => props.isSelected && css`
+    &:before {
+      border: 2px solid yellow;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      content: '';
+      z-index: 2;
+    }
+  `}
 `;
 
-const TileSelector = () => (
-  <Wrapper>
-    <WrapperInner>
-      <TileWrapper>
-        <Tile id={0} />
-      </TileWrapper>
+export class TileSelector extends Component {
+  constructor(props) {
+    super(props);
 
-      {tiles.map(tile => (
-        <TileWrapper key={tile.id}>
-          <Tile id={tile.id} />
-        </TileWrapper>
-      ))}
-    </WrapperInner>
-  </Wrapper>
-);
+    this.handleTileClick = this.handleTileClick.bind(this);
+  }
 
-export default TileSelector;
+  handleTileClick(selectedTileId) {
+    this.props.selectTile(selectedTileId);
+  }
+
+  render() {
+    const { selectedTileId } = this.props;
+
+    return (
+      <Wrapper id="tile-selector">
+        <WrapperInner>
+          {tiles.map(tile => (
+            <TileWrapper
+              className="tile"
+              isSelected={tile.id === selectedTileId}
+              onClick={() => { this.handleTileClick(tile.id); }}
+              key={tile.id}
+            >
+              <Tile
+                id={tile.id}
+                isSelected={tile.id === selectedTileId}
+              />
+            </TileWrapper>
+          ))}
+        </WrapperInner>
+      </Wrapper>
+    );
+  }
+}
+
+TileSelector.defaultProps = {
+  selectedTileId: null,
+};
+
+TileSelector.propTypes = {
+  selectedTileId: PropTypes.number,
+  selectTile: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  selectedTileId: state.levelEditor.selectedTileId,
+});
+
+const mapDispatchToProps = dispatch => ({
+  selectTile: bindActionCreators(selectTile, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TileSelector);

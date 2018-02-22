@@ -1,4 +1,4 @@
-import { UPDATE_TILE } from '../actions/levelEditor';
+import { UPDATE_TILE, SELECT_TILE } from '../actions/levelEditor';
 import { Grid } from '../components/levelEditor/grid';
 
 export const initialState = {
@@ -11,6 +11,12 @@ export const initialState = {
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
+    case SELECT_TILE: {
+      return {
+        ...state,
+        selectedTileId: action.selectedTileId,
+      };
+    }
     case UPDATE_TILE: {
       return {
         ...state,

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the current snapshot 1`] = `
+exports[`The root layout Matches the current snapshot 1`] = `
 <styled.div
   id="level-creator"
 >

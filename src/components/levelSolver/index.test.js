@@ -7,14 +7,16 @@ import LevelSolver from './index';
 
 configure({ adapter: new Adapter() });
 
-it('renders without exploding', () => {
-  const levelSolver = shallow(<LevelSolver />);
+describe('The root layout', () => {
+  it('Renders without exploding', () => {
+    const levelSolver = shallow(<LevelSolver />);
 
-  expect(levelSolver).toHaveLength(1);
-});
+    expect(levelSolver).toHaveLength(1);
+  });
 
-it('matches the current snapshot', () => {
-  const levelSolver = shallow(<LevelSolver />);
+  it('Matches the current snapshot', () => {
+    const levelSolver = shallow(<LevelSolver />);
 
-  expect(toJson(levelSolver)).toMatchSnapshot();
+    expect(toJson(levelSolver)).toMatchSnapshot();
+  });
 });

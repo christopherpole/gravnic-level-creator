@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the current snapshot 1`] = `
+exports[`The level manager Matches the current snapshot 1`] = `
 <styled.section>
   <p>
     Level Manager goes here

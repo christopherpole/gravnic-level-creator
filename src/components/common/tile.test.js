@@ -7,14 +7,16 @@ import Tile from './tile';
 
 configure({ adapter: new Adapter() });
 
-it('renders without exploding', () => {
-  const tile = shallow(<Tile />);
+describe('Tiles', () => {
+  it('Renders without exploding', () => {
+    const tile = shallow(<Tile />);
 
-  expect(tile).toHaveLength(1);
-});
+    expect(tile).toHaveLength(1);
+  });
 
-it('matches the current snapshot', () => {
-  const tile = shallow(<Tile />);
+  it('Matches the current snapshot', () => {
+    const tile = shallow(<Tile />);
 
-  expect(toJson(tile)).toMatchSnapshot();
+    expect(toJson(tile)).toMatchSnapshot();
+  });
 });

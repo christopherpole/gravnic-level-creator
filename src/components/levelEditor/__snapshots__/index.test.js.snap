@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches the current snapshot 1`] = `
+exports[`The level editor Matches the current snapshot 1`] = `
 <styled.section>
   <Connect(Component) />
-  <TileSelector />
+  <Connect(TileSelector) />
 </styled.section>
 `;

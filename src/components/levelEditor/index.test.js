@@ -7,14 +7,16 @@ import LevelEditor from './index';
 
 configure({ adapter: new Adapter() });
 
-it('renders without exploding', () => {
-  const levelEditor = shallow(<LevelEditor />);
+describe('The level editor', () => {
+  it('Renders without exploding', () => {
+    const levelEditor = shallow(<LevelEditor />);
 
-  expect(levelEditor).toHaveLength(1);
-});
+    expect(levelEditor).toHaveLength(1);
+  });
 
-it('matches the current snapshot', () => {
-  const levelEditor = shallow(<LevelEditor />);
+  it('Matches the current snapshot', () => {
+    const levelEditor = shallow(<LevelEditor />);
 
-  expect(toJson(levelEditor)).toMatchSnapshot();
+    expect(toJson(levelEditor)).toMatchSnapshot();
+  });
 });

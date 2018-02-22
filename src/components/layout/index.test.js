@@ -7,14 +7,16 @@ import Layout from './index';
 
 configure({ adapter: new Adapter() });
 
-it('renders without exploding', () => {
-  const layout = shallow(<Layout />);
+describe('The root layout', () => {
+  it('Renders without exploding', () => {
+    const layout = shallow(<Layout />);
 
-  expect(layout).toHaveLength(1);
-});
+    expect(layout).toHaveLength(1);
+  });
 
-it('matches the current snapshot', () => {
-  const layout = shallow(<Layout />);
+  it('Matches the current snapshot', () => {
+    const layout = shallow(<Layout />);
 
-  expect(toJson(layout)).toMatchSnapshot();
+    expect(toJson(layout)).toMatchSnapshot();
+  });
 });

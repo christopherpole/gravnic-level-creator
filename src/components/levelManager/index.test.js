@@ -7,14 +7,16 @@ import LevelManager from './index';
 
 configure({ adapter: new Adapter() });
 
-it('renders without exploding', () => {
-  const levelManager = shallow(<LevelManager />);
+describe('The level manager', () => {
+  it('Renders without exploding', () => {
+    const levelManager = shallow(<LevelManager />);
 
-  expect(levelManager).toHaveLength(1);
-});
+    expect(levelManager).toHaveLength(1);
+  });
 
-it('matches the current snapshot', () => {
-  const levelManager = shallow(<LevelManager />);
+  it('Matches the current snapshot', () => {
+    const levelManager = shallow(<LevelManager />);
 
-  expect(toJson(levelManager)).toMatchSnapshot();
+    expect(toJson(levelManager)).toMatchSnapshot();
+  });
 });
