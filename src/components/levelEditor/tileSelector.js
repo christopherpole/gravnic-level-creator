@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -47,41 +47,28 @@ export const TileWrapper = styled.div`
   `}
 `;
 
-export class TileSelector extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleTileClick = this.handleTileClick.bind(this);
-  }
-
-  handleTileClick(selectedTileId) {
-    this.props.selectTile(selectedTileId);
-  }
-
-  render() {
-    const { selectedTileId } = this.props;
-
-    return (
-      <Wrapper id="tile-selector">
-        <WrapperInner>
-          {tiles.map(tile => (
-            <TileWrapper
-              className="tile"
-              isSelected={tile.id === selectedTileId}
-              onClick={() => { this.handleTileClick(tile.id); }}
-              key={tile.id}
-            >
-              <Tile
-                id={tile.id}
-                isSelected={tile.id === selectedTileId}
-              />
-            </TileWrapper>
-          ))}
-        </WrapperInner>
-      </Wrapper>
-    );
-  }
-}
+export const TileSelector = ({
+  selectedTileId,
+  selectTileAction,
+}) => (
+  <Wrapper id="tile-selector">
+    <WrapperInner>
+      {tiles.map(tile => (
+        <TileWrapper
+          className="tile"
+          isSelected={tile.id === selectedTileId}
+          onClick={() => { selectTileAction(tile.id); }}
+          key={tile.id}
+        >
+          <Tile
+            id={tile.id}
+            isSelected={tile.id === selectedTileId}
+          />
+        </TileWrapper>
+      ))}
+    </WrapperInner>
+  </Wrapper>
+);
 
 TileSelector.defaultProps = {
   selectedTileId: null,
@@ -89,7 +76,7 @@ TileSelector.defaultProps = {
 
 TileSelector.propTypes = {
   selectedTileId: PropTypes.number,
-  selectTile: PropTypes.func.isRequired,
+  selectTileAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -97,7 +84,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  selectTile: bindActionCreators(selectTile, dispatch),
+  selectTileAction: bindActionCreators(selectTile, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TileSelector);

@@ -3,6 +3,6 @@
 exports[`The level editor Matches the current snapshot 1`] = `
 <styled.section>
   <Connect(Component) />
-  <Connect(TileSelector) />
+  <Connect(Component) />
 </styled.section>
 `;

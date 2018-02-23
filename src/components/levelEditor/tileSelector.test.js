@@ -9,7 +9,7 @@ import { TileSelector, TileWrapper } from './tileSelector';
 configure({ adapter: new Adapter() });
 
 const props = {
-  selectTile: () => {},
+  selectTileAction: () => {},
   selectedTileId: null,
 };
 
@@ -34,7 +34,7 @@ describe('The tile selector', () => {
 
   it('Fires the select tile action when clicking on a tile', () => {
     const tileClickSpy = spy();
-    const tileSelector = shallow(<TileSelector {...props} selectTile={tileClickSpy} />);
+    const tileSelector = shallow(<TileSelector {...props} selectTileAction={tileClickSpy} />);
     const tile = tileSelector.find(TileWrapper).first();
     tile.simulate('click');
 
