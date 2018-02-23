@@ -40,5 +40,5 @@ jobs:
         
       # run tests!
       - run: npm run lint
-      - run: npm run start
-      - run: npm run test
+      - run: npm run start:ci
+      - run: npm run test:ci
