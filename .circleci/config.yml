@@ -44,4 +44,4 @@ jobs:
           command: npm run start
           background: true
       - run: sleep 10
-      - run: npm run test:ci
+      - run: npm run test
