@@ -41,7 +41,7 @@ jobs:
       # run tests!
       - run: npm run lint
       - run:
-          command: npm run start:ci
+          command: npm run start
           background: true
       - run: sleep 10
       - run: npm run test:ci
