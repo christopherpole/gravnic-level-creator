@@ -2,17 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 
 import Tile from '../common/tile';
+import { updateTile } from '../../actions/levelEditor';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   height: 0;
-  padding: ${props => props.theme.structureSpacing};
   padding-bottom: 100%;
   position: relative;
 `;
 
-const TilesWrapper = styled.div`
+export const TilesWrapper = styled.div`
   border: 1px solid white;
   background: white;
   display: grid;
@@ -26,15 +27,23 @@ const TilesWrapper = styled.div`
   grid-gap: 1px;
 `;
 
-const TileWrapper = styled.div`
+export const TileWrapper = styled.div`
   position: relative;
+  cursor: pointer;
 `;
 
-export const Grid = ({ tiles }) => (
-  <Wrapper>
+export const Grid = ({
+  tiles,
+  updateTileAction,
+}) => (
+  <Wrapper id="editor-grid">
     <TilesWrapper>
       {tiles.map(editorTile => (
-        <TileWrapper key={editorTile.position} >
+        <TileWrapper
+          onClick={() => { updateTileAction(editorTile.position); }}
+          key={editorTile.position}
+          className="tile"
+        >
           <Tile id={editorTile.selectedTileId} />
         </TileWrapper>
       ))}
@@ -45,6 +54,7 @@ export const Grid = ({ tiles }) => (
 Grid.SIZE = 10;
 
 Grid.propTypes = {
+  updateTileAction: PropTypes.func.isRequired,
   tiles: PropTypes.arrayOf(PropTypes.shape({
     selectedTileId: PropTypes.number,
     position: PropTypes.number.isRequired,
@@ -55,4 +65,8 @@ const mapStateToProps = state => ({
   tiles: state.levelEditor.tiles,
 });
 
-export default connect(mapStateToProps)(Grid);
+const mapDispatchToProps = dispatch => ({
+  updateTileAction: bindActionCreators(updateTile, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Grid);

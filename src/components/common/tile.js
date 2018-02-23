@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   background: ${props => props.theme.backgroundColor};
   position: absolute;
   top: 0;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Grid from './grid';
 import TileSelector from './tileSelector';
 
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
   border-bottom: 1px solid ${props => props.theme.foregroundColor};
   padding: ${props => props.theme.structureSpacing};
   grid-column-gap: ${props => props.theme.structureSpacing};

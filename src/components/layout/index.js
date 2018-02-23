@@ -6,7 +6,7 @@ import LevelEditor from '../levelEditor';
 import LevelManager from '../levelManager';
 import LevelSolver from '../levelSolver';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   background: ${props => props.theme.maskColor};
 `;
 
-const AppContainer = styled.div`
+export const AppContainer = styled.div`
   background: ${props => props.theme.backgroundColor};
   font-family: ${props => props.theme.fontFamily};
   color: ${props => props.theme.foregroundColor};

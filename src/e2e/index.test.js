@@ -11,13 +11,6 @@ describe('The level creator', () => {
     expect(result).toBe(true);
   });
 
-  it('Shows the tile selector', async () => {
-    const result = await page
-      .exists('#tile-selector');
-
-    expect(result).toBe(true);
-  });
-
   it('Shows the highlighted state when the user clicks on a tile', async () => {
     let borderStyle = await page
       .evaluate(() => (
@@ -57,9 +50,30 @@ describe('The level creator', () => {
           document.querySelector('#tile-selector .tile:nth-child(5)'),
           ':before',
         ).borderWidth
+      ));
+
+    expect(borderStyle).toBe('2px');
+  });
+
+  it('Updates tiles in the editor grid with the currently selected tile when clicked on', async () => {
+    let backgroundColor = await page
+      .evaluate(() => (
+        window.getComputedStyle(
+          document.querySelector('#editor-grid .tile:nth-child(54) > div'),
+        ).backgroundColor
+      ));
+
+    expect(backgroundColor).toBe('rgb(51, 51, 51)');
+
+    backgroundColor = await page
+      .click('#editor-grid .tile:nth-child(54)')
+      .evaluate(() => (
+        window.getComputedStyle(
+          document.querySelector('#editor-grid .tile:nth-child(54) > div')
+        ).backgroundColor
       ))
       .end();
 
-    expect(borderStyle).toBe('2px');
+    expect(backgroundColor).toBe('rgb(0, 128, 0)');
   });
 });

@@ -4,6 +4,7 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
+import tiles from '../../config/tiles.json';
 import { TileSelector, TileWrapper } from './tileSelector';
 
 configure({ adapter: new Adapter() });
@@ -35,10 +36,10 @@ describe('The tile selector', () => {
   it('Fires the select tile action when clicking on a tile', () => {
     const tileClickSpy = spy();
     const tileSelector = shallow(<TileSelector {...props} selectTileAction={tileClickSpy} />);
-    const tile = tileSelector.find(TileWrapper).first();
+    const tile = tileSelector.find(TileWrapper).at(3);
     tile.simulate('click');
 
     expect(tileClickSpy.calledOnce).toBe(true);
-    expect(tileClickSpy.calledWith(1)).toBe(true);
+    expect(tileClickSpy.calledWith(tiles[3].id)).toBe(true);
   });
 });

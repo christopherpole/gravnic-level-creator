@@ -18,8 +18,15 @@ export default function userReducer(state = initialState, action) {
       };
     }
     case UPDATE_TILE: {
+      const newTiles = state.tiles.slice();
+      newTiles[action.position] = {
+        ...newTiles[action.position],
+        selectedTileId: state.selectedTileId,
+      };
+
       return {
         ...state,
+        tiles: newTiles,
       };
     }
     default: {

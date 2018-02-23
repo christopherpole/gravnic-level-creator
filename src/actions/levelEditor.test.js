@@ -18,10 +18,9 @@ describe('The level editor actions', () => {
   it('Should create an action to update a tile', () => {
     const expectedAction = {
       type: UPDATE_TILE,
-      pos: 1,
-      tileId: 2,
+      position: 1,
     };
 
-    expect(updateTile(1, 2)).toEqual(expectedAction);
+    expect(updateTile(1)).toEqual(expectedAction);
   });
 });

@@ -6,8 +6,7 @@ export const selectTile = selectedTileId => ({
   selectedTileId,
 });
 
-export const updateTile = (pos, tileId) => ({
+export const updateTile = position => ({
   type: UPDATE_TILE,
-  pos,
-  tileId,
+  position,
 });
