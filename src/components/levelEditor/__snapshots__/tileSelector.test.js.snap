@@ -8,6 +8,17 @@ exports[`The tile selector Matches the current snapshot 1`] = `
     <styled.div
       className="tile"
       isSelected={false}
+      key="0"
+      onClick={[Function]}
+    >
+      <Tile
+        id={0}
+        isSelected={false}
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
       key="1"
       onClick={[Function]}
     >
@@ -102,6 +113,17 @@ exports[`The tile selector Matches the current snapshot if a tile is selected 1`
   id="tile-selector"
 >
   <styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="0"
+      onClick={[Function]}
+    >
+      <Tile
+        id={0}
+        isSelected={false}
+      />
+    </styled.div>
     <styled.div
       className="tile"
       isSelected={false}

@@ -2,10 +2,10 @@ import { UPDATE_TILE, SELECT_TILE } from '../actions/levelEditor';
 import { Grid } from '../components/levelEditor/grid';
 
 export const initialState = {
-  selectedTileId: null,
+  selectedTileId: 0,
   tiles: [...Array(Grid.SIZE * Grid.SIZE)].map((_, index) => ({
     position: index,
-    selectedTileId: null,
+    selectedTileId: 0,
   })),
 };
 

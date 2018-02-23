@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   bottom: 0;
 
   ${props => props.id === 0 && css`
-    background: brown;
+    background: ${props => props.theme.backgroundColor};
   `}
 
   ${props => props.id === 1 && css`
@@ -40,6 +40,10 @@ export const Wrapper = styled.div`
 
   ${props => props.id === 7 && css`
     background: purple;
+  `}
+
+  ${props => props.id === 8 && css`
+    background: grey;
   `}
 `;
 

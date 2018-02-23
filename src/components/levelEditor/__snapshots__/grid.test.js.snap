@@ -11,7 +11,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -20,7 +20,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -29,7 +29,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -38,7 +38,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -47,7 +47,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -56,7 +56,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -65,7 +65,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -74,7 +74,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -83,7 +83,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -92,7 +92,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -101,7 +101,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -110,7 +110,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -119,7 +119,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -128,7 +128,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -137,7 +137,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -146,7 +146,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -155,7 +155,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -164,7 +164,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -173,7 +173,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -182,7 +182,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -191,7 +191,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -200,7 +200,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -209,7 +209,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -218,7 +218,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -227,7 +227,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -236,7 +236,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -245,7 +245,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -254,7 +254,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -263,7 +263,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -272,7 +272,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -281,7 +281,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -290,7 +290,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -299,7 +299,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -308,7 +308,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -317,7 +317,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -326,7 +326,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -335,7 +335,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -344,7 +344,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -353,7 +353,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -362,7 +362,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -371,7 +371,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -380,7 +380,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -389,7 +389,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -398,7 +398,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -407,7 +407,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -416,7 +416,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -425,7 +425,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -434,7 +434,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -443,7 +443,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -452,7 +452,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -461,7 +461,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -470,7 +470,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -479,7 +479,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -488,7 +488,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -497,7 +497,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -506,7 +506,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -515,7 +515,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -524,7 +524,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -533,7 +533,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -542,7 +542,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -551,7 +551,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -560,7 +560,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -569,7 +569,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -578,7 +578,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -587,7 +587,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -596,7 +596,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -605,7 +605,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -614,7 +614,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -623,7 +623,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -632,7 +632,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -641,7 +641,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -650,7 +650,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -659,7 +659,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -668,7 +668,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -677,7 +677,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -686,7 +686,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -695,7 +695,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -704,7 +704,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -713,7 +713,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -722,7 +722,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -731,7 +731,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -740,7 +740,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -749,7 +749,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -758,7 +758,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -767,7 +767,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -776,7 +776,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -785,7 +785,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -794,7 +794,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -803,7 +803,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -812,7 +812,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -821,7 +821,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -830,7 +830,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -839,7 +839,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -848,7 +848,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -857,7 +857,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -866,7 +866,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -875,7 +875,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -884,7 +884,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -893,7 +893,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
     <styled.div
@@ -902,7 +902,7 @@ exports[`The editor grid Matches the current snapshot 1`] = `
       onClick={[Function]}
     >
       <Tile
-        id={null}
+        id={0}
       />
     </styled.div>
   </styled.div>

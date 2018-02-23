@@ -74,6 +74,6 @@ describe('The level creator', () => {
       ))
       .end();
 
-    expect(backgroundColor).toBe('rgb(0, 128, 0)');
+    expect(backgroundColor).toBe('rgb(255, 255, 0)');
   });
 });

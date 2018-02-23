@@ -1,5 +1,9 @@
 [
 	{
+		"id": 0,
+		"name": "Empty"
+	},
+	{
 		"id": 1,
 		"name": "Floor"
 	},
