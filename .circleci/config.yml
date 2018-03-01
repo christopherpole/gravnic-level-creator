@@ -38,10 +38,17 @@ jobs:
             - node_modules
           key: v2-dependencies-{{ checksum "package.json" }}
         
-      # run tests!
+      # Run tests!
       - run: npm run lint
+
       - run:
           command: npm run start
           background: true
+
+      - run:
+          command: npm run backend
+          background: true
+
       - run: sleep 10
+
       - run: npm run test

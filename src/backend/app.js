@@ -1,8 +1,17 @@
-var express = require('express');
-var LevelController = require('./level/controller');
-var db = require('./db');
+const express = require('express');
+const LevelController = require('./controllers/level');
+const morgan = require('morgan');
+const winston = require('winston');
 
-var app = express();
+winston.level = process.env.LOG_LEVEL;
+
+require('./db');
+
+const app = express();
+
+app.use(morgan('tiny', {
+  skip: () => (!(process.env.MORGAN_LOGGING === 'ON')),
+}));
 
 app.use('/levels', LevelController);
 

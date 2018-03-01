@@ -1,8 +1,9 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const winston = require('winston');
 
 //  Connect to the DB
-mongoose.connect('mongodb://localhost/gravnic-level-creator')
-  .then(() =>  console.log('MongoDB connection succesful'))
-  .catch((err) => console.error(err));
+mongoose.connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`)
+  .then(() => winston.info('MongoDB connection succesful'))
+  .catch(err => winston.error(err));
 
 module.exports = mongoose;

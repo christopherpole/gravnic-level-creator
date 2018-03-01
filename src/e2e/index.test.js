@@ -69,7 +69,7 @@ describe('The level creator', () => {
       .click('#editor-grid .tile:nth-child(54)')
       .evaluate(() => (
         window.getComputedStyle(
-          document.querySelector('#editor-grid .tile:nth-child(54) > div')
+          document.querySelector('#editor-grid .tile:nth-child(54) > div'),
         ).backgroundColor
       ))
       .end();
