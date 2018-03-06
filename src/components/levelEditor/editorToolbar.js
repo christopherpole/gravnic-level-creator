@@ -4,16 +4,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
-import {
-  resetGrid,
-  previewLevel,
-  editLevel,
-} from '../../actions/levelEditor';
+import { resetGrid, previewLevel, editLevel } from '../../actions/levelEditor';
 
 export const Wrapper = styled.div`
   border: 1px solid white;
   grid-column: 1 / 2;
-  padding: .5em;
+  padding: 0.5em;
 `;
 
 export const Toolbar = styled.ul`
@@ -24,7 +20,7 @@ export const Toolbar = styled.ul`
 
 export const ActionContainer = styled.li`
   list-style-type: none;
-  margin-right: .5em;
+  margin-right: 0.5em;
 
   &:last-child {
     margin-right: 0;
@@ -33,7 +29,7 @@ export const ActionContainer = styled.li`
 
 export const ActionButton = styled.button`
   border: 1px solid white;
-  padding: .25em .5em;
+  padding: 0.25em 0.5em;
   cursor: pointer;
 `;
 
@@ -44,12 +40,14 @@ export const EditorToolbar = ({
   editLevelAction,
 }) => (
   <Wrapper id="editor-toolbar">
-    {!previewing &&
+    {!previewing && (
       <Toolbar>
         <ActionContainer>
           <ActionButton
             id="btn-preview"
-            onClick={() => { previewLevelAction(); }}
+            onClick={() => {
+              previewLevelAction();
+            }}
           >
             Preview
           </ActionButton>
@@ -57,25 +55,29 @@ export const EditorToolbar = ({
         <ActionContainer>
           <ActionButton
             id="btn-reset"
-            onClick={() => { resetGridAction(); }}
+            onClick={() => {
+              resetGridAction();
+            }}
           >
             Reset
           </ActionButton>
         </ActionContainer>
       </Toolbar>
-    }
-    {previewing &&
+    )}
+    {previewing && (
       <Toolbar>
         <ActionContainer>
           <ActionButton
             id="btn-edit"
-            onClick={() => { editLevelAction(); }}
+            onClick={() => {
+              editLevelAction();
+            }}
           >
             Edit
           </ActionButton>
         </ActionContainer>
       </Toolbar>
-    }
+    )}
   </Wrapper>
 );
 

@@ -23,10 +23,7 @@ export const WrapperInner = styled.section`
 export const LevelEditor = ({ previewing }) => (
   <Wrapper>
     <WrapperInner>
-      {previewing
-        ? <LevelPreview />
-        : <Grid />
-      }
+      {previewing ? <LevelPreview /> : <Grid />}
       <EditorToolbar />
       <TileSelector />
     </WrapperInner>

@@ -11,19 +11,18 @@ describe('The tile selector', () => {
   let props;
 
   beforeEach(() => {
-    props = {
-    };
+    props = {};
   });
 
   it('Renders without exploding', () => {
-    const levelPrevieww = shallow(<LevelPreview {...props} />);
+    const levelPreview = shallow(<LevelPreview {...props} />);
 
-    expect(levelPrevieww).toHaveLength(1);
+    expect(levelPreview).toHaveLength(1);
   });
 
   it('Matches the current snapshot', () => {
-    const levelPrevieww = shallow(<LevelPreview {...props} />);
+    const levelPreview = shallow(<LevelPreview {...props} />);
 
-    expect(toJson(levelPrevieww)).toMatchSnapshot();
+    expect(toJson(levelPreview)).toMatchSnapshot();
   });
 });

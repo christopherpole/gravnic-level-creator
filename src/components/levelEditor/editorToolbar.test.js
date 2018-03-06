@@ -33,12 +33,7 @@ describe('The editor toolbar', () => {
   });
 
   it('Matches the current snapshot if previewing', () => {
-    const editorToolbar = shallow(
-      <EditorToolbar
-        {...props}
-        previewing
-      />,
-    );
+    const editorToolbar = shallow(<EditorToolbar {...props} previewing />);
 
     expect(toJson(editorToolbar)).toMatchSnapshot();
   });
@@ -46,10 +41,7 @@ describe('The editor toolbar', () => {
   it('Fires the "previewLevel" action when the preview level button is clicked', () => {
     const previewLevelSpy = spy();
     const editorToolbar = shallow(
-      <EditorToolbar
-        {...props}
-        previewLevelAction={previewLevelSpy}
-      />,
+      <EditorToolbar {...props} previewLevelAction={previewLevelSpy} />,
     );
     const btnPreviewLevel = editorToolbar.find(ActionButton).at(0);
 
@@ -60,12 +52,7 @@ describe('The editor toolbar', () => {
 
   it('Fires the "resetGrid" action when the reset grid button is clicked', () => {
     const resetGridSpy = spy();
-    const editorToolbar = shallow(
-      <EditorToolbar
-        {...props}
-        resetGridAction={resetGridSpy}
-      />,
-    );
+    const editorToolbar = shallow(<EditorToolbar {...props} resetGridAction={resetGridSpy} />);
     const btnResetGrid = editorToolbar.find(ActionButton).at(1);
 
     expect(resetGridSpy.calledOnce).toBe(false);

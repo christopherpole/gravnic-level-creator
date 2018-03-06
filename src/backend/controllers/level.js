@@ -8,22 +8,21 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 router.post('/', (req, res) => {
-  Level.create({
-    name: req.body.name,
-    tiles: req.body.tiles,
-  }, (err, level) => {
-    if (err) {
-      winston.error(err.message);
+  Level.create(
+    {
+      name: req.body.name,
+      tiles: req.body.tiles,
+    },
+    (err, level) => {
+      if (err) {
+        winston.error(err.message);
 
-      return res
-        .status(500)
-        .send(err.message);
-    }
+        return res.status(500).send(err.message);
+      }
 
-    return res
-      .status(201)
-      .send(level);
-  });
+      return res.status(201).send(level);
+    },
+  );
 });
 
 router.get('/', (req, res) => {
@@ -31,14 +30,10 @@ router.get('/', (req, res) => {
     if (err) {
       winston.error(err.message);
 
-      return res
-        .status(500)
-        .send(err.message);
+      return res.status(500).send(err.message);
     }
 
-    return res
-      .status(200)
-      .send(levels);
+    return res.status(200).send(levels);
   });
 });
 
@@ -47,20 +42,14 @@ router.get('/:levelId', (req, res) => {
     if (err) {
       winston.error(err.message);
 
-      return res
-        .status(500)
-        .send(err.message);
+      return res.status(500).send(err.message);
     }
 
     if (!level) {
-      return res
-        .status(404)
-        .send();
+      return res.status(404).send();
     }
 
-    return res
-      .status(200)
-      .json(level);
+    return res.status(200).json(level);
   });
 });
 
@@ -74,20 +63,14 @@ router.put('/:levelId', (req, res) => {
       if (err) {
         winston.error(err.message);
 
-        return res
-          .status(500)
-          .send(err.message);
+        return res.status(500).send(err.message);
       }
 
       if (!level) {
-        return res
-          .status(404)
-          .send();
+        return res.status(404).send();
       }
 
-      return res
-        .status(200)
-        .json(level);
+      return res.status(200).json(level);
     },
   );
 });
@@ -97,20 +80,14 @@ router.delete('/:levelId', (req, res) => {
     if (err) {
       winston.error(err.message);
 
-      return res
-        .status(500)
-        .send(err.message);
+      return res.status(500).send(err.message);
     }
 
     if (!level) {
-      return res
-        .status(404)
-        .send();
+      return res.status(404).send();
     }
 
-    return res
-      .status(204)
-      .send();
+    return res.status(204).send();
   });
 });
 

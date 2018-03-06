@@ -9,9 +9,11 @@ require('./db');
 
 const app = express();
 
-app.use(morgan('tiny', {
-  skip: () => (!(process.env.MORGAN_LOGGING === 'ON')),
-}));
+app.use(
+  morgan('tiny', {
+    skip: () => !(process.env.MORGAN_LOGGING === 'ON'),
+  }),
+);
 
 app.use('/levels', LevelController);
 

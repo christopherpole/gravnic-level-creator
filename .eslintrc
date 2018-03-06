@@ -1,11 +1,18 @@
 {
-  "extends": ["airbnb"],
-  "plugins": ["jest"],
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "jest",
+    "prettier"
+  ],
   "globals": {
     "document": true,
     "window": true
   },
   "rules": {
+    "prettier/prettier": "error",
     "import/no-named-as-default": 0,
     "react/jsx-filename-extension": 0,
     "react/forbid-prop-types": 0,

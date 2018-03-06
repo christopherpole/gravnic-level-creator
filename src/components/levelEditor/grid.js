@@ -32,15 +32,14 @@ export const TileWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const Grid = ({
-  tiles,
-  updateTileAction,
-}) => (
+export const Grid = ({ tiles, updateTileAction }) => (
   <Wrapper id="editor-grid">
     <TilesWrapper>
       {tiles.map(editorTile => (
         <TileWrapper
-          onClick={() => { updateTileAction(editorTile.position); }}
+          onClick={() => {
+            updateTileAction(editorTile.position);
+          }}
           key={editorTile.position}
           className="tile"
         >
@@ -55,10 +54,12 @@ Grid.SIZE = 10;
 
 Grid.propTypes = {
   updateTileAction: PropTypes.func.isRequired,
-  tiles: PropTypes.arrayOf(PropTypes.shape({
-    selectedTileId: PropTypes.number,
-    position: PropTypes.number.isRequired,
-  }).isRequired).isRequired,
+  tiles: PropTypes.arrayOf(
+    PropTypes.shape({
+      selectedTileId: PropTypes.number,
+      position: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 const mapStateToProps = state => ({

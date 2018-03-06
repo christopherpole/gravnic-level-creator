@@ -7,13 +7,12 @@ describe('The Node server', () => {
     server = require('./server');
   });
 
-  afterEach(() => (server.close()));
+  afterEach(() => server.close());
 
-  it('Sends a 404 for missing routes', () => (
+  it('Sends a 404 for missing routes', () =>
     request(server)
       .get('/notfound')
-      .then((res) => {
+      .then(res => {
         expect(res.statusCode).toBe(404);
-      })
-  ));
+      }));
 });

@@ -13,17 +13,17 @@ describe('The level model', () => {
     });
   });
 
-  it('Allows a valid Level instance to be created', (done) => {
-    testLevel.validate((err) => {
+  it('Allows a valid Level instance to be created', done => {
+    testLevel.validate(err => {
       expect(err).toBe(null);
       done();
     });
   });
 
-  it('Does not allow invalid levels', (done) => {
+  it('Does not allow invalid levels', done => {
     const level = new Level();
 
-    level.validate((err) => {
+    level.validate(err => {
       expect(err.errors.name).toBeDefined();
       expect(err.errors.tiles).toBeDefined();
       done();

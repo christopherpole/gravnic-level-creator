@@ -35,37 +35,35 @@ export const TileWrapper = styled.div`
   position: relative;
   cursor: pointer;
 
-  ${props => props.isSelected && css`
-    &:before {
-      border: 2px solid yellow;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      position: absolute;
-      content: '';
-      z-index: 2;
-    }
-  `}
+  ${props =>
+    props.isSelected &&
+    css`
+      &:before {
+        border: 2px solid yellow;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        content: '';
+        z-index: 2;
+      }
+    `};
 `;
 
-export const TileSelector = ({
-  selectedTileId,
-  selectTileAction,
-}) => (
+export const TileSelector = ({ selectedTileId, selectTileAction }) => (
   <Wrapper id="tile-selector">
     <WrapperInner>
       {tiles.map(tile => (
         <TileWrapper
           className="tile"
           isSelected={tile.id === selectedTileId}
-          onClick={() => { selectTileAction(tile.id); }}
+          onClick={() => {
+            selectTileAction(tile.id);
+          }}
           key={tile.id}
         >
-          <Tile
-            id={tile.id}
-            isSelected={tile.id === selectedTileId}
-          />
+          <Tile id={tile.id} isSelected={tile.id === selectedTileId} />
         </TileWrapper>
       ))}
     </WrapperInner>

@@ -13,10 +13,12 @@ describe('The level editor reducer', () => {
   });
 
   it('Should handle the SELECT_TILE action', () => {
-    expect(reducer(undefined, {
-      type: SELECT_TILE,
-      selectedTileId: 3,
-    })).toEqual({
+    expect(
+      reducer(undefined, {
+        type: SELECT_TILE,
+        selectedTileId: 3,
+      }),
+    ).toEqual({
       ...initialState,
       selectedTileId: 3,
     });
@@ -29,13 +31,18 @@ describe('The level editor reducer', () => {
       selectedTileId: 3,
     };
 
-    expect(reducer({
-      ...initialState,
-      selectedTileId: 3,
-    }, {
-      type: UPDATE_TILE,
-      position: 44,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          selectedTileId: 3,
+        },
+        {
+          type: UPDATE_TILE,
+          position: 44,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       selectedTileId: 3,
       tiles: newTiles,
@@ -43,24 +50,34 @@ describe('The level editor reducer', () => {
   });
 
   it('Should handle the PREVIEW_LEVEL action', () => {
-    expect(reducer({
-      ...initialState,
-      previewing: false,
-    }, {
-      type: PREVIEW_LEVEL,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          previewing: false,
+        },
+        {
+          type: PREVIEW_LEVEL,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       previewing: true,
     });
   });
 
   it('Should handle the EDIT_LEVEL action', () => {
-    expect(reducer({
-      ...initialState,
-      previewing: true,
-    }, {
-      type: EDIT_LEVEL,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          previewing: true,
+        },
+        {
+          type: EDIT_LEVEL,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       previewing: false,
     });
@@ -73,13 +90,18 @@ describe('The level editor reducer', () => {
       selectedTileId: 3,
     };
 
-    expect(reducer({
-      ...initialState,
-      tiles: newTiles,
-      selectedTileId: 3,
-    }, {
-      type: RESET_GRID,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          tiles: newTiles,
+          selectedTileId: 3,
+        },
+        {
+          type: RESET_GRID,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       selectedTileId: 3,
       tiles: initialState.tiles,
