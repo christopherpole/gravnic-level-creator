@@ -1,15 +1,19 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb"],
   "plugins": ["jest"],
   "globals": {
     "document": true,
     "window": true
   },
   "rules": {
-    "import/no-named-as-default": false,
-    "react/jsx-filename-extension": false,
-    "react/forbid-prop-types": false
-    "function-paren-newline": false
+    "import/no-named-as-default": 0,
+    "react/jsx-filename-extension": 0,
+    "react/forbid-prop-types": 0,
+    "function-paren-newline": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "global-require": 0,
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
   },
   "env": {
     "jest/globals": true

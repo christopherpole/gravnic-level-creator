@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   bottom: 0;
 
   ${props => props.id === 0 && css`
-    background: ${props => props.theme.backgroundColor};
+    background: ${props.theme.backgroundColor};
   `}
 
   ${props => props.id === 1 && css`
