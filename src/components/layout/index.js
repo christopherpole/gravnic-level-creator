@@ -1,10 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
 import 'normalize.css';
 
 import LevelEditor from '../levelEditor';
 import LevelManager from '../levelManager';
 import LevelSolver from '../levelSolver';
+
+injectGlobal`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -26,6 +34,8 @@ export const AppContainer = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 2fr 1fr;
+  max-height: 100%;
+  max-width: 100%;
 `;
 
 const Layout = () => (

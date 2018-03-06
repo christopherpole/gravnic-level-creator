@@ -10,6 +10,8 @@ import tiles from '../../config/tiles.json';
 
 export const Wrapper = styled.div`
   position: relative;
+  grid-row: 1 / 3;
+  grid-column: 2 / 3;
 `;
 
 export const WrapperInner = styled.div`
@@ -27,9 +29,9 @@ export const WrapperInner = styled.div`
 `;
 
 export const TileWrapper = styled.div`
-  width: 33%;
+  width: 25%;
   height: 0;
-  padding-bottom: 33%;
+  padding-bottom: 25%;
   position: relative;
   cursor: pointer;
 

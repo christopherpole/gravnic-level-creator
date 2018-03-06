@@ -1,24 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import LevelPreview from './levelPreview';
 import Grid from './grid';
+import EditorToolbar from './editorToolbar';
 import TileSelector from './tileSelector';
 
 export const Wrapper = styled.section`
   border-bottom: 1px solid ${props => props.theme.foregroundColor};
   padding: ${props => props.theme.structureSpacing};
-  grid-column-gap: ${props => props.theme.structureSpacing};
-  display: grid;
-  min-height: 0;
-  grid-template-columns: 2fr 1fr;
   position: relative;
 `;
 
-const LevelEditor = () => (
+export const WrapperInner = styled.section`
+  display: grid;
+  grid-gap: ${props => props.theme.structureSpacing};
+  grid-template-columns: 2fr 1fr;
+`;
+
+export const LevelEditor = ({ previewing }) => (
   <Wrapper>
-    <Grid />
-    <TileSelector />
+    <WrapperInner>
+      {previewing
+        ? <LevelPreview />
+        : <Grid />
+      }
+      <EditorToolbar />
+      <TileSelector />
+    </WrapperInner>
   </Wrapper>
 );
 
-export default LevelEditor;
+LevelEditor.propTypes = {
+  previewing: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  previewing: state.levelEditor.previewing,
+});
+
+export default connect(mapStateToProps)(LevelEditor);

@@ -2,7 +2,10 @@
 
 exports[`The level editor Matches the current snapshot 1`] = `
 <styled.section>
-  <Connect(Component) />
-  <Connect(Component) />
+  <styled.section>
+    <Connect(Component) />
+    <Connect(Component) />
+    <Connect(Component) />
+  </styled.section>
 </styled.section>
 `;

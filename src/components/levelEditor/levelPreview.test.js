@@ -3,28 +3,27 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { LevelEditor } from './index';
+import { LevelPreview } from './levelPreview';
 
 configure({ adapter: new Adapter() });
 
-describe('The level editor', () => {
+describe('The tile selector', () => {
   let props;
 
   beforeEach(() => {
     props = {
-      previewing: false,
     };
   });
 
   it('Renders without exploding', () => {
-    const levelEditor = shallow(<LevelEditor {...props} />);
+    const levelPrevieww = shallow(<LevelPreview {...props} />);
 
-    expect(levelEditor).toHaveLength(1);
+    expect(levelPrevieww).toHaveLength(1);
   });
 
   it('Matches the current snapshot', () => {
-    const levelEditor = shallow(<LevelEditor {...props} />);
+    const levelPrevieww = shallow(<LevelPreview {...props} />);
 
-    expect(toJson(levelEditor)).toMatchSnapshot();
+    expect(toJson(levelPrevieww)).toMatchSnapshot();
   });
 });

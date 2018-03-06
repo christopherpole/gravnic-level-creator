@@ -5,7 +5,7 @@ exports[`The root layout Matches the current snapshot 1`] = `
   id="level-creator"
 >
   <styled.div>
-    <LevelEditor />
+    <Connect(Component) />
     <LevelManager />
     <LevelSolver />
   </styled.div>
