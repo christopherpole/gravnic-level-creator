@@ -1,6 +1,7 @@
-import { SELECT_LEVEL } from '../actions/levelManager';
+import { SELECT_LEVEL, LOAD_LEVEL } from '../actions/levelManager';
 
 export const initialState = {
+  currentLevelId: null,
   selectedLevelId: null,
   levels: [
     {
@@ -36,6 +37,13 @@ export default function levelManagerReducer(state = initialState, action) {
       return {
         ...state,
         selectedLevelId: action.selectedLevelId,
+      };
+    }
+
+    case LOAD_LEVEL: {
+      return {
+        ...state,
+        currentLevelId: action.levelId,
       };
     }
 

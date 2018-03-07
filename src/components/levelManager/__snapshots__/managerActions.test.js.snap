@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The level manager actions Matches the current snapshot 1`] = `
+<styled.div>
+  <styled.ul>
+    <styled.li>
+      <styled.button
+        onClick={[Function]}
+      >
+        Load
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button>
+        Save
+      </styled.button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;

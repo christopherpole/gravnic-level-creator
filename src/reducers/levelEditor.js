@@ -5,6 +5,7 @@ import {
   PREVIEW_LEVEL,
   RESET_GRID,
 } from '../actions/levelEditor';
+import { LOAD_LEVEL } from '../actions/levelManager';
 import { Grid } from '../components/levelEditor/grid';
 
 export const initialState = {
@@ -56,6 +57,13 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         tiles: initialState.tiles,
+      };
+    }
+
+    case LOAD_LEVEL: {
+      return {
+        ...state,
+        tiles: action.tiles,
       };
     }
 

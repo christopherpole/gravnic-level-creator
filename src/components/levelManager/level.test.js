@@ -13,7 +13,7 @@ describe('The level', () => {
 
   beforeEach(() => {
     props = {
-      id: 1,
+      id: 22,
       name: 'Test level',
       selectLevelAction: () => {},
     };
@@ -38,5 +38,6 @@ describe('The level', () => {
     levelWrapper.simulate('click');
 
     expect(levelClickSpy.calledOnce).toBe(true);
+    expect(levelClickSpy.calledWith(22)).toBe(true);
   });
 });

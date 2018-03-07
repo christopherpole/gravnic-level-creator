@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 
 import Level from './level';
 
-export const Wrapper = styled.ul``;
+export const Wrapper = styled.ul`
+  padding: ${props => props.theme.structureSpacing};
+  flex-grow: 1;
+`;
 
 const LevelsList = ({ levels, selectedLevelId }) => (
   <Wrapper>

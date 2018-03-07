@@ -28,7 +28,6 @@ export const ActionContainer = styled.li`
 `;
 
 export const ActionButton = styled.button`
-  border: 1px solid white;
   padding: 0.25em 0.5em;
   cursor: pointer;
 `;

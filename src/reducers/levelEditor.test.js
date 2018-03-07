@@ -1,4 +1,9 @@
+import { combineReducers } from 'redux';
+
 import reducer, { initialState } from './levelEditor';
+import levelManagerReducer, {
+  initialState as levelManagerReducerInitialState,
+} from './levelManager';
 import {
   SELECT_TILE,
   UPDATE_TILE,
@@ -6,6 +11,7 @@ import {
   EDIT_LEVEL,
   PREVIEW_LEVEL,
 } from '../actions/levelEditor';
+import { LOAD_LEVEL } from '../actions/levelManager';
 
 describe('The level editor reducer', () => {
   it('Should return the initial state', () => {
@@ -105,6 +111,19 @@ describe('The level editor reducer', () => {
       ...initialState,
       selectedTileId: 3,
       tiles: initialState.tiles,
+    });
+  });
+
+  it('Should handle the LOAD_LEVEL action', () => {
+    expect(
+      reducer(initialState, {
+        type: LOAD_LEVEL,
+        selectedTileId: 3,
+        tiles: [1, 2, 3],
+      }),
+    ).toEqual({
+      ...initialState,
+      tiles: [1, 2, 3],
     });
   });
 });

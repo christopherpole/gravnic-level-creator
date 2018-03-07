@@ -3,6 +3,7 @@ export const SELECT_TILE = 'SELECT_TILE';
 export const RESET_GRID = 'RESET_GRID';
 export const EDIT_LEVEL = 'EDIT_LEVEL';
 export const PREVIEW_LEVEL = 'PREVIEW_LEVEL';
+export const LOAD_LEVEL = 'LOAD_LEVEL';
 
 export const selectTile = selectedTileId => ({
   type: SELECT_TILE,
