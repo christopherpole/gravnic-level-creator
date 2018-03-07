@@ -98,22 +98,32 @@ describe('The level creator', () => {
   });
 
   it('Resets the level editor when the "Reset" button is clicked', async () => {
-    let backgroundColor = await page.evaluate(
-      () =>
-        window.getComputedStyle(document.querySelector('#editor-grid .tile:nth-child(54) > div'))
-          .backgroundColor,
-    );
+    //  All tiles are initally not blank
+    let allTilesBlank = await page.evaluate(() => {
+      const tiles = document.querySelectorAll('#editor-grid .tile > div');
 
-    expect(backgroundColor).toBe('rgb(255, 255, 0)');
-
-    backgroundColor = await page
-      .click('#btn-reset')
-      .evaluate(
-        () =>
-          window.getComputedStyle(document.querySelector('#editor-grid .tile:nth-child(54) > div'))
-            .backgroundColor,
+      return (
+        Array.prototype.slice
+          .call(tiles)
+          .filter(tile => window.getComputedStyle(tile).backgroundColor !== 'rgb(51, 51, 51)')
+          .length === 0
       );
+    });
 
-    expect(backgroundColor).toBe('rgb(51, 51, 51)');
+    expect(allTilesBlank).toBe(false);
+
+    //  All tiles are blank after resetting grid
+    allTilesBlank = await page.click('#btn-reset').evaluate(() => {
+      const tiles = document.querySelectorAll('#editor-grid .tile > div');
+
+      return (
+        Array.prototype.slice
+          .call(tiles)
+          .filter(tile => window.getComputedStyle(tile).backgroundColor !== 'rgb(51, 51, 51)')
+          .length === 0
+      );
+    });
+
+    expect(allTilesBlank).toBe(true);
   });
 });
