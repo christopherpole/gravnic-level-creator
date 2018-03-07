@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The level Matches the current snapshot 1`] = `
+<styled.li
+  isSelected={false}
+  onClick={[Function]}
+>
+  <p>
+    Test level
+  </p>
+</styled.li>
+`;

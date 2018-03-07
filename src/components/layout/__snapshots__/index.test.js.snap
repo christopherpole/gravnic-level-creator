@@ -7,7 +7,6 @@ exports[`The root layout Matches the current snapshot 1`] = `
   <styled.div>
     <Connect(Component) />
     <LevelManager />
-    <LevelSolver />
   </styled.div>
 </styled.div>
 `;

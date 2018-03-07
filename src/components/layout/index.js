@@ -4,7 +4,6 @@ import 'normalize.css';
 
 import LevelEditor from '../levelEditor';
 import LevelManager from '../levelManager';
-import LevelSolver from '../levelSolver';
 
 injectGlobal`
   * {
@@ -33,9 +32,8 @@ export const AppContainer = styled.div`
   color: ${props => props.theme.foregroundColor};
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 2fr 1fr;
   max-height: 100%;
-  max-width: 100%;
+  width: 100%;
 `;
 
 const Layout = () => (
@@ -43,7 +41,6 @@ const Layout = () => (
     <AppContainer>
       <LevelEditor />
       <LevelManager />
-      <LevelSolver />
     </AppContainer>
   </Wrapper>
 );

@@ -16,7 +16,7 @@ export const initialState = {
   })),
 };
 
-export default function userReducer(state = initialState, action) {
+export default function levelEditorReducer(state = initialState, action) {
   switch (action.type) {
     case SELECT_TILE: {
       return {
