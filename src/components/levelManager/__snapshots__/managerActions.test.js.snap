@@ -17,6 +17,13 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
         Save
       </styled.button>
     </styled.li>
+    <styled.li>
+      <styled.button
+        onClick={[Function]}
+      >
+        Delete
+      </styled.button>
+    </styled.li>
   </styled.ul>
 </styled.div>
 `;

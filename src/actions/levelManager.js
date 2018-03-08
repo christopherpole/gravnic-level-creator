@@ -1,6 +1,7 @@
 export const SELECT_LEVEL = 'SELECT_LEVEL';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
+export const DELETE_LEVEL = 'DELETE_LEVEL';
 
 export const selectLevel = selectedLevelId => ({
   type: SELECT_LEVEL,
@@ -28,3 +29,8 @@ export const saveLevel = () => (dispatch, getState) => {
     tiles,
   });
 };
+
+export const deleteLevel = selectedLevelId => ({
+  type: DELETE_LEVEL,
+  selectedLevelId,
+});

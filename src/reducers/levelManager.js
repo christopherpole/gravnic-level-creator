@@ -1,4 +1,4 @@
-import { SELECT_LEVEL, LOAD_LEVEL, SAVE_LEVEL } from '../actions/levelManager';
+import { SELECT_LEVEL, LOAD_LEVEL, SAVE_LEVEL, DELETE_LEVEL } from '../actions/levelManager';
 
 export const initialState = {
   currentLevelId: null,
@@ -57,6 +57,13 @@ export default function levelManagerReducer(state = initialState, action) {
           }
           return level;
         }),
+      };
+    }
+
+    case DELETE_LEVEL: {
+      return {
+        ...state,
+        levels: state.levels.slice(0).filter(level => level.id !== state.selectedLevelId),
       };
     }
 

@@ -1,5 +1,5 @@
 import reducer, { initialState } from './levelManager';
-import { SELECT_LEVEL, LOAD_LEVEL, SAVE_LEVEL } from '../actions/levelManager';
+import { SELECT_LEVEL, LOAD_LEVEL, SAVE_LEVEL, DELETE_LEVEL } from '../actions/levelManager';
 
 describe('The level manager reducer', () => {
   it('Should return the initial state', () => {
@@ -78,6 +78,54 @@ describe('The level manager reducer', () => {
           id: 2,
           name: 'Test level 2',
           tiles: [7, 8, 9],
+        },
+      ],
+    });
+  });
+
+  it('Should handle the DELETE_LEVEL action', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          selectedLevelId: 2,
+          currentLevelId: null,
+          levels: [
+            {
+              id: 1,
+              name: 'Test level 1',
+              tiles: [1, 2, 3],
+            },
+            {
+              id: 2,
+              name: 'Test level 2',
+              tiles: [4, 5, 6],
+            },
+            {
+              id: 3,
+              name: 'Test level 3',
+              tiles: [6, 7, 8],
+            },
+          ],
+        },
+        {
+          type: DELETE_LEVEL,
+          selectedLevelId: 3,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      selectedLevelId: 2,
+      levels: [
+        {
+          id: 1,
+          name: 'Test level 1',
+          tiles: [1, 2, 3],
+        },
+        {
+          id: 3,
+          name: 'Test level 3',
+          tiles: [6, 7, 8],
         },
       ],
     });

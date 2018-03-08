@@ -4,9 +4,11 @@ import {
   SELECT_LEVEL,
   LOAD_LEVEL,
   SAVE_LEVEL,
+  DELETE_LEVEL,
   selectLevel,
   loadLevel,
   saveLevel,
+  deleteLevel,
 } from './levelManager';
 
 describe('The level manager actions', () => {
@@ -75,5 +77,14 @@ describe('The level manager actions', () => {
         tiles: [1, 2, 3],
       }),
     ).toBe(true);
+  });
+
+  it('Should create an action delete a level', () => {
+    const expectedAction = {
+      type: DELETE_LEVEL,
+      selectedLevelId: 3,
+    };
+
+    expect(deleteLevel(3)).toEqual(expectedAction);
   });
 });

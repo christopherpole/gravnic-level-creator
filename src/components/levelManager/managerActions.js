@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { loadLevel, saveLevel } from '../../actions/levelManager';
+import { loadLevel, saveLevel, deleteLevel } from '../../actions/levelManager';
 
 export const Wrapper = styled.div`
   border-top: 1px solid white;
@@ -32,7 +32,7 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const ManagerActions = ({ loadLevelAction, saveLevelAction }) => (
+export const ManagerActions = ({ loadLevelAction, saveLevelAction, deleteLevelAction }) => (
   <Wrapper>
     <Toolbar>
       <ToolbarAction>
@@ -41,6 +41,9 @@ export const ManagerActions = ({ loadLevelAction, saveLevelAction }) => (
       <ToolbarAction>
         <Button onClick={saveLevelAction}>Save</Button>
       </ToolbarAction>
+      <ToolbarAction>
+        <Button onClick={deleteLevelAction}>Delete</Button>
+      </ToolbarAction>
     </Toolbar>
   </Wrapper>
 );
@@ -48,11 +51,13 @@ export const ManagerActions = ({ loadLevelAction, saveLevelAction }) => (
 ManagerActions.propTypes = {
   loadLevelAction: PropTypes.func.isRequired,
   saveLevelAction: PropTypes.func.isRequired,
+  deleteLevelAction: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   loadLevelAction: bindActionCreators(loadLevel, dispatch),
   saveLevelAction: bindActionCreators(saveLevel, dispatch),
+  deleteLevelAction: bindActionCreators(deleteLevel, dispatch),
 });
 
 export default connect(null, mapDispatchToProps)(ManagerActions);

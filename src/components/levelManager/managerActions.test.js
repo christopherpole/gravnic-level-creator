@@ -15,6 +15,7 @@ describe('The level manager actions', () => {
     props = {
       loadLevelAction: () => {},
       saveLevelAction: () => {},
+      deleteLevelAction: () => {},
     };
   });
 
@@ -30,7 +31,7 @@ describe('The level manager actions', () => {
     expect(toJson(managerActions)).toMatchSnapshot();
   });
 
-  it('Fires the load level action when clicking on a level', () => {
+  it('Fires the load level action when clicking the "load" button', () => {
     const loadLevelSpy = spy();
     const managerActions = shallow(<ManagerActions {...props} loadLevelAction={loadLevelSpy} />);
     const button = managerActions.find(Button).at(0);
@@ -39,12 +40,23 @@ describe('The level manager actions', () => {
     expect(loadLevelSpy.calledOnce).toBe(true);
   });
 
-  it('Fires the save level action when clicking on a level', () => {
+  it('Fires the save level action when clicking the "save" button', () => {
     const saveLevelSpy = spy();
     const managerActions = shallow(<ManagerActions {...props} saveLevelAction={saveLevelSpy} />);
     const button = managerActions.find(Button).at(1);
     button.simulate('click');
 
     expect(saveLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the delete level action when clicking the "detete" button', () => {
+    const deleteLevelSpy = spy();
+    const managerActions = shallow(
+      <ManagerActions {...props} deleteLevelAction={deleteLevelSpy} />,
+    );
+    const button = managerActions.find(Button).at(2);
+    button.simulate('click');
+
+    expect(deleteLevelSpy.calledOnce).toBe(true);
   });
 });
