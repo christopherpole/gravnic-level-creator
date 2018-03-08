@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The level preview Matches the current snapshot 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div
+      key="0"
+    >
+      <Tile
+        id={1}
+      />
+    </styled.div>
+    <styled.div
+      key="1"
+    >
+      <Tile
+        id={2}
+      />
+    </styled.div>
+    <styled.div
+      key="2"
+    >
+      <Tile
+        id={3}
+      />
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

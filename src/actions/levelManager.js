@@ -1,5 +1,6 @@
 export const SELECT_LEVEL = 'SELECT_LEVEL';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
+export const SAVE_LEVEL = 'SAVE_LEVEL';
 
 export const selectLevel = selectedLevelId => ({
   type: SELECT_LEVEL,
@@ -12,6 +13,17 @@ export const loadLevel = () => (dispatch, getState) => {
 
   dispatch({
     type: LOAD_LEVEL,
+    levelId,
+    tiles,
+  });
+};
+
+export const saveLevel = () => (dispatch, getState) => {
+  const levelId = getState().levelManager.selectedLevelId;
+  const { tiles } = getState().levelEditor;
+
+  dispatch({
+    type: SAVE_LEVEL,
     levelId,
     tiles,
   });

@@ -2,11 +2,30 @@
 
 exports[`The level Matches the current snapshot 1`] = `
 <styled.li
+  isCurrent={false}
   isSelected={false}
   onClick={[Function]}
 >
-  <p>
+  <Component
+    tiles={
+      Array [
+        Object {
+          "position": 0,
+          "selectedTileId": 1,
+        },
+        Object {
+          "position": 1,
+          "selectedTileId": 2,
+        },
+        Object {
+          "position": 2,
+          "selectedTileId": 3,
+        },
+      ]
+    }
+  />
+  <styled.p>
     Test level
-  </p>
+  </styled.p>
 </styled.li>
 `;

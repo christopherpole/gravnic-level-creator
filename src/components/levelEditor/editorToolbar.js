@@ -7,9 +7,9 @@ import { bindActionCreators } from 'redux';
 import { resetGrid, previewLevel, editLevel } from '../../actions/levelEditor';
 
 export const Wrapper = styled.div`
-  border: 1px solid white;
+  border: 1px solid ${props => props.theme.foregroundColor};
   grid-column: 1 / 2;
-  padding: 0.5em;
+  padding: calc(${props => props.theme.structureSpacing} / 2);
 `;
 
 export const Toolbar = styled.ul`
@@ -20,7 +20,7 @@ export const Toolbar = styled.ul`
 
 export const ActionContainer = styled.li`
   list-style-type: none;
-  margin-right: 0.5em;
+  margin-right: calc(${props => props.theme.structureSpacing} / 2);
 
   &:last-child {
     margin-right: 0;
@@ -28,7 +28,8 @@ export const ActionContainer = styled.li`
 `;
 
 export const ActionButton = styled.button`
-  padding: 0.25em 0.5em;
+  padding: calc(${props => props.theme.structureSpacing} / 4)
+    calc(${props => props.theme.structureSpacing} / 2);
   cursor: pointer;
 `;
 

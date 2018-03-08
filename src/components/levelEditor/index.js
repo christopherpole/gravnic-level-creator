@@ -9,7 +9,6 @@ import EditorToolbar from './editorToolbar';
 import TileSelector from './tileSelector';
 
 export const Wrapper = styled.section`
-  border-bottom: 1px solid ${props => props.theme.foregroundColor};
   padding: ${props => props.theme.structureSpacing};
   position: relative;
 `;

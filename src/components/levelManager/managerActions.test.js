@@ -14,6 +14,7 @@ describe('The level manager actions', () => {
   beforeEach(() => {
     props = {
       loadLevelAction: () => {},
+      saveLevelAction: () => {},
     };
   });
 
@@ -36,5 +37,14 @@ describe('The level manager actions', () => {
     button.simulate('click');
 
     expect(loadLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the save level action when clicking on a level', () => {
+    const saveLevelSpy = spy();
+    const managerActions = shallow(<ManagerActions {...props} saveLevelAction={saveLevelSpy} />);
+    const button = managerActions.find(Button).at(1);
+    button.simulate('click');
+
+    expect(saveLevelSpy.calledOnce).toBe(true);
   });
 });

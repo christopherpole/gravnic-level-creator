@@ -1,4 +1,4 @@
-import { SELECT_LEVEL, LOAD_LEVEL } from '../actions/levelManager';
+import { SELECT_LEVEL, LOAD_LEVEL, SAVE_LEVEL } from '../actions/levelManager';
 
 export const initialState = {
   currentLevelId: null,
@@ -44,6 +44,19 @@ export default function levelManagerReducer(state = initialState, action) {
       return {
         ...state,
         currentLevelId: action.levelId,
+      };
+    }
+
+    case SAVE_LEVEL: {
+      return {
+        ...state,
+        currentLevelId: action.levelId,
+        levels: state.levels.slice(0).map(level => {
+          if (level.id === action.levelId) {
+            return { ...level, tiles: action.tiles };
+          }
+          return level;
+        }),
       };
     }
 

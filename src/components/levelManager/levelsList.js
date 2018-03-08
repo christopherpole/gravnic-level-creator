@@ -10,10 +10,15 @@ export const Wrapper = styled.ul`
   flex-grow: 1;
 `;
 
-const LevelsList = ({ levels, selectedLevelId }) => (
+const LevelsList = ({ levels, selectedLevelId, currentLevelId }) => (
   <Wrapper>
     {levels.map(level => (
-      <Level {...level} key={level.id} isSelected={selectedLevelId && level.id === selectedLevelId}>
+      <Level
+        {...level}
+        key={level.id}
+        isSelected={selectedLevelId && level.id === selectedLevelId}
+        isCurrent={currentLevelId && level.id === currentLevelId}
+      >
         {level.name}
       </Level>
     ))}
@@ -22,15 +27,18 @@ const LevelsList = ({ levels, selectedLevelId }) => (
 
 LevelsList.defaultProps = {
   selectedLevelId: null,
+  currentLevelId: null,
 };
 
 LevelsList.propTypes = {
   levels: PropTypes.array.isRequired,
   selectedLevelId: PropTypes.number,
+  currentLevelId: PropTypes.number,
 };
 
 const mapStateToProps = state => ({
   selectedLevelId: state.levelManager.selectedLevelId,
+  currentLevelId: state.levelManager.currentLevelId,
   levels: state.levelManager.levels,
 });
 

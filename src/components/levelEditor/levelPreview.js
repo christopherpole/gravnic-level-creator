@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
 `;
 
 export const WrapperInner = styled.div`
-  background: white;
-  color: black;
   position: absolute;
   top: 0;
   left: 0;

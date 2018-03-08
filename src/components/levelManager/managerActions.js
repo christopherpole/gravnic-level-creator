@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { loadLevel } from '../../actions/levelManager';
+import { loadLevel, saveLevel } from '../../actions/levelManager';
 
 export const Wrapper = styled.div`
   border-top: 1px solid white;
-  padding: ${props => props.theme.structureSpacing};
+  padding: calc(${props => props.theme.structureSpacing} / 2);
 `;
 
 export const Toolbar = styled.ul`
@@ -18,7 +18,7 @@ export const Toolbar = styled.ul`
 export const ToolbarAction = styled.li`
   list-style-type: none;
   flex-grow: 1;
-  margin-right: 0.5em;
+  margin-right: calc(${props => props.theme.structureSpacing} / 2);
 
   &:last-child {
     margin-right: 0;
@@ -26,19 +26,20 @@ export const ToolbarAction = styled.li`
 `;
 
 export const Button = styled.button`
-  padding: 0.25em 0.5em;
+  padding: calc(${props => props.theme.structureSpacing} / 4)
+    calc(${props => props.theme.structureSpacing} / 2);
   width: 100%;
   cursor: pointer;
 `;
 
-export const ManagerActions = ({ loadLevelAction }) => (
+export const ManagerActions = ({ loadLevelAction, saveLevelAction }) => (
   <Wrapper>
     <Toolbar>
       <ToolbarAction>
         <Button onClick={loadLevelAction}>Load</Button>
       </ToolbarAction>
       <ToolbarAction>
-        <Button>Save</Button>
+        <Button onClick={saveLevelAction}>Save</Button>
       </ToolbarAction>
     </Toolbar>
   </Wrapper>
@@ -46,10 +47,12 @@ export const ManagerActions = ({ loadLevelAction }) => (
 
 ManagerActions.propTypes = {
   loadLevelAction: PropTypes.func.isRequired,
+  saveLevelAction: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   loadLevelAction: bindActionCreators(loadLevel, dispatch),
+  saveLevelAction: bindActionCreators(saveLevel, dispatch),
 });
 
 export default connect(null, mapDispatchToProps)(ManagerActions);
