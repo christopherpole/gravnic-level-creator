@@ -16,6 +16,8 @@ describe('The level manager actions', () => {
       loadLevelAction: () => {},
       saveLevelAction: () => {},
       deleteLevelAction: () => {},
+      copyLevelAction: () => {},
+      selectedLevelId: 1,
     };
   });
 
@@ -27,6 +29,12 @@ describe('The level manager actions', () => {
 
   it('Matches the current snapshot', () => {
     const managerActions = shallow(<ManagerActions {...props} />);
+
+    expect(toJson(managerActions)).toMatchSnapshot();
+  });
+
+  it("Matches the current snapshot if a level isn't selected", () => {
+    const managerActions = shallow(<ManagerActions {...props} selectedLevelId={null} />);
 
     expect(toJson(managerActions)).toMatchSnapshot();
   });
@@ -49,7 +57,7 @@ describe('The level manager actions', () => {
     expect(saveLevelSpy.calledOnce).toBe(true);
   });
 
-  it('Fires the delete level action when clicking the "detete" button', () => {
+  it('Fires the delete level action when clicking the "delete" button', () => {
     const deleteLevelSpy = spy();
     const managerActions = shallow(
       <ManagerActions {...props} deleteLevelAction={deleteLevelSpy} />,
@@ -58,5 +66,14 @@ describe('The level manager actions', () => {
     button.simulate('click');
 
     expect(deleteLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the copy level action when clicking the "copy" button', () => {
+    const copyLevelSpy = spy();
+    const managerActions = shallow(<ManagerActions {...props} copyLevelAction={copyLevelSpy} />);
+    const button = managerActions.find(Button).at(3);
+    button.simulate('click');
+
+    expect(copyLevelSpy.calledOnce).toBe(true);
   });
 });

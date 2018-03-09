@@ -1,9 +1,4 @@
-import { combineReducers } from 'redux';
-
 import reducer, { initialState } from './levelEditor';
-import levelManagerReducer, {
-  initialState as levelManagerReducerInitialState,
-} from './levelManager';
 import {
   SELECT_TILE,
   UPDATE_TILE,

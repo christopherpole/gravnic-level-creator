@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { loadLevel, saveLevel, deleteLevel } from '../../actions/levelManager';
+import { loadLevel, saveLevel, deleteLevel, copyLevel } from '../../actions/levelManager';
 
 export const Wrapper = styled.div`
   border-top: 1px solid white;
@@ -12,17 +12,14 @@ export const Wrapper = styled.div`
 `;
 
 export const Toolbar = styled.ul`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: calc(${props => props.theme.structureSpacing} / 2);
 `;
 
 export const ToolbarAction = styled.li`
   list-style-type: none;
   flex-grow: 1;
-  margin-right: calc(${props => props.theme.structureSpacing} / 2);
-
-  &:last-child {
-    margin-right: 0;
-  }
 `;
 
 export const Button = styled.button`
@@ -32,32 +29,60 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const ManagerActions = ({ loadLevelAction, saveLevelAction, deleteLevelAction }) => (
+export const ManagerActions = ({
+  loadLevelAction,
+  saveLevelAction,
+  deleteLevelAction,
+  selectedLevelId,
+  copyLevelAction,
+}) => (
   <Wrapper>
     <Toolbar>
       <ToolbarAction>
-        <Button onClick={loadLevelAction}>Load</Button>
+        <Button disabled={!selectedLevelId} onClick={loadLevelAction}>
+          Load
+        </Button>
       </ToolbarAction>
       <ToolbarAction>
-        <Button onClick={saveLevelAction}>Save</Button>
+        <Button disabled={!selectedLevelId} onClick={saveLevelAction}>
+          Save
+        </Button>
       </ToolbarAction>
       <ToolbarAction>
-        <Button onClick={deleteLevelAction}>Delete</Button>
+        <Button disabled={!selectedLevelId} onClick={deleteLevelAction}>
+          Delete
+        </Button>
+      </ToolbarAction>
+      <ToolbarAction>
+        <Button disabled={!selectedLevelId} onClick={copyLevelAction}>
+          Copy
+        </Button>
       </ToolbarAction>
     </Toolbar>
   </Wrapper>
 );
 
+ManagerActions.defaultProps = {
+  selectedLevelId: null,
+};
+
 ManagerActions.propTypes = {
   loadLevelAction: PropTypes.func.isRequired,
   saveLevelAction: PropTypes.func.isRequired,
   deleteLevelAction: PropTypes.func.isRequired,
+  copyLevelAction: PropTypes.func.isRequired,
+  selectedLevelId: PropTypes.number,
 };
+
+const mapStateToProps = state => ({
+  selectedLevelId: state.levelManager.selectedLevelId,
+});
 
 const mapDispatchToProps = dispatch => ({
   loadLevelAction: bindActionCreators(loadLevel, dispatch),
   saveLevelAction: bindActionCreators(saveLevel, dispatch),
   deleteLevelAction: bindActionCreators(deleteLevel, dispatch),
+  copyLevelAction: bindActionCreators(copyLevel, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(ManagerActions);
+export default connect(mapStateToProps, mapDispatchToProps)(ManagerActions);

@@ -57,7 +57,7 @@ Level.defaultProps = {
 };
 
 Level.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   tiles: PropTypes.array.isRequired,
   isSelected: PropTypes.bool,

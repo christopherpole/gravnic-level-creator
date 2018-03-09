@@ -1,5 +1,11 @@
 import reducer, { initialState } from './levelManager';
-import { SELECT_LEVEL, LOAD_LEVEL, SAVE_LEVEL, DELETE_LEVEL } from '../actions/levelManager';
+import {
+  SELECT_LEVEL,
+  LOAD_LEVEL,
+  SAVE_LEVEL,
+  DELETE_LEVEL,
+  COPY_LEVEL,
+} from '../actions/levelManager';
 
 describe('The level manager reducer', () => {
   it('Should return the initial state', () => {
@@ -89,7 +95,6 @@ describe('The level manager reducer', () => {
         {
           ...initialState,
           selectedLevelId: 2,
-          currentLevelId: null,
           levels: [
             {
               id: 1,
@@ -110,12 +115,11 @@ describe('The level manager reducer', () => {
         },
         {
           type: DELETE_LEVEL,
-          selectedLevelId: 3,
         },
       ),
     ).toEqual({
       ...initialState,
-      selectedLevelId: 2,
+      selectedLevelId: null,
       levels: [
         {
           id: 1,
@@ -126,6 +130,55 @@ describe('The level manager reducer', () => {
           id: 3,
           name: 'Test level 3',
           tiles: [6, 7, 8],
+        },
+      ],
+    });
+  });
+
+  it('Should handle the COPY_LEVEL action', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          selectedLevelId: 1,
+          currentLevelId: 1,
+          levels: [
+            {
+              id: 1,
+              name: 'Test level 1',
+              tiles: [1, 2, 3],
+            },
+            {
+              id: 2,
+              name: 'Test level 2',
+              tiles: [4, 5, 6],
+            },
+          ],
+        },
+        {
+          type: COPY_LEVEL,
+          newId: 3,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      selectedLevelId: 3,
+      currentLevelId: 3,
+      levels: [
+        {
+          id: 1,
+          name: 'Test level 1',
+          tiles: [1, 2, 3],
+        },
+        {
+          id: 3,
+          name: 'Test level 1 copy',
+          tiles: [1, 2, 3],
+        },
+        {
+          id: 2,
+          name: 'Test level 2',
+          tiles: [4, 5, 6],
         },
       ],
     });

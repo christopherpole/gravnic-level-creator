@@ -10,7 +10,7 @@ export const Wrapper = styled.ul`
   flex-grow: 1;
 `;
 
-const LevelsList = ({ levels, selectedLevelId, currentLevelId }) => (
+export const LevelsList = ({ levels, selectedLevelId, currentLevelId }) => (
   <Wrapper>
     {levels.map(level => (
       <Level

@@ -1,8 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The level manager Matches the current snapshot 1`] = `
-<styled.section>
-  <Connect(LevelsList) />
-  <Connect(Component) />
-</styled.section>
+exports[`The level manager Matches the current snapshot with levels 1`] = `
+<styled.ul>
+  <Connect(Component)
+    id="1"
+    isCurrent={false}
+    isSelected={false}
+    key="1"
+    name="Test level 1"
+    tiles={
+      Array [
+        1,
+        2,
+        3,
+      ]
+    }
+  >
+    Test level 1
+  </Connect(Component)>
+  <Connect(Component)
+    id="2"
+    isCurrent={false}
+    isSelected={false}
+    key="2"
+    name="Test level 2"
+    tiles={
+      Array [
+        1,
+        2,
+        3,
+      ]
+    }
+  >
+    Test level 2
+  </Connect(Component)>
+  <Connect(Component)
+    id="3"
+    isCurrent={false}
+    isSelected={false}
+    key="3"
+    name="Test level 3"
+    tiles={
+      Array [
+        1,
+        2,
+        3,
+      ]
+    }
+  >
+    Test level 3
+  </Connect(Component)>
+</styled.ul>
 `;
+
+exports[`The level manager Matches the current snapshot with no levels 1`] = `<styled.ul />`;

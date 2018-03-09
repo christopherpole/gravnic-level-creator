@@ -5,6 +5,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
   <styled.ul>
     <styled.li>
       <styled.button
+        disabled={false}
         onClick={[Function]}
       >
         Load
@@ -12,6 +13,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     </styled.li>
     <styled.li>
       <styled.button
+        disabled={false}
         onClick={[Function]}
       >
         Save
@@ -19,9 +21,57 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     </styled.li>
     <styled.li>
       <styled.button
+        disabled={false}
         onClick={[Function]}
       >
         Delete
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={false}
+        onClick={[Function]}
+      >
+        Copy
+      </styled.button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
+exports[`The level manager actions Matches the current snapshot if a level isn't selected 1`] = `
+<styled.div>
+  <styled.ul>
+    <styled.li>
+      <styled.button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Load
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Save
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Delete
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Copy
       </styled.button>
     </styled.li>
   </styled.ul>

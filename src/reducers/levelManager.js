@@ -1,11 +1,17 @@
-import { SELECT_LEVEL, LOAD_LEVEL, SAVE_LEVEL, DELETE_LEVEL } from '../actions/levelManager';
+import {
+  SELECT_LEVEL,
+  LOAD_LEVEL,
+  SAVE_LEVEL,
+  DELETE_LEVEL,
+  COPY_LEVEL,
+} from '../actions/levelManager';
 
 export const initialState = {
   currentLevelId: null,
   selectedLevelId: null,
   levels: [
     {
-      id: 1,
+      id: '1',
       name: 'Test level 1',
       tiles: [...Array(100)].map((_, index) => ({
         position: index,
@@ -13,7 +19,7 @@ export const initialState = {
       })),
     },
     {
-      id: 2,
+      id: '2',
       name: 'Test level 2',
       tiles: [...Array(100)].map((_, index) => ({
         position: index,
@@ -21,7 +27,7 @@ export const initialState = {
       })),
     },
     {
-      id: 3,
+      id: '3',
       name: 'Test level 3',
       tiles: [...Array(100)].map((_, index) => ({
         position: index,
@@ -51,7 +57,7 @@ export default function levelManagerReducer(state = initialState, action) {
       return {
         ...state,
         currentLevelId: action.levelId,
-        levels: state.levels.slice(0).map(level => {
+        levels: [...state.levels].map(level => {
           if (level.id === action.levelId) {
             return { ...level, tiles: action.tiles };
           }
@@ -63,7 +69,24 @@ export default function levelManagerReducer(state = initialState, action) {
     case DELETE_LEVEL: {
       return {
         ...state,
-        levels: state.levels.slice(0).filter(level => level.id !== state.selectedLevelId),
+        levels: [...state.levels].filter(level => level.id !== state.selectedLevelId),
+        selectedLevelId: null,
+      };
+    }
+
+    case COPY_LEVEL: {
+      const newLevels = [...state.levels];
+      const newLevelIndex = newLevels.findIndex(level => level.id === state.selectedLevelId);
+      const newLevel = { ...newLevels[newLevelIndex] };
+      newLevel.id = action.newId;
+      newLevel.name += ' copy';
+      newLevels.splice(newLevelIndex + 1, 0, newLevel);
+
+      return {
+        ...state,
+        levels: newLevels,
+        selectedLevelId: action.newId,
+        currentLevelId: action.newId,
       };
     }
 

@@ -13,7 +13,7 @@ describe('The level', () => {
 
   beforeEach(() => {
     props = {
-      id: 22,
+      id: '22',
       name: 'Test level',
       tiles: [
         {
@@ -52,6 +52,6 @@ describe('The level', () => {
     levelWrapper.simulate('click');
 
     expect(levelClickSpy.calledOnce).toBe(true);
-    expect(levelClickSpy.calledWith(22)).toBe(true);
+    expect(levelClickSpy.calledWith('22')).toBe(true);
   });
 });

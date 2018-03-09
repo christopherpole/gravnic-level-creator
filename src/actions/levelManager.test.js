@@ -5,10 +5,12 @@ import {
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_LEVEL,
+  COPY_LEVEL,
   selectLevel,
   loadLevel,
   saveLevel,
   deleteLevel,
+  copyLevel,
 } from './levelManager';
 
 describe('The level manager actions', () => {
@@ -82,9 +84,14 @@ describe('The level manager actions', () => {
   it('Should create an action delete a level', () => {
     const expectedAction = {
       type: DELETE_LEVEL,
-      selectedLevelId: 3,
     };
 
-    expect(deleteLevel(3)).toEqual(expectedAction);
+    expect(deleteLevel()).toEqual(expectedAction);
+  });
+
+  it('Should create an action copy a level', () => {
+    const result = copyLevel(3);
+    expect(result.type).toEqual(COPY_LEVEL);
+    expect(typeof result.newId).toBe('string');
   });
 });

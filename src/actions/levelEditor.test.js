@@ -4,13 +4,11 @@ import {
   EDIT_LEVEL,
   PREVIEW_LEVEL,
   RESET_GRID,
-  LOAD_LEVEL,
   updateTile,
   selectTile,
   editLevel,
   previewLevel,
   resetGrid,
-  loadLevel,
 } from './levelEditor';
 
 describe('The level editor actions', () => {
