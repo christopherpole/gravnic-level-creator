@@ -71,7 +71,7 @@ ManagerActions.propTypes = {
   saveLevelAction: PropTypes.func.isRequired,
   deleteLevelAction: PropTypes.func.isRequired,
   copyLevelAction: PropTypes.func.isRequired,
-  selectedLevelId: PropTypes.number,
+  selectedLevelId: PropTypes.string,
 };
 
 const mapStateToProps = state => ({

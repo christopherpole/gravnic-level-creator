@@ -5,6 +5,10 @@ export const LOAD_LEVEL = 'LOAD_LEVEL';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
 export const DELETE_LEVEL = 'DELETE_LEVEL';
 export const COPY_LEVEL = 'COPY_LEVEL';
+export const RETRIEVE_LEVELS = 'RETRIEVE_LEVELS';
+export const RETRIEVE_LEVELS_PENDING = 'RETRIEVE_LEVELS_PENDING';
+export const RETRIEVE_LEVELS_FULFILLED = 'RETRIEVE_LEVELS_FULFILLED';
+export const RETRIEVE_LEVELS_REJECTED = 'RETRIEVE_LEVELS_REJECTED';
 
 export const selectLevel = selectedLevelId => ({
   type: SELECT_LEVEL,
@@ -40,4 +44,22 @@ export const deleteLevel = () => ({
 export const copyLevel = () => ({
   type: COPY_LEVEL,
   newId: shortid.generate(),
+});
+
+export const retrieveLevels = () => ({
+  type: RETRIEVE_LEVELS,
+});
+
+export const retrieveLevelsPending = () => ({
+  type: RETRIEVE_LEVELS_PENDING,
+});
+
+export const retrieveLevelsFulfilled = levels => ({
+  type: RETRIEVE_LEVELS_FULFILLED,
+  levels,
+});
+
+export const retrieveLevelsRejected = error => ({
+  type: RETRIEVE_LEVELS_REJECTED,
+  error,
 });

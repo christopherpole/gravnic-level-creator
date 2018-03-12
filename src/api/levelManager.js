@@ -1,0 +1,4 @@
+import axios from 'axios';
+
+export const fetchLevels = async () =>
+  axios.get(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels`).then(res => res.data);

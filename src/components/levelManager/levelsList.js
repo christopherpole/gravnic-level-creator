@@ -1,29 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Level from './level';
+import { retrieveLevels } from '../../actions/levelManager';
 
 export const Wrapper = styled.ul`
   padding: ${props => props.theme.structureSpacing};
   flex-grow: 1;
 `;
 
-export const LevelsList = ({ levels, selectedLevelId, currentLevelId }) => (
-  <Wrapper>
-    {levels.map(level => (
-      <Level
-        {...level}
-        key={level.id}
-        isSelected={selectedLevelId && level.id === selectedLevelId}
-        isCurrent={currentLevelId && level.id === currentLevelId}
-      >
-        {level.name}
-      </Level>
-    ))}
-  </Wrapper>
-);
+export class LevelsList extends Component {
+  componentWillMount() {
+    this.props.retrieveLevels();
+  }
+  render() {
+    const { levels, selectedLevelId, currentLevelId } = this.props;
+    return (
+      <Wrapper>
+        {levels.map(level => (
+          <Level
+            {...level}
+            key={level.id}
+            isSelected={selectedLevelId && level.id === selectedLevelId}
+            isCurrent={currentLevelId && level.id === currentLevelId}
+          >
+            {level.name}
+          </Level>
+        ))}
+      </Wrapper>
+    );
+  }
+}
 
 LevelsList.defaultProps = {
   selectedLevelId: null,
@@ -32,8 +42,9 @@ LevelsList.defaultProps = {
 
 LevelsList.propTypes = {
   levels: PropTypes.array.isRequired,
-  selectedLevelId: PropTypes.number,
-  currentLevelId: PropTypes.number,
+  selectedLevelId: PropTypes.string,
+  currentLevelId: PropTypes.string,
+  retrieveLevels: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -42,4 +53,8 @@ const mapStateToProps = state => ({
   levels: state.levelManager.levels,
 });
 
-export default connect(mapStateToProps)(LevelsList);
+const mapDispatchToProps = dispatch => ({
+  retrieveLevels: bindActionCreators(retrieveLevels, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LevelsList);

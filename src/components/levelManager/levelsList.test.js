@@ -17,8 +17,9 @@ describe('The level manager', () => {
         { id: '2', name: 'Test level 2', tiles: [1, 2, 3] },
         { id: '3', name: 'Test level 3', tiles: [1, 2, 3] },
       ],
-      selectedLevelId: 3,
-      currentLevelId: 3,
+      selectedLevelId: '3',
+      currentLevelId: '3',
+      retrieveLevels: () => {},
     };
   });
   it('Renders without exploding', () => {

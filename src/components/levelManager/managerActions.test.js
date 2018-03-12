@@ -17,7 +17,7 @@ describe('The level manager actions', () => {
       saveLevelAction: () => {},
       deleteLevelAction: () => {},
       copyLevelAction: () => {},
-      selectedLevelId: 1,
+      selectedLevelId: '1',
     };
   });
 

@@ -4,11 +4,16 @@ import {
   SAVE_LEVEL,
   DELETE_LEVEL,
   COPY_LEVEL,
+  RETRIEVE_LEVELS,
+  RETRIEVE_LEVELS_FULFILLED,
 } from '../actions/levelManager';
 
 export const initialState = {
   currentLevelId: null,
   selectedLevelId: null,
+  loading: false,
+  loaded: false,
+  error: null,
   levels: [
     {
       id: '1',
@@ -87,6 +92,23 @@ export default function levelManagerReducer(state = initialState, action) {
         levels: newLevels,
         selectedLevelId: action.newId,
         currentLevelId: action.newId,
+      };
+    }
+
+    case RETRIEVE_LEVELS: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+
+    case RETRIEVE_LEVELS_FULFILLED: {
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        error: false,
+        levels: action.levels,
       };
     }
 

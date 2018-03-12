@@ -2,7 +2,7 @@
 
 exports[`The level manager Matches the current snapshot 1`] = `
 <styled.section>
-  <Connect(Component) />
+  <Connect(LevelsList) />
   <Connect(Component) />
 </styled.section>
 `;

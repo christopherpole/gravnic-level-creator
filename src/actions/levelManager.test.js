@@ -6,21 +6,29 @@ import {
   SAVE_LEVEL,
   DELETE_LEVEL,
   COPY_LEVEL,
+  RETRIEVE_LEVELS,
+  RETRIEVE_LEVELS_PENDING,
+  RETRIEVE_LEVELS_FULFILLED,
+  RETRIEVE_LEVELS_REJECTED,
   selectLevel,
   loadLevel,
   saveLevel,
   deleteLevel,
   copyLevel,
+  retrieveLevels,
+  retrieveLevelsPending,
+  retrieveLevelsFulfilled,
+  retrieveLevelsRejected,
 } from './levelManager';
 
 describe('The level manager actions', () => {
   it('Should create an action select a level', () => {
     const expectedAction = {
       type: SELECT_LEVEL,
-      selectedLevelId: 2,
+      selectedLevelId: '2',
     };
 
-    expect(selectLevel(2)).toEqual(expectedAction);
+    expect(selectLevel('2')).toEqual(expectedAction);
   });
 
   it('Should create an action to load a level', () => {
@@ -28,16 +36,16 @@ describe('The level manager actions', () => {
     const dispatchSpy = spy();
     const getState = () => ({
       levelManager: {
-        selectedLevelId: 2,
+        selectedLevelId: '2',
         currentLevelId: null,
         levels: [
           {
-            id: 1,
+            id: '1',
             name: 'Test level 1',
             tiles: [1, 2, 3],
           },
           {
-            id: 2,
+            id: '2',
             name: 'Test level 2',
             tiles: [4, 5, 6],
           },
@@ -51,7 +59,7 @@ describe('The level manager actions', () => {
     expect(
       dispatchSpy.calledWith({
         type: LOAD_LEVEL,
-        levelId: 2,
+        levelId: '2',
         tiles: [4, 5, 6],
       }),
     ).toBe(true);
@@ -62,7 +70,7 @@ describe('The level manager actions', () => {
     const dispatchSpy = spy();
     const getState = () => ({
       levelManager: {
-        selectedLevelId: 4,
+        selectedLevelId: '4',
       },
       levelEditor: {
         tiles: [1, 2, 3],
@@ -75,7 +83,7 @@ describe('The level manager actions', () => {
     expect(
       dispatchSpy.calledWith({
         type: SAVE_LEVEL,
-        levelId: 4,
+        levelId: '4',
         tiles: [1, 2, 3],
       }),
     ).toBe(true);
@@ -90,8 +98,50 @@ describe('The level manager actions', () => {
   });
 
   it('Should create an action copy a level', () => {
-    const result = copyLevel(3);
+    const result = copyLevel('3');
     expect(result.type).toEqual(COPY_LEVEL);
     expect(typeof result.newId).toBe('string');
+  });
+
+  it('Should create an action to retrieve levels', () => {
+    const expectedAction = {
+      type: RETRIEVE_LEVELS,
+    };
+
+    expect(retrieveLevels()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to handle a pending retrieve levels API call', () => {
+    const expectedAction = {
+      type: RETRIEVE_LEVELS_PENDING,
+    };
+
+    expect(retrieveLevelsPending()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to handle the successful retrieval of levels ', () => {
+    const testLevels = [
+      {
+        id: '1',
+        name: 'Test level',
+        tiles: [1, 2, 3],
+      },
+    ];
+
+    const expectedAction = {
+      type: RETRIEVE_LEVELS_FULFILLED,
+      levels: testLevels,
+    };
+
+    expect(retrieveLevelsFulfilled(testLevels)).toEqual(expectedAction);
+  });
+
+  it('Should create an action to handle the unsuccessful retrieval of levels', () => {
+    const expectedAction = {
+      type: RETRIEVE_LEVELS_REJECTED,
+      error: 'Test error',
+    };
+
+    expect(retrieveLevelsRejected('Test error')).toEqual(expectedAction);
   });
 });

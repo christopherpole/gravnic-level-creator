@@ -36,8 +36,8 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
   </Connect(Component)>
   <Connect(Component)
     id="3"
-    isCurrent={false}
-    isSelected={false}
+    isCurrent={true}
+    isSelected={true}
     key="3"
     name="Test level 3"
     tiles={
