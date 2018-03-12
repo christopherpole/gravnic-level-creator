@@ -8,6 +8,7 @@ import {
   RETRIEVE_LEVELS,
   RETRIEVE_LEVELS_FULFILLED,
 } from '../actions/levelManager';
+import testLevels from '../data/testLevels';
 
 describe('The level manager reducer', () => {
   it('Should return the initial state', () => {
@@ -18,11 +19,11 @@ describe('The level manager reducer', () => {
     expect(
       reducer(undefined, {
         type: SELECT_LEVEL,
-        selectedLevelId: '3',
+        selectedLevelId: testLevels[0].id,
       }),
     ).toEqual({
       ...initialState,
-      selectedLevelId: '3',
+      selectedLevelId: testLevels[0].id,
     });
   });
 
@@ -31,18 +32,18 @@ describe('The level manager reducer', () => {
       reducer(
         {
           ...initialState,
-          selectedLevelId: '3',
+          selectedLevelId: testLevels[0].id,
         },
         {
           type: LOAD_LEVEL,
-          levelId: '3',
-          tiles: [1, 2, 3],
+          levelId: testLevels[0].id,
+          tiles: testLevels[0].tiles,
         },
       ),
     ).toEqual({
       ...initialState,
-      selectedLevelId: '3',
-      currentLevelId: '3',
+      selectedLevelId: testLevels[0].id,
+      currentLevelId: testLevels[0].id,
     });
   });
 
@@ -51,42 +52,24 @@ describe('The level manager reducer', () => {
       reducer(
         {
           ...initialState,
-          selectedLevelId: '2',
+          selectedLevelId: testLevels[1].id,
           currentLevelId: null,
-          levels: [
-            {
-              id: '1',
-              name: 'Test level 1',
-              tiles: [1, 2, 3],
-            },
-            {
-              id: '2',
-              name: 'Test level 2',
-              tiles: [4, 5, 6],
-            },
-          ],
+          levels: testLevels,
         },
         {
           type: SAVE_LEVEL,
-          levelId: '2',
-          tiles: [7, 8, 9],
+          levelId: testLevels[1].id,
+          tiles: [10, 11, 12],
         },
       ),
     ).toEqual({
       ...initialState,
-      selectedLevelId: '2',
-      currentLevelId: '2',
+      selectedLevelId: testLevels[1].id,
+      currentLevelId: testLevels[1].id,
       levels: [
-        {
-          id: '1',
-          name: 'Test level 1',
-          tiles: [1, 2, 3],
-        },
-        {
-          id: '2',
-          name: 'Test level 2',
-          tiles: [7, 8, 9],
-        },
+        ...testLevels.slice(0, 1),
+        { ...testLevels[1], tiles: [10, 11, 12] },
+        ...testLevels.slice(2),
       ],
     });
   });
@@ -96,24 +79,8 @@ describe('The level manager reducer', () => {
       reducer(
         {
           ...initialState,
-          selectedLevelId: '2',
-          levels: [
-            {
-              id: '1',
-              name: 'Test level 1',
-              tiles: [1, 2, 3],
-            },
-            {
-              id: '2',
-              name: 'Test level 2',
-              tiles: [4, 5, 6],
-            },
-            {
-              id: '3',
-              name: 'Test level 3',
-              tiles: [6, 7, 8],
-            },
-          ],
+          selectedLevelId: testLevels[1].id,
+          levels: testLevels,
         },
         {
           type: DELETE_LEVEL,
@@ -122,18 +89,7 @@ describe('The level manager reducer', () => {
     ).toEqual({
       ...initialState,
       selectedLevelId: null,
-      levels: [
-        {
-          id: '1',
-          name: 'Test level 1',
-          tiles: [1, 2, 3],
-        },
-        {
-          id: '3',
-          name: 'Test level 3',
-          tiles: [6, 7, 8],
-        },
-      ],
+      levels: [...testLevels.slice(0, 1), ...testLevels.slice(2)],
     });
   });
 
@@ -142,46 +98,23 @@ describe('The level manager reducer', () => {
       reducer(
         {
           ...initialState,
-          selectedLevelId: '1',
-          currentLevelId: '1',
-          levels: [
-            {
-              id: '1',
-              name: 'Test level 1',
-              tiles: [1, 2, 3],
-            },
-            {
-              id: '2',
-              name: 'Test level 2',
-              tiles: [4, 5, 6],
-            },
-          ],
+          selectedLevelId: testLevels[1].id,
+          currentLevelId: testLevels[1].id,
+          levels: testLevels,
         },
         {
           type: COPY_LEVEL,
-          newId: '3',
+          newId: '33',
         },
       ),
     ).toEqual({
       ...initialState,
-      selectedLevelId: '3',
-      currentLevelId: '3',
+      selectedLevelId: '33',
+      currentLevelId: '33',
       levels: [
-        {
-          id: '1',
-          name: 'Test level 1',
-          tiles: [1, 2, 3],
-        },
-        {
-          id: '3',
-          name: 'Test level 1 copy',
-          tiles: [1, 2, 3],
-        },
-        {
-          id: '2',
-          name: 'Test level 2',
-          tiles: [4, 5, 6],
-        },
+        ...testLevels.slice(0, 2),
+        { ...testLevels[1], name: `${testLevels[1].name} copy`, id: '33' },
+        ...testLevels.slice(2),
       ],
     });
   });
@@ -198,24 +131,6 @@ describe('The level manager reducer', () => {
   });
 
   it('Should handle the RETRIEVE_LEVELS_FULFILLED action', () => {
-    const testLevels = [
-      {
-        id: '1',
-        name: 'Test level 1',
-        tiles: [1, 2, 3],
-      },
-      {
-        id: '3',
-        name: 'Test level 1 copy',
-        tiles: [1, 2, 3],
-      },
-      {
-        id: '2',
-        name: 'Test level 2',
-        tiles: [4, 5, 6],
-      },
-    ];
-
     expect(
       reducer(initialState, {
         type: RETRIEVE_LEVELS_FULFILLED,

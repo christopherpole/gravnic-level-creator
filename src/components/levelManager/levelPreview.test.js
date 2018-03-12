@@ -4,6 +4,7 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
 import LevelPreview from './levelPreview';
+import testLevels from '../../data/testLevels';
 
 configure({ adapter: new Adapter() });
 
@@ -12,20 +13,7 @@ describe('The level preview', () => {
 
   beforeEach(() => {
     props = {
-      tiles: [
-        {
-          selectedTileId: 1,
-          position: 0,
-        },
-        {
-          selectedTileId: 2,
-          position: 1,
-        },
-        {
-          selectedTileId: 3,
-          position: 2,
-        },
-      ],
+      tiles: testLevels[0].tiles,
     };
   });
 

@@ -4,15 +4,24 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
 <styled.ul>
   <Connect(Component)
     id="1"
-    isCurrent={false}
-    isSelected={false}
+    isCurrent={true}
+    isSelected={true}
     key="1"
     name="Test level 1"
     tiles={
       Array [
-        1,
-        2,
-        3,
+        Object {
+          "position": 0,
+          "selectedTileId": 2,
+        },
+        Object {
+          "position": 1,
+          "selectedTileId": 3,
+        },
+        Object {
+          "position": 2,
+          "selectedTileId": 0,
+        },
       ]
     }
   >
@@ -26,9 +35,18 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
     name="Test level 2"
     tiles={
       Array [
-        1,
-        2,
-        3,
+        Object {
+          "position": 0,
+          "selectedTileId": 2,
+        },
+        Object {
+          "position": 1,
+          "selectedTileId": 3,
+        },
+        Object {
+          "position": 2,
+          "selectedTileId": 0,
+        },
       ]
     }
   >
@@ -36,15 +54,24 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
   </Connect(Component)>
   <Connect(Component)
     id="3"
-    isCurrent={true}
-    isSelected={true}
+    isCurrent={false}
+    isSelected={false}
     key="3"
     name="Test level 3"
     tiles={
       Array [
-        1,
-        2,
-        3,
+        Object {
+          "position": 0,
+          "selectedTileId": 2,
+        },
+        Object {
+          "position": 1,
+          "selectedTileId": 3,
+        },
+        Object {
+          "position": 2,
+          "selectedTileId": 0,
+        },
       ]
     }
   >

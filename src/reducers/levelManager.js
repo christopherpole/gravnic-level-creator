@@ -14,32 +14,7 @@ export const initialState = {
   loading: false,
   loaded: false,
   error: null,
-  levels: [
-    {
-      id: '1',
-      name: 'Test level 1',
-      tiles: [...Array(100)].map((_, index) => ({
-        position: index,
-        selectedTileId: 0,
-      })),
-    },
-    {
-      id: '2',
-      name: 'Test level 2',
-      tiles: [...Array(100)].map((_, index) => ({
-        position: index,
-        selectedTileId: Math.floor(Math.random() * 8),
-      })),
-    },
-    {
-      id: '3',
-      name: 'Test level 3',
-      tiles: [...Array(100)].map((_, index) => ({
-        position: index,
-        selectedTileId: 2,
-      })),
-    },
-  ],
+  levels: [],
 };
 
 export default function levelManagerReducer(state = initialState, action) {

@@ -7,21 +7,21 @@ exports[`The level preview Matches the current snapshot 1`] = `
       key="0"
     >
       <Tile
-        id={1}
+        id={2}
       />
     </styled.div>
     <styled.div
       key="1"
     >
       <Tile
-        id={2}
+        id={3}
       />
     </styled.div>
     <styled.div
       key="2"
     >
       <Tile
-        id={3}
+        id={0}
       />
     </styled.div>
   </styled.div>

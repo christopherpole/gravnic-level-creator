@@ -11,21 +11,21 @@ exports[`The level Matches the current snapshot 1`] = `
       Array [
         Object {
           "position": 0,
-          "selectedTileId": 1,
-        },
-        Object {
-          "position": 1,
           "selectedTileId": 2,
         },
         Object {
-          "position": 2,
+          "position": 1,
           "selectedTileId": 3,
+        },
+        Object {
+          "position": 2,
+          "selectedTileId": 0,
         },
       ]
     }
   />
   <styled.p>
-    Test level
+    Test level 1
   </styled.p>
 </styled.li>
 `;

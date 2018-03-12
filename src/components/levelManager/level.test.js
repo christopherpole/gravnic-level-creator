@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
 import { Level, Wrapper } from './level';
+import testLevels from '../../data/testLevels';
 
 configure({ adapter: new Adapter() });
 
@@ -13,22 +14,7 @@ describe('The level', () => {
 
   beforeEach(() => {
     props = {
-      id: '22',
-      name: 'Test level',
-      tiles: [
-        {
-          selectedTileId: 1,
-          position: 0,
-        },
-        {
-          selectedTileId: 2,
-          position: 1,
-        },
-        {
-          selectedTileId: 3,
-          position: 2,
-        },
-      ],
+      ...testLevels[0],
       selectLevelAction: () => {},
     };
   });
@@ -52,6 +38,6 @@ describe('The level', () => {
     levelWrapper.simulate('click');
 
     expect(levelClickSpy.calledOnce).toBe(true);
-    expect(levelClickSpy.calledWith('22')).toBe(true);
+    expect(levelClickSpy.calledWith(testLevels[0].id)).toBe(true);
   });
 });

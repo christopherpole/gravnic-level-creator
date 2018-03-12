@@ -4,6 +4,7 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { LevelsList } from './levelsList';
+import testLevels from '../../data/testLevels';
 
 configure({ adapter: new Adapter() });
 
@@ -12,13 +13,9 @@ describe('The level manager', () => {
 
   beforeEach(() => {
     props = {
-      levels: [
-        { id: '1', name: 'Test level 1', tiles: [1, 2, 3] },
-        { id: '2', name: 'Test level 2', tiles: [1, 2, 3] },
-        { id: '3', name: 'Test level 3', tiles: [1, 2, 3] },
-      ],
-      selectedLevelId: '3',
-      currentLevelId: '3',
+      levels: testLevels,
+      selectedLevelId: testLevels[0].id,
+      currentLevelId: testLevels[0].id,
       retrieveLevels: () => {},
     };
   });

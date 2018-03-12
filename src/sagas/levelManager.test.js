@@ -7,16 +7,9 @@ import {
   retrieveLevelsFulfilled,
   retrieveLevelsRejected,
 } from '../actions/levelManager';
+import testLevels from '../data/testLevels';
 
 describe('The level manager sagas', () => {
-  const testLevels = [
-    {
-      id: '1',
-      name: 'Test level',
-      tiles: [1, 2, 3],
-    },
-  ];
-
   describe('retrieveLevels()', () => {
     it('Should retrieving levels successfully', () => {
       const generator = retrieveLevels();
