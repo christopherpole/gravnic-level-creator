@@ -1,6 +1,7 @@
 import shortid from 'shortid';
 
 export const SELECT_LEVEL = 'SELECT_LEVEL';
+export const CREATE_LEVEL = 'CREATE_LEVEL';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
 export const DELETE_LEVEL = 'DELETE_LEVEL';
@@ -13,6 +14,11 @@ export const RETRIEVE_LEVELS_REJECTED = 'RETRIEVE_LEVELS_REJECTED';
 export const selectLevel = selectedLevelId => ({
   type: SELECT_LEVEL,
   selectedLevelId,
+});
+
+export const createLevel = () => ({
+  type: CREATE_LEVEL,
+  newId: shortid.generate(),
 });
 
 export const loadLevel = () => (dispatch, getState) => {

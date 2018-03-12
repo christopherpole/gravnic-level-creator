@@ -2,6 +2,7 @@ import { spy } from 'sinon';
 
 import {
   SELECT_LEVEL,
+  CREATE_LEVEL,
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_LEVEL,
@@ -11,6 +12,7 @@ import {
   RETRIEVE_LEVELS_FULFILLED,
   RETRIEVE_LEVELS_REJECTED,
   selectLevel,
+  createLevel,
   loadLevel,
   saveLevel,
   deleteLevel,
@@ -29,6 +31,12 @@ describe('The level manager actions', () => {
     };
 
     expect(selectLevel('2')).toEqual(expectedAction);
+  });
+
+  it('Should create an action create a level', () => {
+    const result = createLevel();
+    expect(result.type).toEqual(CREATE_LEVEL);
+    expect(typeof result.newId).toBe('string');
   });
 
   it('Should create an action to load a level', () => {

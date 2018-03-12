@@ -13,6 +13,7 @@ describe('The level manager actions', () => {
 
   beforeEach(() => {
     props = {
+      createLevelAction: () => {},
       loadLevelAction: () => {},
       saveLevelAction: () => {},
       deleteLevelAction: () => {},
@@ -39,10 +40,21 @@ describe('The level manager actions', () => {
     expect(toJson(managerActions)).toMatchSnapshot();
   });
 
+  it('Fires the create level action when clicking the "create" button', () => {
+    const createLevelSpy = spy();
+    const managerActions = shallow(
+      <ManagerActions {...props} createLevelAction={createLevelSpy} />,
+    );
+    const button = managerActions.find(Button).at(0);
+    button.simulate('click');
+
+    expect(createLevelSpy.calledOnce).toBe(true);
+  });
+
   it('Fires the load level action when clicking the "load" button', () => {
     const loadLevelSpy = spy();
     const managerActions = shallow(<ManagerActions {...props} loadLevelAction={loadLevelSpy} />);
-    const button = managerActions.find(Button).at(0);
+    const button = managerActions.find(Button).at(1);
     button.simulate('click');
 
     expect(loadLevelSpy.calledOnce).toBe(true);
@@ -51,7 +63,7 @@ describe('The level manager actions', () => {
   it('Fires the save level action when clicking the "save" button', () => {
     const saveLevelSpy = spy();
     const managerActions = shallow(<ManagerActions {...props} saveLevelAction={saveLevelSpy} />);
-    const button = managerActions.find(Button).at(1);
+    const button = managerActions.find(Button).at(2);
     button.simulate('click');
 
     expect(saveLevelSpy.calledOnce).toBe(true);
@@ -62,7 +74,7 @@ describe('The level manager actions', () => {
     const managerActions = shallow(
       <ManagerActions {...props} deleteLevelAction={deleteLevelSpy} />,
     );
-    const button = managerActions.find(Button).at(2);
+    const button = managerActions.find(Button).at(3);
     button.simulate('click');
 
     expect(deleteLevelSpy.calledOnce).toBe(true);
@@ -71,7 +83,7 @@ describe('The level manager actions', () => {
   it('Fires the copy level action when clicking the "copy" button', () => {
     const copyLevelSpy = spy();
     const managerActions = shallow(<ManagerActions {...props} copyLevelAction={copyLevelSpy} />);
-    const button = managerActions.find(Button).at(3);
+    const button = managerActions.find(Button).at(4);
     button.simulate('click');
 
     expect(copyLevelSpy.calledOnce).toBe(true);
