@@ -59,6 +59,8 @@ describe('The level manager reducer', () => {
       ],
       selectedLevelId: '1337',
       currentLevelId: '1337',
+      renamingLevelId: '1337',
+      renamingLevelName: 'New level',
     });
   });
 

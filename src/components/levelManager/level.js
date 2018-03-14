@@ -56,11 +56,25 @@ export class Level extends Component {
     this.handleKeydown = this.handleKeydown.bind(this);
   }
 
+  componentDidMount() {
+    //  If started to edit the name
+    if (this.props.renamingValue) {
+      if (this.nameInput) {
+        this.nameInput.focus();
+        this.nameInput.select();
+      }
+
+      document.addEventListener('keydown', this.handleKeydown);
+    }
+  }
+
   componentDidUpdate(prevProps) {
     //  If started to edit the name
     if (!prevProps.renamingValue && this.props.renamingValue !== null) {
-      this.nameInput.focus();
-      this.nameInput.select();
+      if (this.nameInput) {
+        this.nameInput.focus();
+        this.nameInput.select();
+      }
 
       document.addEventListener('keydown', this.handleKeydown);
     }

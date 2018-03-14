@@ -40,6 +40,8 @@ export default function levelManagerReducer(state = initialState, action) {
         ...state,
         currentLevelId: action.newId,
         selectedLevelId: action.newId,
+        renamingLevelId: action.newId,
+        renamingLevelName: 'New level',
         levels: [
           ...state.levels,
           {

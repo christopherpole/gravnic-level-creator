@@ -17,6 +17,7 @@ describe('The level', () => {
       ...testLevels[0],
       selectLevelAction: () => {},
       changeRenameLevelAction: () => {},
+      finishRenameLevelAction: () => {},
       isSelected: false,
       isCurrent: false,
       renamingValue: null,
@@ -63,7 +64,11 @@ describe('The level', () => {
     expect(levelClickSpy.calledWith(testLevels[0].id)).toBe(true);
   });
 
-  it('Focuses on the text input when renaming');
+  it('Focuses on the name input instantly if renaming when mounted');
+
+  it('Focuses on the name input if renaming post-mount');
+
+  it('Selects all text in the level input name when renaming');
 
   it('Fires the change rename level event when editing the level name', () => {
     const levelNameChangeSpy = spy();
@@ -82,6 +87,6 @@ describe('The level', () => {
   });
 
   it(
-    'Finishes the finish rename level action if the user presses the return key while editing the name',
+    'Fires the finish rename level action if the user presses the return key when editing the name',
   );
 });
