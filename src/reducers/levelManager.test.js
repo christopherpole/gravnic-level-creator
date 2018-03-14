@@ -7,6 +7,9 @@ import {
   SAVE_LEVEL,
   DELETE_LEVEL,
   COPY_LEVEL,
+  BEGIN_RENAME_LEVEL,
+  CHANGE_RENAME_LEVEL,
+  FINISH_RENAME_LEVEL,
   RETRIEVE_LEVELS,
   RETRIEVE_LEVELS_FULFILLED,
 } from '../actions/levelManager';
@@ -19,13 +22,22 @@ describe('The level manager reducer', () => {
 
   it('Should handle the SELECT_LEVEL action', () => {
     expect(
-      reducer(undefined, {
-        type: SELECT_LEVEL,
-        selectedLevelId: testLevels[0].id,
-      }),
+      reducer(
+        {
+          ...levelManagerInitialState,
+          renamingLevelId: '1',
+          renamingLevelName: 'New level',
+        },
+        {
+          type: SELECT_LEVEL,
+          selectedLevelId: testLevels[0].id,
+        },
+      ),
     ).toEqual({
       ...levelManagerInitialState,
       selectedLevelId: testLevels[0].id,
+      renamingLevelId: null,
+      renamingLevelName: null,
     });
   });
 
@@ -139,6 +151,69 @@ describe('The level manager reducer', () => {
         { ...testLevels[1], name: `${testLevels[1].name} copy`, id: '33' },
         ...testLevels.slice(2),
       ],
+    });
+  });
+
+  it('Should handle the BEGIN_RENAME_LEVEL action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          levels: testLevels,
+          selectedLevelId: testLevels[1].id,
+        },
+        {
+          type: BEGIN_RENAME_LEVEL,
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      levels: testLevels,
+      selectedLevelId: testLevels[1].id,
+      renamingLevelId: testLevels[1].id,
+      renamingLevelName: testLevels[1].name,
+    });
+  });
+
+  it('Should handle the CHANGE_RENAME_LEVEL action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+        },
+        {
+          type: CHANGE_RENAME_LEVEL,
+          name: 'New level name',
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      renamingLevelName: 'New level name',
+    });
+  });
+
+  it('Should handle the FINISH_RENAME_LEVEL action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          levels: testLevels,
+          renamingLevelId: testLevels[1].id,
+          renamingLevelName: 'New level name',
+        },
+        {
+          type: FINISH_RENAME_LEVEL,
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      levels: [
+        ...testLevels.slice(0, 1),
+        { ...testLevels[1], name: 'New level name' },
+        ...testLevels.slice(2),
+      ],
+      renamingLevelId: null,
+      renamingLevelName: null,
     });
   });
 

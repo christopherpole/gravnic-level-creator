@@ -5,6 +5,9 @@ import {
   SAVE_LEVEL,
   DELETE_LEVEL,
   COPY_LEVEL,
+  BEGIN_RENAME_LEVEL,
+  CHANGE_RENAME_LEVEL,
+  FINISH_RENAME_LEVEL,
   RETRIEVE_LEVELS,
   RETRIEVE_LEVELS_FULFILLED,
 } from '../actions/levelManager';
@@ -13,6 +16,8 @@ import { initialState as levelEditorInitialState } from './levelEditor';
 export const initialState = {
   currentLevelId: null,
   selectedLevelId: null,
+  renamingLevelId: null,
+  renamingLevelName: null,
   loading: false,
   loaded: false,
   error: null,
@@ -25,6 +30,8 @@ export default function levelManagerReducer(state = initialState, action) {
       return {
         ...state,
         selectedLevelId: action.selectedLevelId,
+        renamingLevelId: null,
+        renamingLevelName: null,
       };
     }
 
@@ -85,6 +92,34 @@ export default function levelManagerReducer(state = initialState, action) {
         levels: newLevels,
         selectedLevelId: action.newId,
         currentLevelId: action.newId,
+      };
+    }
+
+    case BEGIN_RENAME_LEVEL: {
+      return {
+        ...state,
+        selectedLevelId: state.selectedLevelId,
+        renamingLevelId: state.selectedLevelId,
+        renamingLevelName: state.levels.find(level => level.id === state.selectedLevelId).name,
+      };
+    }
+
+    case CHANGE_RENAME_LEVEL: {
+      return {
+        ...state,
+        renamingLevelName: action.name,
+      };
+    }
+
+    case FINISH_RENAME_LEVEL: {
+      const newLevels = state.levels.slice(0);
+      newLevels.find(level => level.id === state.renamingLevelId).name = state.renamingLevelName;
+
+      return {
+        ...state,
+        levels: newLevels,
+        renamingLevelId: null,
+        renamingLevelName: null,
       };
     }
 

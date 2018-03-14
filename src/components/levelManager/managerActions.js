@@ -10,6 +10,8 @@ import {
   saveLevel,
   deleteLevel,
   copyLevel,
+  beginRenameLevel,
+  finishRenameLevel,
 } from '../../actions/levelManager';
 
 export const Wrapper = styled.div`
@@ -36,37 +38,54 @@ export const Button = styled.button`
 `;
 
 export const ManagerActions = ({
+  selectedLevelId,
+  renamingLevelId,
   createLevelAction,
   loadLevelAction,
   saveLevelAction,
   deleteLevelAction,
-  selectedLevelId,
   copyLevelAction,
+  beginRenameLevelAction,
+  finishRenameLevelAction,
 }) => (
   <Wrapper>
     <Toolbar>
       <ToolbarAction>
-        <Button onClick={createLevelAction}>New</Button>
-      </ToolbarAction>
-      <ToolbarAction>
-        <Button disabled={!selectedLevelId} onClick={loadLevelAction}>
-          Load
+        <Button disabled={renamingLevelId} onClick={createLevelAction}>
+          <span>New</span>
         </Button>
       </ToolbarAction>
       <ToolbarAction>
-        <Button disabled={!selectedLevelId} onClick={saveLevelAction}>
-          Save
+        <Button disabled={!selectedLevelId || renamingLevelId} onClick={loadLevelAction}>
+          <span>Load</span>
         </Button>
       </ToolbarAction>
       <ToolbarAction>
-        <Button disabled={!selectedLevelId} onClick={deleteLevelAction}>
-          Delete
+        <Button disabled={!selectedLevelId || renamingLevelId} onClick={saveLevelAction}>
+          <span>Save</span>
         </Button>
       </ToolbarAction>
       <ToolbarAction>
-        <Button disabled={!selectedLevelId} onClick={copyLevelAction}>
-          Copy
+        <Button disabled={!selectedLevelId || renamingLevelId} onClick={deleteLevelAction}>
+          <span>Delete</span>
         </Button>
+      </ToolbarAction>
+      <ToolbarAction>
+        <Button disabled={!selectedLevelId || renamingLevelId} onClick={copyLevelAction}>
+          <span>Copy</span>
+        </Button>
+      </ToolbarAction>
+      <ToolbarAction>
+        {!renamingLevelId && (
+          <Button disabled={!selectedLevelId} onClick={beginRenameLevelAction}>
+            <span>Rename</span>
+          </Button>
+        )}
+        {renamingLevelId && (
+          <Button onClick={finishRenameLevelAction}>
+            <span>Done</span>
+          </Button>
+        )}
       </ToolbarAction>
     </Toolbar>
   </Wrapper>
@@ -74,6 +93,7 @@ export const ManagerActions = ({
 
 ManagerActions.defaultProps = {
   selectedLevelId: null,
+  renamingLevelId: null,
 };
 
 ManagerActions.propTypes = {
@@ -82,11 +102,15 @@ ManagerActions.propTypes = {
   saveLevelAction: PropTypes.func.isRequired,
   deleteLevelAction: PropTypes.func.isRequired,
   copyLevelAction: PropTypes.func.isRequired,
+  beginRenameLevelAction: PropTypes.func.isRequired,
+  finishRenameLevelAction: PropTypes.func.isRequired,
   selectedLevelId: PropTypes.string,
+  renamingLevelId: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   selectedLevelId: state.levelManager.selectedLevelId,
+  renamingLevelId: state.levelManager.renamingLevelId,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -95,6 +119,8 @@ const mapDispatchToProps = dispatch => ({
   saveLevelAction: bindActionCreators(saveLevel, dispatch),
   deleteLevelAction: bindActionCreators(deleteLevel, dispatch),
   copyLevelAction: bindActionCreators(copyLevel, dispatch),
+  beginRenameLevelAction: bindActionCreators(beginRenameLevel, dispatch),
+  finishRenameLevelAction: bindActionCreators(finishRenameLevel, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManagerActions);

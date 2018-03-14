@@ -5,9 +5,52 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
   <styled.ul>
     <styled.li>
       <styled.button
+        disabled={null}
         onClick={[Function]}
       >
-        New
+        <span>
+          New
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={null}
+        onClick={[Function]}
+      >
+        <span>
+          Load
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={null}
+        onClick={[Function]}
+      >
+        <span>
+          Save
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={null}
+        onClick={[Function]}
+      >
+        <span>
+          Delete
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={null}
+        onClick={[Function]}
+      >
+        <span>
+          Copy
+        </span>
       </styled.button>
     </styled.li>
     <styled.li>
@@ -15,31 +58,9 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
         disabled={false}
         onClick={[Function]}
       >
-        Load
-      </styled.button>
-    </styled.li>
-    <styled.li>
-      <styled.button
-        disabled={false}
-        onClick={[Function]}
-      >
-        Save
-      </styled.button>
-    </styled.li>
-    <styled.li>
-      <styled.button
-        disabled={false}
-        onClick={[Function]}
-      >
-        Delete
-      </styled.button>
-    </styled.li>
-    <styled.li>
-      <styled.button
-        disabled={false}
-        onClick={[Function]}
-      >
-        Copy
+        <span>
+          Rename
+        </span>
       </styled.button>
     </styled.li>
   </styled.ul>
@@ -51,9 +72,12 @@ exports[`The level manager actions Matches the current snapshot if a level isn't
   <styled.ul>
     <styled.li>
       <styled.button
+        disabled={null}
         onClick={[Function]}
       >
-        New
+        <span>
+          New
+        </span>
       </styled.button>
     </styled.li>
     <styled.li>
@@ -61,7 +85,9 @@ exports[`The level manager actions Matches the current snapshot if a level isn't
         disabled={true}
         onClick={[Function]}
       >
-        Load
+        <span>
+          Load
+        </span>
       </styled.button>
     </styled.li>
     <styled.li>
@@ -69,7 +95,9 @@ exports[`The level manager actions Matches the current snapshot if a level isn't
         disabled={true}
         onClick={[Function]}
       >
-        Save
+        <span>
+          Save
+        </span>
       </styled.button>
     </styled.li>
     <styled.li>
@@ -77,7 +105,9 @@ exports[`The level manager actions Matches the current snapshot if a level isn't
         disabled={true}
         onClick={[Function]}
       >
-        Delete
+        <span>
+          Delete
+        </span>
       </styled.button>
     </styled.li>
     <styled.li>
@@ -85,7 +115,85 @@ exports[`The level manager actions Matches the current snapshot if a level isn't
         disabled={true}
         onClick={[Function]}
       >
-        Copy
+        <span>
+          Copy
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span>
+          Rename
+        </span>
+      </styled.button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
+exports[`The level manager actions Matches the current snapshot if renaming a level 1`] = `
+<styled.div>
+  <styled.ul>
+    <styled.li>
+      <styled.button
+        disabled="1"
+        onClick={[Function]}
+      >
+        <span>
+          New
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled="1"
+        onClick={[Function]}
+      >
+        <span>
+          Load
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled="1"
+        onClick={[Function]}
+      >
+        <span>
+          Save
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled="1"
+        onClick={[Function]}
+      >
+        <span>
+          Delete
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        disabled="1"
+        onClick={[Function]}
+      >
+        <span>
+          Copy
+        </span>
+      </styled.button>
+    </styled.li>
+    <styled.li>
+      <styled.button
+        onClick={[Function]}
+      >
+        <span>
+          Done
+        </span>
       </styled.button>
     </styled.li>
   </styled.ul>

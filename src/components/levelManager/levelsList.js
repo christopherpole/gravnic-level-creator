@@ -17,7 +17,13 @@ export class LevelsList extends Component {
     this.props.retrieveLevels();
   }
   render() {
-    const { levels, selectedLevelId, currentLevelId } = this.props;
+    const {
+      levels,
+      selectedLevelId,
+      currentLevelId,
+      renamingLevelId,
+      renamingLevelName,
+    } = this.props;
     return (
       <Wrapper>
         {levels.map(level => (
@@ -26,6 +32,9 @@ export class LevelsList extends Component {
             key={level.id}
             isSelected={selectedLevelId && level.id === selectedLevelId}
             isCurrent={currentLevelId && level.id === currentLevelId}
+            renamingValue={
+              renamingLevelId && level.id === renamingLevelId ? renamingLevelName : null
+            }
           >
             {level.name}
           </Level>
@@ -38,18 +47,24 @@ export class LevelsList extends Component {
 LevelsList.defaultProps = {
   selectedLevelId: null,
   currentLevelId: null,
+  renamingLevelId: null,
+  renamingLevelName: null,
 };
 
 LevelsList.propTypes = {
   levels: PropTypes.array.isRequired,
   selectedLevelId: PropTypes.string,
   currentLevelId: PropTypes.string,
+  renamingLevelId: PropTypes.string,
+  renamingLevelName: PropTypes.string,
   retrieveLevels: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   selectedLevelId: state.levelManager.selectedLevelId,
   currentLevelId: state.levelManager.currentLevelId,
+  renamingLevelId: state.levelManager.renamingLevelId,
+  renamingLevelName: state.levelManager.renamingLevelName,
   levels: state.levelManager.levels,
 });
 

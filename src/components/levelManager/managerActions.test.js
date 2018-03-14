@@ -18,7 +18,10 @@ describe('The level manager actions', () => {
       saveLevelAction: () => {},
       deleteLevelAction: () => {},
       copyLevelAction: () => {},
+      beginRenameLevelAction: () => {},
+      finishRenameLevelAction: () => {},
       selectedLevelId: '1',
+      renamingLevelId: null,
     };
   });
 
@@ -36,6 +39,12 @@ describe('The level manager actions', () => {
 
   it("Matches the current snapshot if a level isn't selected", () => {
     const managerActions = shallow(<ManagerActions {...props} selectedLevelId={null} />);
+
+    expect(toJson(managerActions)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot if renaming a level', () => {
+    const managerActions = shallow(<ManagerActions {...props} renamingLevelId="1" />);
 
     expect(toJson(managerActions)).toMatchSnapshot();
   });
@@ -87,5 +96,31 @@ describe('The level manager actions', () => {
     button.simulate('click');
 
     expect(copyLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the begin rename level action when clicking the "rename" button', () => {
+    const beginRenameLevelSpy = spy();
+    const managerActions = shallow(
+      <ManagerActions {...props} beginRenameLevelAction={beginRenameLevelSpy} />,
+    );
+    const button = managerActions.find(Button).at(5);
+    button.simulate('click');
+
+    expect(beginRenameLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the finish rename level action when clicking the "done" button', () => {
+    const finishRenameLevelSpy = spy();
+    const managerActions = shallow(
+      <ManagerActions
+        {...props}
+        renamingLevelId="1"
+        finishRenameLevelAction={finishRenameLevelSpy}
+      />,
+    );
+    const button = managerActions.find(Button).at(5);
+    button.simulate('click');
+
+    expect(finishRenameLevelSpy.calledOnce).toBe(true);
   });
 });

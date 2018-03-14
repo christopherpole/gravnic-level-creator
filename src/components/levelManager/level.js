@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { selectLevel } from '../../actions/levelManager';
+import { selectLevel, changeRenameLevel, finishRenameLevel } from '../../actions/levelManager';
 import LevelPreview from './levelPreview';
 
 export const Wrapper = styled.li`
@@ -38,22 +38,85 @@ export const Wrapper = styled.li`
 
 export const Name = styled.p``;
 
-export const Level = ({ id, name, tiles, isSelected, isCurrent, selectLevelAction }) => (
-  <Wrapper
-    onClick={() => {
-      selectLevelAction(id);
-    }}
-    isSelected={isSelected}
-    isCurrent={isCurrent}
-  >
-    <LevelPreview tiles={tiles} />
-    <Name>{name}</Name>
-  </Wrapper>
-);
+export const Input = styled.input`
+  width: 100%;
+  background: none;
+  border: none;
+  color: inherit;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export class Level extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleKeydown = this.handleKeydown.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    //  If started to edit the name
+    if (!prevProps.renamingValue && this.props.renamingValue !== null) {
+      this.nameInput.focus();
+      this.nameInput.select();
+
+      document.addEventListener('keydown', this.handleKeydown);
+    }
+  }
+
+  handleKeydown(event) {
+    //  "Enter" key
+    if (event.keyCode === 13) {
+      this.props.finishRenameLevelAction();
+      document.removeEventListener('keydown', this.handleKeydown);
+    }
+  }
+
+  render() {
+    const {
+      id,
+      name,
+      tiles,
+      isSelected,
+      isCurrent,
+      renamingValue,
+      selectLevelAction,
+      changeRenameLevelAction,
+    } = this.props;
+
+    return (
+      <Wrapper
+        onClick={() => {
+          selectLevelAction(id);
+        }}
+        isSelected={isSelected}
+        isCurrent={isCurrent}
+      >
+        <LevelPreview tiles={tiles} />
+        {renamingValue !== null ? (
+          <Input
+            innerRef={input => {
+              this.nameInput = input;
+            }}
+            onChange={event => {
+              changeRenameLevelAction(event.target.value);
+            }}
+            value={renamingValue}
+          />
+        ) : (
+          <Name>{name}</Name>
+        )}
+      </Wrapper>
+    );
+  }
+}
 
 Level.defaultProps = {
   isSelected: false,
   isCurrent: false,
+  renamingValue: null,
 };
 
 Level.propTypes = {
@@ -62,11 +125,16 @@ Level.propTypes = {
   tiles: PropTypes.array.isRequired,
   isSelected: PropTypes.bool,
   isCurrent: PropTypes.bool,
+  renamingValue: PropTypes.string,
   selectLevelAction: PropTypes.func.isRequired,
+  changeRenameLevelAction: PropTypes.func.isRequired,
+  finishRenameLevelAction: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   selectLevelAction: bindActionCreators(selectLevel, dispatch),
+  changeRenameLevelAction: bindActionCreators(changeRenameLevel, dispatch),
+  finishRenameLevelAction: bindActionCreators(finishRenameLevel, dispatch),
 });
 
 export default connect(null, mapDispatchToProps)(Level);

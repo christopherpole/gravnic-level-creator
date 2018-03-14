@@ -7,6 +7,9 @@ import {
   SAVE_LEVEL,
   DELETE_LEVEL,
   COPY_LEVEL,
+  BEGIN_RENAME_LEVEL,
+  CHANGE_RENAME_LEVEL,
+  FINISH_RENAME_LEVEL,
   RETRIEVE_LEVELS,
   RETRIEVE_LEVELS_PENDING,
   RETRIEVE_LEVELS_FULFILLED,
@@ -17,6 +20,9 @@ import {
   saveLevel,
   deleteLevel,
   copyLevel,
+  beginRenameLevel,
+  changeRenameLevel,
+  finishRenameLevel,
   retrieveLevels,
   retrieveLevelsPending,
   retrieveLevelsFulfilled,
@@ -97,7 +103,7 @@ describe('The level manager actions', () => {
     ).toBe(true);
   });
 
-  it('Should create an action delete a level', () => {
+  it('Should create an action to delete a level', () => {
     const expectedAction = {
       type: DELETE_LEVEL,
     };
@@ -109,6 +115,31 @@ describe('The level manager actions', () => {
     const result = copyLevel('3');
     expect(result.type).toEqual(COPY_LEVEL);
     expect(typeof result.newId).toBe('string');
+  });
+
+  it('Should create an action to start renaming a level', () => {
+    const expectedAction = {
+      type: BEGIN_RENAME_LEVEL,
+    };
+
+    expect(beginRenameLevel()).toEqual(expectedAction);
+  });
+
+  it('Should create an action for changing a level name', () => {
+    const expectedAction = {
+      type: CHANGE_RENAME_LEVEL,
+      name: 'New level name',
+    };
+
+    expect(changeRenameLevel('New level name')).toEqual(expectedAction);
+  });
+
+  it('Should create an action to finish renaming a level', () => {
+    const expectedAction = {
+      type: FINISH_RENAME_LEVEL,
+    };
+
+    expect(finishRenameLevel()).toEqual(expectedAction);
   });
 
   it('Should create an action to retrieve levels', () => {
