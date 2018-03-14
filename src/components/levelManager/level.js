@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { selectLevel, changeRenameLevel, finishRenameLevel } from '../../actions/levelManager';
+import {
+  selectLevel,
+  loadLevel,
+  changeRenameLevel,
+  finishRenameLevel,
+} from '../../actions/levelManager';
 import LevelPreview from './levelPreview';
 
 export const Wrapper = styled.li`
@@ -97,6 +102,7 @@ export class Level extends Component {
       isCurrent,
       renamingValue,
       selectLevelAction,
+      loadLevelAction,
       changeRenameLevelAction,
     } = this.props;
 
@@ -104,6 +110,9 @@ export class Level extends Component {
       <Wrapper
         onClick={() => {
           selectLevelAction(id);
+        }}
+        onDoubleClick={() => {
+          loadLevelAction();
         }}
         isSelected={isSelected}
         isCurrent={isCurrent}
@@ -141,12 +150,14 @@ Level.propTypes = {
   isCurrent: PropTypes.bool,
   renamingValue: PropTypes.string,
   selectLevelAction: PropTypes.func.isRequired,
+  loadLevelAction: PropTypes.func.isRequired,
   changeRenameLevelAction: PropTypes.func.isRequired,
   finishRenameLevelAction: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   selectLevelAction: bindActionCreators(selectLevel, dispatch),
+  loadLevelAction: bindActionCreators(loadLevel, dispatch),
   changeRenameLevelAction: bindActionCreators(changeRenameLevel, dispatch),
   finishRenameLevelAction: bindActionCreators(finishRenameLevel, dispatch),
 });

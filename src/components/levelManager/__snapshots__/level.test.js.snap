@@ -5,6 +5,7 @@ exports[`The level Matches the current snapshot 1`] = `
   isCurrent={false}
   isSelected={false}
   onClick={[Function]}
+  onDoubleClick={[Function]}
 >
   <Component
     tiles={
@@ -35,6 +36,7 @@ exports[`The level Matches the current snapshot if current 1`] = `
   isCurrent={true}
   isSelected={false}
   onClick={[Function]}
+  onDoubleClick={[Function]}
 >
   <Component
     tiles={
@@ -65,6 +67,7 @@ exports[`The level Matches the current snapshot if renaming 1`] = `
   isCurrent={false}
   isSelected={false}
   onClick={[Function]}
+  onDoubleClick={[Function]}
 >
   <Component
     tiles={
@@ -97,6 +100,7 @@ exports[`The level Matches the current snapshot if selected 1`] = `
   isCurrent={false}
   isSelected={true}
   onClick={[Function]}
+  onDoubleClick={[Function]}
 >
   <Component
     tiles={

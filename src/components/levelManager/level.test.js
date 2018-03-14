@@ -16,6 +16,7 @@ describe('The level', () => {
     props = {
       ...testLevels[0],
       selectLevelAction: () => {},
+      loadLevelAction: () => {},
       changeRenameLevelAction: () => {},
       finishRenameLevelAction: () => {},
       isSelected: false,
@@ -55,13 +56,13 @@ describe('The level', () => {
   });
 
   it('Fires the select level action when clicking on a level', () => {
-    const levelClickSpy = spy();
-    const level = shallow(<Level {...props} selectLevelAction={levelClickSpy} />);
+    const selectLevelSpy = spy();
+    const level = shallow(<Level {...props} selectLevelAction={selectLevelSpy} />);
     const levelWrapper = level.find(Wrapper);
     levelWrapper.simulate('click');
 
-    expect(levelClickSpy.calledOnce).toBe(true);
-    expect(levelClickSpy.calledWith(testLevels[0].id)).toBe(true);
+    expect(selectLevelSpy.calledOnce).toBe(true);
+    expect(selectLevelSpy.calledWith(testLevels[0].id)).toBe(true);
   });
 
   it('Focuses on the name input instantly if renaming when mounted');
@@ -89,4 +90,12 @@ describe('The level', () => {
   it(
     'Fires the finish rename level action if the user presses the return key when editing the name',
   );
+
+  it('Fire the select and load level event after being double-clicked', () => {
+    const loadLevelSpy = spy();
+    const level = shallow(<Level {...props} loadLevelAction={loadLevelSpy} />);
+    level.simulate('doubleclick');
+
+    expect(loadLevelSpy.calledOnce).toBe(true);
+  });
 });
