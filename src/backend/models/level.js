@@ -2,6 +2,20 @@ const mongoose = require('mongoose');
 const winston = require('winston');
 mongoose.Promise = require('bluebird');
 
+//  Tile schema
+const TileSchema = new mongoose.Schema({
+  position: { type: Number, required: true },
+  selectedTileId: { type: Number, required: true },
+});
+
+TileSchema.set('toJSON', {
+  transform: (doc, ret) => {
+    const rtn = { ...ret };
+    delete rtn._id;
+    return rtn;
+  },
+});
+
 //  Level schema
 const LevelSchema = new mongoose.Schema({
   name: {
@@ -9,12 +23,7 @@ const LevelSchema = new mongoose.Schema({
     required: true,
   },
   tiles: {
-    type: [
-      {
-        position: { type: Number, required: true },
-        selectedTileId: { type: Number, required: true },
-      },
-    ],
+    type: [TileSchema],
     required: true,
   },
 });
@@ -25,6 +34,18 @@ LevelSchema.post('save', level => {
 
 LevelSchema.post('remove', level => {
   winston.info(`Removed level with the id of ${level._id}`);
+});
+
+LevelSchema.set('toJSON', {
+  transform: (doc, ret) => {
+    const rtn = { ...ret };
+
+    rtn.id = rtn._id;
+    delete rtn._id;
+    delete rtn.__v;
+
+    return rtn;
+  },
 });
 
 module.exports = mongoose.model('Level', LevelSchema);

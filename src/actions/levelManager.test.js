@@ -1,8 +1,13 @@
 import { spy } from 'sinon';
 
+import Grid from '../components/levelEditor/grid';
+
 import {
   SELECT_LEVEL,
   CREATE_LEVEL,
+  CREATE_LEVEL_PENDING,
+  CREATE_LEVEL_FULFILLED,
+  CREATE_LEVEL_REJECTED,
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_LEVEL,
@@ -16,6 +21,9 @@ import {
   RETRIEVE_LEVELS_REJECTED,
   selectLevel,
   createLevel,
+  createLevelPending,
+  createLevelFulfilled,
+  createLevelRejected,
   loadLevel,
   saveLevel,
   deleteLevel,
@@ -42,7 +50,46 @@ describe('The level manager actions', () => {
   it('Should create an action create a level', () => {
     const result = createLevel();
     expect(result.type).toEqual(CREATE_LEVEL);
-    expect(typeof result.newId).toBe('string');
+    expect(typeof result.level.id).toBe('string');
+    expect(result.level.name).toEqual('New level');
+    expect(result.level.tiles).toEqual(
+      [...Array(Grid.SIZE * Grid.SIZE)].map((_, index) => ({
+        position: index,
+        selectedTileId: 0,
+      })),
+    );
+  });
+
+  it('Should create an action to handle a pending level creation API call', () => {
+    const expectedAction = {
+      type: CREATE_LEVEL_PENDING,
+    };
+
+    expect(createLevelPending()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to handle the successful creation of a level ', () => {
+    const testLevel = {
+      id: '1',
+      name: 'Test level',
+      tiles: [1, 2, 3],
+    };
+
+    const expectedAction = {
+      type: CREATE_LEVEL_FULFILLED,
+      level: testLevel,
+    };
+
+    expect(createLevelFulfilled(testLevel)).toEqual(expectedAction);
+  });
+
+  it('Should create an action to handle the unsuccessful creation of a level', () => {
+    const expectedAction = {
+      type: CREATE_LEVEL_REJECTED,
+      error: 'Test error',
+    };
+
+    expect(createLevelRejected('Test error')).toEqual(expectedAction);
   });
 
   it('Should create an action to load a level', () => {

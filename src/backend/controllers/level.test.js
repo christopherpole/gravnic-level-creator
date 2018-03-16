@@ -33,7 +33,7 @@ describe('The /levels routes', () => {
         .post('/levels')
         .send(testLevel)
         .then(res => {
-          recordId = res.body._id;
+          recordId = res.body.id;
 
           expect(res.statusCode).toBe(201);
           expect(res.body.name).toBe(testLevel.name);

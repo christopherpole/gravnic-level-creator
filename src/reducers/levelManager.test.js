@@ -45,7 +45,14 @@ describe('The level manager reducer', () => {
     expect(
       reducer(undefined, {
         type: CREATE_LEVEL,
-        newId: '1337',
+        level: {
+          id: '1337',
+          name: 'New level',
+          tiles: [...Array(100)].map((_, index) => ({
+            position: index,
+            selectedTileId: 0,
+          })),
+        },
       }),
     ).toEqual({
       ...levelManagerInitialState,
@@ -54,7 +61,10 @@ describe('The level manager reducer', () => {
         {
           id: '1337',
           name: 'New level',
-          tiles: levelEditorInitialState.tiles,
+          tiles: [...Array(100)].map((_, index) => ({
+            position: index,
+            selectedTileId: 0,
+          })),
         },
       ],
       selectedLevelId: '1337',

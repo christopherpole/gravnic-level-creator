@@ -41,7 +41,9 @@ export const Wrapper = styled.li`
     `};
 `;
 
-export const Name = styled.p``;
+export const Name = styled.p`
+  user-select: none;
+`;
 
 export const Input = styled.input`
   width: 100%;

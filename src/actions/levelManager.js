@@ -1,7 +1,12 @@
 import shortid from 'shortid';
 
+import Grid from '../components/levelEditor/grid';
+
 export const SELECT_LEVEL = 'SELECT_LEVEL';
 export const CREATE_LEVEL = 'CREATE_LEVEL';
+export const CREATE_LEVEL_PENDING = 'CREATE_LEVEL_PENDING';
+export const CREATE_LEVEL_FULFILLED = 'CREATE_LEVEL_FULFILLED';
+export const CREATE_LEVEL_REJECTED = 'CREATE_LEVEL_REJECTED';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
 export const DELETE_LEVEL = 'DELETE_LEVEL';
@@ -21,7 +26,28 @@ export const selectLevel = selectedLevelId => ({
 
 export const createLevel = () => ({
   type: CREATE_LEVEL,
-  newId: shortid.generate(),
+  level: {
+    id: shortid.generate(),
+    name: 'New level',
+    tiles: [...Array(Grid.SIZE * Grid.SIZE)].map((_, index) => ({
+      position: index,
+      selectedTileId: 0,
+    })),
+  },
+});
+
+export const createLevelPending = () => ({
+  type: CREATE_LEVEL_PENDING,
+});
+
+export const createLevelFulfilled = level => ({
+  type: CREATE_LEVEL_FULFILLED,
+  level,
+});
+
+export const createLevelRejected = error => ({
+  type: CREATE_LEVEL_REJECTED,
+  error,
 });
 
 export const loadLevel = () => (dispatch, getState) => {

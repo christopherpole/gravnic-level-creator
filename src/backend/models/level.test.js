@@ -29,4 +29,17 @@ describe('The level model', () => {
       done();
     });
   });
+
+  it('Formats a level to JSON correctly', () => {
+    const testLevelJson = testLevel.toJSON();
+
+    expect(testLevelJson.name).toBe(testLevel.name);
+    expect(testLevelJson.tiles instanceof Array).toBe(true);
+    expect(testLevelJson.tiles[0]._id).toBe(undefined);
+    expect(typeof testLevelJson.tiles[0].position).toBe('number');
+    expect(typeof testLevelJson.tiles[0].selectedTileId).toBe('number');
+    expect(typeof testLevelJson.id).toBe('object');
+    expect(testLevelJson._id).toBe(undefined);
+    expect(testLevelJson.__v).toBe(undefined);
+  });
 });

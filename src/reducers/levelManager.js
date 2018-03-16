@@ -11,7 +11,6 @@ import {
   RETRIEVE_LEVELS,
   RETRIEVE_LEVELS_FULFILLED,
 } from '../actions/levelManager';
-import { initialState as levelEditorInitialState } from './levelEditor';
 
 export const initialState = {
   currentLevelId: null,
@@ -38,18 +37,11 @@ export default function levelManagerReducer(state = initialState, action) {
     case CREATE_LEVEL: {
       return {
         ...state,
-        currentLevelId: action.newId,
-        selectedLevelId: action.newId,
-        renamingLevelId: action.newId,
-        renamingLevelName: 'New level',
-        levels: [
-          ...state.levels,
-          {
-            id: action.newId,
-            name: 'New level',
-            tiles: levelEditorInitialState.tiles,
-          },
-        ],
+        currentLevelId: action.level.id,
+        selectedLevelId: action.level.id,
+        renamingLevelId: action.level.id,
+        renamingLevelName: action.level.name,
+        levels: [...state.levels, action.level],
       };
     }
 
