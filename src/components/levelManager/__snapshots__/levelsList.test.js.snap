@@ -249,6 +249,12 @@ exports[`The level manager Matches the current snapshot if a level is the curren
 </styled.ul>
 `;
 
+exports[`The level manager Matches the current snapshot when loading levels from the server 1`] = `
+<styled.ul>
+  <LoadingIcon />
+</styled.ul>
+`;
+
 exports[`The level manager Matches the current snapshot with levels 1`] = `
 <styled.ul>
   <Connect(Level)

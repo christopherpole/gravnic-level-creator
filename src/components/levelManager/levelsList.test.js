@@ -13,6 +13,8 @@ describe('The level manager', () => {
 
   beforeEach(() => {
     props = {
+      loading: false,
+      error: false,
       levels: testLevels,
       selectedLevelId: testLevels[0].id,
       currentLevelId: testLevels[0].id,
@@ -25,6 +27,23 @@ describe('The level manager', () => {
     const levelManager = shallow(<LevelsList {...props} />);
 
     expect(levelManager).toHaveLength(1);
+  });
+
+  it('Matches the current snapshot when loading levels from the server', () => {
+    const levelManager = shallow(
+      <LevelsList
+        {...props}
+        loading
+        error={null}
+        levels={[]}
+        selectedLevelId={null}
+        currentLevelId={null}
+        renamingLevelId={null}
+        renamingLevelName={null}
+      />,
+    );
+
+    expect(toJson(levelManager)).toMatchSnapshot();
   });
 
   it('Matches the current snapshot with levels', () => {
