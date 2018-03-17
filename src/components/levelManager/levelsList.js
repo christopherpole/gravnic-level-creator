@@ -7,11 +7,33 @@ import { bindActionCreators } from 'redux';
 import Level from './level';
 import { retrieveLevels } from '../../actions/levelManager';
 import LoadingIcon from '../common/loadingIcon';
+import WarningIcon from '../common/warningIcon';
 
 export const Wrapper = styled.ul`
   padding: ${props => props.theme.structureSpacing};
   flex-grow: 1;
   position: relative;
+`;
+
+export const FullContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: ${props => props.theme.structureSpacing};
+  left: ${props => props.theme.structureSpacing};
+  bottom: ${props => props.theme.structureSpacing};
+  right: ${props => props.theme.structureSpacing};
+`;
+
+export const LoadingContainer = styled(FullContainer)``;
+
+export const ErrorContainer = styled(FullContainer)``;
+
+export const ErrorMessage = styled.p`
+  margin-top: calc(${props => props.theme.structureSpacing} / 2);
 `;
 
 export class LevelsList extends Component {
@@ -32,13 +54,22 @@ export class LevelsList extends Component {
     if (loading) {
       return (
         <Wrapper>
-          <LoadingIcon />
+          <LoadingContainer>
+            <LoadingIcon />
+          </LoadingContainer>
         </Wrapper>
       );
     }
 
     if (error) {
-      return <Wrapper>Error</Wrapper>;
+      return (
+        <Wrapper>
+          <ErrorContainer>
+            <WarningIcon />
+            <ErrorMessage>Could not retrieve levels</ErrorMessage>
+          </ErrorContainer>
+        </Wrapper>
+      );
     }
 
     return (
@@ -66,12 +97,11 @@ LevelsList.defaultProps = {
   currentLevelId: null,
   renamingLevelId: null,
   renamingLevelName: null,
-  error: null,
 };
 
 LevelsList.propTypes = {
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool,
+  error: PropTypes.bool.isRequired,
   levels: PropTypes.array.isRequired,
   selectedLevelId: PropTypes.string,
   currentLevelId: PropTypes.string,

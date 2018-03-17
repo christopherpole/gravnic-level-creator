@@ -1,5 +1,4 @@
 import reducer, { initialState as levelManagerInitialState } from './levelManager';
-import { initialState as levelEditorInitialState } from '../reducers/levelEditor';
 import {
   SELECT_LEVEL,
   CREATE_LEVEL,
@@ -12,6 +11,7 @@ import {
   FINISH_RENAME_LEVEL,
   RETRIEVE_LEVELS,
   RETRIEVE_LEVELS_FULFILLED,
+  RETRIEVE_LEVELS_REJECTED,
 } from '../actions/levelManager';
 import testLevels from '../data/testLevels';
 
@@ -252,6 +252,20 @@ describe('The level manager reducer', () => {
       loaded: true,
       error: false,
       levels: testLevels,
+    });
+  });
+
+  it('Should handle the RETRIEVE_LEVELS_REJECTED action', () => {
+    expect(
+      reducer(levelManagerInitialState, {
+        type: RETRIEVE_LEVELS_REJECTED,
+        error: new Error('Test error'),
+      }),
+    ).toEqual({
+      ...levelManagerInitialState,
+      loading: false,
+      loaded: false,
+      error: true,
     });
   });
 });

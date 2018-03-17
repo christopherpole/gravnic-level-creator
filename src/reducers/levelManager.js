@@ -10,6 +10,7 @@ import {
   FINISH_RENAME_LEVEL,
   RETRIEVE_LEVELS,
   RETRIEVE_LEVELS_FULFILLED,
+  RETRIEVE_LEVELS_REJECTED,
 } from '../actions/levelManager';
 
 export const initialState = {
@@ -19,7 +20,7 @@ export const initialState = {
   renamingLevelName: null,
   loading: false,
   loaded: false,
-  error: null,
+  error: false,
   levels: [],
 };
 
@@ -131,6 +132,15 @@ export default function levelManagerReducer(state = initialState, action) {
         loaded: true,
         error: false,
         levels: action.levels,
+      };
+    }
+
+    case RETRIEVE_LEVELS_REJECTED: {
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+        error: true,
       };
     }
 

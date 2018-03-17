@@ -34,7 +34,6 @@ describe('The level manager', () => {
       <LevelsList
         {...props}
         loading
-        error={null}
         levels={[]}
         selectedLevelId={null}
         currentLevelId={null}
@@ -42,6 +41,12 @@ describe('The level manager', () => {
         renamingLevelName={null}
       />,
     );
+
+    expect(toJson(levelManager)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot if the was an issue communicating with the server', () => {
+    const levelManager = shallow(<LevelsList {...props} levels={[]} error />);
 
     expect(toJson(levelManager)).toMatchSnapshot();
   });

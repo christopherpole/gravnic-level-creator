@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import LevelsList from './levelsList';
 import ManagerActions from './managerActions';
@@ -10,11 +12,21 @@ export const Wrapper = styled.section`
   flex-direction: column;
 `;
 
-const LevelManager = () => (
+export const LevelManager = ({ loaded, error }) => (
   <Wrapper>
     <LevelsList />
-    <ManagerActions />
+    {loaded && !error && <ManagerActions />}
   </Wrapper>
 );
 
-export default LevelManager;
+LevelManager.propTypes = {
+  loaded: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  loaded: state.levelManager.loaded,
+  error: state.levelManager.error,
+});
+
+export default connect(mapStateToProps)(LevelManager);
