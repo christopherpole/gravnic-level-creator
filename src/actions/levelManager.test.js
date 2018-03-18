@@ -8,6 +8,9 @@ import {
   CREATE_LEVEL_PENDING,
   CREATE_LEVEL_FULFILLED,
   CREATE_LEVEL_REJECTED,
+  UPDATE_LEVEL_PENDING,
+  UPDATE_LEVEL_FULFILLED,
+  UPDATE_LEVEL_REJECTED,
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_LEVEL,
@@ -27,6 +30,9 @@ import {
   createLevelPending,
   createLevelFulfilled,
   createLevelRejected,
+  updateLevelPending,
+  updateLevelFulfilled,
+  updateLevelRejected,
   loadLevel,
   saveLevel,
   deleteLevel,
@@ -87,6 +93,33 @@ describe('The level manager actions', () => {
     };
 
     expect(createLevelRejected('Test error')).toEqual(expectedAction);
+  });
+
+  it('Should create an action to handle a pending level update via API call', () => {
+    const expectedAction = {
+      type: UPDATE_LEVEL_PENDING,
+      level: testLevels[1],
+    };
+
+    expect(updateLevelPending(testLevels[1])).toEqual(expectedAction);
+  });
+
+  it('Should create an action to handle the successful updating of a level ', () => {
+    const expectedAction = {
+      type: UPDATE_LEVEL_FULFILLED,
+      level: testLevels[1],
+    };
+
+    expect(updateLevelFulfilled(testLevels[1])).toEqual(expectedAction);
+  });
+
+  it('Should create an action to handle the unsuccessful updating of a level', () => {
+    const expectedAction = {
+      type: UPDATE_LEVEL_REJECTED,
+      error: 'Test error',
+    };
+
+    expect(updateLevelRejected('Test error')).toEqual(expectedAction);
   });
 
   it('Should create an action to load a level', () => {

@@ -5,6 +5,9 @@ import {
   CREATE_LEVEL_PENDING,
   CREATE_LEVEL_FULFILLED,
   CREATE_LEVEL_REJECTED,
+  UPDATE_LEVEL_PENDING,
+  UPDATE_LEVEL_FULFILLED,
+  UPDATE_LEVEL_REJECTED,
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_LEVEL,
@@ -123,6 +126,69 @@ describe('The level manager reducer', () => {
         },
         {
           type: CREATE_LEVEL_REJECTED,
+          error: 'Test error',
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      error: true,
+      loaded: false,
+    });
+  });
+
+  it('Should handle the UPDATE_LEVEL_PENDING action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          levels: testLevels,
+        },
+        {
+          type: UPDATE_LEVEL_PENDING,
+          level: { ...testLevels[1], name: 'New name' },
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      levels: [
+        ...testLevels.slice(0, 1),
+        { ...testLevels[1], name: 'New name' },
+        ...testLevels.slice(2),
+      ],
+    });
+  });
+
+  it('Should handle the UPDATE_LEVEL_FULFILLED action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          levels: testLevels,
+        },
+        {
+          type: UPDATE_LEVEL_FULFILLED,
+          level: { ...testLevels[1], name: 'New name' },
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      levels: [
+        ...testLevels.slice(0, 1),
+        { ...testLevels[1], name: 'New name' },
+        ...testLevels.slice(2),
+      ],
+    });
+  });
+
+  it('Should handle the UPDATE_LEVEL_REJECTED action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          loaded: true,
+        },
+        {
+          type: UPDATE_LEVEL_REJECTED,
           error: 'Test error',
         },
       ),

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import {
-  createLevel,
+  createNewLevel,
   loadLevel,
   saveLevel,
   deleteLevel,
@@ -114,7 +114,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createLevelAction: bindActionCreators(createLevel, dispatch),
+  createLevelAction: bindActionCreators(createNewLevel, dispatch),
   loadLevelAction: bindActionCreators(loadLevel, dispatch),
   saveLevelAction: bindActionCreators(saveLevel, dispatch),
   deleteLevelAction: bindActionCreators(deleteLevel, dispatch),

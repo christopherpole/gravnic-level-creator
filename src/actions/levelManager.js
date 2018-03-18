@@ -1,49 +1,40 @@
 import shortid from 'shortid';
 
+export const RETRIEVE_LEVELS = 'RETRIEVE_LEVELS';
 export const SELECT_LEVEL = 'SELECT_LEVEL';
-export const CREATE_LEVEL = 'CREATE_LEVEL';
-export const CREATE_LEVEL_PENDING = 'CREATE_LEVEL_PENDING';
-export const CREATE_LEVEL_FULFILLED = 'CREATE_LEVEL_FULFILLED';
-export const CREATE_LEVEL_REJECTED = 'CREATE_LEVEL_REJECTED';
+export const CREATE_NEW_LEVEL = 'CREATE_NEW_LEVEL';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
 export const DELETE_LEVEL = 'DELETE_LEVEL';
-export const DELETE_LEVEL_PENDING = 'DELETE_LEVEL_PENDING';
-export const DELETE_LEVEL_FULFILLED = 'DELETE_LEVEL_FULFILLED';
-export const DELETE_LEVEL_REJECTED = 'DELETE_LEVEL_REJECTED';
 export const COPY_LEVEL = 'COPY_LEVEL';
 export const BEGIN_RENAME_LEVEL = 'BEGIN_RENAME_LEVEL';
 export const CHANGE_RENAME_LEVEL = 'CHANGE_RENAME_LEVEL';
 export const FINISH_RENAME_LEVEL = 'FINISH_RENAME_LEVEL';
-export const RETRIEVE_LEVELS = 'RETRIEVE_LEVELS';
-export const RETRIEVE_LEVELS_PENDING = 'RETRIEVE_LEVELS_PENDING';
-export const RETRIEVE_LEVELS_FULFILLED = 'RETRIEVE_LEVELS_FULFILLED';
-export const RETRIEVE_LEVELS_REJECTED = 'RETRIEVE_LEVELS_REJECTED';
+
+export const retrieveLevels = () => ({
+  type: RETRIEVE_LEVELS,
+});
 
 export const selectLevel = selectedLevelId => ({
   type: SELECT_LEVEL,
   selectedLevelId,
 });
 
-export const createLevel = () => ({
-  type: CREATE_LEVEL,
-});
+export const createNewLevel = () => dispatch => {
+  const level = {
+    id: shortid.generate(),
+    name: 'New level',
+    tiles: [...Array(100)].map((_, index) => ({
+      position: index,
+      selectedTileId: 0,
+    })),
+  };
 
-export const createLevelPending = level => ({
-  type: CREATE_LEVEL_PENDING,
-  level,
-});
-
-export const createLevelFulfilled = (oldLevel, newLevel) => ({
-  type: CREATE_LEVEL_FULFILLED,
-  oldLevel,
-  newLevel,
-});
-
-export const createLevelRejected = error => ({
-  type: CREATE_LEVEL_REJECTED,
-  error,
-});
+  dispatch({
+    type: CREATE_NEW_LEVEL,
+    level,
+  });
+};
 
 export const loadLevel = () => (dispatch, getState) => {
   const levelId = getState().levelManager.selectedLevelId;
@@ -57,39 +48,36 @@ export const loadLevel = () => (dispatch, getState) => {
 };
 
 export const saveLevel = () => (dispatch, getState) => {
-  const levelId = getState().levelManager.selectedLevelId;
+  const selectedLevel = getState().levelManager.levels.find(
+    level => level.id === getState().levelManager.selectedLevelId,
+  );
   const { tiles } = getState().levelEditor;
 
   dispatch({
     type: SAVE_LEVEL,
-    levelId,
-    tiles,
+    level: { ...selectedLevel, tiles },
   });
 };
 
-export const deleteLevel = () => ({
-  type: DELETE_LEVEL,
-});
+export const deleteLevel = () => (dispatch, getState) => {
+  const { selectedLevelId } = getState().levelManager;
 
-export const deleteLevelPending = id => ({
-  type: DELETE_LEVEL_PENDING,
-  id,
-});
+  dispatch({
+    type: DELETE_LEVEL,
+    id: selectedLevelId,
+  });
+};
 
-export const deleteLevelFulfilled = level => ({
-  type: DELETE_LEVEL_FULFILLED,
-  level,
-});
+export const copyLevel = () => (dispatch, getState) => {
+  const selectedLevel = getState().levelManager.levels.find(
+    level => level.id === getState().levelManager.selectedLevelId,
+  );
 
-export const deleteLevelRejected = error => ({
-  type: DELETE_LEVEL_REJECTED,
-  error,
-});
-
-export const copyLevel = () => ({
-  type: COPY_LEVEL,
-  newId: shortid.generate(),
-});
+  dispatch({
+    type: COPY_LEVEL,
+    level: { ...selectedLevel, id: shortid.generate() },
+  });
+};
 
 export const beginRenameLevel = () => ({
   type: BEGIN_RENAME_LEVEL,
@@ -100,24 +88,14 @@ export const changeRenameLevel = name => ({
   name,
 });
 
-export const finishRenameLevel = () => ({
-  type: FINISH_RENAME_LEVEL,
-});
+export const finishRenameLevel = () => (dispatch, getState) => {
+  const selectedLevel = getState().levelManager.levels.find(
+    level => level.id === getState().levelManager.selectedLevelId,
+  );
+  const name = getState().levelManager.renamingLevelName;
 
-export const retrieveLevels = () => ({
-  type: RETRIEVE_LEVELS,
-});
-
-export const retrieveLevelsPending = () => ({
-  type: RETRIEVE_LEVELS_PENDING,
-});
-
-export const retrieveLevelsFulfilled = levels => ({
-  type: RETRIEVE_LEVELS_FULFILLED,
-  levels,
-});
-
-export const retrieveLevelsRejected = error => ({
-  type: RETRIEVE_LEVELS_REJECTED,
-  error,
-});
+  dispatch({
+    type: FINISH_RENAME_LEVEL,
+    level: { ...selectedLevel, name },
+  });
+};
