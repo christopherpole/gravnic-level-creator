@@ -7,6 +7,7 @@ import {
   PREVIEW_LEVEL,
 } from '../actions/levelEditor';
 import { LOAD_LEVEL } from '../actions/levelManager';
+import testLevels from '../data/testLevels';
 
 describe('The level editor reducer', () => {
   it('Should return the initial state', () => {
@@ -17,11 +18,11 @@ describe('The level editor reducer', () => {
     expect(
       reducer(undefined, {
         type: SELECT_TILE,
-        selectedTileId: 3,
+        selectedTileId: '3',
       }),
     ).toEqual({
       ...initialState,
-      selectedTileId: 3,
+      selectedTileId: '3',
     });
   });
 
@@ -29,14 +30,14 @@ describe('The level editor reducer', () => {
     const newTiles = initialState.tiles.slice();
     newTiles[44] = {
       ...initialState.tiles[44],
-      selectedTileId: 3,
+      selectedTileId: '3',
     };
 
     expect(
       reducer(
         {
           ...initialState,
-          selectedTileId: 3,
+          selectedTileId: '3',
         },
         {
           type: UPDATE_TILE,
@@ -45,7 +46,7 @@ describe('The level editor reducer', () => {
       ),
     ).toEqual({
       ...initialState,
-      selectedTileId: 3,
+      selectedTileId: '3',
       tiles: newTiles,
     });
   });
@@ -88,7 +89,7 @@ describe('The level editor reducer', () => {
     const newTiles = initialState.tiles.slice();
     newTiles[44] = {
       ...initialState.tiles[44],
-      selectedTileId: 3,
+      selectedTileId: '3',
     };
 
     expect(
@@ -96,7 +97,7 @@ describe('The level editor reducer', () => {
         {
           ...initialState,
           tiles: newTiles,
-          selectedTileId: 3,
+          selectedTileId: '3',
         },
         {
           type: RESET_GRID,
@@ -104,7 +105,7 @@ describe('The level editor reducer', () => {
       ),
     ).toEqual({
       ...initialState,
-      selectedTileId: 3,
+      selectedTileId: '3',
       tiles: initialState.tiles,
     });
   });
@@ -113,12 +114,11 @@ describe('The level editor reducer', () => {
     expect(
       reducer(initialState, {
         type: LOAD_LEVEL,
-        selectedTileId: 3,
-        tiles: [1, 2, 3],
+        tiles: testLevels[0].tiles,
       }),
     ).toEqual({
       ...initialState,
-      tiles: [1, 2, 3],
+      tiles: testLevels[1].tiles,
     });
   });
 });

@@ -24,13 +24,13 @@ describe('The level manager', () => {
     };
   });
   it('Renders without exploding', () => {
-    const levelManager = shallow(<LevelsList {...props} />);
+    const levelsList = shallow(<LevelsList {...props} />);
 
-    expect(levelManager).toHaveLength(1);
+    expect(levelsList).toHaveLength(1);
   });
 
   it('Matches the current snapshot when loading levels from the server', () => {
-    const levelManager = shallow(
+    const levelsList = shallow(
       <LevelsList
         {...props}
         loading
@@ -42,44 +42,44 @@ describe('The level manager', () => {
       />,
     );
 
-    expect(toJson(levelManager)).toMatchSnapshot();
+    expect(toJson(levelsList)).toMatchSnapshot();
   });
 
   it('Matches the current snapshot if the was an issue communicating with the server', () => {
-    const levelManager = shallow(<LevelsList {...props} levels={[]} error />);
+    const levelsList = shallow(<LevelsList {...props} levels={[]} error />);
 
-    expect(toJson(levelManager)).toMatchSnapshot();
+    expect(toJson(levelsList)).toMatchSnapshot();
   });
 
   it('Matches the current snapshot with levels', () => {
-    const levelManager = shallow(<LevelsList {...props} />);
+    const levelsList = shallow(<LevelsList {...props} />);
 
-    expect(toJson(levelManager)).toMatchSnapshot();
+    expect(toJson(levelsList)).toMatchSnapshot();
   });
 
   it('Matches the current snapshot with no levels', () => {
-    const levelManager = shallow(<LevelsList {...props} levels={[]} />);
+    const levelsList = shallow(<LevelsList {...props} levels={[]} />);
 
-    expect(toJson(levelManager)).toMatchSnapshot();
+    expect(toJson(levelsList)).toMatchSnapshot();
   });
 
   it('Matches the current snapshot if a level is selected', () => {
-    const levelManager = shallow(<LevelsList {...props} selectedLevelId="1" />);
+    const levelsList = shallow(<LevelsList {...props} selectedLevelId="1" />);
 
-    expect(toJson(levelManager)).toMatchSnapshot();
+    expect(toJson(levelsList)).toMatchSnapshot();
   });
 
   it('Matches the current snapshot if a level is the current level', () => {
-    const levelManager = shallow(<LevelsList {...props} currentLevelId="1" />);
+    const levelsList = shallow(<LevelsList {...props} currentLevelId="1" />);
 
-    expect(toJson(levelManager)).toMatchSnapshot();
+    expect(toJson(levelsList)).toMatchSnapshot();
   });
 
   it('Matches the current snapshot if a level is being renamed', () => {
-    const levelManager = shallow(
+    const levelsList = shallow(
       <LevelsList {...props} renamingLevelId="1" renamingLevelName="New name" />,
     );
 
-    expect(toJson(levelManager)).toMatchSnapshot();
+    expect(toJson(levelsList)).toMatchSnapshot();
   });
 });
