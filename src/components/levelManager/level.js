@@ -84,14 +84,19 @@ export class Level extends Component {
       }
 
       document.addEventListener('keydown', this.handleKeydown);
+    } else if (prevProps.renamingValue && this.props.renamingValue === null) {
+      document.removeEventListener('keydown', this.handleKeydown);
     }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeydown);
   }
 
   handleKeydown(event) {
     //  "Enter" key
     if (event.keyCode === 13) {
       this.props.finishRenameLevelAction();
-      document.removeEventListener('keydown', this.handleKeydown);
     }
   }
 

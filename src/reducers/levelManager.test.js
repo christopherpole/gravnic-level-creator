@@ -97,6 +97,7 @@ describe('The level manager reducer', () => {
           levels: testLevels,
           selectedLevelId: testLevels[1].id,
           renamingLevelId: testLevels[1].id,
+          currentLevelId: testLevels[1].id,
         },
         {
           type: CREATE_LEVEL_FULFILLED,
@@ -109,6 +110,7 @@ describe('The level manager reducer', () => {
       levels: [...testLevels.slice(0, 1), newLevel, ...testLevels.slice(2)],
       selectedLevelId: '1337',
       renamingLevelId: '1337',
+      currentLevelId: '1337',
     });
   });
 
