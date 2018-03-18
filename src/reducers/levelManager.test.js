@@ -2,9 +2,14 @@ import reducer, { initialState as levelManagerInitialState } from './levelManage
 import {
   SELECT_LEVEL,
   CREATE_LEVEL,
+  CREATE_LEVEL_PENDING,
+  CREATE_LEVEL_FULFILLED,
+  CREATE_LEVEL_REJECTED,
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_LEVEL,
+  DELETE_LEVEL_PENDING,
+  DELETE_LEVEL_REJECTED,
   COPY_LEVEL,
   BEGIN_RENAME_LEVEL,
   CHANGE_RENAME_LEVEL,
@@ -45,6 +50,14 @@ describe('The level manager reducer', () => {
     expect(
       reducer(undefined, {
         type: CREATE_LEVEL,
+      }),
+    ).toEqual(levelManagerInitialState);
+  });
+
+  it('Should handle the CREATE_LEVEL_PENDING action', () => {
+    expect(
+      reducer(undefined, {
+        type: CREATE_LEVEL_PENDING,
         level: {
           id: '1337',
           name: 'New level',
@@ -71,6 +84,50 @@ describe('The level manager reducer', () => {
       currentLevelId: '1337',
       renamingLevelId: '1337',
       renamingLevelName: 'New level',
+    });
+  });
+
+  it('Should handle the CREATE_LEVEL_FULFILLED action', () => {
+    const newLevel = { ...testLevels[1], id: '1337' };
+
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          levels: testLevels,
+          selectedLevelId: testLevels[1].id,
+          renamingLevelId: testLevels[1].id,
+        },
+        {
+          type: CREATE_LEVEL_FULFILLED,
+          oldLevel: testLevels[1],
+          newLevel,
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      levels: [...testLevels.slice(0, 1), newLevel, ...testLevels.slice(2)],
+      selectedLevelId: '1337',
+      renamingLevelId: '1337',
+    });
+  });
+
+  it('Should handle the CREATE_LEVEL_REJECTED action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          loaded: true,
+        },
+        {
+          type: CREATE_LEVEL_REJECTED,
+          error: 'Test error',
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      error: true,
+      loaded: false,
     });
   });
 
@@ -123,6 +180,14 @@ describe('The level manager reducer', () => {
 
   it('Should handle the DELETE_LEVEL action', () => {
     expect(
+      reducer(undefined, {
+        type: DELETE_LEVEL,
+      }),
+    ).toEqual(levelManagerInitialState);
+  });
+
+  it('Should handle the DELETE_LEVEL_PENDING action', () => {
+    expect(
       reducer(
         {
           ...levelManagerInitialState,
@@ -130,13 +195,28 @@ describe('The level manager reducer', () => {
           levels: testLevels,
         },
         {
-          type: DELETE_LEVEL,
+          type: DELETE_LEVEL_PENDING,
+          id: testLevels[1].id,
         },
       ),
     ).toEqual({
       ...levelManagerInitialState,
       selectedLevelId: null,
       levels: [...testLevels.slice(0, 1), ...testLevels.slice(2)],
+    });
+  });
+
+  it('Should handle the DELETE_LEVEL_REJECTED action', () => {
+    expect(
+      reducer(undefined, {
+        type: DELETE_LEVEL_REJECTED,
+        error: 'Test error',
+        loaded: true,
+      }),
+    ).toEqual({
+      ...levelManagerInitialState,
+      error: true,
+      loaded: false,
     });
   });
 

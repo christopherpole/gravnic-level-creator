@@ -66,7 +66,7 @@ export class LevelsList extends Component {
         <Wrapper>
           <ErrorContainer>
             <WarningIcon />
-            <ErrorMessage>Could not retrieve levels</ErrorMessage>
+            <ErrorMessage>There was a problem communicating with the server</ErrorMessage>
           </ErrorContainer>
         </Wrapper>
       );

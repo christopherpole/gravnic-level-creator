@@ -1,9 +1,14 @@
 import {
   SELECT_LEVEL,
   CREATE_LEVEL,
+  CREATE_LEVEL_PENDING,
+  CREATE_LEVEL_FULFILLED,
+  CREATE_LEVEL_REJECTED,
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_LEVEL,
+  DELETE_LEVEL_PENDING,
+  DELETE_LEVEL_REJECTED,
   COPY_LEVEL,
   BEGIN_RENAME_LEVEL,
   CHANGE_RENAME_LEVEL,
@@ -38,11 +43,39 @@ export default function levelManagerReducer(state = initialState, action) {
     case CREATE_LEVEL: {
       return {
         ...state,
+      };
+    }
+
+    case CREATE_LEVEL_PENDING: {
+      return {
+        ...state,
         currentLevelId: action.level.id,
         selectedLevelId: action.level.id,
         renamingLevelId: action.level.id,
         renamingLevelName: action.level.name,
         levels: [...state.levels, action.level],
+      };
+    }
+
+    case CREATE_LEVEL_FULFILLED: {
+      const levelIndex = state.levels.findIndex(level => level.id === action.oldLevel.id);
+      return {
+        ...state,
+        selectedLevelId: action.newLevel.id,
+        renamingLevelId: state.renamingLevelId ? action.newLevel.id : null,
+        levels: [
+          ...state.levels.slice(0, levelIndex),
+          action.newLevel,
+          ...state.levels.slice(levelIndex + 1),
+        ],
+      };
+    }
+
+    case CREATE_LEVEL_REJECTED: {
+      return {
+        ...state,
+        error: true,
+        loaded: false,
       };
     }
 
@@ -69,8 +102,22 @@ export default function levelManagerReducer(state = initialState, action) {
     case DELETE_LEVEL: {
       return {
         ...state,
-        levels: [...state.levels].filter(level => level.id !== state.selectedLevelId),
+      };
+    }
+
+    case DELETE_LEVEL_PENDING: {
+      return {
+        ...state,
+        levels: [...state.levels].filter(level => level.id !== action.id),
         selectedLevelId: null,
+      };
+    }
+
+    case DELETE_LEVEL_REJECTED: {
+      return {
+        ...state,
+        loaded: false,
+        error: true,
       };
     }
 

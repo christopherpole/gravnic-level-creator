@@ -1,7 +1,5 @@
 import shortid from 'shortid';
 
-import Grid from '../components/levelEditor/grid';
-
 export const SELECT_LEVEL = 'SELECT_LEVEL';
 export const CREATE_LEVEL = 'CREATE_LEVEL';
 export const CREATE_LEVEL_PENDING = 'CREATE_LEVEL_PENDING';
@@ -10,6 +8,9 @@ export const CREATE_LEVEL_REJECTED = 'CREATE_LEVEL_REJECTED';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
 export const DELETE_LEVEL = 'DELETE_LEVEL';
+export const DELETE_LEVEL_PENDING = 'DELETE_LEVEL_PENDING';
+export const DELETE_LEVEL_FULFILLED = 'DELETE_LEVEL_FULFILLED';
+export const DELETE_LEVEL_REJECTED = 'DELETE_LEVEL_REJECTED';
 export const COPY_LEVEL = 'COPY_LEVEL';
 export const BEGIN_RENAME_LEVEL = 'BEGIN_RENAME_LEVEL';
 export const CHANGE_RENAME_LEVEL = 'CHANGE_RENAME_LEVEL';
@@ -26,23 +27,17 @@ export const selectLevel = selectedLevelId => ({
 
 export const createLevel = () => ({
   type: CREATE_LEVEL,
-  level: {
-    id: shortid.generate(),
-    name: 'New level',
-    tiles: [...Array(Grid.SIZE * Grid.SIZE)].map((_, index) => ({
-      position: index,
-      selectedTileId: 0,
-    })),
-  },
 });
 
-export const createLevelPending = () => ({
+export const createLevelPending = level => ({
   type: CREATE_LEVEL_PENDING,
+  level,
 });
 
-export const createLevelFulfilled = level => ({
+export const createLevelFulfilled = (oldLevel, newLevel) => ({
   type: CREATE_LEVEL_FULFILLED,
-  level,
+  oldLevel,
+  newLevel,
 });
 
 export const createLevelRejected = error => ({
@@ -74,6 +69,21 @@ export const saveLevel = () => (dispatch, getState) => {
 
 export const deleteLevel = () => ({
   type: DELETE_LEVEL,
+});
+
+export const deleteLevelPending = id => ({
+  type: DELETE_LEVEL_PENDING,
+  id,
+});
+
+export const deleteLevelFulfilled = level => ({
+  type: DELETE_LEVEL_FULFILLED,
+  level,
+});
+
+export const deleteLevelRejected = error => ({
+  type: DELETE_LEVEL_REJECTED,
+  error,
 });
 
 export const copyLevel = () => ({

@@ -257,7 +257,7 @@ exports[`The level manager Matches the current snapshot if the was an issue comm
       size={30}
     />
     <styled.p>
-      Could not retrieve levels
+      There was a problem communicating with the server
     </styled.p>
   </Styled(styled.div)>
 </styled.ul>

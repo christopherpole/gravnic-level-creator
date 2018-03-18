@@ -5,3 +5,6 @@ export const fetchLevels = async () =>
 
 export const createLevel = async level =>
   axios.post(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels`, level).then(res => res.data);
+
+export const deleteLevel = async id =>
+  axios.delete(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels/${id}`).then(res => res.data);
