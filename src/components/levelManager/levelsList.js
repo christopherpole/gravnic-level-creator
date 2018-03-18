@@ -32,6 +32,10 @@ export const LoadingContainer = styled(FullContainer)``;
 
 export const ErrorContainer = styled(FullContainer)``;
 
+export const NoLevelsContainer = styled(FullContainer)``;
+
+export const NoLevelsCopy = styled.p``;
+
 export const ErrorMessage = styled.p`
   margin-top: calc(${props => props.theme.structureSpacing} / 2);
 `;
@@ -68,6 +72,16 @@ export class LevelsList extends Component {
             <WarningIcon />
             <ErrorMessage>There was a problem communicating with the server</ErrorMessage>
           </ErrorContainer>
+        </Wrapper>
+      );
+    }
+
+    if (!levels.length) {
+      return (
+        <Wrapper>
+          <NoLevelsContainer>
+            <NoLevelsCopy>No levels found</NoLevelsCopy>
+          </NoLevelsContainer>
         </Wrapper>
       );
     }

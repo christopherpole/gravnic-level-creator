@@ -358,4 +358,12 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
 </styled.ul>
 `;
 
-exports[`The level manager Matches the current snapshot with no levels 1`] = `<styled.ul />`;
+exports[`The level manager Matches the current snapshot with no levels 1`] = `
+<styled.ul>
+  <Styled(styled.div)>
+    <styled.p>
+      No levels found
+    </styled.p>
+  </Styled(styled.div)>
+</styled.ul>
+`;
