@@ -6,15 +6,12 @@ import {
   RESET_GRID,
 } from '../actions/levelEditor';
 import { LOAD_LEVEL } from '../actions/levelManager';
-import { Grid } from '../components/levelEditor/grid';
+import { createNewLevel } from '../utils';
 
 export const initialState = {
   previewing: false,
   selectedTileId: 0,
-  tiles: [...Array(Grid.SIZE * Grid.SIZE)].map((_, index) => ({
-    position: index,
-    selectedTileId: 0,
-  })),
+  tiles: createNewLevel().tiles,
 };
 
 export default function levelEditorReducer(state = initialState, action) {
@@ -63,7 +60,7 @@ export default function levelEditorReducer(state = initialState, action) {
     case LOAD_LEVEL: {
       return {
         ...state,
-        tiles: action.tiles,
+        tiles: action.level.tiles,
       };
     }
 

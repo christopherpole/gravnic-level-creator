@@ -50,8 +50,6 @@ export const Grid = ({ tiles, updateTileAction }) => (
   </Wrapper>
 );
 
-Grid.SIZE = 10;
-
 Grid.propTypes = {
   updateTileAction: PropTypes.func.isRequired,
   tiles: PropTypes.arrayOf(

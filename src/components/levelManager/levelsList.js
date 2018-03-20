@@ -41,7 +41,7 @@ export const ErrorMessage = styled.p`
 `;
 
 export class LevelsList extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.retrieveLevelsAction();
   }
 
@@ -122,7 +122,7 @@ LevelsList.propTypes = {
   currentLevelId: PropTypes.string,
   renamingLevelId: PropTypes.string,
   renamingLevelName: PropTypes.string,
-  retrieveLevels: PropTypes.func.isRequired,
+  retrieveLevelsAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

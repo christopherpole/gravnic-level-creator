@@ -1,125 +1,56 @@
 import { spy } from 'sinon';
 
-import testLevels from '../data/testLevels';
-
 import {
+  RETRIEVE_LEVELS,
   SELECT_LEVEL,
-  CREATE_LEVEL,
-  CREATE_LEVEL_PENDING,
-  CREATE_LEVEL_FULFILLED,
-  CREATE_LEVEL_REJECTED,
-  UPDATE_LEVEL_PENDING,
-  UPDATE_LEVEL_FULFILLED,
-  UPDATE_LEVEL_REJECTED,
+  CREATE_NEW_LEVEL,
   LOAD_LEVEL,
   SAVE_LEVEL,
-  DELETE_LEVEL,
-  DELETE_LEVEL_PENDING,
-  DELETE_LEVEL_FULFILLED,
-  DELETE_LEVEL_REJECTED,
+  DELETE_SELECTED_LEVEL,
   COPY_LEVEL,
   BEGIN_RENAME_LEVEL,
   CHANGE_RENAME_LEVEL,
   FINISH_RENAME_LEVEL,
-  RETRIEVE_LEVELS,
-  RETRIEVE_LEVELS_PENDING,
-  RETRIEVE_LEVELS_FULFILLED,
-  RETRIEVE_LEVELS_REJECTED,
+  retrieveLevels,
   selectLevel,
-  createLevel,
-  createLevelPending,
-  createLevelFulfilled,
-  createLevelRejected,
-  updateLevelPending,
-  updateLevelFulfilled,
-  updateLevelRejected,
+  createNewLevel,
   loadLevel,
   saveLevel,
-  deleteLevel,
-  deleteLevelPending,
-  deleteLevelFulfilled,
-  deleteLevelRejected,
+  deleteSelectedLevel,
   copyLevel,
   beginRenameLevel,
   changeRenameLevel,
   finishRenameLevel,
-  retrieveLevels,
-  retrieveLevelsPending,
-  retrieveLevelsFulfilled,
-  retrieveLevelsRejected,
 } from './levelManager';
+import testLevels from '../data/testLevels';
+import { createNewLevel as utilsCreateNewLevel } from '../utils';
 
 describe('The level manager actions', () => {
+  it('Should create an action retrieve all levels from the server', () => {
+    const expectedAction = {
+      type: RETRIEVE_LEVELS,
+    };
+
+    expect(retrieveLevels()).toEqual(expectedAction);
+  });
+
   it('Should create an action select a level', () => {
     const expectedAction = {
       type: SELECT_LEVEL,
-      selectedLevelId: '2',
+      id: testLevels[1].id,
     };
 
-    expect(selectLevel('2')).toEqual(expectedAction);
+    expect(selectLevel(testLevels[1].id)).toEqual(expectedAction);
   });
 
   it('Should create an action create a level', () => {
-    const expectedAction = {
-      type: CREATE_LEVEL,
-    };
+    const newLevel = utilsCreateNewLevel();
+    const level = createNewLevel();
 
-    expect(createLevel()).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle a pending level creation API call', () => {
-    const expectedAction = {
-      type: CREATE_LEVEL_PENDING,
-      level: testLevels[1],
-    };
-
-    expect(createLevelPending(testLevels[1])).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the successful creation of a level ', () => {
-    const expectedAction = {
-      type: CREATE_LEVEL_FULFILLED,
-      oldLevel: testLevels[0],
-      newLevel: testLevels[1],
-    };
-
-    expect(createLevelFulfilled(testLevels[0], testLevels[1])).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the unsuccessful creation of a level', () => {
-    const expectedAction = {
-      type: CREATE_LEVEL_REJECTED,
-      error: 'Test error',
-    };
-
-    expect(createLevelRejected('Test error')).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle a pending level update via API call', () => {
-    const expectedAction = {
-      type: UPDATE_LEVEL_PENDING,
-      level: testLevels[1],
-    };
-
-    expect(updateLevelPending(testLevels[1])).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the successful updating of a level ', () => {
-    const expectedAction = {
-      type: UPDATE_LEVEL_FULFILLED,
-      level: testLevels[1],
-    };
-
-    expect(updateLevelFulfilled(testLevels[1])).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the unsuccessful updating of a level', () => {
-    const expectedAction = {
-      type: UPDATE_LEVEL_REJECTED,
-      error: 'Test error',
-    };
-
-    expect(updateLevelRejected('Test error')).toEqual(expectedAction);
+    expect(level.type).toEqual(CREATE_NEW_LEVEL);
+    expect(typeof level.level.id).toEqual('string');
+    expect(level.level.name).toBe(newLevel.name);
+    expect(level.level.tiles).toEqual(newLevel.tiles);
   });
 
   it('Should create an action to load a level', () => {
@@ -127,20 +58,8 @@ describe('The level manager actions', () => {
     const dispatchSpy = spy();
     const getState = () => ({
       levelManager: {
-        selectedLevelId: '2',
-        currentLevelId: null,
-        levels: [
-          {
-            id: '1',
-            name: 'Test level 1',
-            tiles: [1, 2, 3],
-          },
-          {
-            id: '2',
-            name: 'Test level 2',
-            tiles: [4, 5, 6],
-          },
-        ],
+        selectedLevelId: testLevels[1].id,
+        levels: testLevels,
       },
     });
 
@@ -150,8 +69,7 @@ describe('The level manager actions', () => {
     expect(
       dispatchSpy.calledWith({
         type: LOAD_LEVEL,
-        levelId: '2',
-        tiles: [4, 5, 6],
+        level: testLevels[1],
       }),
     ).toBe(true);
   });
@@ -161,7 +79,8 @@ describe('The level manager actions', () => {
     const dispatchSpy = spy();
     const getState = () => ({
       levelManager: {
-        selectedLevelId: '4',
+        selectedLevelId: testLevels[1].id,
+        levels: testLevels,
       },
       levelEditor: {
         tiles: [1, 2, 3],
@@ -174,51 +93,48 @@ describe('The level manager actions', () => {
     expect(
       dispatchSpy.calledWith({
         type: SAVE_LEVEL,
-        levelId: '4',
-        tiles: [1, 2, 3],
+        level: { ...testLevels[1], tiles: [1, 2, 3] },
       }),
     ).toBe(true);
   });
 
   it('Should create an action to delete a level', () => {
-    const expectedAction = {
-      type: DELETE_LEVEL,
-    };
+    const fn = deleteSelectedLevel();
+    const dispatchSpy = spy();
+    const getState = () => ({
+      levelManager: {
+        selectedLevelId: testLevels[1].id,
+      },
+    });
 
-    expect(deleteLevel()).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the deletion of a level via an API call', () => {
-    const expectedAction = {
-      type: DELETE_LEVEL_PENDING,
-      id: testLevels[1].id,
-    };
-
-    expect(deleteLevelPending(testLevels[1].id)).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the successful deletion of a level via an API call ', () => {
-    const expectedAction = {
-      type: DELETE_LEVEL_FULFILLED,
-      level: testLevels[1],
-    };
-
-    expect(deleteLevelFulfilled(testLevels[1])).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the failure to delete a level via an API call', () => {
-    const expectedAction = {
-      type: DELETE_LEVEL_REJECTED,
-      error: 'Test error',
-    };
-
-    expect(deleteLevelRejected('Test error')).toEqual(expectedAction);
+    expect(typeof fn).toBe('function');
+    fn(dispatchSpy, getState);
+    expect(dispatchSpy.calledOnce).toBe(true);
+    expect(
+      dispatchSpy.calledWith({
+        type: DELETE_SELECTED_LEVEL,
+        id: testLevels[1].id,
+      }),
+    ).toBe(true);
   });
 
   it('Should create an action copy a level', () => {
-    const result = copyLevel('3');
-    expect(result.type).toEqual(COPY_LEVEL);
-    expect(typeof result.newId).toBe('string');
+    const fn = copyLevel();
+    const dispatchSpy = spy();
+    const getState = () => ({
+      levelManager: {
+        selectedLevelId: testLevels[1].id,
+        levels: testLevels,
+      },
+    });
+
+    expect(typeof fn).toBe('function');
+    fn(dispatchSpy, getState);
+    expect(dispatchSpy.calledOnce).toBe(true);
+    expect(dispatchSpy.firstCall.args[0].type).toBe(COPY_LEVEL);
+    expect(typeof dispatchSpy.firstCall.args[0].level.id).toBe('string');
+    expect(dispatchSpy.firstCall.args[0].level.name).toBe(testLevels[1].name);
+    expect(dispatchSpy.firstCall.args[0].level.tiles).toEqual(testLevels[1].tiles);
   });
 
   it('Should create an action to start renaming a level', () => {
@@ -239,44 +155,24 @@ describe('The level manager actions', () => {
   });
 
   it('Should create an action to finish renaming a level', () => {
-    const expectedAction = {
-      type: FINISH_RENAME_LEVEL,
-    };
+    const fn = finishRenameLevel();
+    const dispatchSpy = spy();
+    const getState = () => ({
+      levelManager: {
+        renamingLevelId: testLevels[1].id,
+        renamingLevelName: 'New level name',
+        levels: testLevels,
+      },
+    });
 
-    expect(finishRenameLevel()).toEqual(expectedAction);
-  });
-
-  it('Should create an action to retrieve levels', () => {
-    const expectedAction = {
-      type: RETRIEVE_LEVELS,
-    };
-
-    expect(retrieveLevels()).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle a pending retrieve levels API call', () => {
-    const expectedAction = {
-      type: RETRIEVE_LEVELS_PENDING,
-    };
-
-    expect(retrieveLevelsPending()).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the successful retrieval of levels ', () => {
-    const expectedAction = {
-      type: RETRIEVE_LEVELS_FULFILLED,
-      levels: testLevels,
-    };
-
-    expect(retrieveLevelsFulfilled(testLevels)).toEqual(expectedAction);
-  });
-
-  it('Should create an action to handle the unsuccessful retrieval of levels', () => {
-    const expectedAction = {
-      type: RETRIEVE_LEVELS_REJECTED,
-      error: 'Test error',
-    };
-
-    expect(retrieveLevelsRejected('Test error')).toEqual(expectedAction);
+    expect(typeof fn).toBe('function');
+    fn(dispatchSpy, getState);
+    expect(dispatchSpy.calledOnce).toBe(true);
+    expect(
+      dispatchSpy.calledWith({
+        type: FINISH_RENAME_LEVEL,
+        level: { ...testLevels[1], name: 'New level name' },
+      }),
+    ).toBe(true);
   });
 });

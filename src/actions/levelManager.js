@@ -1,11 +1,13 @@
 import shortid from 'shortid';
 
+import { createNewLevel as utilsCreateNewLevel } from '../utils';
+
 export const RETRIEVE_LEVELS = 'RETRIEVE_LEVELS';
 export const SELECT_LEVEL = 'SELECT_LEVEL';
 export const CREATE_NEW_LEVEL = 'CREATE_NEW_LEVEL';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
-export const DELETE_LEVEL = 'DELETE_LEVEL';
+export const DELETE_SELECTED_LEVEL = 'DELETE_SELECTED_LEVEL';
 export const COPY_LEVEL = 'COPY_LEVEL';
 export const BEGIN_RENAME_LEVEL = 'BEGIN_RENAME_LEVEL';
 export const CHANGE_RENAME_LEVEL = 'CHANGE_RENAME_LEVEL';
@@ -15,35 +17,28 @@ export const retrieveLevels = () => ({
   type: RETRIEVE_LEVELS,
 });
 
-export const selectLevel = selectedLevelId => ({
+export const selectLevel = id => ({
   type: SELECT_LEVEL,
-  selectedLevelId,
+  id,
 });
 
-export const createNewLevel = () => dispatch => {
-  const level = {
-    id: shortid.generate(),
-    name: 'New level',
-    tiles: [...Array(100)].map((_, index) => ({
-      position: index,
-      selectedTileId: 0,
-    })),
-  };
+export const createNewLevel = () => {
+  const level = utilsCreateNewLevel();
 
-  dispatch({
+  return {
     type: CREATE_NEW_LEVEL,
     level,
-  });
+  };
 };
 
 export const loadLevel = () => (dispatch, getState) => {
-  const levelId = getState().levelManager.selectedLevelId;
-  const { tiles } = getState().levelManager.levels.find(level => level.id === levelId);
+  const currentLevel = getState().levelManager.levels.find(
+    level => level.id === getState().levelManager.selectedLevelId,
+  );
 
   dispatch({
     type: LOAD_LEVEL,
-    levelId,
-    tiles,
+    level: currentLevel,
   });
 };
 
@@ -59,11 +54,11 @@ export const saveLevel = () => (dispatch, getState) => {
   });
 };
 
-export const deleteLevel = () => (dispatch, getState) => {
+export const deleteSelectedLevel = () => (dispatch, getState) => {
   const { selectedLevelId } = getState().levelManager;
 
   dispatch({
-    type: DELETE_LEVEL,
+    type: DELETE_SELECTED_LEVEL,
     id: selectedLevelId,
   });
 };
@@ -90,7 +85,7 @@ export const changeRenameLevel = name => ({
 
 export const finishRenameLevel = () => (dispatch, getState) => {
   const selectedLevel = getState().levelManager.levels.find(
-    level => level.id === getState().levelManager.selectedLevelId,
+    level => level.id === getState().levelManager.renamingLevelId,
   );
   const name = getState().levelManager.renamingLevelName;
 
