@@ -5,10 +5,10 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import {
-  createLevel,
+  createNewLevel,
   loadLevel,
   saveLevel,
-  deleteLevel,
+  deleteSelectedLevel,
   copyLevel,
   beginRenameLevel,
   finishRenameLevel,
@@ -43,7 +43,7 @@ export const ManagerActions = ({
   createLevelAction,
   loadLevelAction,
   saveLevelAction,
-  deleteLevelAction,
+  deleteSelectedLevelAction,
   copyLevelAction,
   beginRenameLevelAction,
   finishRenameLevelAction,
@@ -66,7 +66,7 @@ export const ManagerActions = ({
         </Button>
       </ToolbarAction>
       <ToolbarAction>
-        <Button disabled={!selectedLevelId || renamingLevelId} onClick={deleteLevelAction}>
+        <Button disabled={!selectedLevelId || renamingLevelId} onClick={deleteSelectedLevelAction}>
           <span>Delete</span>
         </Button>
       </ToolbarAction>
@@ -100,7 +100,7 @@ ManagerActions.propTypes = {
   createLevelAction: PropTypes.func.isRequired,
   loadLevelAction: PropTypes.func.isRequired,
   saveLevelAction: PropTypes.func.isRequired,
-  deleteLevelAction: PropTypes.func.isRequired,
+  deleteSelectedLevelAction: PropTypes.func.isRequired,
   copyLevelAction: PropTypes.func.isRequired,
   beginRenameLevelAction: PropTypes.func.isRequired,
   finishRenameLevelAction: PropTypes.func.isRequired,
@@ -114,10 +114,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createLevelAction: bindActionCreators(createLevel, dispatch),
+  createLevelAction: bindActionCreators(createNewLevel, dispatch),
   loadLevelAction: bindActionCreators(loadLevel, dispatch),
   saveLevelAction: bindActionCreators(saveLevel, dispatch),
-  deleteLevelAction: bindActionCreators(deleteLevel, dispatch),
+  deleteSelectedLevelAction: bindActionCreators(deleteSelectedLevel, dispatch),
   copyLevelAction: bindActionCreators(copyLevel, dispatch),
   beginRenameLevelAction: bindActionCreators(beginRenameLevel, dispatch),
   finishRenameLevelAction: bindActionCreators(finishRenameLevel, dispatch),

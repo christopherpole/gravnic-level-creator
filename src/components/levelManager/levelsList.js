@@ -41,9 +41,10 @@ export const ErrorMessage = styled.p`
 `;
 
 export class LevelsList extends Component {
-  componentWillMount() {
-    this.props.retrieveLevels();
+  componentDidMount() {
+    this.props.retrieveLevelsAction();
   }
+
   render() {
     const {
       loading,
@@ -121,7 +122,7 @@ LevelsList.propTypes = {
   currentLevelId: PropTypes.string,
   renamingLevelId: PropTypes.string,
   renamingLevelName: PropTypes.string,
-  retrieveLevels: PropTypes.func.isRequired,
+  retrieveLevelsAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -135,7 +136,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  retrieveLevels: bindActionCreators(retrieveLevels, dispatch),
+  retrieveLevelsAction: bindActionCreators(retrieveLevels, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LevelsList);

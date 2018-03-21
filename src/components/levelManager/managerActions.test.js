@@ -16,7 +16,7 @@ describe('The level manager actions', () => {
       createLevelAction: () => {},
       loadLevelAction: () => {},
       saveLevelAction: () => {},
-      deleteLevelAction: () => {},
+      deleteSelectedLevelAction: () => {},
       copyLevelAction: () => {},
       beginRenameLevelAction: () => {},
       finishRenameLevelAction: () => {},
@@ -79,14 +79,14 @@ describe('The level manager actions', () => {
   });
 
   it('Fires the delete level action when clicking the "delete" button', () => {
-    const deleteLevelSpy = spy();
+    const deleteSelectedLevelSpy = spy();
     const managerActions = shallow(
-      <ManagerActions {...props} deleteLevelAction={deleteLevelSpy} />,
+      <ManagerActions {...props} deleteSelectedLevelAction={deleteSelectedLevelSpy} />,
     );
     const button = managerActions.find(Button).at(3);
     button.simulate('click');
 
-    expect(deleteLevelSpy.calledOnce).toBe(true);
+    expect(deleteSelectedLevelSpy.calledOnce).toBe(true);
   });
 
   it('Fires the copy level action when clicking the "copy" button', () => {

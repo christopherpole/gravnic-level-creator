@@ -8,3 +8,8 @@ export const createLevel = async level =>
 
 export const deleteLevel = async id =>
   axios.delete(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels/${id}`).then(res => res.data);
+
+export const updateLevel = async level =>
+  axios
+    .put(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels/${level.id}`, level)
+    .then(res => res.data);

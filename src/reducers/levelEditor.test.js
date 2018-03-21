@@ -114,7 +114,7 @@ describe('The level editor reducer', () => {
     expect(
       reducer(initialState, {
         type: LOAD_LEVEL,
-        tiles: testLevels[0].tiles,
+        level: testLevels[1],
       }),
     ).toEqual({
       ...initialState,

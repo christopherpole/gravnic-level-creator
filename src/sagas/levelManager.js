@@ -1,26 +1,32 @@
 import { takeLatest } from 'redux-saga';
-import { put, call, select } from 'redux-saga/effects';
-import shortid from 'shortid';
+import { put, call } from 'redux-saga/effects';
 
-import Grid from '../components/levelEditor/grid';
-import { fetchLevels, createLevel, deleteLevel } from '../api/levelManager';
+import { fetchLevels, createLevel, deleteLevel, updateLevel } from '../api/levelManager';
 import {
   RETRIEVE_LEVELS,
-  CREATE_LEVEL,
-  DELETE_LEVEL,
+  CREATE_NEW_LEVEL,
+  COPY_LEVEL,
+  DELETE_SELECTED_LEVEL,
+  SAVE_LEVEL,
+  FINISH_RENAME_LEVEL,
+} from '../actions/levelManager';
+import {
   retrieveLevelsPending,
   retrieveLevelsFulfilled,
   retrieveLevelsRejected,
   createLevelPending,
   createLevelFulfilled,
   createLevelRejected,
+  updateLevelPending,
+  updateLevelFulfilled,
+  updateLevelRejected,
   deleteLevelPending,
   deleteLevelFulfilled,
   deleteLevelRejected,
-} from '../actions/levelManager';
+} from '../actions/apiActions';
 
 export function* retrieveLevelsSaga() {
-  yield put(retrieveLevelsPending);
+  yield put(retrieveLevelsPending());
 
   try {
     const res = yield call(fetchLevels);
@@ -30,33 +36,33 @@ export function* retrieveLevelsSaga() {
   }
 }
 
-export function* createLevelSaga() {
-  const newLevel = {
-    id: shortid.generate(),
-    name: 'New level',
-    tiles: [...Array(Grid.SIZE * Grid.SIZE)].map((_, index) => ({
-      position: index,
-      selectedTileId: 0,
-    })),
-  };
-  yield put(createLevelPending(newLevel));
+export function* createLevelSaga(action) {
+  yield put(createLevelPending());
 
   try {
-    const res = yield call(createLevel, newLevel);
-    yield put(createLevelFulfilled(newLevel, res));
+    const res = yield call(createLevel, action.level);
+    yield put(createLevelFulfilled(action.level, res));
   } catch (err) {
     yield put(createLevelRejected(err));
   }
 }
 
-export function* deleteLevelSaga() {
-  const state = yield select();
-  const { selectedLevelId } = state.levelManager;
-
-  yield put(deleteLevelPending(selectedLevelId));
+export function* updateLevelSaga(action) {
+  yield put(updateLevelPending());
 
   try {
-    const res = yield call(deleteLevel, selectedLevelId);
+    const res = yield call(updateLevel, action.level);
+    yield put(updateLevelFulfilled(res));
+  } catch (err) {
+    yield put(updateLevelRejected(err));
+  }
+}
+
+export function* deleteLevelSaga(action) {
+  yield put(deleteLevelPending());
+
+  try {
+    const res = yield call(deleteLevel, action.id);
     yield put(deleteLevelFulfilled(res));
   } catch (err) {
     yield put(deleteLevelRejected(err));
@@ -65,6 +71,7 @@ export function* deleteLevelSaga() {
 
 export default function* levelManagerSagas() {
   yield takeLatest(RETRIEVE_LEVELS, retrieveLevelsSaga);
-  yield takeLatest(CREATE_LEVEL, createLevelSaga);
-  yield takeLatest(DELETE_LEVEL, deleteLevelSaga);
+  yield takeLatest([CREATE_NEW_LEVEL, COPY_LEVEL], createLevelSaga);
+  yield takeLatest(DELETE_SELECTED_LEVEL, deleteLevelSaga);
+  yield takeLatest([SAVE_LEVEL, FINISH_RENAME_LEVEL], updateLevelSaga);
 }

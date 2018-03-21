@@ -2,6 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import { spy } from 'sinon';
 
 import { LevelsList } from './levelsList';
 import testLevels from '../../data/testLevels';
@@ -20,13 +21,22 @@ describe('The level manager', () => {
       currentLevelId: testLevels[0].id,
       renamingLevelId: null,
       renamingLevelName: null,
-      retrieveLevels: () => {},
+      retrieveLevelsAction: () => {},
     };
   });
   it('Renders without exploding', () => {
     const levelsList = shallow(<LevelsList {...props} />);
 
     expect(levelsList).toHaveLength(1);
+  });
+
+  it('Fires the retrieve levels action after mounting', () => {
+    const retrieveLevelsActionSpy = spy();
+    shallow(
+      <LevelsList {...props} retrieveLevelsAction={retrieveLevelsActionSpy} levels={[]} error />,
+    );
+
+    expect(retrieveLevelsActionSpy.calledOnce).toBe(true);
   });
 
   it('Matches the current snapshot when loading levels from the server', () => {
