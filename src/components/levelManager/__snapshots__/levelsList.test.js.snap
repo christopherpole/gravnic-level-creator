@@ -1,256 +1,268 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The level manager Matches the current snapshot if a level is being renamed 1`] = `
-<styled.ul>
-  <Connect(Level)
-    id="1"
-    isCurrent={true}
-    isSelected={true}
-    key="1"
-    name="Test level 1"
-    renamingValue="New name"
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 1
-  </Connect(Level)>
-  <Connect(Level)
-    id="2"
-    isCurrent={false}
-    isSelected={false}
-    key="2"
-    name="Test level 2"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 2
-  </Connect(Level)>
-  <Connect(Level)
-    id="3"
-    isCurrent={false}
-    isSelected={false}
-    key="3"
-    name="Test level 3"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 3
-  </Connect(Level)>
-</styled.ul>
+<styled.div>
+  <styled.div>
+    <styled.ul>
+      <Connect(Level)
+        id="1"
+        isCurrent={true}
+        isSelected={true}
+        key="1"
+        name="Test level 1"
+        renamingValue="New name"
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 1
+      </Connect(Level)>
+      <Connect(Level)
+        id="2"
+        isCurrent={false}
+        isSelected={false}
+        key="2"
+        name="Test level 2"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 2
+      </Connect(Level)>
+      <Connect(Level)
+        id="3"
+        isCurrent={false}
+        isSelected={false}
+        key="3"
+        name="Test level 3"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 3
+      </Connect(Level)>
+    </styled.ul>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`The level manager Matches the current snapshot if a level is selected 1`] = `
-<styled.ul>
-  <Connect(Level)
-    id="1"
-    isCurrent={true}
-    isSelected={true}
-    key="1"
-    name="Test level 1"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 1
-  </Connect(Level)>
-  <Connect(Level)
-    id="2"
-    isCurrent={false}
-    isSelected={false}
-    key="2"
-    name="Test level 2"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 2
-  </Connect(Level)>
-  <Connect(Level)
-    id="3"
-    isCurrent={false}
-    isSelected={false}
-    key="3"
-    name="Test level 3"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 3
-  </Connect(Level)>
-</styled.ul>
+<styled.div>
+  <styled.div>
+    <styled.ul>
+      <Connect(Level)
+        id="1"
+        isCurrent={true}
+        isSelected={true}
+        key="1"
+        name="Test level 1"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 1
+      </Connect(Level)>
+      <Connect(Level)
+        id="2"
+        isCurrent={false}
+        isSelected={false}
+        key="2"
+        name="Test level 2"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 2
+      </Connect(Level)>
+      <Connect(Level)
+        id="3"
+        isCurrent={false}
+        isSelected={false}
+        key="3"
+        name="Test level 3"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 3
+      </Connect(Level)>
+    </styled.ul>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`The level manager Matches the current snapshot if a level is the current level 1`] = `
-<styled.ul>
-  <Connect(Level)
-    id="1"
-    isCurrent={true}
-    isSelected={true}
-    key="1"
-    name="Test level 1"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 1
-  </Connect(Level)>
-  <Connect(Level)
-    id="2"
-    isCurrent={false}
-    isSelected={false}
-    key="2"
-    name="Test level 2"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 2
-  </Connect(Level)>
-  <Connect(Level)
-    id="3"
-    isCurrent={false}
-    isSelected={false}
-    key="3"
-    name="Test level 3"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 3
-  </Connect(Level)>
-</styled.ul>
+<styled.div>
+  <styled.div>
+    <styled.ul>
+      <Connect(Level)
+        id="1"
+        isCurrent={true}
+        isSelected={true}
+        key="1"
+        name="Test level 1"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 1
+      </Connect(Level)>
+      <Connect(Level)
+        id="2"
+        isCurrent={false}
+        isSelected={false}
+        key="2"
+        name="Test level 2"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 2
+      </Connect(Level)>
+      <Connect(Level)
+        id="3"
+        isCurrent={false}
+        isSelected={false}
+        key="3"
+        name="Test level 3"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 3
+      </Connect(Level)>
+    </styled.ul>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`The level manager Matches the current snapshot if the was an issue communicating with the server 1`] = `
-<styled.ul>
+<styled.div>
   <Styled(styled.div)>
     <WarningIcon
       fillColor="white"
@@ -260,11 +272,11 @@ exports[`The level manager Matches the current snapshot if the was an issue comm
       There was a problem communicating with the server
     </styled.p>
   </Styled(styled.div)>
-</styled.ul>
+</styled.div>
 `;
 
 exports[`The level manager Matches the current snapshot when loading levels from the server 1`] = `
-<styled.ul>
+<styled.div>
   <Styled(styled.div)>
     <LoadingIcon
       fillColor="white"
@@ -272,98 +284,102 @@ exports[`The level manager Matches the current snapshot when loading levels from
       speed={1}
     />
   </Styled(styled.div)>
-</styled.ul>
+</styled.div>
 `;
 
 exports[`The level manager Matches the current snapshot with levels 1`] = `
-<styled.ul>
-  <Connect(Level)
-    id="1"
-    isCurrent={true}
-    isSelected={true}
-    key="1"
-    name="Test level 1"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 1
-  </Connect(Level)>
-  <Connect(Level)
-    id="2"
-    isCurrent={false}
-    isSelected={false}
-    key="2"
-    name="Test level 2"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 2
-  </Connect(Level)>
-  <Connect(Level)
-    id="3"
-    isCurrent={false}
-    isSelected={false}
-    key="3"
-    name="Test level 3"
-    renamingValue={null}
-    tiles={
-      Array [
-        Object {
-          "position": 0,
-          "selectedTileId": 2,
-        },
-        Object {
-          "position": 1,
-          "selectedTileId": 3,
-        },
-        Object {
-          "position": 2,
-          "selectedTileId": 0,
-        },
-      ]
-    }
-  >
-    Test level 3
-  </Connect(Level)>
-</styled.ul>
+<styled.div>
+  <styled.div>
+    <styled.ul>
+      <Connect(Level)
+        id="1"
+        isCurrent={true}
+        isSelected={true}
+        key="1"
+        name="Test level 1"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 1
+      </Connect(Level)>
+      <Connect(Level)
+        id="2"
+        isCurrent={false}
+        isSelected={false}
+        key="2"
+        name="Test level 2"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 2
+      </Connect(Level)>
+      <Connect(Level)
+        id="3"
+        isCurrent={false}
+        isSelected={false}
+        key="3"
+        name="Test level 3"
+        renamingValue={null}
+        tiles={
+          Array [
+            Object {
+              "position": 0,
+              "selectedTileId": 2,
+            },
+            Object {
+              "position": 1,
+              "selectedTileId": 3,
+            },
+            Object {
+              "position": 2,
+              "selectedTileId": 0,
+            },
+          ]
+        }
+      >
+        Test level 3
+      </Connect(Level)>
+    </styled.ul>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`The level manager Matches the current snapshot with no levels 1`] = `
-<styled.ul>
+<styled.div>
   <Styled(styled.div)>
     <styled.p>
       No levels found
     </styled.p>
   </Styled(styled.div)>
-</styled.ul>
+</styled.div>
 `;

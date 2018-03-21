@@ -3,5 +3,6 @@ export default {
   maskColor: '#aaa',
   backgroundColor: '#333',
   foregroundColor: '#eee',
-  structureSpacing: '2vw',
+  structureSpacing: '1rem',
+  containerWidth: '1000px',
 };

@@ -197,6 +197,18 @@ describe('The level manager reducer', () => {
     });
   });
 
+  it('Should handle the LOAD_LEVEL action', () => {
+    expect(
+      reducer(undefined, {
+        type: LOAD_LEVEL,
+        level: testLevels[1],
+      }),
+    ).toEqual({
+      ...levelManagerInitialState,
+      currentLevelId: testLevels[1].id,
+    });
+  });
+
   it('Should handle the UPDATE_LEVEL_REJECTED action', () => {
     expect(
       reducer(

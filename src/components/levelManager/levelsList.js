@@ -9,10 +9,22 @@ import { retrieveLevels } from '../../actions/levelManager';
 import LoadingIcon from '../common/loadingIcon';
 import WarningIcon from '../common/warningIcon';
 
-export const Wrapper = styled.ul`
-  padding: ${props => props.theme.structureSpacing};
+export const Wrapper = styled.div`
   flex-grow: 1;
   position: relative;
+  overflow-y: scroll;
+`;
+
+export const ScrollableArea = styled.div`
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+`;
+
+export const ListWrapper = styled.ul`
+  padding: ${props => props.theme.structureSpacing};
 `;
 
 export const FullContainer = styled.div`
@@ -89,19 +101,23 @@ export class LevelsList extends Component {
 
     return (
       <Wrapper>
-        {levels.map(level => (
-          <Level
-            {...level}
-            key={level.id}
-            isSelected={selectedLevelId && level.id === selectedLevelId}
-            isCurrent={currentLevelId && level.id === currentLevelId}
-            renamingValue={
-              renamingLevelId && level.id === renamingLevelId ? renamingLevelName : null
-            }
-          >
-            {level.name}
-          </Level>
-        ))}
+        <ScrollableArea>
+          <ListWrapper>
+            {levels.map(level => (
+              <Level
+                {...level}
+                key={level.id}
+                isSelected={selectedLevelId && level.id === selectedLevelId}
+                isCurrent={currentLevelId && level.id === currentLevelId}
+                renamingValue={
+                  renamingLevelId && level.id === renamingLevelId ? renamingLevelName : null
+                }
+              >
+                {level.name}
+              </Level>
+            ))}
+          </ListWrapper>
+        </ScrollableArea>
       </Wrapper>
     );
   }

@@ -2,6 +2,7 @@ import {
   SELECT_LEVEL,
   CREATE_NEW_LEVEL,
   SAVE_LEVEL,
+  LOAD_LEVEL,
   COPY_LEVEL,
   DELETE_SELECTED_LEVEL,
   BEGIN_RENAME_LEVEL,
@@ -72,6 +73,13 @@ export default function levelManagerReducer(state = initialState, action) {
         renamingLevelId: action.level.id,
         renamingLevelName: action.level.name,
         levels: [...state.levels, action.level],
+      };
+    }
+
+    case LOAD_LEVEL: {
+      return {
+        ...state,
+        currentLevelId: action.level.id,
       };
     }
 

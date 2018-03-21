@@ -7,9 +7,7 @@ import { bindActionCreators } from 'redux';
 import { resetGrid, previewLevel, editLevel } from '../../actions/levelEditor';
 
 export const Wrapper = styled.div`
-  border: 1px solid ${props => props.theme.foregroundColor};
   grid-column: 1 / 2;
-  padding: calc(${props => props.theme.structureSpacing} / 2);
 `;
 
 export const Toolbar = styled.ul`
