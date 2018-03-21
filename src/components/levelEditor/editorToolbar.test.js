@@ -4,7 +4,8 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
-import { EditorToolbar, ActionButton } from './editorToolbar';
+import Button from '../common/button';
+import { EditorToolbar } from './editorToolbar';
 
 configure({ adapter: new Adapter() });
 
@@ -43,7 +44,7 @@ describe('The editor toolbar', () => {
     const editorToolbar = shallow(
       <EditorToolbar {...props} previewLevelAction={previewLevelSpy} />,
     );
-    const btnPreviewLevel = editorToolbar.find(ActionButton).at(0);
+    const btnPreviewLevel = editorToolbar.find(Button).at(0);
 
     expect(previewLevelSpy.calledOnce).toBe(false);
     btnPreviewLevel.simulate('click');
@@ -53,7 +54,7 @@ describe('The editor toolbar', () => {
   it('Fires the "resetGrid" action when the reset grid button is clicked', () => {
     const resetGridSpy = spy();
     const editorToolbar = shallow(<EditorToolbar {...props} resetGridAction={resetGridSpy} />);
-    const btnResetGrid = editorToolbar.find(ActionButton).at(1);
+    const btnResetGrid = editorToolbar.find(Button).at(1);
 
     expect(resetGridSpy.calledOnce).toBe(false);
     btnResetGrid.simulate('click');

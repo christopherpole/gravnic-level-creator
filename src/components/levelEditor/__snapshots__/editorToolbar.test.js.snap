@@ -6,20 +6,22 @@ exports[`The editor toolbar Matches the current snapshot if not previewing 1`] =
 >
   <styled.ul>
     <styled.li>
-      <styled.button
+      <Button
+        disabled={false}
         id="btn-preview"
         onClick={[Function]}
       >
         Preview
-      </styled.button>
+      </Button>
     </styled.li>
     <styled.li>
-      <styled.button
+      <Button
+        disabled={false}
         id="btn-reset"
         onClick={[Function]}
       >
         Reset
-      </styled.button>
+      </Button>
     </styled.li>
   </styled.ul>
 </styled.div>
@@ -31,12 +33,13 @@ exports[`The editor toolbar Matches the current snapshot if previewing 1`] = `
 >
   <styled.ul>
     <styled.li>
-      <styled.button
+      <Button
+        disabled={false}
         id="btn-edit"
         onClick={[Function]}
       >
         Edit
-      </styled.button>
+      </Button>
     </styled.li>
   </styled.ul>
 </styled.div>

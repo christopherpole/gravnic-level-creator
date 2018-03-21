@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
-import { ManagerActions, Button } from './managerActions';
+import { ManagerActions, StyledButton } from './managerActions';
 
 configure({ adapter: new Adapter() });
 
@@ -54,7 +54,7 @@ describe('The level manager actions', () => {
     const managerActions = shallow(
       <ManagerActions {...props} createLevelAction={createLevelSpy} />,
     );
-    const button = managerActions.find(Button).at(0);
+    const button = managerActions.find(StyledButton).at(0);
     button.simulate('click');
 
     expect(createLevelSpy.calledOnce).toBe(true);
@@ -63,7 +63,7 @@ describe('The level manager actions', () => {
   it('Fires the load level action when clicking the "load" button', () => {
     const loadLevelSpy = spy();
     const managerActions = shallow(<ManagerActions {...props} loadLevelAction={loadLevelSpy} />);
-    const button = managerActions.find(Button).at(1);
+    const button = managerActions.find(StyledButton).at(1);
     button.simulate('click');
 
     expect(loadLevelSpy.calledOnce).toBe(true);
@@ -72,7 +72,7 @@ describe('The level manager actions', () => {
   it('Fires the save level action when clicking the "save" button', () => {
     const saveLevelSpy = spy();
     const managerActions = shallow(<ManagerActions {...props} saveLevelAction={saveLevelSpy} />);
-    const button = managerActions.find(Button).at(2);
+    const button = managerActions.find(StyledButton).at(2);
     button.simulate('click');
 
     expect(saveLevelSpy.calledOnce).toBe(true);
@@ -83,7 +83,7 @@ describe('The level manager actions', () => {
     const managerActions = shallow(
       <ManagerActions {...props} deleteSelectedLevelAction={deleteSelectedLevelSpy} />,
     );
-    const button = managerActions.find(Button).at(3);
+    const button = managerActions.find(StyledButton).at(3);
     button.simulate('click');
 
     expect(deleteSelectedLevelSpy.calledOnce).toBe(true);
@@ -92,7 +92,7 @@ describe('The level manager actions', () => {
   it('Fires the copy level action when clicking the "copy" button', () => {
     const copyLevelSpy = spy();
     const managerActions = shallow(<ManagerActions {...props} copyLevelAction={copyLevelSpy} />);
-    const button = managerActions.find(Button).at(4);
+    const button = managerActions.find(StyledButton).at(4);
     button.simulate('click');
 
     expect(copyLevelSpy.calledOnce).toBe(true);
@@ -103,7 +103,7 @@ describe('The level manager actions', () => {
     const managerActions = shallow(
       <ManagerActions {...props} beginRenameLevelAction={beginRenameLevelSpy} />,
     );
-    const button = managerActions.find(Button).at(5);
+    const button = managerActions.find(StyledButton).at(5);
     button.simulate('click');
 
     expect(beginRenameLevelSpy.calledOnce).toBe(true);
@@ -118,7 +118,7 @@ describe('The level manager actions', () => {
         finishRenameLevelAction={finishRenameLevelSpy}
       />,
     );
-    const button = managerActions.find(Button).at(5);
+    const button = managerActions.find(StyledButton).at(5);
     button.simulate('click');
 
     expect(finishRenameLevelSpy.calledOnce).toBe(true);

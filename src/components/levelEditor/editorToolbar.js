@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
+import Button from '../common/button';
 import { resetGrid, previewLevel, editLevel } from '../../actions/levelEditor';
 
 export const Wrapper = styled.div`
@@ -25,12 +26,6 @@ export const ActionContainer = styled.li`
   }
 `;
 
-export const ActionButton = styled.button`
-  padding: calc(${props => props.theme.structureSpacing} / 4)
-    calc(${props => props.theme.structureSpacing} / 2);
-  cursor: pointer;
-`;
-
 export const EditorToolbar = ({
   previewing,
   resetGridAction,
@@ -41,38 +36,38 @@ export const EditorToolbar = ({
     {!previewing && (
       <Toolbar>
         <ActionContainer>
-          <ActionButton
+          <Button
             id="btn-preview"
             onClick={() => {
               previewLevelAction();
             }}
           >
             Preview
-          </ActionButton>
+          </Button>
         </ActionContainer>
         <ActionContainer>
-          <ActionButton
+          <Button
             id="btn-reset"
             onClick={() => {
               resetGridAction();
             }}
           >
             Reset
-          </ActionButton>
+          </Button>
         </ActionContainer>
       </Toolbar>
     )}
     {previewing && (
       <Toolbar>
         <ActionContainer>
-          <ActionButton
+          <Button
             id="btn-edit"
             onClick={() => {
               editLevelAction();
             }}
           >
             Edit
-          </ActionButton>
+          </Button>
         </ActionContainer>
       </Toolbar>
     )}

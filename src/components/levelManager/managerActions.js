@@ -13,6 +13,7 @@ import {
   beginRenameLevel,
   finishRenameLevel,
 } from '../../actions/levelManager';
+import Button from '../common/button';
 
 export const Wrapper = styled.div`
   border-top: 1px solid white;
@@ -30,11 +31,8 @@ export const ToolbarAction = styled.li`
   flex-grow: 1;
 `;
 
-export const Button = styled.button`
-  padding: calc(${props => props.theme.structureSpacing} / 4)
-    calc(${props => props.theme.structureSpacing} / 2);
+export const StyledButton = styled(Button)`
   width: 100%;
-  cursor: pointer;
 `;
 
 export const ManagerActions = ({
@@ -51,40 +49,43 @@ export const ManagerActions = ({
   <Wrapper>
     <Toolbar>
       <ToolbarAction>
-        <Button disabled={renamingLevelId} onClick={createLevelAction}>
+        <StyledButton disabled={renamingLevelId} onClick={createLevelAction}>
           <span>New</span>
-        </Button>
+        </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <Button disabled={!selectedLevelId || renamingLevelId} onClick={loadLevelAction}>
+        <StyledButton disabled={!selectedLevelId || renamingLevelId} onClick={loadLevelAction}>
           <span>Load</span>
-        </Button>
+        </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <Button disabled={!selectedLevelId || renamingLevelId} onClick={saveLevelAction}>
+        <StyledButton disabled={!selectedLevelId || renamingLevelId} onClick={saveLevelAction}>
           <span>Save</span>
-        </Button>
+        </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <Button disabled={!selectedLevelId || renamingLevelId} onClick={deleteSelectedLevelAction}>
+        <StyledButton
+          disabled={!selectedLevelId || renamingLevelId}
+          onClick={deleteSelectedLevelAction}
+        >
           <span>Delete</span>
-        </Button>
+        </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <Button disabled={!selectedLevelId || renamingLevelId} onClick={copyLevelAction}>
+        <StyledButton disabled={!selectedLevelId || renamingLevelId} onClick={copyLevelAction}>
           <span>Copy</span>
-        </Button>
+        </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
         {!renamingLevelId && (
-          <Button disabled={!selectedLevelId} onClick={beginRenameLevelAction}>
+          <StyledButton disabled={!selectedLevelId} onClick={beginRenameLevelAction}>
             <span>Rename</span>
-          </Button>
+          </StyledButton>
         )}
         {renamingLevelId && (
-          <Button onClick={finishRenameLevelAction}>
+          <StyledButton onClick={finishRenameLevelAction}>
             <span>Done</span>
-          </Button>
+          </StyledButton>
         )}
       </ToolbarAction>
     </Toolbar>
