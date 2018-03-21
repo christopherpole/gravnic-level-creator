@@ -4,12 +4,15 @@ import {
   EDIT_LEVEL,
   PREVIEW_LEVEL,
   RESET_GRID,
+  START_DRAG,
+  STOP_DRAG,
 } from '../actions/levelEditor';
 import { LOAD_LEVEL } from '../actions/levelManager';
 import { createNewLevel } from '../utils';
 
 export const initialState = {
   previewing: false,
+  dragging: false,
   selectedTileId: 0,
   tiles: createNewLevel().tiles,
 };
@@ -61,6 +64,20 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         tiles: action.level.tiles,
+      };
+    }
+
+    case START_DRAG: {
+      return {
+        ...state,
+        dragging: true,
+      };
+    }
+
+    case STOP_DRAG: {
+      return {
+        ...state,
+        dragging: false,
       };
     }
 

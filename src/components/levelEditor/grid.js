@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Tile from '../common/tile';
-import { updateTile } from '../../actions/levelEditor';
+import { updateTile, startDrag, stopDrag } from '../../actions/levelEditor';
 
 export const Wrapper = styled.div`
   height: 0;
@@ -32,25 +32,55 @@ export const TileWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const Grid = ({ tiles, updateTileAction }) => (
-  <Wrapper id="editor-grid">
-    <TilesWrapper>
-      {tiles.map(editorTile => (
-        <TileWrapper
-          onClick={() => {
-            updateTileAction(editorTile.position);
-          }}
-          key={editorTile.position}
-          className="tile"
-        >
-          <Tile id={editorTile.selectedTileId} />
-        </TileWrapper>
-      ))}
-    </TilesWrapper>
-  </Wrapper>
-);
+export const Grid = ({
+  tiles,
+  selectedTileId,
+  updateTileAction,
+  startDragAction,
+  stopDragAction,
+  dragging,
+}) => {
+  const handleMouseUp = () => {
+    stopDragAction();
+    document.removeEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseDown = () => {
+    startDragAction();
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseMove = tile => {
+    if (dragging && selectedTileId !== tile.selectedTileId) {
+      updateTileAction(tile.position);
+    }
+  };
+
+  return (
+    <Wrapper id="editor-grid">
+      <TilesWrapper onMouseDown={handleMouseDown}>
+        {tiles.map(editorTile => (
+          <TileWrapper
+            onClick={() => {
+              updateTileAction(editorTile.position);
+            }}
+            key={editorTile.position}
+            onMouseMove={() => {
+              handleMouseMove(editorTile);
+            }}
+            className="tile"
+          >
+            <Tile id={editorTile.selectedTileId} />
+          </TileWrapper>
+        ))}
+      </TilesWrapper>
+    </Wrapper>
+  );
+};
 
 Grid.propTypes = {
+  startDragAction: PropTypes.func.isRequired,
+  stopDragAction: PropTypes.func.isRequired,
   updateTileAction: PropTypes.func.isRequired,
   tiles: PropTypes.arrayOf(
     PropTypes.shape({
@@ -58,14 +88,20 @@ Grid.propTypes = {
       position: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  dragging: PropTypes.bool.isRequired,
+  selectedTileId: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   tiles: state.levelEditor.tiles,
+  selectedTileId: state.levelEditor.selectedTileId,
+  dragging: state.levelEditor.dragging,
 });
 
 const mapDispatchToProps = dispatch => ({
   updateTileAction: bindActionCreators(updateTile, dispatch),
+  startDragAction: bindActionCreators(startDrag, dispatch),
+  stopDragAction: bindActionCreators(stopDrag, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Grid);

@@ -5,6 +5,8 @@ import {
   RESET_GRID,
   EDIT_LEVEL,
   PREVIEW_LEVEL,
+  START_DRAG,
+  STOP_DRAG,
 } from '../actions/levelEditor';
 import { LOAD_LEVEL } from '../actions/levelManager';
 import testLevels from '../data/testLevels';
@@ -119,6 +121,34 @@ describe('The level editor reducer', () => {
     ).toEqual({
       ...initialState,
       tiles: testLevels[1].tiles,
+    });
+  });
+
+  it('Should handle the START_DRAG action', () => {
+    expect(
+      reducer(initialState, {
+        type: START_DRAG,
+      }),
+    ).toEqual({
+      ...initialState,
+      dragging: true,
+    });
+  });
+
+  it('Should handle the STOP_DRAG action', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          dragging: true,
+        },
+        {
+          type: STOP_DRAG,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      dragging: false,
     });
   });
 });

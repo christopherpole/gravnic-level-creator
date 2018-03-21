@@ -4,11 +4,15 @@ import {
   EDIT_LEVEL,
   PREVIEW_LEVEL,
   RESET_GRID,
+  START_DRAG,
+  STOP_DRAG,
   updateTile,
   selectTile,
   editLevel,
   previewLevel,
   resetGrid,
+  startDrag,
+  stopDrag,
 } from './levelEditor';
 
 describe('The level editor actions', () => {
@@ -52,5 +56,21 @@ describe('The level editor actions', () => {
     };
 
     expect(resetGrid()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to start dragging on the grid', () => {
+    const expectedAction = {
+      type: START_DRAG,
+    };
+
+    expect(startDrag()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to stop dragging on the grid', () => {
+    const expectedAction = {
+      type: STOP_DRAG,
+    };
+
+    expect(stopDrag()).toEqual(expectedAction);
   });
 });

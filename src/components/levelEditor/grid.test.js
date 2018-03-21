@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
-import { Grid, TileWrapper } from './grid';
+import { Grid, TilesWrapper, TileWrapper } from './grid';
 import { initialState } from '../../reducers/levelEditor';
 
 configure({ adapter: new Adapter() });
@@ -14,8 +14,12 @@ describe('The editor grid', () => {
 
   beforeEach(() => {
     props = {
+      selectedTileId: 3,
+      dragging: false,
       tiles: initialState.tiles,
       updateTileAction: () => {},
+      startDragAction: () => {},
+      stopDragAction: () => {},
     };
   });
 
@@ -33,11 +37,30 @@ describe('The editor grid', () => {
 
   it('Fires the update tile action when clicking on a tile', () => {
     const tileClickSpy = spy();
-    const tileSelector = shallow(<Grid {...props} updateTileAction={tileClickSpy} />);
-    const tile = tileSelector.find(TileWrapper).at(44);
+    const grid = shallow(<Grid {...props} updateTileAction={tileClickSpy} />);
+    const tile = grid.find(TileWrapper).at(44);
     tile.simulate('click');
 
     expect(tileClickSpy.calledOnce).toBe(true);
     expect(tileClickSpy.calledWith(44)).toBe(true);
   });
+
+  it('Fires start dragging action when the user begins to drag on the grid', () => {
+    const startDragActionSpy = spy();
+    const grid = shallow(<Grid {...props} startDragAction={startDragActionSpy} />);
+    const tilesWrapper = grid.find(TilesWrapper);
+    tilesWrapper.simulate('mouseDown');
+
+    expect(startDragActionSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires stop dragging action when the stops dragging anywhere on the document');
+
+  it(
+    'Fires the update tile action if dragging over a tile that is not the same as the selectedtile',
+  );
+
+  it(
+    'Does not fires the update tile action if dragging over a tile that is the same as the selectedtile',
+  );
 });
