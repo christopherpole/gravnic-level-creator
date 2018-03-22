@@ -20,8 +20,14 @@ describe('The level manager actions', () => {
       copyLevelAction: () => {},
       beginRenameLevelAction: () => {},
       finishRenameLevelAction: () => {},
-      selectedLevelId: '1',
-      renamingLevelId: null,
+      buttonDisabledStates: {
+        btnNew: false,
+        btnLoad: false,
+        btnSave: false,
+        btnDelete: false,
+        btnCopy: false,
+        btnRename: false,
+      },
     };
   });
 
@@ -37,14 +43,20 @@ describe('The level manager actions', () => {
     expect(toJson(managerActions)).toMatchSnapshot();
   });
 
-  it("Matches the current snapshot if a level isn't selected", () => {
-    const managerActions = shallow(<ManagerActions {...props} selectedLevelId={null} />);
-
-    expect(toJson(managerActions)).toMatchSnapshot();
-  });
-
-  it('Matches the current snapshot if renaming a level', () => {
-    const managerActions = shallow(<ManagerActions {...props} renamingLevelId="1" />);
+  it('Matches the current snapshot with disabled buttons', () => {
+    const managerActions = shallow(
+      <ManagerActions
+        {...props}
+        buttonDisabledStates={{
+          btnNew: true,
+          btnLoad: true,
+          btnSave: true,
+          btnDelete: true,
+          btnCopy: true,
+          btnRename: true,
+        }}
+      />,
+    );
 
     expect(toJson(managerActions)).toMatchSnapshot();
   });

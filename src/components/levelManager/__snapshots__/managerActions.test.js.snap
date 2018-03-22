@@ -5,7 +5,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
   <styled.ul>
     <styled.li>
       <Styled(Button)
-        disabled={null}
+        disabled={false}
         onClick={[Function]}
       >
         <span>
@@ -15,7 +15,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     </styled.li>
     <styled.li>
       <Styled(Button)
-        disabled={null}
+        disabled={false}
         onClick={[Function]}
       >
         <span>
@@ -25,7 +25,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     </styled.li>
     <styled.li>
       <Styled(Button)
-        disabled={null}
+        disabled={false}
         onClick={[Function]}
       >
         <span>
@@ -35,7 +35,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     </styled.li>
     <styled.li>
       <Styled(Button)
-        disabled={null}
+        disabled={false}
         onClick={[Function]}
       >
         <span>
@@ -45,7 +45,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     </styled.li>
     <styled.li>
       <Styled(Button)
-        disabled={null}
+        disabled={false}
         onClick={[Function]}
       >
         <span>
@@ -67,12 +67,12 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
 </styled.div>
 `;
 
-exports[`The level manager actions Matches the current snapshot if a level isn't selected 1`] = `
+exports[`The level manager actions Matches the current snapshot with disabled buttons 1`] = `
 <styled.div>
   <styled.ul>
     <styled.li>
       <Styled(Button)
-        disabled={null}
+        disabled={true}
         onClick={[Function]}
       >
         <span>
@@ -127,72 +127,6 @@ exports[`The level manager actions Matches the current snapshot if a level isn't
       >
         <span>
           Rename
-        </span>
-      </Styled(Button)>
-    </styled.li>
-  </styled.ul>
-</styled.div>
-`;
-
-exports[`The level manager actions Matches the current snapshot if renaming a level 1`] = `
-<styled.div>
-  <styled.ul>
-    <styled.li>
-      <Styled(Button)
-        disabled="1"
-        onClick={[Function]}
-      >
-        <span>
-          New
-        </span>
-      </Styled(Button)>
-    </styled.li>
-    <styled.li>
-      <Styled(Button)
-        disabled="1"
-        onClick={[Function]}
-      >
-        <span>
-          Load
-        </span>
-      </Styled(Button)>
-    </styled.li>
-    <styled.li>
-      <Styled(Button)
-        disabled="1"
-        onClick={[Function]}
-      >
-        <span>
-          Save
-        </span>
-      </Styled(Button)>
-    </styled.li>
-    <styled.li>
-      <Styled(Button)
-        disabled="1"
-        onClick={[Function]}
-      >
-        <span>
-          Delete
-        </span>
-      </Styled(Button)>
-    </styled.li>
-    <styled.li>
-      <Styled(Button)
-        disabled="1"
-        onClick={[Function]}
-      >
-        <span>
-          Copy
-        </span>
-      </Styled(Button)>
-    </styled.li>
-    <styled.li>
-      <Styled(Button)
-        onClick={[Function]}
-      >
-        <span>
-          Done
         </span>
       </Styled(Button)>
     </styled.li>

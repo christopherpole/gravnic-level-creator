@@ -14,6 +14,7 @@ import {
   finishRenameLevel,
 } from '../../actions/levelManager';
 import Button from '../common/button';
+import { getLevelManagerButtonDisabledStates } from '../../selectors';
 
 export const Wrapper = styled.div`
   border-top: 1px solid white;
@@ -36,7 +37,6 @@ export const StyledButton = styled(Button)`
 `;
 
 export const ManagerActions = ({
-  selectedLevelId,
   renamingLevelId,
   createLevelAction,
   loadLevelAction,
@@ -45,40 +45,38 @@ export const ManagerActions = ({
   copyLevelAction,
   beginRenameLevelAction,
   finishRenameLevelAction,
+  buttonDisabledStates,
 }) => (
   <Wrapper>
     <Toolbar>
       <ToolbarAction>
-        <StyledButton disabled={renamingLevelId} onClick={createLevelAction}>
+        <StyledButton disabled={buttonDisabledStates.btnNew} onClick={createLevelAction}>
           <span>New</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <StyledButton disabled={!selectedLevelId || renamingLevelId} onClick={loadLevelAction}>
+        <StyledButton disabled={buttonDisabledStates.btnLoad} onClick={loadLevelAction}>
           <span>Load</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <StyledButton disabled={!selectedLevelId || renamingLevelId} onClick={saveLevelAction}>
+        <StyledButton disabled={buttonDisabledStates.btnSave} onClick={saveLevelAction}>
           <span>Save</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <StyledButton
-          disabled={!selectedLevelId || renamingLevelId}
-          onClick={deleteSelectedLevelAction}
-        >
+        <StyledButton disabled={buttonDisabledStates.btnDelete} onClick={deleteSelectedLevelAction}>
           <span>Delete</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <StyledButton disabled={!selectedLevelId || renamingLevelId} onClick={copyLevelAction}>
+        <StyledButton disabled={buttonDisabledStates.btnCopy} onClick={copyLevelAction}>
           <span>Copy</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
         {!renamingLevelId && (
-          <StyledButton disabled={!selectedLevelId} onClick={beginRenameLevelAction}>
+          <StyledButton disabled={buttonDisabledStates.btnRename} onClick={beginRenameLevelAction}>
             <span>Rename</span>
           </StyledButton>
         )}
@@ -93,7 +91,6 @@ export const ManagerActions = ({
 );
 
 ManagerActions.defaultProps = {
-  selectedLevelId: null,
   renamingLevelId: null,
 };
 
@@ -105,13 +102,20 @@ ManagerActions.propTypes = {
   copyLevelAction: PropTypes.func.isRequired,
   beginRenameLevelAction: PropTypes.func.isRequired,
   finishRenameLevelAction: PropTypes.func.isRequired,
-  selectedLevelId: PropTypes.string,
   renamingLevelId: PropTypes.string,
+  buttonDisabledStates: PropTypes.shape({
+    btnNew: PropTypes.bool.isRequired,
+    btnLoad: PropTypes.bool.isRequired,
+    btnSave: PropTypes.bool.isRequired,
+    btnDelete: PropTypes.bool.isRequired,
+    btnCopy: PropTypes.bool.isRequired,
+    btnRename: PropTypes.bool.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
-  selectedLevelId: state.levelManager.selectedLevelId,
   renamingLevelId: state.levelManager.renamingLevelId,
+  buttonDisabledStates: getLevelManagerButtonDisabledStates(state),
 });
 
 const mapDispatchToProps = dispatch => ({
