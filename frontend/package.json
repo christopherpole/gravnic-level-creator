@@ -6,11 +6,7 @@
     "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
-    "dotenv": "^5.0.1",
-    "express": "^4.16.2",
     "isomorphic-fetch": "^2.2.1",
-    "mongoose": "^4.10.8",
-    "morgan": "^1.9.0",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -23,12 +19,10 @@
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "shortid": "^2.2.8",
-    "styled-components": "^3.1.6",
-    "winston": "^2.4.0"
+    "styled-components": "^3.1.6"
   },
   "scripts": {
     "start": "react-scripts start",
-    "backend": "node ./src/backend/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -49,7 +43,6 @@
     "jest-styled-components": "^4.11.0-1",
     "nightmare": "^2.10.0",
     "prettier": "^1.11.1",
-    "sinon": "^4.3.0",
-    "supertest": "^3.0.0"
+    "sinon": "^4.3.0"
   }
 }
