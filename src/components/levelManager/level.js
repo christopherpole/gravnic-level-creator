@@ -60,44 +60,51 @@ export class Level extends Component {
   constructor(props) {
     super(props);
 
-    this.handleKeydown = this.handleKeydown.bind(this);
+    this.handleDocumentKeydown = this.handleDocumentKeydown.bind(this);
+    this.handleDocumentClick = this.handleDocumentClick.bind(this);
   }
 
   componentDidMount() {
     //  If started to edit the name
     if (this.props.renamingValue) {
-      if (this.nameInput) {
-        this.nameInput.focus();
-        this.nameInput.select();
-      }
-
-      document.addEventListener('keydown', this.handleKeydown);
+      this.beginRename();
     }
   }
 
   componentDidUpdate(prevProps) {
     //  If started to edit the name
     if (!prevProps.renamingValue && this.props.renamingValue !== null) {
-      if (this.nameInput) {
-        this.nameInput.focus();
-        this.nameInput.select();
-      }
-
-      document.addEventListener('keydown', this.handleKeydown);
+      this.beginRename();
     } else if (prevProps.renamingValue && this.props.renamingValue === null) {
-      document.removeEventListener('keydown', this.handleKeydown);
+      document.removeEventListener('keydown', this.handleDocumentKeydown);
+      document.removeEventListener('click', this.handleDocumentClick);
     }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeydown);
+    document.removeEventListener('keydown', this.handleDocumentKeydown);
+    document.removeEventListener('click', this.handleDocumentClick);
   }
 
-  handleKeydown(event) {
+  beginRename() {
+    if (this.nameInput) {
+      this.nameInput.focus();
+      this.nameInput.select();
+    }
+
+    document.addEventListener('keydown', this.handleDocumentKeydown);
+    document.addEventListener('click', this.handleDocumentClick);
+  }
+
+  handleDocumentKeydown(event) {
     //  "Enter" key
     if (event.keyCode === 13) {
       this.props.finishRenameLevelAction();
     }
+  }
+
+  handleDocumentClick() {
+    this.props.finishRenameLevelAction();
   }
 
   render() {

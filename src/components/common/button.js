@@ -23,8 +23,12 @@ export const Wrapper = styled.button`
   ${props =>
     props.disabled &&
     css`
-      background-color: #bbb;
-      pointer-events: none;
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #bbb;
+      }
     `};
 `;
 

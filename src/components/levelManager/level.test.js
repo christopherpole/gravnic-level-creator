@@ -91,6 +91,10 @@ describe('The level', () => {
     'Fires the finish rename level action if the user presses the return key when editing the name',
   );
 
+  it(
+    'Fires the finish rename level action if the user clicks anywhere on the page when editing the level name',
+  );
+
   it('Fire the select and load level event after being double-clicked', () => {
     const loadLevelSpy = spy();
     const level = shallow(<Level {...props} loadLevelAction={loadLevelSpy} />);

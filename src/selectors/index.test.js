@@ -69,7 +69,7 @@ describe.only('The selectors', () => {
       });
 
       expect(buttonDisabledStates.btnNew).toBe(false);
-      expect(buttonDisabledStates.btnLoad).toBe(false);
+      expect(buttonDisabledStates.btnLoad).toBe(true);
       expect(buttonDisabledStates.btnSave).toBe(true);
       expect(buttonDisabledStates.btnDelete).toBe(false);
       expect(buttonDisabledStates.btnCopy).toBe(false);
