@@ -1,3 +1,4 @@
+require('dotenv').config();
 const request = require('supertest');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
@@ -16,7 +17,9 @@ describe('The /levels routes', () => {
 
   beforeAll(() =>
     mongoose
-      .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`)
+      .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`, {
+        useMongoClient: true,
+      })
       .then(() => mongoose.connection.db.dropDatabase())
       .then(() => mongoose.connection.db.close()),
   );
