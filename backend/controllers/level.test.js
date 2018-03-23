@@ -1,4 +1,3 @@
-require('dotenv').config();
 const request = require('supertest');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
@@ -17,8 +16,8 @@ describe('The /levels routes', () => {
 
   beforeAll(() =>
     mongoose
-      .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`, {
-        useMongoClient: true,
+      .connect(`mongodb://localhost/gravnic-level-creator-test`, {
+        useMongoClient: false,
       })
       .then(() => mongoose.connection.db.dropDatabase())
       .then(() => mongoose.connection.db.close()),
@@ -37,7 +36,6 @@ describe('The /levels routes', () => {
         .send(testLevel)
         .then(res => {
           recordId = res.body.id;
-
           expect(res.statusCode).toBe(201);
           expect(res.body.name).toBe(testLevel.name);
           expect(res.body.tiles.length).toBe(100);
