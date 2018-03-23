@@ -5,33 +5,43 @@ services:
     build: ./frontend
     working_dir: /frontend
     ports:
-      - "3000:1337" 
+      - "3000:3000"
     volumes:
       - ./frontend:/frontend
-    environment:
-      - REACT_APP_BACKEND_ENDPOINT=http://localhost:4000
-      - PORT=1337
     depends_on:
       - backend
+    environment:
+      - REACT_APP_BACKEND_ENDPOINT=http://backend:4000
+      - PORT=3000
 
   backend: 
     build: ./backend
     working_dir: /backend
     ports:
-      - "4000:1338" 
-    links:
-      - database 
+      - "4000:4000"
     volumes:
       - ./backend:/backend
+    depends_on:
+      - database
     environment:
       - DB_ADDRESS=database:27017
-      - PORT=1337
-      - BACKEND_PORT=1338
+      - PORT=4000
       - DB_NAME=gravnic-level-creator
       - LOG_LEVEL=debug
       - MORGAN_LOGGING=ON
+
+  e2e: 
+    build: ./e2e
+    working_dir: /e2e
+    volumes:
+      - ./e2e:/e2e
+    links:
+      - frontend 
+    environment:
+      - FRONTEND_URL=frontend:3000
     depends_on:
-      - database
+      - frontend
+      - backend
 
   database: 
     image: mongo 
