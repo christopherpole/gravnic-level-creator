@@ -1,8 +1,9 @@
 import Nightmare from 'nightmare';
+import Xvfb from 'xvfb';
 
 describe('The level creator', () => {
   const nightmare = new Nightmare({ show: false });
-  const page = nightmare.goto('http://127.0.0.1:1337');
+  const page = nightmare.goto(`http://${process.env.FRONTEND_URL}`);
 
   afterAll(async done => {
     await page.end();

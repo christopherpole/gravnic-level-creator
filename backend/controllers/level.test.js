@@ -16,7 +16,9 @@ describe('The /levels routes', () => {
 
   beforeAll(() =>
     mongoose
-      .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`)
+      .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`, {
+        useMongoClient: false,
+      })
       .then(() => mongoose.connection.db.dropDatabase())
       .then(() => mongoose.connection.db.close()),
   );
@@ -25,7 +27,7 @@ describe('The /levels routes', () => {
     server = require('../server');
   });
 
-  afterEach(() => server.close());
+  afterEach(() => server.close()); //  @FIXME: wait for server to close before proceeding
 
   describe('POST actions', () => {
     it('Can create new levels', () =>
@@ -34,7 +36,6 @@ describe('The /levels routes', () => {
         .send(testLevel)
         .then(res => {
           recordId = res.body.id;
-
           expect(res.statusCode).toBe(201);
           expect(res.body.name).toBe(testLevel.name);
           expect(res.body.tiles.length).toBe(100);
@@ -100,7 +101,6 @@ describe('The /levels routes', () => {
         .del(`/levels/${recordId}`)
         .then(res => {
           expect(res.statusCode).toBe(204);
-
           return request(server)
             .get('/levels')
             .then(res2 => {

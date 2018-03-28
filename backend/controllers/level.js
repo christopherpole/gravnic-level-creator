@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Level = require('../models/level');
 const winston = require('winston');
+const Level = require('../models/level');
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: true }));

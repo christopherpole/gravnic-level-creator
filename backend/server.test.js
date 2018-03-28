@@ -7,7 +7,7 @@ describe('The Node server', () => {
     server = require('./server');
   });
 
-  afterEach(() => server.close());
+  afterEach(() => server.close()); //  @FIXME: wait for server to close before proceeding
 
   it('Sends a 404 for missing routes', () =>
     request(server)
