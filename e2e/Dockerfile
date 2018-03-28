@@ -1,6 +1,3 @@
-FROM node:9-alpine
-
-COPY . /e2e
-WORKDIR /e2e
+FROM fentas/nightmare
 
 CMD [ "npm", "test" ]

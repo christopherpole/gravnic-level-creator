@@ -2,7 +2,7 @@ const winston = require('winston');
 
 const app = require('./app');
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 4000;
 
 const server = app.listen(port, () => {
   winston.info(`Express server listening on port ${port}`);

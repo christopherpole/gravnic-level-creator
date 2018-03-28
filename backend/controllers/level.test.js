@@ -16,7 +16,7 @@ describe('The /levels routes', () => {
 
   beforeAll(() =>
     mongoose
-      .connect(`mongodb://localhost/gravnic-level-creator-test`, {
+      .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`, {
         useMongoClient: false,
       })
       .then(() => mongoose.connection.db.dropDatabase())
@@ -27,7 +27,7 @@ describe('The /levels routes', () => {
     server = require('../server');
   });
 
-  afterEach(() => server.close());
+  afterEach(() => server.close()); //  @FIXME: wait for server to close before proceeding
 
   describe('POST actions', () => {
     it('Can create new levels', () =>
@@ -101,7 +101,6 @@ describe('The /levels routes', () => {
         .del(`/levels/${recordId}`)
         .then(res => {
           expect(res.statusCode).toBe(204);
-
           return request(server)
             .get('/levels')
             .then(res2 => {
