@@ -56,8 +56,6 @@ services:
   e2e: 
     build: ./e2e
     working_dir: /e2e
-    volumes:
-      - ./e2e:/e2e
     environment:
       - FRONTEND_URL=frontend:3000
     depends_on:
