@@ -13,5 +13,3 @@ RUN apt-get update && \
 
 COPY . /e2e
 WORKDIR /e2e
-
-CMD [ "yarn", "test" ]

@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "airbnb/base",
+    "prettier"
+  ],
+  "plugins": [
+    "jest",
+    "prettier"
+  ],
+  "globals": {
+    "document": true,
+    "window": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "import/no-named-as-default": 0,
+    "function-paren-newline": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+    "global-require": 0,
+    "no-underscore-dangle": ["error", { "allow": ["_id", "__v"] }],
+    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
+  },
+  "env": {
+    "jest/globals": true
+  }
+}

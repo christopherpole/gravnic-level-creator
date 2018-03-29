@@ -8,6 +8,13 @@ services:
     volumes:
       - ./frontend:/frontend
 
+  frontend_lint: 
+    image: node:9-alpine
+    working_dir: /frontend
+    command: "yarn lint"
+    volumes:
+      - ./frontend:/frontend
+
   frontend_tests: 
     image: node:9-alpine
     working_dir: /frontend
@@ -42,6 +49,13 @@ services:
     command: "yarn"
     volumes:
       - ./backend:/backend
+
+  backend_lint: 
+    image: node:9-alpine
+    working_dir: /frontend
+    command: "yarn lint"
+    volumes:
+      - ./frontend:/frontend
 
   backend: 
     build: ./backend
@@ -79,9 +93,24 @@ services:
     depends_on:
       - database
 
+  e2e_compile: 
+    image: node:9-alpine
+    working_dir: /e2e
+    command: "yarn"
+    volumes:
+      - ./e2e:/e2e
+
+  e2e_lint: 
+    image: node:9-alpine
+    working_dir: /e2e
+    command: "yarn lint"
+    volumes:
+      - ./e2e:/e2e 
+
   e2e: 
     build: ./e2e
     working_dir: /e2e
+    command: "yarn test"
     environment:
       - FRONTEND_URL=frontend:3000
     depends_on:
