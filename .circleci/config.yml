@@ -15,13 +15,13 @@ jobs:
 
       - restore_cache:
           keys:
-            - gravnic-v1-{{ checksum "frontend/yarn.lock" }}
-            - gravnic-v1-
+            - gravnic-frontend-v1-{{ checksum "frontend/yarn.lock" }}
+            - gravnic-frontend-v1-
 
       - run: docker-compose run frontend_compile
 
       - save_cache:
-          key: gravnic-v1-{{ checksum "frontend/yarn.lock" }}
+          key: gravnic-frontend-v1-{{ checksum "frontend/yarn.lock" }}
           paths:
             - frontend/node_modules
 
@@ -29,13 +29,13 @@ jobs:
 
       - restore_cache:
           keys:
-            - gravnic-v1-{{ checksum "backend/yarn.lock" }}
-            - gravnic-v1-
+            - gravnic-backend-v1-{{ checksum "backend/yarn.lock" }}
+            - gravnic-backend-v1-
 
       - run: docker-compose run backend_compile
 
       - save_cache:
-          key: gravnic-v1-{{ checksum "backend/yarn.lock" }}
+          key: gravnic-backend-v1-{{ checksum "backend/yarn.lock" }}
           paths:
             - backend/node_modules
 
@@ -43,13 +43,13 @@ jobs:
 
       - restore_cache:
           keys:
-            - gravnic-v1-{{ checksum "e2e/yarn.lock" }}
-            - gravnic-v1-
+            - gravnic-e2e-v1-{{ checksum "e2e/yarn.lock" }}
+            - gravnic-e2e-v1-
 
       - run: docker-compose up e2e
 
       - save_cache:
-          key: gravnic-v1-{{ checksum "e2e/yarn.lock" }}
+          key: gravnic-e2e-v1-{{ checksum "e2e/yarn.lock" }}
           paths:
             - e2e/node_modules
 
