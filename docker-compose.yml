@@ -21,8 +21,6 @@ services:
     command: "yarn test"
     volumes:
       - ./frontend:/frontend
-    environment:
-      - CI=true
 
   frontend: 
     build: ./frontend
@@ -89,7 +87,6 @@ services:
       - PORT=5001
       - LOG_LEVEL=debug
       - MORGAN_LOGGING=OFF
-      - CI=true
     depends_on:
       - database
 

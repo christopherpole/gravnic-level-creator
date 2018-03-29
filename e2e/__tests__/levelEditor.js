@@ -1,5 +1,8 @@
 import puppeteer from 'puppeteer';
 
+//  Set the timeout to 10 seconds. Good for when using slowMo for ddebugging
+jest.setTimeout(10000);
+
 describe('The level editor', () => {
   let browser;
   let page;
@@ -8,8 +11,10 @@ describe('The level editor', () => {
     browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      slowMo: 0,
     });
     page = await browser.newPage();
+    await page.setViewport({ width: 1000, height: 600, deviceScaleFactor: 1 });
     done();
   });
 
@@ -114,7 +119,7 @@ describe('The level editor', () => {
     done();
   });
 
-  it('Hides the preview placeholder when clicking on the "edit" button in preview mode', async () => {
+  it('Hides the preview placeholder when clicking on the "edit" button in preview mode', async done => {
     await page.click('#btn-edit');
 
     const editorGridShowing = !!await page.$('#editor-grid');
@@ -122,9 +127,11 @@ describe('The level editor', () => {
 
     const levelPreviewShowing = !!await page.$('#level-preview');
     expect(levelPreviewShowing).toBe(false);
+
+    done();
   });
 
-  it('Resets the level editor when the "Reset" button is clicked', async () => {
+  it('Resets the level editor when the "Reset" button is clicked', async done => {
     //  All tiles are initally not blank
     let allTilesBlank = await page.evaluate(() => {
       const tiles = document.querySelectorAll('#editor-grid .tile > div');
@@ -154,5 +161,46 @@ describe('The level editor', () => {
     });
 
     expect(allTilesBlank).toBe(true);
+
+    done();
+  });
+
+  it('Allows users to set tiles by dragging the mouse over them', async done => {
+    //  Drag the mouse over 5 tiles
+    const { mouse } = page;
+    await mouse.move(100, 100);
+    await mouse.down();
+    await mouse.move(200, 100, { steps: 10 });
+    await mouse.move(200, 200, { steps: 10 });
+    await mouse.up();
+
+    //  Count the number of non-blank tiles and make sure that it's 5
+    const nonBlankTilesCount = await page.evaluate(() => {
+      const tiles = document.querySelectorAll('#editor-grid .tile > div');
+
+      return Array.prototype.slice
+        .call(tiles)
+        .filter(tile => window.getComputedStyle(tile).backgroundColor !== 'rgb(51, 51, 51)').length;
+    });
+
+    expect(nonBlankTilesCount).toBe(5);
+
+    //  Make sure that the tiles that have been dragged over are not blank
+    const tilesAreUpdated = await page.evaluate(() => {
+      const tiles = document.querySelectorAll(
+        '#editor-grid .tile:nth-child(12) > div, #editor-grid .tile:nth-child(13) > div, #editor-grid .tile:nth-child(14) > div, #editor-grid .tile:nth-child(24) > div, #editor-grid .tile:nth-child(34) > div',
+      );
+
+      return (
+        Array.prototype.slice
+          .call(tiles)
+          .filter(tile => window.getComputedStyle(tile).backgroundColor === 'rgb(255, 0, 0)')
+          .length === 5
+      );
+    });
+
+    expect(tilesAreUpdated).toBe(true);
+
+    done();
   });
 });
