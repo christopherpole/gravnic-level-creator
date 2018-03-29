@@ -1,5 +1,8 @@
 FROM node:9-alpine
 
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+
 ADD yarn.lock /yarn.lock
 ADD package.json /package.json
 
@@ -11,5 +14,3 @@ COPY . /frontend
 WORKDIR /frontend
 
 EXPOSE 3000
-
-CMD [ "yarn", "start" ]
