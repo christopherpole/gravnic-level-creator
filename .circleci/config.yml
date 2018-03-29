@@ -13,12 +13,44 @@ jobs:
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
+      - restore_cache:
+          keys:
+            - gravnic-v1-{{ checksum "frontend/yarn.lock" }}
+            - gravnic-v1-
+
       - run: docker-compose run frontend_compile
+
+      - save_cache:
+          key: gravnic-v1-{{ checksum "frontend/yarn.lock" }}
+          paths:
+            - frontend/node_modules
 
       - run: docker-compose run frontend_tests
 
+      - restore_cache:
+          keys:
+            - gravnic-v1-{{ checksum "backend/yarn.lock" }}
+            - gravnic-v1-
+
       - run: docker-compose run backend_compile
+
+      - save_cache:
+          key: gravnic-v1-{{ checksum "backend/yarn.lock" }}
+          paths:
+            - backend/node_modules
 
       - run: docker-compose run backend_tests
 
+      - restore_cache:
+          keys:
+            - gravnic-v1-{{ checksum "e2e/yarn.lock" }}
+            - gravnic-v1-
+
       - run: docker-compose up e2e
+
+      - save_cache:
+          key: gravnic-v1-{{ checksum "e2e/yarn.lock" }}
+          paths:
+            - e2e/node_modules
+
+
