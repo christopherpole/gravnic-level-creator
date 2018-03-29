@@ -3,7 +3,7 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
-import WarningIcon from './WarningIcon';
+import WarningIcon from './warningIcon';
 
 configure({ adapter: new Adapter() });
 

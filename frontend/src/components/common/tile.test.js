@@ -16,7 +16,6 @@ describe('Tiles', () => {
 
   it('Matches the current snapshot', () => {
     const tile = shallow(<Tile />);
-
     expect(toJson(tile)).toMatchSnapshot();
   });
 });
