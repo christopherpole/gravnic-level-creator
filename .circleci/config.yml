@@ -25,6 +25,7 @@ jobs:
           paths:
             - frontend/node_modules
 
+      - run: docker-compose run frontend_lint
       - run: docker-compose run frontend_tests
 
       - restore_cache:
@@ -39,6 +40,7 @@ jobs:
           paths:
             - backend/node_modules
 
+      - run: docker-compose run backend_lint
       - run: docker-compose run backend_tests
 
       - restore_cache:
@@ -46,11 +48,12 @@ jobs:
             - gravnic-e2e-v1-{{ checksum "e2e/yarn.lock" }}
             - gravnic-e2e-v1-
 
-      - run: docker-compose up e2e
+      - run: docker-compose run e2e_compile
 
       - save_cache:
           key: gravnic-e2e-v1-{{ checksum "e2e/yarn.lock" }}
           paths:
             - e2e/node_modules
 
-
+      - run: docker-compose run e2e_lint
+      - run: docker-compose up e2e
