@@ -21,6 +21,8 @@ services:
     command: "yarn test"
     volumes:
       - ./frontend:/frontend
+    environment:
+      - CI=true
 
   frontend: 
     build: ./frontend
@@ -82,6 +84,7 @@ services:
     volumes:
       - ./backend:/backend
     environment:
+      - CI=true
       - DB_NAME=gravnic-level-creator-test
       - DB_ADDRESS=database:27017
       - PORT=5001
@@ -110,6 +113,7 @@ services:
     command: "yarn test"
     environment:
       - FRONTEND_URL=frontend:3000
+      - CI=true
     depends_on:
       frontend:
         condition: service_healthy
