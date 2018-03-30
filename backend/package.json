@@ -5,7 +5,7 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "test": "PORT=5000 DB_ADDRESS=localhost:27017 DB_NAME=gravnic-level-creator-test jest",
+    "test": "jest",
     "start": "nodemon ./src/server.js",
     "lint": "eslint --ext js src"
   },
