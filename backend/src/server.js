@@ -1,4 +1,5 @@
 const winston = require('winston');
+require('dotenv').config();
 
 const app = require('./app');
 

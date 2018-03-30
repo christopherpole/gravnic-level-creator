@@ -50,38 +50,62 @@ export const ManagerActions = ({
   <Wrapper>
     <Toolbar>
       <ToolbarAction>
-        <StyledButton disabled={buttonDisabledStates.btnNew} onClick={createLevelAction}>
+        <StyledButton
+          disabled={buttonDisabledStates.btnNew}
+          onClick={createLevelAction}
+          id="btn-new"
+        >
           <span>New</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <StyledButton disabled={buttonDisabledStates.btnLoad} onClick={loadLevelAction}>
+        <StyledButton
+          disabled={buttonDisabledStates.btnLoad}
+          onClick={loadLevelAction}
+          id="btn-load"
+        >
           <span>Load</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <StyledButton disabled={buttonDisabledStates.btnSave} onClick={saveLevelAction}>
+        <StyledButton
+          disabled={buttonDisabledStates.btnSave}
+          onClick={saveLevelAction}
+          id="btn-save"
+        >
           <span>Save</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <StyledButton disabled={buttonDisabledStates.btnDelete} onClick={deleteSelectedLevelAction}>
+        <StyledButton
+          disabled={buttonDisabledStates.btnDelete}
+          onClick={deleteSelectedLevelAction}
+          id="btn-delete"
+        >
           <span>Delete</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
-        <StyledButton disabled={buttonDisabledStates.btnCopy} onClick={copyLevelAction}>
+        <StyledButton
+          disabled={buttonDisabledStates.btnCopy}
+          onClick={copyLevelAction}
+          id="btn-copy"
+        >
           <span>Copy</span>
         </StyledButton>
       </ToolbarAction>
       <ToolbarAction>
         {!renamingLevelId && (
-          <StyledButton disabled={buttonDisabledStates.btnRename} onClick={beginRenameLevelAction}>
+          <StyledButton
+            disabled={buttonDisabledStates.btnRename}
+            onClick={beginRenameLevelAction}
+            id="btn-rename"
+          >
             <span>Rename</span>
           </StyledButton>
         )}
         {renamingLevelId && (
-          <StyledButton onClick={finishRenameLevelAction}>
+          <StyledButton onClick={finishRenameLevelAction} id="btn-done">
             <span>Done</span>
           </StyledButton>
         )}

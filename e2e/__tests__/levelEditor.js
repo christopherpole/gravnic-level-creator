@@ -1,4 +1,7 @@
 import puppeteer from 'puppeteer';
+import dovenv from 'dotenv';
+
+dovenv.config();
 
 //  Set the timeout to 10 seconds. Good for when using slowMo for ddebugging
 jest.setTimeout(10000);

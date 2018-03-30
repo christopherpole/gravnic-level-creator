@@ -13,7 +13,7 @@ export const Wrapper = styled.section`
 `;
 
 export const LevelManager = ({ loaded, error }) => (
-  <Wrapper>
+  <Wrapper id="level-manager">
     <LevelsList />
     {loaded && !error && <ManagerActions />}
   </Wrapper>

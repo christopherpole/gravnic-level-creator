@@ -130,6 +130,7 @@ export class Level extends Component {
         }}
         isSelected={isSelected}
         isCurrent={isCurrent}
+        className="level"
       >
         <LevelPreview tiles={tiles} />
         {renamingValue !== null ? (

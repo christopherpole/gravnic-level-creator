@@ -45,13 +45,13 @@ jobs:
 
       - restore_cache:
           keys:
-            - gravnic-e2e-v1-{{ checksum "e2e/yarn.lock" }}
-            - gravnic-e2e-v1-
+            - gravnic-e2e-v2-{{ checksum "e2e/yarn.lock" }}
+            - gravnic-e2e-v2-
 
       - run: docker-compose run e2e_compile
 
       - save_cache:
-          key: gravnic-e2e-v1-{{ checksum "e2e/yarn.lock" }}
+          key: gravnic-e2e-v2-{{ checksum "e2e/yarn.lock" }}
           paths:
             - e2e/node_modules
 

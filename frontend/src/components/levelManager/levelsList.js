@@ -93,7 +93,7 @@ export class LevelsList extends Component {
       return (
         <Wrapper>
           <NoLevelsContainer>
-            <NoLevelsCopy>No levels found</NoLevelsCopy>
+            <NoLevelsCopy className="no-levels">No levels found</NoLevelsCopy>
           </NoLevelsContainer>
         </Wrapper>
       );

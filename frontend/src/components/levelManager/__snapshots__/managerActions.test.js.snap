@@ -6,6 +6,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     <styled.li>
       <Styled(Button)
         disabled={false}
+        id="btn-new"
         onClick={[Function]}
       >
         <span>
@@ -16,6 +17,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     <styled.li>
       <Styled(Button)
         disabled={false}
+        id="btn-load"
         onClick={[Function]}
       >
         <span>
@@ -26,6 +28,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     <styled.li>
       <Styled(Button)
         disabled={false}
+        id="btn-save"
         onClick={[Function]}
       >
         <span>
@@ -36,6 +39,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     <styled.li>
       <Styled(Button)
         disabled={false}
+        id="btn-delete"
         onClick={[Function]}
       >
         <span>
@@ -46,6 +50,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     <styled.li>
       <Styled(Button)
         disabled={false}
+        id="btn-copy"
         onClick={[Function]}
       >
         <span>
@@ -56,6 +61,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
     <styled.li>
       <Styled(Button)
         disabled={false}
+        id="btn-rename"
         onClick={[Function]}
       >
         <span>
@@ -73,6 +79,7 @@ exports[`The level manager actions Matches the current snapshot with disabled bu
     <styled.li>
       <Styled(Button)
         disabled={true}
+        id="btn-new"
         onClick={[Function]}
       >
         <span>
@@ -83,6 +90,7 @@ exports[`The level manager actions Matches the current snapshot with disabled bu
     <styled.li>
       <Styled(Button)
         disabled={true}
+        id="btn-load"
         onClick={[Function]}
       >
         <span>
@@ -93,6 +101,7 @@ exports[`The level manager actions Matches the current snapshot with disabled bu
     <styled.li>
       <Styled(Button)
         disabled={true}
+        id="btn-save"
         onClick={[Function]}
       >
         <span>
@@ -103,6 +112,7 @@ exports[`The level manager actions Matches the current snapshot with disabled bu
     <styled.li>
       <Styled(Button)
         disabled={true}
+        id="btn-delete"
         onClick={[Function]}
       >
         <span>
@@ -113,6 +123,7 @@ exports[`The level manager actions Matches the current snapshot with disabled bu
     <styled.li>
       <Styled(Button)
         disabled={true}
+        id="btn-copy"
         onClick={[Function]}
       >
         <span>
@@ -123,6 +134,7 @@ exports[`The level manager actions Matches the current snapshot with disabled bu
     <styled.li>
       <Styled(Button)
         disabled={true}
+        id="btn-rename"
         onClick={[Function]}
       >
         <span>
