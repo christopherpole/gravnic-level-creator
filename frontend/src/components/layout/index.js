@@ -32,7 +32,8 @@ export const AppContainer = styled.div`
   color: ${props => props.theme.foregroundColor};
   display: grid;
   grid-template-columns: 3fr 1fr;
-  width: ${props => props.theme.containerWidth};
+  min-width: ${props => props.theme.containerWidth};
+  max-width: ${props => props.theme.containerWidth};
 `;
 
 const Layout = () => (

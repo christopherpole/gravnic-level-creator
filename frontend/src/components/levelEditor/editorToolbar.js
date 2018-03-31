@@ -9,6 +9,7 @@ import { resetGrid, previewLevel, editLevel } from '../../actions/levelEditor';
 
 export const Wrapper = styled.div`
   grid-column: 1 / 2;
+  margin-top: ${props => props.theme.structureSpacing};
 `;
 
 export const Toolbar = styled.ul`

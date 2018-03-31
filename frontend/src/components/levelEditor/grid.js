@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 `;
 
 export const TilesWrapper = styled.div`
-  border: 1px solid white;
+  border: 1px solid ${props => props.theme.foregroundColor};
   background: white;
   display: grid;
   position: absolute;

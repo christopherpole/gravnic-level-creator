@@ -7,24 +7,37 @@ import LevelPreview from './levelPreview';
 import Grid from './grid';
 import EditorToolbar from './editorToolbar';
 import TileSelector from './tileSelector';
+import StarsEditor from './starsEditor';
 
 export const Wrapper = styled.section`
   padding: ${props => props.theme.structureSpacing};
   position: relative;
 `;
 
-export const WrapperInner = styled.section`
+export const WrapperInner = styled.div`
   display: grid;
-  grid-gap: ${props => props.theme.structureSpacing};
   grid-template-columns: 2fr 1fr;
+  grid-column-gap: ${props => props.theme.structureSpacing};
+`;
+
+export const GridWrapper = styled.div``;
+
+export const PanesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const LevelEditor = ({ previewing }) => (
   <Wrapper>
     <WrapperInner>
-      {previewing ? <LevelPreview /> : <Grid />}
-      <EditorToolbar />
-      <TileSelector />
+      <GridWrapper>
+        {previewing ? <LevelPreview /> : <Grid />}
+        <EditorToolbar />
+      </GridWrapper>
+      <PanesWrapper>
+        <StarsEditor />
+        <TileSelector />
+      </PanesWrapper>
     </WrapperInner>
   </Wrapper>
 );

@@ -10,8 +10,7 @@ import tiles from '../../config/tiles.json';
 
 export const Wrapper = styled.div`
   position: relative;
-  grid-row: 1 / 3;
-  grid-column: 2 / 3;
+  flex-grow: 1;
 `;
 
 export const WrapperInner = styled.div`
