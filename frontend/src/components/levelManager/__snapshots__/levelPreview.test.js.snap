@@ -1,27 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The level preview Matches the current snapshot 1`] = `
-<styled.div>
+<styled.div
+  className="level-preview"
+>
   <styled.div>
     <styled.div
+      className="preview-tile"
       key="0"
     >
       <Tile
-        id={2}
+        tileId={2}
       />
     </styled.div>
     <styled.div
+      className="preview-tile"
       key="1"
     >
       <Tile
-        id={3}
+        tileId={3}
       />
     </styled.div>
     <styled.div
+      className="preview-tile"
       key="2"
     >
       <Tile
-        id={0}
+        tileId={0}
       />
     </styled.div>
   </styled.div>

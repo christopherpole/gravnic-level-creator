@@ -70,7 +70,7 @@ export const Grid = ({
             }}
             className="tile"
           >
-            <Tile id={editorTile.selectedTileId} />
+            <Tile tileId={editorTile.selectedTileId} />
           </TileWrapper>
         ))}
       </TilesWrapper>

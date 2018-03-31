@@ -63,7 +63,7 @@ export const TileSelector = ({ selectedTileId, selectTileAction }) => (
           }}
           key={tile.id}
         >
-          <Tile id={tile.id} isSelected={tile.id === selectedTileId} />
+          <Tile tileId={tile.id} isSelected={tile.id === selectedTileId} />
         </TileWrapper>
       ))}
     </WrapperInner>

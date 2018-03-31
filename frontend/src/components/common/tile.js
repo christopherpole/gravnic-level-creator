@@ -11,68 +11,68 @@ export const Wrapper = styled.div`
   bottom: 0;
 
   ${props =>
-    props.id === 0 &&
+    props.tileId === 0 &&
     css`
       background: ${props.theme.backgroundColor};
     `}
 
   ${props =>
-    props.id === 1 &&
+    props.tileId === 1 &&
     css`
       background: white;
     `}
 
   ${props =>
-    props.id === 2 &&
+    props.tileId === 2 &&
     css`
       background: red;
     `}
 
   ${props =>
-    props.id === 3 &&
+    props.tileId === 3 &&
     css`
       background: orange;
     `}
 
   ${props =>
-    props.id === 4 &&
+    props.tileId === 4 &&
     css`
       background: yellow;
     `}
 
   ${props =>
-    props.id === 5 &&
+    props.tileId === 5 &&
     css`
       background: green;
     `}
 
   ${props =>
-    props.id === 6 &&
+    props.tileId === 6 &&
     css`
       background: blue;
     `}
 
   ${props =>
-    props.id === 7 &&
+    props.tileId === 7 &&
     css`
       background: purple;
     `}
 
   ${props =>
-    props.id === 8 &&
+    props.tileId === 8 &&
     css`
       background: grey;
     `}
 `;
 
-const Tile = ({ id }) => <Wrapper id={id} />;
+const Tile = ({ tileId }) => <Wrapper tileId={tileId} />;
 
 Tile.defaultProps = {
-  id: null,
+  tileId: null,
 };
 
 Tile.propTypes = {
-  id: PropTypes.number,
+  tileId: PropTypes.number,
 };
 
 export default Tile;

@@ -21,7 +21,7 @@ describe('The /levels routes', () => {
         useMongoClient: false,
       })
       .then(() => mongoose.connection.db.dropDatabase())
-      .then(() => mongoose.connection.db.close()),
+      .then(() => mongoose.connection.close()),
   );
 
   beforeEach(() => {

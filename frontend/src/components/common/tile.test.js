@@ -8,14 +8,22 @@ import Tile from './tile';
 configure({ adapter: new Adapter() });
 
 describe('Tiles', () => {
+  let props;
+
+  beforeEach(() => {
+    props = {
+      tileId: 1,
+    };
+  });
+
   it('Renders without exploding', () => {
-    const tile = shallow(<Tile />);
+    const tile = shallow(<Tile {...props} />);
 
     expect(tile).toHaveLength(1);
   });
 
   it('Matches the current snapshot', () => {
-    const tile = shallow(<Tile />);
+    const tile = shallow(<Tile {...props} />);
     expect(toJson(tile)).toMatchSnapshot();
   });
 });

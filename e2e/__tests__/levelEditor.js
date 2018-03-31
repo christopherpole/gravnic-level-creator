@@ -14,7 +14,7 @@ describe('The level editor', () => {
     browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: 0,
+      slowMo: 10,
     });
     page = await browser.newPage();
     await page.setViewport({ width: 1000, height: 600, deviceScaleFactor: 1 });

@@ -26,11 +26,11 @@ export const TileContainer = styled.div`
 `;
 
 export const LevelPreview = ({ tiles }) => (
-  <Wrapper>
+  <Wrapper className="level-preview">
     <WrapperInner>
       {tiles.map(tile => (
-        <TileContainer key={tile.position}>
-          <Tile id={tile.selectedTileId} />
+        <TileContainer className="preview-tile" key={tile.position}>
+          <Tile tileId={tile.selectedTileId} />
         </TileContainer>
       ))}
     </WrapperInner>
