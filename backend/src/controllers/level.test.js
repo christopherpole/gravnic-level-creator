@@ -9,6 +9,7 @@ const testLevel = {
     selectedTileId: 0,
     position: index,
   })),
+  stars: [1, 2, 3],
 };
 
 describe('The /levels routes', () => {
@@ -40,6 +41,7 @@ describe('The /levels routes', () => {
           expect(res.statusCode).toBe(201);
           expect(res.body.name).toBe(testLevel.name);
           expect(res.body.tiles.length).toBe(100);
+          expect(res.body.stars).toEqual(testLevel.stars);
         }));
   });
 
@@ -53,6 +55,7 @@ describe('The /levels routes', () => {
           expect(res.body.length).toBe(1);
           expect(res.body[0].name).toBe(testLevel.name);
           expect(res.body[0].tiles.length).toBe(100);
+          expect(res.body[0].stars).toEqual(testLevel.stars);
         }));
 
     it('Can find a single level by ID', () =>
@@ -62,6 +65,7 @@ describe('The /levels routes', () => {
           expect(res.statusCode).toBe(200);
           expect(res.body.name).toBe(testLevel.name);
           expect(res.body.tiles.length).toBe(100);
+          expect(res.body.stars).toEqual(testLevel.stars);
         }));
 
     it('Returns a 404 error if the record is not found', () =>
@@ -83,6 +87,7 @@ describe('The /levels routes', () => {
           expect(res.statusCode).toBe(200);
           expect(res.body.name).toBe('Updated level name');
           expect(res.body.tiles.length).toBe(100);
+          expect(res.body.stars).toEqual(testLevel.stars);
         }));
 
     it('Returns a 404 error if the record is not found', () =>

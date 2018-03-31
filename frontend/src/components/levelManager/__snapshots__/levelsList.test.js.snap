@@ -11,6 +11,13 @@ exports[`The level manager Matches the current snapshot if a level is being rena
         key="1"
         name="Test level 1"
         renamingValue="New name"
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -37,6 +44,13 @@ exports[`The level manager Matches the current snapshot if a level is being rena
         key="2"
         name="Test level 2"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -63,6 +77,13 @@ exports[`The level manager Matches the current snapshot if a level is being rena
         key="3"
         name="Test level 3"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -98,6 +119,13 @@ exports[`The level manager Matches the current snapshot if a level is selected 1
         key="1"
         name="Test level 1"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -124,6 +152,13 @@ exports[`The level manager Matches the current snapshot if a level is selected 1
         key="2"
         name="Test level 2"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -150,6 +185,13 @@ exports[`The level manager Matches the current snapshot if a level is selected 1
         key="3"
         name="Test level 3"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -185,6 +227,13 @@ exports[`The level manager Matches the current snapshot if a level is the curren
         key="1"
         name="Test level 1"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -211,6 +260,13 @@ exports[`The level manager Matches the current snapshot if a level is the curren
         key="2"
         name="Test level 2"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -237,6 +293,13 @@ exports[`The level manager Matches the current snapshot if a level is the curren
         key="3"
         name="Test level 3"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -298,6 +361,13 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
         key="1"
         name="Test level 1"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -324,6 +394,13 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
         key="2"
         name="Test level 2"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {
@@ -350,6 +427,13 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
         key="3"
         name="Test level 3"
         renamingValue={null}
+        stars={
+          Array [
+            1,
+            2,
+            3,
+          ]
+        }
         tiles={
           Array [
             Object {

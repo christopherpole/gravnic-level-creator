@@ -12,6 +12,7 @@ router.post('/', (req, res) => {
     {
       name: req.body.name,
       tiles: req.body.tiles,
+      stars: req.body.stars,
     },
     (err, level) => {
       if (err) {

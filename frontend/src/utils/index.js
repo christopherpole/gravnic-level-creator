@@ -9,4 +9,5 @@ export const createNewLevel = () => ({
     position: index,
     selectedTileId: 0,
   })),
+  stars: [1, 2, 3],
 });

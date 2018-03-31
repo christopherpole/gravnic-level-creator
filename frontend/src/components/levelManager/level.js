@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import StarIcon from '../common/starIcon';
+
 import {
   selectLevel,
   loadLevel,
@@ -41,6 +43,10 @@ export const Wrapper = styled.li`
     `};
 `;
 
+export const NameWrapper = styled.div`
+  margin-bottom: 0.2em;
+`;
+
 export const Name = styled.p`
   user-select: none;
 `;
@@ -54,6 +60,24 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+`;
+
+export const StarsList = styled.ul`
+  display: flex;
+`;
+
+export const StarListItem = styled.li`
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin-right: 0.8em;
+`;
+
+export const Star = styled(StarIcon)``;
+
+export const StarsLabel = styled.span`
+  margin-left: 0.3em;
+  user-select: none;
 `;
 
 export class Level extends Component {
@@ -112,6 +136,7 @@ export class Level extends Component {
       id,
       name,
       tiles,
+      stars,
       isSelected,
       isCurrent,
       renamingValue,
@@ -133,19 +158,42 @@ export class Level extends Component {
         className="level"
       >
         <LevelPreview tiles={tiles} />
-        {renamingValue !== null ? (
-          <Input
-            innerRef={input => {
-              this.nameInput = input;
-            }}
-            onChange={event => {
-              changeRenameLevelAction(event.target.value);
-            }}
-            value={renamingValue}
-          />
-        ) : (
-          <Name>{name}</Name>
-        )}
+
+        <div>
+          <NameWrapper>
+            {renamingValue !== null ? (
+              <Input
+                innerRef={input => {
+                  this.nameInput = input;
+                }}
+                onChange={event => {
+                  changeRenameLevelAction(event.target.value);
+                }}
+                value={renamingValue}
+              />
+            ) : (
+              <Name>{name}</Name>
+            )}
+          </NameWrapper>
+
+          <StarsList>
+            <StarListItem>
+              <Star />
+              <Star />
+              <Star />
+              <StarsLabel>{stars[0]}</StarsLabel>
+            </StarListItem>
+            <StarListItem>
+              <Star />
+              <Star />
+              <StarsLabel>{stars[1]}</StarsLabel>
+            </StarListItem>
+            <StarListItem>
+              <Star />
+              <StarsLabel>{stars[2]}</StarsLabel>
+            </StarListItem>
+          </StarsList>
+        </div>
       </Wrapper>
     );
   }
@@ -161,6 +209,7 @@ Level.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   tiles: PropTypes.array.isRequired,
+  stars: PropTypes.array.isRequired,
   isSelected: PropTypes.bool,
   isCurrent: PropTypes.bool,
   renamingValue: PropTypes.string,

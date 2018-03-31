@@ -10,6 +10,7 @@ describe('The level model', () => {
         selectedTileId: '0',
         position: index,
       })),
+      stars: [1, 2, 3],
     });
   });
 
@@ -26,6 +27,7 @@ describe('The level model', () => {
     level.validate(err => {
       expect(err.errors.name).toBeDefined();
       expect(err.errors.tiles).toBeDefined();
+      expect(err.errors.stars).toBeDefined();
       done();
     });
   });
@@ -39,6 +41,7 @@ describe('The level model', () => {
     expect(typeof testLevelJson.tiles[0].position).toBe('number');
     expect(typeof testLevelJson.tiles[0].selectedTileId).toBe('number');
     expect(typeof testLevelJson.id).toBe('object');
+    expect(testLevelJson.stars).toEqual([1, 2, 3]);
     expect(testLevelJson._id).toBe(undefined);
     expect(testLevelJson.__v).toBe(undefined);
   });

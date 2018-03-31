@@ -26,6 +26,10 @@ const LevelSchema = new mongoose.Schema({
     type: [TileSchema],
     required: true,
   },
+  stars: {
+    type: [Number],
+    required: true,
+  },
 });
 
 LevelSchema.post('save', level => {

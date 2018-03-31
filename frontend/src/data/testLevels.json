@@ -15,7 +15,8 @@
         "position": 2,
         "selectedTileId": 0
       }
-    ]
+    ],
+    "stars": [1, 2, 3]
   },
   {
     "id": "2",
@@ -33,7 +34,8 @@
         "position": 2,
         "selectedTileId": 0
       }
-    ]
+    ],
+    "stars": [1, 2, 3]
   },
   {
     "id": "3",
@@ -51,6 +53,7 @@
         "position": 2,
         "selectedTileId": 0
       }
-    ]
+    ],
+    "stars": [1, 2, 3]
   }
 ]

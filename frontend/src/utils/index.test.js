@@ -13,6 +13,7 @@ describe('The utils', () => {
       expect(typeof newLevel.tiles[0]).toBe('object');
       expect(typeof newLevel.tiles[0].position).toBe('number');
       expect(typeof newLevel.tiles[0].selectedTileId).toBe('number');
+      expect(newLevel.stars).toEqual([1, 2, 3]);
     });
   });
 });
