@@ -6,15 +6,20 @@ import {
   RESET_GRID,
   START_DRAG,
   STOP_DRAG,
+  SET_STARS,
 } from '../actions/levelEditor';
 import { LOAD_LEVEL } from '../actions/levelManager';
 import { createNewLevel } from '../utils';
+import { MIN_MOVES, MAX_MOVES } from '../config/settings';
+
+const newLevel = createNewLevel();
 
 export const initialState = {
   previewing: false,
   dragging: false,
   selectedTileId: 0,
-  tiles: createNewLevel().tiles,
+  tiles: newLevel.tiles,
+  stars: newLevel.stars,
 };
 
 export default function levelEditorReducer(state = initialState, action) {
@@ -64,6 +69,7 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         tiles: action.level.tiles,
+        stars: action.level.stars,
       };
     }
 
@@ -78,6 +84,28 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         dragging: false,
+      };
+    }
+
+    case SET_STARS: {
+      const first = [...state.stars.slice(0, action.starsIndex)].map(noOfMoves =>
+        Math.min(noOfMoves, action.stars),
+      );
+
+      const rest = [...state.stars.slice(action.starsIndex + 1)].map(noOfMoves =>
+        Math.max(noOfMoves, action.stars),
+      );
+
+      //  Ensure values are between 1 and 99
+      const arr = [...first, action.stars, ...rest].map(val => {
+        if (val < MIN_MOVES) return MIN_MOVES;
+        if (val > MAX_MOVES) return MAX_MOVES;
+        return val;
+      });
+
+      return {
+        ...state,
+        stars: arr,
       };
     }
 

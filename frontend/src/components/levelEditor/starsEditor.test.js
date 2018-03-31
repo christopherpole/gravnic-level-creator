@@ -4,11 +4,14 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
-import { StarsEditor } from './starsEditor';
+import { StarsEditor, ButtonDecrement, ButtonIncrement } from './starsEditor';
 
 configure({ adapter: new Adapter() });
 
-const props = {};
+const props = {
+  stars: [1, 2, 3],
+  setStarsAction: () => {},
+};
 
 describe('The tile selector', () => {
   it('Renders without exploding', () => {
@@ -21,5 +24,29 @@ describe('The tile selector', () => {
     const starsEditor = shallow(<StarsEditor {...props} />);
 
     expect(toJson(starsEditor)).toMatchSnapshot();
+  });
+
+  it('Fires the set stars action when clicking on the "decrement" button', () => {
+    const setStarsSpy = spy();
+    const starsEditor = shallow(<StarsEditor {...props} setStarsAction={setStarsSpy} />);
+    starsEditor
+      .find(ButtonDecrement)
+      .at(1)
+      .simulate('click');
+
+    expect(setStarsSpy.calledOnce).toBe(true);
+    expect(setStarsSpy.calledWith(1, props.stars[1] - 1)).toBe(true);
+  });
+
+  it('Fires the set stars action when clicking on the "increment" button', () => {
+    const setStarsSpy = spy();
+    const starsEditor = shallow(<StarsEditor {...props} setStarsAction={setStarsSpy} />);
+    starsEditor
+      .find(ButtonIncrement)
+      .at(1)
+      .simulate('click');
+
+    expect(setStarsSpy.calledOnce).toBe(true);
+    expect(setStarsSpy.calledWith(1, props.stars[1] + 1)).toBe(true);
   });
 });

@@ -189,9 +189,10 @@ describe('The level editor', () => {
     expect(nonBlankTilesCount).toBe(5);
 
     //  Make sure that the tiles that have been dragged over are not blank
+    //  @TODO: make this less brittle...
     const tilesAreUpdated = await page.evaluate(() => {
       const tiles = document.querySelectorAll(
-        '#editor-grid .tile:nth-child(12) > div, #editor-grid .tile:nth-child(13) > div, #editor-grid .tile:nth-child(14) > div, #editor-grid .tile:nth-child(24) > div, #editor-grid .tile:nth-child(34) > div',
+        '#editor-grid .tile:nth-child(13) > div, #editor-grid .tile:nth-child(14) > div, #editor-grid .tile:nth-child(15) > div, #editor-grid .tile:nth-child(25) > div, #editor-grid .tile:nth-child(35) > div',
       );
 
       return (
@@ -203,6 +204,48 @@ describe('The level editor', () => {
     });
 
     expect(tilesAreUpdated).toBe(true);
+
+    done();
+  });
+
+  it('Allows the user to change the number of moves needed to obtain stars', async done => {
+    //  Check the default stars
+    let res = await page.evaluate(
+      () =>
+        document.querySelector('#stars-editor > ul > li:nth-child(1) > span').innerText === '1' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(2) > span').innerText === '2' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(3) > span').innerText === '3',
+    );
+
+    expect(res).toBe(true);
+
+    //  Increase the 3-star moves and check that the others move with it
+    await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
+    await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
+    await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
+
+    res = await page.evaluate(
+      () =>
+        document.querySelector('#stars-editor > ul > li:nth-child(1) > span').innerText === '4' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(2) > span').innerText === '4' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(3) > span').innerText === '4',
+    );
+
+    expect(res).toBe(true);
+
+    //  Decrease the 1-star moves and check that the others move with it
+    await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
+    await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
+    await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
+
+    res = await page.evaluate(
+      () =>
+        document.querySelector('#stars-editor > ul > li:nth-child(1) > span').innerText === '1' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(2) > span').innerText === '1' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(3) > span').innerText === '1',
+    );
+
+    expect(res).toBe(true);
 
     done();
   });

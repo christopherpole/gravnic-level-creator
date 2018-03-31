@@ -46,11 +46,11 @@ export const saveLevel = () => (dispatch, getState) => {
   const selectedLevel = getState().levelManager.levels.find(
     level => level.id === getState().levelManager.selectedLevelId,
   );
-  const { tiles } = getState().levelEditor;
+  const { tiles, stars } = getState().levelEditor;
 
   dispatch({
     type: SAVE_LEVEL,
-    level: { ...selectedLevel, tiles },
+    level: { ...selectedLevel, tiles, stars },
   });
 };
 

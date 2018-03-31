@@ -84,6 +84,7 @@ describe('The level manager actions', () => {
       },
       levelEditor: {
         tiles: [1, 2, 3],
+        stars: [4, 5, 6],
       },
     });
 
@@ -93,7 +94,7 @@ describe('The level manager actions', () => {
     expect(
       dispatchSpy.calledWith({
         type: SAVE_LEVEL,
-        level: { ...testLevels[1], tiles: [1, 2, 3] },
+        level: { ...testLevels[1], tiles: [1, 2, 3], stars: [4, 5, 6] },
       }),
     ).toBe(true);
   });

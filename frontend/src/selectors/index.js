@@ -32,7 +32,8 @@ export const getLevelManagerButtonDisabledStates = createSelector(
 
       if (
         selectedLevel &&
-        JSON.stringify(levelEditor.tiles) === JSON.stringify(selectedLevel.tiles)
+        JSON.stringify(levelEditor.tiles) === JSON.stringify(selectedLevel.tiles) &&
+        JSON.stringify(levelEditor.stars) === JSON.stringify(selectedLevel.stars)
       ) {
         buttonsDisabledStates.btnSave = true;
         buttonsDisabledStates.btnLoad = true;

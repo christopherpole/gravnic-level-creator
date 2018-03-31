@@ -6,6 +6,7 @@ import {
   RESET_GRID,
   START_DRAG,
   STOP_DRAG,
+  SET_STARS,
   updateTile,
   selectTile,
   editLevel,
@@ -13,6 +14,7 @@ import {
   resetGrid,
   startDrag,
   stopDrag,
+  setStars,
 } from './levelEditor';
 
 describe('The level editor actions', () => {
@@ -72,5 +74,15 @@ describe('The level editor actions', () => {
     };
 
     expect(stopDrag()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to set the number of stars for a stars array index', () => {
+    const expectedAction = {
+      type: SET_STARS,
+      starsIndex: 1,
+      stars: 3,
+    };
+
+    expect(setStars(1, 3)).toEqual(expectedAction);
   });
 });

@@ -1,5 +1,5 @@
 import { createNewLevel } from './index';
-import { GRID_SIZE } from '../config/settings';
+import { GRID_SIZE, MIN_MOVES } from '../config/settings';
 
 describe('The utils', () => {
   describe('The function to create a new level template', () => {
@@ -13,7 +13,7 @@ describe('The utils', () => {
       expect(typeof newLevel.tiles[0]).toBe('object');
       expect(typeof newLevel.tiles[0].position).toBe('number');
       expect(typeof newLevel.tiles[0].selectedTileId).toBe('number');
-      expect(newLevel.stars).toEqual([1, 2, 3]);
+      expect(newLevel.stars).toEqual([MIN_MOVES, MIN_MOVES + 1, MIN_MOVES + 2]);
     });
   });
 });

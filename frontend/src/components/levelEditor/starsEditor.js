@@ -1,9 +1,10 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
+import { setStars } from '../../actions/levelEditor';
 import Button from '../common/button';
 import StarIcon from '../common/starIcon';
 
@@ -42,6 +43,7 @@ export const StarListItem = styled.li`
 
 export const StarsLabel = styled.span`
   font-size: 1.2em;
+  user-select: none;
 `;
 
 export const ControlsWrapper = styled.div`
@@ -60,24 +62,42 @@ export const ControlButton = styled(Button)`
   }
 `;
 
-export const StarsEditor = () => (
+export const ButtonDecrement = styled(ControlButton)``;
+
+export const ButtonIncrement = styled(ControlButton)``;
+
+export const StarsEditor = ({ stars, setStarsAction }) => (
   <Wrapper id="stars-editor">
     <StarsList>
-      {[...Array(3)].map((_, i) => (
+      {stars.map((noOfMoves, i) => (
         <StarListItem key={i}>
           <StarsWrapper>
-            {[...Array(3)].map((meh, j) => (
+            {[...Array(3)].map((_, j) => (
               <StarIconWrapper key={j}>
-                <StarIcon fillColor={i > j ? 'transparent' : 'white'} size={20} />
+                <StarIcon fillColor={i > j ? 'transparent' : undefined} size={20} />
               </StarIconWrapper>
             ))}
           </StarsWrapper>
 
-          <StarsLabel>99</StarsLabel>
+          <StarsLabel>{noOfMoves}</StarsLabel>
 
           <ControlsWrapper>
-            <ControlButton>-</ControlButton>
-            <ControlButton>+</ControlButton>
+            <ButtonDecrement
+              onClick={() => {
+                setStarsAction(i, noOfMoves - 1);
+              }}
+              className="btn-decrement"
+            >
+              -
+            </ButtonDecrement>
+            <ButtonIncrement
+              onClick={() => {
+                setStarsAction(i, noOfMoves + 1);
+              }}
+              className="btn-increment"
+            >
+              +
+            </ButtonIncrement>
           </ControlsWrapper>
         </StarListItem>
       ))}
@@ -87,10 +107,17 @@ export const StarsEditor = () => (
 
 StarsEditor.defaultProps = {};
 
-StarsEditor.propTypes = {};
+StarsEditor.propTypes = {
+  stars: PropTypes.array.isRequired,
+  setStarsAction: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  stars: state.levelEditor.stars,
+});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  setStarsAction: bindActionCreators(setStars, dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(StarsEditor);

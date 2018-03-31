@@ -31,7 +31,7 @@ export const AppContainer = styled.div`
   font-family: ${props => props.theme.fontFamily};
   color: ${props => props.theme.foregroundColor};
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2.5fr 1fr;
   min-width: ${props => props.theme.containerWidth};
   max-width: ${props => props.theme.containerWidth};
 `;

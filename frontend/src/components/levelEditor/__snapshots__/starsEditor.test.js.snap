@@ -35,15 +35,21 @@ exports[`The tile selector Matches the current snapshot 1`] = `
         </styled.li>
       </styled.ul>
       <styled.span>
-        99
+        1
       </styled.span>
       <styled.div>
-        <Styled(Button)>
+        <Styled(Styled(Button))
+          className="btn-decrement"
+          onClick={[Function]}
+        >
           -
-        </Styled(Button)>
-        <Styled(Button)>
+        </Styled(Styled(Button))>
+        <Styled(Styled(Button))
+          className="btn-increment"
+          onClick={[Function]}
+        >
           +
-        </Styled(Button)>
+        </Styled(Styled(Button))>
       </styled.div>
     </styled.li>
     <styled.li
@@ -76,15 +82,21 @@ exports[`The tile selector Matches the current snapshot 1`] = `
         </styled.li>
       </styled.ul>
       <styled.span>
-        99
+        2
       </styled.span>
       <styled.div>
-        <Styled(Button)>
+        <Styled(Styled(Button))
+          className="btn-decrement"
+          onClick={[Function]}
+        >
           -
-        </Styled(Button)>
-        <Styled(Button)>
+        </Styled(Styled(Button))>
+        <Styled(Styled(Button))
+          className="btn-increment"
+          onClick={[Function]}
+        >
           +
-        </Styled(Button)>
+        </Styled(Styled(Button))>
       </styled.div>
     </styled.li>
     <styled.li
@@ -117,15 +129,21 @@ exports[`The tile selector Matches the current snapshot 1`] = `
         </styled.li>
       </styled.ul>
       <styled.span>
-        99
+        3
       </styled.span>
       <styled.div>
-        <Styled(Button)>
+        <Styled(Styled(Button))
+          className="btn-decrement"
+          onClick={[Function]}
+        >
           -
-        </Styled(Button)>
-        <Styled(Button)>
+        </Styled(Styled(Button))>
+        <Styled(Styled(Button))
+          className="btn-increment"
+          onClick={[Function]}
+        >
           +
-        </Styled(Button)>
+        </Styled(Styled(Button))>
       </styled.div>
     </styled.li>
   </styled.ul>
