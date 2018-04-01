@@ -14,3 +14,5 @@ WORKDIR /frontend
 ADD . /frontend
 
 EXPOSE 3000
+
+CMD ["yarn", "start"]

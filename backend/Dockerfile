@@ -14,3 +14,5 @@ WORKDIR /backend
 ADD . /backend
 
 EXPOSE 4000
+
+CMD ["yarn", "start"]
