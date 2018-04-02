@@ -16,14 +16,16 @@ describe('The level manager', () => {
     props = {
       loading: false,
       error: false,
-      levels: testLevels,
+      sortedLevels: testLevels,
       selectedLevelId: testLevels[0].id,
       currentLevelId: testLevels[0].id,
       renamingLevelId: null,
       renamingLevelName: null,
       retrieveLevelsAction: () => {},
+      reorderLevelsAction: () => {},
     };
   });
+
   it('Renders without exploding', () => {
     const levelsList = shallow(<LevelsList {...props} />);
 
@@ -33,7 +35,12 @@ describe('The level manager', () => {
   it('Fires the retrieve levels action after mounting', () => {
     const retrieveLevelsActionSpy = spy();
     shallow(
-      <LevelsList {...props} retrieveLevelsAction={retrieveLevelsActionSpy} levels={[]} error />,
+      <LevelsList
+        {...props}
+        retrieveLevelsAction={retrieveLevelsActionSpy}
+        sortedLevels={[]}
+        error
+      />,
     );
 
     expect(retrieveLevelsActionSpy.calledOnce).toBe(true);
@@ -44,7 +51,7 @@ describe('The level manager', () => {
       <LevelsList
         {...props}
         loading
-        levels={[]}
+        sortedLevels={[]}
         selectedLevelId={null}
         currentLevelId={null}
         renamingLevelId={null}
@@ -56,7 +63,7 @@ describe('The level manager', () => {
   });
 
   it('Matches the current snapshot if the was an issue communicating with the server', () => {
-    const levelsList = shallow(<LevelsList {...props} levels={[]} error />);
+    const levelsList = shallow(<LevelsList {...props} sortedLevels={[]} error />);
 
     expect(toJson(levelsList)).toMatchSnapshot();
   });
@@ -68,7 +75,7 @@ describe('The level manager', () => {
   });
 
   it('Matches the current snapshot with no levels', () => {
-    const levelsList = shallow(<LevelsList {...props} levels={[]} />);
+    const levelsList = shallow(<LevelsList {...props} sortedLevels={[]} />);
 
     expect(toJson(levelsList)).toMatchSnapshot();
   });
@@ -92,4 +99,6 @@ describe('The level manager', () => {
 
     expect(toJson(levelsList)).toMatchSnapshot();
   });
+
+  it('Fires the reorderLevels action when sorting the levels');
 });

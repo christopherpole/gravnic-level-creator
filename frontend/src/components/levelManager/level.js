@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { SortableElement } from 'react-sortable-hoc';
 
 import StarIcon from '../common/starIcon';
 
@@ -25,6 +26,9 @@ export const Wrapper = styled.li`
   grid-column-gap: calc(${props => props.theme.structureSpacing} / 2);
   align-items: center;
   min-height: 0;
+  background-color: ${props => props.theme.backgroundColor};
+  color: ${props => props.theme.foregroundColor}; //  Hard-coded for reordering functionality
+  font-family: ${props => props.theme.fontFamily}; //  Hard-coded for reordering functionality
 
   &:last-child {
     margin-bottom: 0;
@@ -226,4 +230,4 @@ const mapDispatchToProps = dispatch => ({
   finishRenameLevelAction: bindActionCreators(finishRenameLevel, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(Level);
+export default SortableElement(connect(null, mapDispatchToProps)(Level));

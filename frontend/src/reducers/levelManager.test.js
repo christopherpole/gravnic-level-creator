@@ -9,6 +9,7 @@ import {
   BEGIN_RENAME_LEVEL,
   CHANGE_RENAME_LEVEL,
   FINISH_RENAME_LEVEL,
+  REORDER_LEVELS,
 } from '../actions/levelManager';
 import {
   RETRIEVE_LEVELS_PENDING,
@@ -346,6 +347,30 @@ describe('The level manager reducer', () => {
       ],
       renamingLevelId: null,
       renamingLevelName: null,
+    });
+  });
+
+  it('Should handle the REORDER_LEVELS action', () => {
+    const reorderedLevels = [
+      { ...testLevels[2], position: 1 },
+      { ...testLevels[1], position: 2 },
+      { ...testLevels[0], position: 3 },
+    ];
+
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          levels: testLevels,
+        },
+        {
+          type: REORDER_LEVELS,
+          levels: reorderedLevels,
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      levels: reorderedLevels,
     });
   });
 });

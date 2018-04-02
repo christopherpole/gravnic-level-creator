@@ -8,22 +8,15 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 router.post('/', (req, res) => {
-  Level.create(
-    {
-      name: req.body.name,
-      tiles: req.body.tiles,
-      stars: req.body.stars,
-    },
-    (err, level) => {
-      if (err) {
-        winston.error(err.message);
+  Level.create(req.body, (err, level) => {
+    if (err) {
+      winston.error(err.message);
 
-        return res.status(500).send(err.message);
-      }
+      return res.status(500).send(err.message);
+    }
 
-      return res.status(201).send(level);
-    },
-  );
+    return res.status(201).send(level);
+  });
 });
 
 router.get('/', (req, res) => {

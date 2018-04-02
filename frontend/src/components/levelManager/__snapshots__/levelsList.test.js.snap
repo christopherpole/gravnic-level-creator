@@ -3,13 +3,31 @@
 exports[`The level manager Matches the current snapshot if a level is being renamed 1`] = `
 <styled.div>
   <styled.div>
-    <styled.ul>
-      <Connect(Level)
+    <sortableList(styled.ul)
+      axis="y"
+      distance={5}
+      getHelperDimensions={[Function]}
+      helperClass="drag-cursor"
+      hideSortableGhost={true}
+      lockAxis="y"
+      lockOffset="50%"
+      lockToContainerEdges={true}
+      onSortEnd={[Function]}
+      pressDelay={0}
+      pressThreshold={5}
+      shouldCancelStart={[Function]}
+      transitionDuration={300}
+      useWindowAsScrollContainer={false}
+    >
+      <sortableElement(Connect(Level))
+        collection={0}
         id="1"
+        index={0}
         isCurrent={true}
         isSelected={true}
         key="1"
         name="Test level 1"
+        position={1}
         renamingValue="New name"
         stars={
           Array [
@@ -36,13 +54,16 @@ exports[`The level manager Matches the current snapshot if a level is being rena
         }
       >
         Test level 1
-      </Connect(Level)>
-      <Connect(Level)
+      </sortableElement(Connect(Level))>
+      <sortableElement(Connect(Level))
+        collection={0}
         id="2"
+        index={1}
         isCurrent={false}
         isSelected={false}
         key="2"
         name="Test level 2"
+        position={2}
         renamingValue={null}
         stars={
           Array [
@@ -69,13 +90,16 @@ exports[`The level manager Matches the current snapshot if a level is being rena
         }
       >
         Test level 2
-      </Connect(Level)>
-      <Connect(Level)
+      </sortableElement(Connect(Level))>
+      <sortableElement(Connect(Level))
+        collection={0}
         id="3"
+        index={2}
         isCurrent={false}
         isSelected={false}
         key="3"
         name="Test level 3"
+        position={3}
         renamingValue={null}
         stars={
           Array [
@@ -102,8 +126,8 @@ exports[`The level manager Matches the current snapshot if a level is being rena
         }
       >
         Test level 3
-      </Connect(Level)>
-    </styled.ul>
+      </sortableElement(Connect(Level))>
+    </sortableList(styled.ul)>
   </styled.div>
 </styled.div>
 `;
@@ -111,13 +135,31 @@ exports[`The level manager Matches the current snapshot if a level is being rena
 exports[`The level manager Matches the current snapshot if a level is selected 1`] = `
 <styled.div>
   <styled.div>
-    <styled.ul>
-      <Connect(Level)
+    <sortableList(styled.ul)
+      axis="y"
+      distance={5}
+      getHelperDimensions={[Function]}
+      helperClass="drag-cursor"
+      hideSortableGhost={true}
+      lockAxis="y"
+      lockOffset="50%"
+      lockToContainerEdges={true}
+      onSortEnd={[Function]}
+      pressDelay={0}
+      pressThreshold={5}
+      shouldCancelStart={[Function]}
+      transitionDuration={300}
+      useWindowAsScrollContainer={false}
+    >
+      <sortableElement(Connect(Level))
+        collection={0}
         id="1"
+        index={0}
         isCurrent={true}
         isSelected={true}
         key="1"
         name="Test level 1"
+        position={1}
         renamingValue={null}
         stars={
           Array [
@@ -144,13 +186,16 @@ exports[`The level manager Matches the current snapshot if a level is selected 1
         }
       >
         Test level 1
-      </Connect(Level)>
-      <Connect(Level)
+      </sortableElement(Connect(Level))>
+      <sortableElement(Connect(Level))
+        collection={0}
         id="2"
+        index={1}
         isCurrent={false}
         isSelected={false}
         key="2"
         name="Test level 2"
+        position={2}
         renamingValue={null}
         stars={
           Array [
@@ -177,13 +222,16 @@ exports[`The level manager Matches the current snapshot if a level is selected 1
         }
       >
         Test level 2
-      </Connect(Level)>
-      <Connect(Level)
+      </sortableElement(Connect(Level))>
+      <sortableElement(Connect(Level))
+        collection={0}
         id="3"
+        index={2}
         isCurrent={false}
         isSelected={false}
         key="3"
         name="Test level 3"
+        position={3}
         renamingValue={null}
         stars={
           Array [
@@ -210,8 +258,8 @@ exports[`The level manager Matches the current snapshot if a level is selected 1
         }
       >
         Test level 3
-      </Connect(Level)>
-    </styled.ul>
+      </sortableElement(Connect(Level))>
+    </sortableList(styled.ul)>
   </styled.div>
 </styled.div>
 `;
@@ -219,13 +267,31 @@ exports[`The level manager Matches the current snapshot if a level is selected 1
 exports[`The level manager Matches the current snapshot if a level is the current level 1`] = `
 <styled.div>
   <styled.div>
-    <styled.ul>
-      <Connect(Level)
+    <sortableList(styled.ul)
+      axis="y"
+      distance={5}
+      getHelperDimensions={[Function]}
+      helperClass="drag-cursor"
+      hideSortableGhost={true}
+      lockAxis="y"
+      lockOffset="50%"
+      lockToContainerEdges={true}
+      onSortEnd={[Function]}
+      pressDelay={0}
+      pressThreshold={5}
+      shouldCancelStart={[Function]}
+      transitionDuration={300}
+      useWindowAsScrollContainer={false}
+    >
+      <sortableElement(Connect(Level))
+        collection={0}
         id="1"
+        index={0}
         isCurrent={true}
         isSelected={true}
         key="1"
         name="Test level 1"
+        position={1}
         renamingValue={null}
         stars={
           Array [
@@ -252,13 +318,16 @@ exports[`The level manager Matches the current snapshot if a level is the curren
         }
       >
         Test level 1
-      </Connect(Level)>
-      <Connect(Level)
+      </sortableElement(Connect(Level))>
+      <sortableElement(Connect(Level))
+        collection={0}
         id="2"
+        index={1}
         isCurrent={false}
         isSelected={false}
         key="2"
         name="Test level 2"
+        position={2}
         renamingValue={null}
         stars={
           Array [
@@ -285,13 +354,16 @@ exports[`The level manager Matches the current snapshot if a level is the curren
         }
       >
         Test level 2
-      </Connect(Level)>
-      <Connect(Level)
+      </sortableElement(Connect(Level))>
+      <sortableElement(Connect(Level))
+        collection={0}
         id="3"
+        index={2}
         isCurrent={false}
         isSelected={false}
         key="3"
         name="Test level 3"
+        position={3}
         renamingValue={null}
         stars={
           Array [
@@ -318,8 +390,8 @@ exports[`The level manager Matches the current snapshot if a level is the curren
         }
       >
         Test level 3
-      </Connect(Level)>
-    </styled.ul>
+      </sortableElement(Connect(Level))>
+    </sortableList(styled.ul)>
   </styled.div>
 </styled.div>
 `;
@@ -353,13 +425,31 @@ exports[`The level manager Matches the current snapshot when loading levels from
 exports[`The level manager Matches the current snapshot with levels 1`] = `
 <styled.div>
   <styled.div>
-    <styled.ul>
-      <Connect(Level)
+    <sortableList(styled.ul)
+      axis="y"
+      distance={5}
+      getHelperDimensions={[Function]}
+      helperClass="drag-cursor"
+      hideSortableGhost={true}
+      lockAxis="y"
+      lockOffset="50%"
+      lockToContainerEdges={true}
+      onSortEnd={[Function]}
+      pressDelay={0}
+      pressThreshold={5}
+      shouldCancelStart={[Function]}
+      transitionDuration={300}
+      useWindowAsScrollContainer={false}
+    >
+      <sortableElement(Connect(Level))
+        collection={0}
         id="1"
+        index={0}
         isCurrent={true}
         isSelected={true}
         key="1"
         name="Test level 1"
+        position={1}
         renamingValue={null}
         stars={
           Array [
@@ -386,13 +476,16 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
         }
       >
         Test level 1
-      </Connect(Level)>
-      <Connect(Level)
+      </sortableElement(Connect(Level))>
+      <sortableElement(Connect(Level))
+        collection={0}
         id="2"
+        index={1}
         isCurrent={false}
         isSelected={false}
         key="2"
         name="Test level 2"
+        position={2}
         renamingValue={null}
         stars={
           Array [
@@ -419,13 +512,16 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
         }
       >
         Test level 2
-      </Connect(Level)>
-      <Connect(Level)
+      </sortableElement(Connect(Level))>
+      <sortableElement(Connect(Level))
+        collection={0}
         id="3"
+        index={2}
         isCurrent={false}
         isSelected={false}
         key="3"
         name="Test level 3"
+        position={3}
         renamingValue={null}
         stars={
           Array [
@@ -452,8 +548,8 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
         }
       >
         Test level 3
-      </Connect(Level)>
-    </styled.ul>
+      </sortableElement(Connect(Level))>
+    </sortableList(styled.ul)>
   </styled.div>
 </styled.div>
 `;

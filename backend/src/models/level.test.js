@@ -11,6 +11,7 @@ describe('The level model', () => {
         position: index,
       })),
       stars: [1, 2, 3],
+      position: 11,
     });
   });
 
@@ -28,6 +29,7 @@ describe('The level model', () => {
       expect(err.errors.name).toBeDefined();
       expect(err.errors.tiles).toBeDefined();
       expect(err.errors.stars).toBeDefined();
+      expect(err.errors.position).toBeDefined();
       done();
     });
   });
@@ -42,6 +44,7 @@ describe('The level model', () => {
     expect(typeof testLevelJson.tiles[0].selectedTileId).toBe('number');
     expect(typeof testLevelJson.id).toBe('object');
     expect(testLevelJson.stars).toEqual([1, 2, 3]);
+    expect(testLevelJson.position).toEqual(11);
     expect(testLevelJson._id).toBe(undefined);
     expect(testLevelJson.__v).toBe(undefined);
   });

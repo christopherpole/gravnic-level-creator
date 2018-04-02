@@ -11,6 +11,12 @@ injectGlobal`
     margin: 0;
     padding: 0;
   }
+
+  //  Requried for the sortable list cursor
+  .drag-cursor {
+    cursor: move;
+    pointer-events: auto !important;  //  Not pretty but needed
+  }
 `;
 
 export const Wrapper = styled.div`

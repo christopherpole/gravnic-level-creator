@@ -30,6 +30,10 @@ const LevelSchema = new mongoose.Schema({
     type: [Number],
     required: true,
   },
+  position: {
+    type: Number,
+    required: true,
+  },
 });
 
 LevelSchema.post('save', level => {

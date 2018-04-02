@@ -1,4 +1,8 @@
-import { getLevelManagerButtonDisabledStates } from './index';
+import {
+  getLevelManagerButtonDisabledStates,
+  getSortedLevels,
+  getHighestPositionValue,
+} from './index';
 import testLevels from '../data/testLevels';
 
 describe.only('The selectors', () => {
@@ -163,6 +167,69 @@ describe.only('The selectors', () => {
       expect(buttonDisabledStates.btnDelete).toBe(true);
       expect(buttonDisabledStates.btnCopy).toBe(true);
       expect(buttonDisabledStates.btnRename).toBe(false);
+    });
+  });
+
+  describe('getSortedLevels()', () => {
+    let state;
+
+    beforeEach(() => {
+      state = {
+        levelEditor: {},
+        levelManager: {
+          levels: testLevels,
+        },
+      };
+    });
+
+    it('Returns the levels sorted by their "position" property', () => {
+      let sortedLevels = getSortedLevels(state);
+      expect(sortedLevels).toEqual(state.levelManager.levels);
+
+      sortedLevels = getSortedLevels({
+        ...state,
+        levelManager: {
+          ...state.levelManager,
+          levels: [{ ...testLevels[1] }, { ...testLevels[2] }, { ...testLevels[0] }],
+        },
+      });
+
+      expect(sortedLevels).toEqual(state.levelManager.levels);
+    });
+  });
+
+  describe('getHighestPositionValue()', () => {
+    let state;
+
+    beforeEach(() => {
+      state = {
+        levelEditor: {},
+        levelManager: {
+          levels: [
+            { ...testLevels[0], position: 1 },
+            { ...testLevels[1], position: 5 },
+            { ...testLevels[2], position: 3 },
+          ],
+        },
+      };
+    });
+
+    it('Returns "0" if there are no levels', () => {
+      const highestPosition = getHighestPositionValue({
+        ...state,
+        levelManager: {
+          ...state.levelManager,
+          levels: [],
+        },
+      });
+
+      expect(highestPosition).toBe(0);
+    });
+
+    it('Returns the largest "position" value for the levels in the level manager state', () => {
+      const highestPosition = getHighestPositionValue(state);
+
+      expect(highestPosition).toBe(5);
     });
   });
 });

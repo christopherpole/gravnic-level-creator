@@ -8,6 +8,7 @@ import {
   BEGIN_RENAME_LEVEL,
   CHANGE_RENAME_LEVEL,
   FINISH_RENAME_LEVEL,
+  REORDER_LEVELS,
 } from '../actions/levelManager';
 import {
   RETRIEVE_LEVELS_PENDING,
@@ -172,6 +173,13 @@ export default function levelManagerReducer(state = initialState, action) {
         levels: newLevels,
         renamingLevelId: null,
         renamingLevelName: null,
+      };
+    }
+
+    case REORDER_LEVELS: {
+      return {
+        ...state,
+        levels: action.levels.slice(0),
       };
     }
 

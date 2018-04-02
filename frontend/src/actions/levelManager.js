@@ -1,6 +1,8 @@
 import shortid from 'shortid';
+import { arrayMove } from 'react-sortable-hoc';
 
 import { createNewLevel as utilsCreateNewLevel } from '../utils';
+import { getHighestPositionValue } from '../selectors';
 
 export const RETRIEVE_LEVELS = 'RETRIEVE_LEVELS';
 export const SELECT_LEVEL = 'SELECT_LEVEL';
@@ -12,6 +14,7 @@ export const COPY_LEVEL = 'COPY_LEVEL';
 export const BEGIN_RENAME_LEVEL = 'BEGIN_RENAME_LEVEL';
 export const CHANGE_RENAME_LEVEL = 'CHANGE_RENAME_LEVEL';
 export const FINISH_RENAME_LEVEL = 'FINISH_RENAME_LEVEL';
+export const REORDER_LEVELS = 'REORDER_LEVELS';
 
 export const retrieveLevels = () => ({
   type: RETRIEVE_LEVELS,
@@ -22,13 +25,13 @@ export const selectLevel = id => ({
   id,
 });
 
-export const createNewLevel = () => {
-  const level = utilsCreateNewLevel();
+export const createNewLevel = () => (dispatch, getState) => {
+  const level = utilsCreateNewLevel(getHighestPositionValue(getState()) + 1);
 
-  return {
+  dispatch({
     type: CREATE_NEW_LEVEL,
     level,
-  };
+  });
 };
 
 export const loadLevel = () => (dispatch, getState) => {
@@ -70,7 +73,11 @@ export const copyLevel = () => (dispatch, getState) => {
 
   dispatch({
     type: COPY_LEVEL,
-    level: { ...selectedLevel, id: shortid.generate() },
+    level: {
+      ...selectedLevel,
+      id: shortid.generate(),
+      position: getHighestPositionValue(getState()) + 1,
+    },
   });
 };
 
@@ -92,5 +99,19 @@ export const finishRenameLevel = () => (dispatch, getState) => {
   dispatch({
     type: FINISH_RENAME_LEVEL,
     level: { ...selectedLevel, name },
+  });
+};
+
+export const reorderLevels = (oldIndex, newIndex) => (dispatch, getState) => {
+  const { levels } = getState().levelManager;
+
+  const sortedLevels = arrayMove(levels, oldIndex, newIndex).map((level, index) => ({
+    ...level,
+    position: index + 1,
+  }));
+
+  dispatch({
+    type: REORDER_LEVELS,
+    levels: sortedLevels,
   });
 };

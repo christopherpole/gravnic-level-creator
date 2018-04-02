@@ -50,3 +50,22 @@ export const getLevelManagerButtonDisabledStates = createSelector(
     return buttonsDisabledStates;
   },
 );
+
+/**
+ * Returns an array of levels sorted by their "position" values
+ * @param {Array} levels - The state of the level manager's levels
+ * @returns {Array} An array of levels in the correct order
+ */
+export const getSortedLevels = createSelector([state => state.levelManager.levels], levels =>
+  levels.sort((levelA, levelB) => levelA.position - levelB.position),
+);
+
+/**
+ * Returns the highest "position" value within the levels
+ * @param {Array} levels - The state of the level manager's levels
+ * @returns {Number} The highest "position" value in the levels array
+ */
+export const getHighestPositionValue = createSelector(
+  [state => state.levelManager.levels],
+  levels => (levels.length && Math.max(...levels.map(level => level.position))) || 0,
+);
