@@ -1,21 +1,33 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(process.cwd(), '.env.test') });
 const request = require('supertest');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-const testLevel = {
-  name: 'Test Level',
-  tiles: [...Array(100)].map((_, index) => ({
-    selectedTileId: 0,
-    position: index,
-  })),
-  stars: [1, 2, 3],
-  position: 3,
-};
+const testLevels = [
+  {
+    name: 'Test Level 1',
+    tiles: [...Array(100)].map((_, index) => ({
+      selectedTileId: 0,
+      position: index,
+    })),
+    stars: [1, 2, 3],
+    position: 1,
+  },
+  {
+    name: 'Test Level 2',
+    tiles: [...Array(100)].map((_, index) => ({
+      selectedTileId: 1,
+      position: index,
+    })),
+    stars: [4, 5, 6],
+    position: 2,
+  },
+];
 
 describe('The /levels routes', () => {
   let server;
-  let recordId;
+  const recordIds = [];
 
   beforeAll(() =>
     mongoose
@@ -32,44 +44,63 @@ describe('The /levels routes', () => {
 
   afterEach(() => server.close()); //  @FIXME: wait for server to close before proceeding
 
-  describe('POST actions', () => {
-    it('Can create new levels', () =>
-      request(server)
+  describe('POST actio', () => {
+    it('Can create new levels', async done => {
+      await request(server)
         .post('/levels')
-        .send(testLevel)
+        .send(testLevels[0])
         .then(res => {
-          recordId = res.body.id;
+          recordIds[0] = res.body.id;
           expect(res.statusCode).toBe(201);
-          expect(res.body.name).toBe(testLevel.name);
+          expect(res.body.name).toBe(testLevels[0].name);
           expect(res.body.tiles.length).toBe(100);
-          expect(res.body.stars).toEqual(testLevel.stars);
-          expect(res.body.position).toEqual(testLevel.position);
-        }));
+          expect(res.body.stars).toEqual(testLevels[0].stars);
+          expect(res.body.position).toEqual(testLevels[0].position);
+        });
+
+      await request(server)
+        .post('/levels')
+        .send(testLevels[1])
+        .then(res => {
+          recordIds[1] = res.body.id;
+          expect(res.statusCode).toBe(201);
+          expect(res.body.name).toBe(testLevels[1].name);
+          expect(res.body.tiles.length).toBe(100);
+          expect(res.body.stars).toEqual(testLevels[1].stars);
+          expect(res.body.position).toEqual(testLevels[1].position);
+        });
+
+      done();
+    });
   });
 
-  describe('GET actions', () => {
+  describe('GET action', () => {
     it('Retrieves all of the levels', () =>
       request(server)
         .get('/levels')
         .then(res => {
           expect(res.statusCode).toBe(200);
           expect(res.body).toBeInstanceOf(Array);
-          expect(res.body.length).toBe(1);
-          expect(res.body[0].name).toBe(testLevel.name);
+          expect(res.body.length).toBe(2);
+          expect(res.body[0].name).toBe(testLevels[0].name);
           expect(res.body[0].tiles.length).toBe(100);
-          expect(res.body[0].stars).toEqual(testLevel.stars);
-          expect(res.body[0].position).toEqual(testLevel.position);
+          expect(res.body[0].stars).toEqual(testLevels[0].stars);
+          expect(res.body[0].position).toEqual(testLevels[0].position);
+          expect(res.body[1].name).toBe(testLevels[1].name);
+          expect(res.body[1].tiles.length).toBe(100);
+          expect(res.body[1].stars).toEqual(testLevels[1].stars);
+          expect(res.body[1].position).toEqual(testLevels[1].position);
         }));
 
     it('Can find a single level by ID', () =>
       request(server)
-        .get(`/levels/${recordId}`)
+        .get(`/levels/${recordIds[1]}`)
         .then(res => {
           expect(res.statusCode).toBe(200);
-          expect(res.body.name).toBe(testLevel.name);
+          expect(res.body.name).toBe(testLevels[1].name);
           expect(res.body.tiles.length).toBe(100);
-          expect(res.body.stars).toEqual(testLevel.stars);
-          expect(res.body.position).toEqual(testLevel.position);
+          expect(res.body.stars).toEqual(testLevels[1].stars);
+          expect(res.body.position).toEqual(testLevels[1].position);
         }));
 
     it('Returns a 404 error if the record is not found', () =>
@@ -80,10 +111,10 @@ describe('The /levels routes', () => {
         }));
   });
 
-  describe('PUT actions', () => {
+  describe('PUT action', () => {
     it('Can update a level by ID', () =>
       request(server)
-        .put(`/levels/${recordId}`)
+        .put(`/levels/${recordIds[1]}`)
         .send({
           name: 'Updated level name',
         })
@@ -91,8 +122,33 @@ describe('The /levels routes', () => {
           expect(res.statusCode).toBe(200);
           expect(res.body.name).toBe('Updated level name');
           expect(res.body.tiles.length).toBe(100);
-          expect(res.body.stars).toEqual(testLevel.stars);
-          expect(res.body.position).toEqual(testLevel.position);
+          expect(res.body.stars).toEqual(testLevels[1].stars);
+          expect(res.body.position).toEqual(testLevels[1].position);
+        }));
+
+    it('Can update multiple levels', () =>
+      request(server)
+        .put('/levels')
+        .send([
+          {
+            id: recordIds[0],
+            name: 'Updated level name 1',
+          },
+          {
+            id: recordIds[1],
+            name: 'Updated level name 2',
+          },
+        ])
+        .then(res => {
+          expect(res.statusCode).toBe(200);
+          expect(res.body[0].name).toBe('Updated level name 1');
+          expect(res.body[0].tiles.length).toBe(100);
+          expect(res.body[0].stars).toEqual(testLevels[0].stars);
+          expect(res.body[0].position).toEqual(testLevels[0].position);
+          expect(res.body[1].name).toBe('Updated level name 2');
+          expect(res.body[1].tiles.length).toBe(100);
+          expect(res.body[1].stars).toEqual(testLevels[1].stars);
+          expect(res.body[1].position).toEqual(testLevels[1].position);
         }));
 
     it('Returns a 404 error if the record is not found', () =>
@@ -106,10 +162,10 @@ describe('The /levels routes', () => {
         }));
   });
 
-  describe('DELETE actions', () => {
+  describe('DELETE action', () => {
     it('Can DELETE a single Level from its ID', () =>
       request(server)
-        .del(`/levels/${recordId}`)
+        .del(`/levels/${recordIds[1]}`)
         .then(res => {
           expect(res.statusCode).toBe(204);
           return request(server)
@@ -117,7 +173,7 @@ describe('The /levels routes', () => {
             .then(res2 => {
               expect(res2.statusCode).toBe(200);
               expect(res2.body).toBeInstanceOf(Array);
-              expect(res2.body.length).toBe(0);
+              expect(res2.body.length).toBe(1);
             });
         }));
 

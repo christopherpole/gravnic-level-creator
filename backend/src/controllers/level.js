@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const winston = require('winston');
+const async = require('async');
 const Level = require('../models/level');
 
 const router = express.Router();
@@ -45,6 +46,34 @@ router.get('/:levelId', (req, res) => {
 
     return res.status(200).json(level);
   });
+});
+
+//  Technically a PATCH but whatever. Also not recommended to update multiple apparently for a PUT?
+router.put('/', (req, res) => {
+  const newLevels = [];
+
+  async.eachSeries(
+    req.body,
+    (level, done) => {
+      Level.findByIdAndUpdate(level.id, level, { upsert: false, new: true }, (err, newLevel) => {
+        if (err) {
+          throw new Error(err);
+        }
+
+        newLevels.push(newLevel);
+        done();
+      });
+    },
+    err => {
+      if (err) {
+        winston.error(err.message);
+
+        return res.status(500).send(err.message);
+      }
+
+      return res.status(200).json(newLevels);
+    },
+  );
 });
 
 //  Technically a PATCH but whatever

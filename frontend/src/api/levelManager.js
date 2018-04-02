@@ -13,3 +13,6 @@ export const updateLevel = async level =>
   axios
     .put(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels/${level.id}`, level)
     .then(res => res.data);
+
+export const updateLevels = async levels =>
+  axios.put(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels`, levels).then(res => res.data);

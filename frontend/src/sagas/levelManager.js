@@ -1,7 +1,13 @@
 import { takeLatest } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 
-import { fetchLevels, createLevel, deleteLevel, updateLevel } from '../api/levelManager';
+import {
+  fetchLevels,
+  createLevel,
+  deleteLevel,
+  updateLevel,
+  updateLevels,
+} from '../api/levelManager';
 import {
   RETRIEVE_LEVELS,
   CREATE_NEW_LEVEL,
@@ -9,6 +15,7 @@ import {
   DELETE_SELECTED_LEVEL,
   SAVE_LEVEL,
   FINISH_RENAME_LEVEL,
+  REORDER_LEVELS,
 } from '../actions/levelManager';
 import {
   retrieveLevelsPending,
@@ -58,6 +65,12 @@ export function* updateLevelSaga(action) {
   }
 }
 
+export function* updateLevelsSaga(action) {
+  try {
+    const res = yield call(updateLevels, action.levels);
+  } catch (err) {}
+}
+
 export function* deleteLevelSaga(action) {
   yield put(deleteLevelPending());
 
@@ -74,4 +87,5 @@ export default function* levelManagerSagas() {
   yield takeLatest([CREATE_NEW_LEVEL, COPY_LEVEL], createLevelSaga);
   yield takeLatest(DELETE_SELECTED_LEVEL, deleteLevelSaga);
   yield takeLatest([SAVE_LEVEL, FINISH_RENAME_LEVEL], updateLevelSaga);
+  yield takeLatest(REORDER_LEVELS, updateLevelsSaga);
 }
