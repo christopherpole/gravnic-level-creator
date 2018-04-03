@@ -46,6 +46,8 @@ describe('The level manager', () => {
   });
 
   it('Should have a "no levels" message by default', async done => {
+    const lvls = await page.$eval('#level-manager', el => el.innerHTML);
+    console.log(lvls);
     await page.waitForSelector('.no-levels');
     expect(!!await page.$('.level')).toBe(false);
 

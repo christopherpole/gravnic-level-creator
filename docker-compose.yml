@@ -32,7 +32,10 @@ services:
     volumes:
       - ./frontend:/frontend
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
+    environment:
+      - REACT_APP_BACKEND_ENDPOINT=http://backend:4000
     env_file: ./frontend/.env
     healthcheck:
       test: "curl -f http://frontend:3000"
@@ -40,7 +43,7 @@ services:
       timeout: 5s
       retries: 15
 
-  backend_compile: 
+  backend_compile:
     image: node:9-alpine
     working_dir: /backend
     command: "yarn"
@@ -80,11 +83,7 @@ services:
       - ./backend:/backend
     environment:
       - CI=true
-      - DB_NAME=gravnic-level-creator-test
       - DB_ADDRESS=database:27017
-      - PORT=5001
-      - LOG_LEVEL=debug
-      - MORGAN_LOGGING=OFF
     depends_on:
       - database
 
@@ -110,11 +109,9 @@ services:
       - CI=true
       - FRONTEND_URL=frontend:3000
       - DB_ADDRESS=database:27017
-      - DB_NAME=gravnic-level-creator-test
+      - DB_NAME=gravnic-level-creator
     depends_on:
       frontend:
-        condition: service_healthy
-      backend:
         condition: service_healthy
 
   database: 
