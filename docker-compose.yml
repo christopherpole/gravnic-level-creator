@@ -109,6 +109,8 @@ services:
     environment:
       - CI=true
       - FRONTEND_URL=frontend:3000
+      - DB_ADDRESS=database:27017
+      - DB_NAME=gravnic-level-creator-test
     depends_on:
       frontend:
         condition: service_healthy

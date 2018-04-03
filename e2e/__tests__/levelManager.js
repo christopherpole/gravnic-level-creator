@@ -21,9 +21,9 @@ describe('The level manager', () => {
       .then(() => mongoose.connection.close());
 
     browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: 10,
+      slowMo: 100,
     });
 
     page = await browser.newPage();

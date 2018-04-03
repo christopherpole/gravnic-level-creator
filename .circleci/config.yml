@@ -56,4 +56,4 @@ jobs:
             - e2e/node_modules
 
       - run: docker-compose run e2e_lint
-      - run: docker-compose up e2e
+      - run: docker-compose run e2e
