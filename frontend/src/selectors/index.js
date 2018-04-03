@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import deepEqual from 'deep-equal';
 
 /**
  * Determines which of the level manager buttons should be disabled
@@ -32,8 +33,8 @@ export const getLevelManagerButtonDisabledStates = createSelector(
 
       if (
         selectedLevel &&
-        JSON.stringify(levelEditor.tiles) === JSON.stringify(selectedLevel.tiles) &&
-        JSON.stringify(levelEditor.stars) === JSON.stringify(selectedLevel.stars)
+        deepEqual(levelEditor.tiles, selectedLevel.tiles) &&
+        deepEqual(levelEditor.stars, selectedLevel.stars)
       ) {
         buttonsDisabledStates.btnSave = true;
         buttonsDisabledStates.btnLoad = true;
