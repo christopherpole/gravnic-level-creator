@@ -17,7 +17,10 @@ import {
   RETRIEVE_LEVELS_REJECTED,
   CREATE_LEVEL_FULFILLED,
   CREATE_LEVEL_REJECTED,
+  UPDATE_LEVEL_FULFILLED,
+  UPDATE_LEVELS_FULFILLED,
   UPDATE_LEVEL_REJECTED,
+  UPDATE_LEVELS_REJECTED,
   DELETE_LEVEL_REJECTED,
 } from '../actions/apiActions';
 import testLevels from '../data/testLevels';
@@ -198,6 +201,50 @@ describe('The level manager reducer', () => {
     });
   });
 
+  it('Should handle the UPDATE_LEVEL_FULFILLED action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          levels: testLevels,
+        },
+        {
+          type: UPDATE_LEVEL_FULFILLED,
+          level: { ...testLevels[1], name: 'New name' },
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      levels: [testLevels[0], { ...testLevels[1], name: 'New name' }, ...testLevels.slice(2)],
+    });
+  });
+
+  it('Should handle the UPDATE_LEVELS_FULFILLED action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          levels: testLevels,
+        },
+        {
+          type: UPDATE_LEVELS_FULFILLED,
+          levels: [
+            { ...testLevels[0], name: 'New name 1' },
+            { ...testLevels[2], name: 'New name 3' },
+          ],
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      levels: [
+        { ...testLevels[0], name: 'New name 1' },
+        testLevels[1],
+        { ...testLevels[2], name: 'New name 3' },
+        ...testLevels.slice(3),
+      ],
+    });
+  });
+
   it('Should handle the LOAD_LEVEL action', () => {
     expect(
       reducer(undefined, {
@@ -219,6 +266,25 @@ describe('The level manager reducer', () => {
         },
         {
           type: UPDATE_LEVEL_REJECTED,
+          error: 'Test error',
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      error: true,
+      loaded: false,
+    });
+  });
+
+  it('Should handle the UPDATE_LEVELS_REJECTED action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          loaded: true,
+        },
+        {
+          type: UPDATE_LEVELS_REJECTED,
           error: 'Test error',
         },
       ),

@@ -16,7 +16,10 @@ import {
   RETRIEVE_LEVELS_REJECTED,
   CREATE_LEVEL_FULFILLED,
   CREATE_LEVEL_REJECTED,
+  UPDATE_LEVEL_FULFILLED,
+  UPDATE_LEVELS_FULFILLED,
   UPDATE_LEVEL_REJECTED,
+  UPDATE_LEVELS_REJECTED,
   DELETE_LEVEL_REJECTED,
 } from '../actions/apiActions';
 
@@ -111,6 +114,7 @@ export default function levelManagerReducer(state = initialState, action) {
       };
     }
 
+    case UPDATE_LEVEL_FULFILLED:
     case SAVE_LEVEL: {
       const levelIndex = state.levels.findIndex(level => level.id === action.level.id);
 
@@ -124,6 +128,21 @@ export default function levelManagerReducer(state = initialState, action) {
       };
     }
 
+    case UPDATE_LEVELS_FULFILLED: {
+      const newLevels = [...state.levels];
+
+      action.levels.forEach(actionLevel => {
+        const ind = newLevels.findIndex(newLevel => actionLevel.id === newLevel.id);
+        newLevels[ind] = actionLevel;
+      });
+
+      return {
+        ...state,
+        levels: newLevels,
+      };
+    }
+
+    case UPDATE_LEVELS_REJECTED:
     case UPDATE_LEVEL_REJECTED: {
       return {
         ...state,

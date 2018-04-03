@@ -10,6 +10,9 @@ import {
   UPDATE_LEVEL_PENDING,
   UPDATE_LEVEL_FULFILLED,
   UPDATE_LEVEL_REJECTED,
+  UPDATE_LEVELS_PENDING,
+  UPDATE_LEVELS_FULFILLED,
+  UPDATE_LEVELS_REJECTED,
   DELETE_LEVEL_PENDING,
   DELETE_LEVEL_FULFILLED,
   DELETE_LEVEL_REJECTED,
@@ -22,6 +25,9 @@ import {
   updateLevelPending,
   updateLevelFulfilled,
   updateLevelRejected,
+  updateLevelsPending,
+  updateLevelsFulfilled,
+  updateLevelsRejected,
   deleteLevelPending,
   deleteLevelFulfilled,
   deleteLevelRejected,
@@ -117,6 +123,35 @@ describe('The API actions', () => {
       };
 
       expect(updateLevelRejected(testError)).toEqual(expectedAction);
+    });
+  });
+
+  describe('The update levels actions', () => {
+    it('Should create an action for when the API request starts', () => {
+      const expectedAction = {
+        type: UPDATE_LEVELS_PENDING,
+      };
+
+      expect(updateLevelsPending()).toEqual(expectedAction);
+    });
+
+    it('Should create an action for when the API request succeeds', () => {
+      const expectedAction = {
+        type: UPDATE_LEVELS_FULFILLED,
+        levels: testLevels,
+      };
+
+      expect(updateLevelsFulfilled(testLevels)).toEqual(expectedAction);
+    });
+
+    it('Should create an action for when the API request fails', () => {
+      const testError = new Error('Test error');
+      const expectedAction = {
+        type: UPDATE_LEVELS_REJECTED,
+        error: testError,
+      };
+
+      expect(updateLevelsRejected(testError)).toEqual(expectedAction);
     });
   });
 

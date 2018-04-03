@@ -27,6 +27,9 @@ import {
   updateLevelPending,
   updateLevelFulfilled,
   updateLevelRejected,
+  updateLevelsPending,
+  updateLevelsFulfilled,
+  updateLevelsRejected,
   deleteLevelPending,
   deleteLevelFulfilled,
   deleteLevelRejected,
@@ -66,9 +69,14 @@ export function* updateLevelSaga(action) {
 }
 
 export function* updateLevelsSaga(action) {
+  yield put(updateLevelsPending());
+
   try {
     const res = yield call(updateLevels, action.levels);
-  } catch (err) {}
+    yield put(updateLevelsFulfilled(res));
+  } catch (err) {
+    yield put(updateLevelsRejected(err));
+  }
 }
 
 export function* deleteLevelSaga(action) {

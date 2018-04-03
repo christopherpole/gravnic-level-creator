@@ -7,6 +7,9 @@ export const CREATE_LEVEL_REJECTED = 'CREATE_LEVEL_REJECTED';
 export const UPDATE_LEVEL_PENDING = 'UPDATE_LEVEL_PENDING';
 export const UPDATE_LEVEL_FULFILLED = 'UPDATE_LEVEL_FULFILLED';
 export const UPDATE_LEVEL_REJECTED = 'UPDATE_LEVEL_REJECTED';
+export const UPDATE_LEVELS_PENDING = 'UPDATE_LEVELS_PENDING';
+export const UPDATE_LEVELS_FULFILLED = 'UPDATE_LEVELS_FULFILLED';
+export const UPDATE_LEVELS_REJECTED = 'UPDATE_LEVELS_REJECTED';
 export const DELETE_LEVEL_PENDING = 'DELETE_LEVEL_PENDING';
 export const DELETE_LEVEL_FULFILLED = 'DELETE_LEVEL_FULFILLED';
 export const DELETE_LEVEL_REJECTED = 'DELETE_LEVEL_REJECTED';
@@ -53,6 +56,21 @@ export const updateLevelFulfilled = level => ({
 
 export const updateLevelRejected = error => ({
   type: UPDATE_LEVEL_REJECTED,
+  error,
+});
+
+export const updateLevelsPending = levels => ({
+  type: UPDATE_LEVELS_PENDING,
+  levels,
+});
+
+export const updateLevelsFulfilled = levels => ({
+  type: UPDATE_LEVELS_FULFILLED,
+  levels,
+});
+
+export const updateLevelsRejected = error => ({
+  type: UPDATE_LEVELS_REJECTED,
   error,
 });
 

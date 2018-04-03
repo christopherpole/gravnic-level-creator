@@ -5,12 +5,14 @@ import {
   fetchLevels as apiFetchLevels,
   createLevel as apiCreateLevel,
   updateLevel as apiUpdateLevel,
+  updateLevels as apiUpdateLevels,
   deleteLevel as apiDeleteLevel,
 } from '../api/levelManager';
 import {
   retrieveLevelsSaga,
   createLevelSaga,
   updateLevelSaga,
+  updateLevelsSaga,
   deleteLevelSaga,
 } from './levelManager';
 import {
@@ -23,6 +25,9 @@ import {
   updateLevelPending,
   updateLevelFulfilled,
   updateLevelRejected,
+  updateLevelsPending,
+  updateLevelsFulfilled,
+  updateLevelsRejected,
   deleteLevelPending,
   deleteLevelFulfilled,
   deleteLevelRejected,
@@ -141,6 +146,50 @@ describe.only('The level manager sagas', () => {
       step = clonedGenerator.throw(testError);
       expect(step.done).toBe(false);
       expect(step.value).toEqual(put(updateLevelRejected(testError)));
+
+      //  Finish
+      step = clonedGenerator.next();
+      expect(step.done).toBe(true);
+    });
+  });
+
+  describe('The update levels saga', () => {
+    it('Should update levels successfully', () => {
+      const generator = cloneableGenerator(updateLevelsSaga)({
+        levels: testLevels,
+      });
+
+      //  Fire the pending action
+      let step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(updateLevelsPending()));
+
+      //  Perform the API request
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(call(apiUpdateLevels, testLevels));
+
+      //  Clone the generator before the pass/failure fork for later use
+      const clonedGenerator = generator.clone();
+
+      //  Fire the fulfilled action
+      step = generator.next([{ ...testLevels[0], name: 'New name' }, ...testLevels.slice(1)]);
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(
+        put(
+          updateLevelsFulfilled([{ ...testLevels[0], name: 'New name' }, ...testLevels.slice(1)]),
+        ),
+      );
+
+      //  Finish
+      step = generator.next();
+      expect(step.done).toBe(true);
+
+      //  Fire the rejected action
+      const testError = new Error('Test error');
+      step = clonedGenerator.throw(testError);
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(updateLevelsRejected(testError)));
 
       //  Finish
       step = clonedGenerator.next();
