@@ -180,7 +180,7 @@ export class Level extends Component {
             )}
           </NameWrapper>
 
-          <StarsList>
+          <StarsList className="stars-list">
             <StarListItem>
               <Star />
               <Star />
