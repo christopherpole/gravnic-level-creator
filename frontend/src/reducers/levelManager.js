@@ -9,6 +9,9 @@ import {
   CHANGE_RENAME_LEVEL,
   FINISH_RENAME_LEVEL,
   REORDER_LEVELS,
+  SHOW_CONFIRMATION_SCREEN,
+  CANCEL_CONFIRMATION,
+  CONFIRM_CONFIRMATION,
 } from '../actions/levelManager';
 import {
   RETRIEVE_LEVELS_PENDING,
@@ -32,6 +35,7 @@ export const initialState = {
   loaded: false,
   error: false,
   levels: [],
+  confirmationMessage: null,
 };
 
 export default function levelManagerReducer(state = initialState, action) {
@@ -199,6 +203,27 @@ export default function levelManagerReducer(state = initialState, action) {
       return {
         ...state,
         levels: action.levels.slice(0),
+      };
+    }
+
+    case SHOW_CONFIRMATION_SCREEN: {
+      return {
+        ...state,
+        confirmationMessage: action.message,
+      };
+    }
+
+    case CANCEL_CONFIRMATION: {
+      return {
+        ...state,
+        confirmationMessage: null,
+      };
+    }
+
+    case CONFIRM_CONFIRMATION: {
+      return {
+        ...state,
+        confirmationMessage: null,
       };
     }
 

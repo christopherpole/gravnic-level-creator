@@ -15,6 +15,9 @@ export const BEGIN_RENAME_LEVEL = 'BEGIN_RENAME_LEVEL';
 export const CHANGE_RENAME_LEVEL = 'CHANGE_RENAME_LEVEL';
 export const FINISH_RENAME_LEVEL = 'FINISH_RENAME_LEVEL';
 export const REORDER_LEVELS = 'REORDER_LEVELS';
+export const SHOW_CONFIRMATION_SCREEN = 'SHOW_CONFIRMATION_SCREEN';
+export const CANCEL_CONFIRMATION = 'CANCEL_CONFIRMATION';
+export const CONFIRM_CONFIRMATION = 'CONFIRM_CONFIRMATION';
 
 export const retrieveLevels = () => ({
   type: RETRIEVE_LEVELS,
@@ -115,3 +118,16 @@ export const reorderLevels = (oldIndex, newIndex) => (dispatch, getState) => {
     levels: sortedLevels,
   });
 };
+
+export const showConfirmationScreen = message => ({
+  type: SHOW_CONFIRMATION_SCREEN,
+  message,
+});
+
+export const cancelConfirmation = () => ({
+  type: CANCEL_CONFIRMATION,
+});
+
+export const confirmConfirmation = () => ({
+  type: CONFIRM_CONFIRMATION,
+});

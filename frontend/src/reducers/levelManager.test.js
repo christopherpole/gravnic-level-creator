@@ -10,6 +10,9 @@ import {
   CHANGE_RENAME_LEVEL,
   FINISH_RENAME_LEVEL,
   REORDER_LEVELS,
+  SHOW_CONFIRMATION_SCREEN,
+  CANCEL_CONFIRMATION,
+  CONFIRM_CONFIRMATION,
 } from '../actions/levelManager';
 import {
   RETRIEVE_LEVELS_PENDING,
@@ -437,6 +440,57 @@ describe('The level manager reducer', () => {
     ).toEqual({
       ...levelManagerInitialState,
       levels: reorderedLevels,
+    });
+  });
+
+  it('Should handle the SHOW_CONFIRMATION_SCREEN action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+        },
+        {
+          type: SHOW_CONFIRMATION_SCREEN,
+          message: 'Are you sure?',
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      confirmationMessage: 'Are you sure?',
+    });
+  });
+
+  it('Should handle the CANCEL_CONFIRMATION action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          confirmationMessage: 'Are you sure?',
+        },
+        {
+          type: CANCEL_CONFIRMATION,
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      confirmationMessage: null,
+    });
+  });
+
+  it('Should handle the CANCEL_CONFIRMATION action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          confirmationMessage: 'Are you sure?',
+        },
+        {
+          type: CANCEL_CONFIRMATION,
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      confirmationMessage: null,
     });
   });
 });

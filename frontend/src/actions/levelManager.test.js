@@ -12,6 +12,9 @@ import {
   CHANGE_RENAME_LEVEL,
   FINISH_RENAME_LEVEL,
   REORDER_LEVELS,
+  SHOW_CONFIRMATION_SCREEN,
+  CONFIRM_CONFIRMATION,
+  CANCEL_CONFIRMATION,
   retrieveLevels,
   selectLevel,
   createNewLevel,
@@ -23,6 +26,9 @@ import {
   changeRenameLevel,
   finishRenameLevel,
   reorderLevels,
+  showConfirmationScreen,
+  confirmConfirmation,
+  cancelConfirmation,
 } from './levelManager';
 import testLevels from '../data/testLevels';
 import { createNewLevel as utilsCreateNewLevel } from '../utils';
@@ -215,5 +221,30 @@ describe('The level manager actions', () => {
       { ...testLevels[0], position: 2 },
       { ...testLevels[1], position: 3 },
     ]);
+  });
+
+  it('Should create an action to show the confirmation screen with a message', () => {
+    const expectedAction = {
+      type: SHOW_CONFIRMATION_SCREEN,
+      message: 'Are you sure?',
+    };
+
+    expect(showConfirmationScreen('Are you sure?')).toEqual(expectedAction);
+  });
+
+  it('Should create an action to cancel the confirmation prompt', () => {
+    const expectedAction = {
+      type: CANCEL_CONFIRMATION,
+    };
+
+    expect(cancelConfirmation()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to confirm the confirmation prompt', () => {
+    const expectedAction = {
+      type: CONFIRM_CONFIRMATION,
+    };
+
+    expect(confirmConfirmation()).toEqual(expectedAction);
   });
 });

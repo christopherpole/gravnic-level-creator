@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import { retrieveLevels } from '../../actions/levelManager';
 import LoadingScreen from './loadingScreen';
+import ConfirmationScreen from './confirmationScreen';
 import ErrorScreen from './errorScreen';
 import LevelsList from './levelsList';
 import ManagerActions from './managerActions';
@@ -23,7 +24,7 @@ export class LevelManager extends Component {
   }
 
   render() {
-    const { loaded, loading, error } = this.props;
+    const { loaded, loading, error, confirmationMessage } = this.props;
 
     if (error) {
       return (
@@ -37,6 +38,14 @@ export class LevelManager extends Component {
       return (
         <Wrapper id="level-manager">
           <LoadingScreen />
+        </Wrapper>
+      );
+    }
+
+    if (confirmationMessage) {
+      return (
+        <Wrapper id="level-manager">
+          <ConfirmationScreen />
         </Wrapper>
       );
     }
@@ -56,6 +65,7 @@ export class LevelManager extends Component {
 
 LevelManager.defaultProps = {
   error: null,
+  confirmationMessage: null,
 };
 
 LevelManager.propTypes = {
@@ -63,12 +73,14 @@ LevelManager.propTypes = {
   loaded: PropTypes.bool.isRequired,
   error: PropTypes.bool,
   retrieveLevelsAction: PropTypes.func.isRequired,
+  confirmationMessage: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   loading: state.levelManager.loading,
   loaded: state.levelManager.loaded,
   error: state.levelManager.error,
+  confirmationMessage: state.levelManager.confirmationMessage,
 });
 
 const mapDispatchToProps = dispatch => ({
