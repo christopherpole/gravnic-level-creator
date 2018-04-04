@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The error screen Matches the current snapshot 1`] = `
+<styled.div
+  id="error-screen"
+>
+  <WarningIcon
+    fillColor="white"
+    size={30}
+  />
+  <styled.p>
+    There was a problem communicating with the server
+  </styled.p>
+  <Styled(Button)
+    id="btn-reload"
+    onClick={[Function]}
+  >
+    Reload
+  </Styled(Button)>
+</styled.div>
+`;

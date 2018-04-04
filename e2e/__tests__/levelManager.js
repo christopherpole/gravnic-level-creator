@@ -10,15 +10,19 @@ dovenv.config();
 //  Set the timeout to 10 seconds. Good for when using slowMo for ddebugging
 jest.setTimeout(10000);
 
+const clearDatabase = () => {
+  mongoose
+    .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`)
+    .then(() => mongoose.connection.db.dropDatabase())
+    .then(() => mongoose.connection.close());
+};
+
 describe('The level manager', () => {
   let browser;
   let page;
 
   beforeAll(async done => {
-    mongoose
-      .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`)
-      .then(() => mongoose.connection.db.dropDatabase())
-      .then(() => mongoose.connection.close());
+    clearDatabase();
 
     browser = await puppeteer.launch({
       headless: true,
@@ -384,6 +388,28 @@ describe('The level manager', () => {
     //  Remaining level name should be the first level's
     const levelName = await page.$eval('.level p', name => name.innerText);
     expect(levelName).toBe('New level 1');
+
+    done();
+  });
+
+  it('Should show the error screen if an error occurs on the server', async done => {
+    //  Wipe the DB so the client is out of sync
+    clearDatabase();
+
+    //  Select the level and try to rename the level
+    await page.click('.level:nth-child(1)');
+    await page.click('#btn-rename');
+    await page.click('#btn-done');
+
+    //  The error screen should show
+    await page.waitForSelector('#error-screen');
+    const noOfLevels = await page.$$eval('.level', levels => levels.length);
+    expect(noOfLevels).toBe(0);
+    expect(!!await page.$('.no-levels')).toBe(false);
+
+    //  The levels list should be visible again after clicking on the "reload" button
+    await page.click('#btn-reload');
+    await page.waitForSelector('.no-levels');
 
     done();
   });

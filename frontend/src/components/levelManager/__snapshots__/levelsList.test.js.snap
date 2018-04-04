@@ -399,12 +399,10 @@ exports[`The level manager Matches the current snapshot if a level is the curren
 exports[`The level manager Matches the current snapshot if the was an issue communicating with the server 1`] = `
 <styled.div>
   <Styled(styled.div)>
-    <WarningIcon
-      fillColor="white"
-      size={30}
-    />
-    <styled.p>
-      There was a problem communicating with the server
+    <styled.p
+      className="no-levels"
+    >
+      No levels found
     </styled.p>
   </Styled(styled.div)>
 </styled.div>
@@ -413,11 +411,11 @@ exports[`The level manager Matches the current snapshot if the was an issue comm
 exports[`The level manager Matches the current snapshot when loading levels from the server 1`] = `
 <styled.div>
   <Styled(styled.div)>
-    <LoadingIcon
-      fillColor="white"
-      size={40}
-      speed={1}
-    />
+    <styled.p
+      className="no-levels"
+    >
+      No levels found
+    </styled.p>
   </Styled(styled.div)>
 </styled.div>
 `;

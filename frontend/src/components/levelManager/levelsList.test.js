@@ -2,7 +2,6 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
-import { spy } from 'sinon';
 
 import { LevelsList } from './levelsList';
 import testLevels from '../../data/testLevels';
@@ -14,14 +13,11 @@ describe('The level manager', () => {
 
   beforeEach(() => {
     props = {
-      loading: false,
-      error: false,
       sortedLevels: testLevels,
       selectedLevelId: testLevels[0].id,
       currentLevelId: testLevels[0].id,
       renamingLevelId: null,
       renamingLevelName: null,
-      retrieveLevelsAction: () => {},
       reorderLevelsAction: () => {},
     };
   });
@@ -30,20 +26,6 @@ describe('The level manager', () => {
     const levelsList = shallow(<LevelsList {...props} />);
 
     expect(levelsList).toHaveLength(1);
-  });
-
-  it('Fires the retrieve levels action after mounting', () => {
-    const retrieveLevelsActionSpy = spy();
-    shallow(
-      <LevelsList
-        {...props}
-        retrieveLevelsAction={retrieveLevelsActionSpy}
-        sortedLevels={[]}
-        error
-      />,
-    );
-
-    expect(retrieveLevelsActionSpy.calledOnce).toBe(true);
   });
 
   it('Matches the current snapshot when loading levels from the server', () => {

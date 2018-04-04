@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`The level manager Matches the current snapshot 1`] = `""`;
+
 exports[`The level manager Matches the current snapshot when the levels are loading 1`] = `
 <styled.section
   id="level-manager"
 >
-  <Connect(LevelsList) />
+  <Component />
 </styled.section>
 `;
 
@@ -12,7 +14,8 @@ exports[`The level manager Matches the current snapshot when the levels have loa
 <styled.section
   id="level-manager"
 >
-  <Connect(LevelsList) />
+  <Connect(Component) />
+  <Connect(Component) />
 </styled.section>
 `;
 
@@ -20,6 +23,6 @@ exports[`The level manager Matches the current snapshot when there was an error 
 <styled.section
   id="level-manager"
 >
-  <Connect(LevelsList) />
+  <Connect(Component) />
 </styled.section>
 `;
