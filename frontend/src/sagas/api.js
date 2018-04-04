@@ -1,13 +1,7 @@
 import { takeLatest } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 
-import {
-  fetchLevels,
-  createLevel,
-  deleteLevel,
-  updateLevel,
-  updateLevels,
-} from '../api/levelManager';
+import { fetchLevels, createLevel, deleteLevel, updateLevel, updateLevels } from '../api';
 import {
   RETRIEVE_LEVELS,
   CREATE_NEW_LEVEL,
@@ -33,7 +27,7 @@ import {
   deleteLevelPending,
   deleteLevelFulfilled,
   deleteLevelRejected,
-} from '../actions/apiActions';
+} from '../actions/api';
 
 export function* retrieveLevelsSaga() {
   yield put(retrieveLevelsPending());

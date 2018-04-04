@@ -21,7 +21,7 @@ import {
   UPDATE_LEVEL_REJECTED,
   UPDATE_LEVELS_REJECTED,
   DELETE_LEVEL_REJECTED,
-} from '../actions/apiActions';
+} from '../actions/api';
 
 export const initialState = {
   currentLevelId: null,

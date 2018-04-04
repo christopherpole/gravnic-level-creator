@@ -31,7 +31,7 @@ import {
   deleteLevelPending,
   deleteLevelFulfilled,
   deleteLevelRejected,
-} from './apiActions';
+} from './api';
 
 describe('The API actions', () => {
   describe('The retrieve levels actions', () => {

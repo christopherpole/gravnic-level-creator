@@ -7,14 +7,14 @@ import {
   updateLevel as apiUpdateLevel,
   updateLevels as apiUpdateLevels,
   deleteLevel as apiDeleteLevel,
-} from '../api/levelManager';
+} from '../api';
 import {
   retrieveLevelsSaga,
   createLevelSaga,
   updateLevelSaga,
   updateLevelsSaga,
   deleteLevelSaga,
-} from './levelManager';
+} from './api';
 import {
   retrieveLevelsPending,
   retrieveLevelsFulfilled,
@@ -31,7 +31,7 @@ import {
   deleteLevelPending,
   deleteLevelFulfilled,
   deleteLevelRejected,
-} from '../actions/apiActions';
+} from '../actions/api';
 import testLevels from '../data/testLevels';
 
 describe.only('The level manager sagas', () => {

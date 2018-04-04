@@ -1,5 +1,5 @@
-import levelManagerSagas from './levelManager';
+import apiSagas from './api';
 
 export default function* rootSaga() {
-  yield [levelManagerSagas()];
+  yield [apiSagas()];
 }
