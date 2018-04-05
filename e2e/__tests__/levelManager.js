@@ -208,69 +208,6 @@ describe('The level manager', () => {
     done();
   });
 
-  it('Should let the user load the selected level', async done => {
-    //  Clear the editor
-    await page.click('#btn-reset');
-
-    //  Muck around with the stars a bit
-    await page.click('#stars-editor > ul > li:nth-child(2) .btn-increment');
-    await page.click('#stars-editor > ul > li:nth-child(2) .btn-increment');
-
-    //  All buttons should be enabled
-    expect(!!await page.$('#btn-new:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-load:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-save:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-delete:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-copy:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-rename:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-done')).toBe(false);
-
-    //  Click on the "load" button
-    await page.click('#btn-load');
-
-    //  "Save" and "load" buttons should be disabled
-    expect(!!await page.$('#btn-new:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-load:disabled')).toBe(true);
-    expect(!!await page.$('#btn-save:disabled')).toBe(true);
-    expect(!!await page.$('#btn-delete:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-copy:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-rename:not(:disabled)')).toBe(true);
-    expect(!!await page.$('#btn-done')).toBe(false);
-
-    //  Editor's tiles should match that of the selected level's
-    const allTilesMatch = await page.evaluate(() => {
-      const tiles = document.querySelectorAll('#editor-grid .tile > div');
-
-      return (
-        Array.prototype.slice
-          .call(tiles)
-          .filter(
-            (tile, index) =>
-              window.getComputedStyle(tile).backgroundColor !==
-              window.getComputedStyle(
-                document.querySelector(
-                  `.level .level-preview .preview-tile:nth-child(${index + 1}) > div`,
-                ),
-              ).backgroundColor,
-          ).length === 0
-      );
-    });
-
-    expect(allTilesMatch).toBe(true);
-
-    //  Editor's stars should match that of the selected level's
-    const allStarsMatch = await page.evaluate(
-      () =>
-        document.querySelector('#stars-editor > ul > li:nth-child(1) span').innerText === '2' &&
-        document.querySelector('#stars-editor > ul > li:nth-child(2) span').innerText === '3' &&
-        document.querySelector('#stars-editor > ul > li:nth-child(3) span').innerText === '4',
-    );
-
-    expect(allStarsMatch).toBe(true);
-
-    done();
-  });
-
   it('Should let the user rename selected level', async done => {
     //  Click on the "rename" button
     await page.click('#btn-rename');
@@ -310,14 +247,8 @@ describe('The level manager', () => {
     let levelName = await page.$eval('.level:nth-child(2) input', input => input.value);
     expect(levelName).toBe('New level 1');
 
-    //  Old level should retain the current level border
-    let borderStyle = await page.evaluate(
-      () => window.getComputedStyle(document.querySelector('.level:nth-child(1)')).border,
-    );
-    expect(borderStyle).toBe('2px solid rgb(255, 255, 255)');
-
     //  New level should have the selected styling
-    borderStyle = await page.evaluate(
+    const borderStyle = await page.evaluate(
       () => window.getComputedStyle(document.querySelector('.level:nth-child(2)')).border,
     );
     expect(borderStyle).toBe('2px solid rgb(255, 255, 0)');
@@ -350,6 +281,142 @@ describe('The level manager', () => {
     );
 
     expect(starsMatch).toBe(true);
+
+    done();
+  });
+
+  it('Should let the user load the selected level', async done => {
+    /*
+      //  Old level should retain the current level border
+      let borderStyle = await page.evaluate(
+        () => window.getComputedStyle(document.querySelector('.level:nth-child(1)')).border,
+      );
+      expect(borderStyle).toBe('2px solid rgb(255, 255, 255)');
+    */
+
+    //  Mess around with the editor
+    await page.click('#editor-grid .tile:nth-child(40)');
+
+    //  Muck around with the stars a bit
+    await page.click('#stars-editor > ul > li:nth-child(2) .btn-increment');
+    await page.click('#stars-editor > ul > li:nth-child(2) .btn-increment');
+
+    //  All buttons should be enabled
+    expect(!!await page.$('#btn-new:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-load:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-save:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-delete:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-copy:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-rename:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-done')).toBe(false);
+
+    //  Click on the "load" button
+    await page.click('#btn-load');
+
+    //  The confirmation screen should show
+    await page.waitForSelector('#confirmation-screen');
+
+    //  Ensure that the level didn't load after canceling
+    await page.click('#btn-cancel');
+    const backgroundColor = await page.evaluate(
+      () =>
+        window.getComputedStyle(document.querySelector('#editor-grid .tile:nth-child(40) > div'))
+          .backgroundColor,
+    );
+
+    expect(backgroundColor).toBe('rgb(255, 0, 0)');
+
+    let allStarsMatch = await page.evaluate(
+      () =>
+        document.querySelector('#stars-editor > ul > li:nth-child(1) span').innerText === '2' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(2) span').innerText === '5' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(3) span').innerText === '5',
+    );
+
+    expect(allStarsMatch).toBe(true);
+
+    //  Click on the "load" button again
+    await page.click('#btn-load');
+
+    //  The confirmation screen should show
+    await page.waitForSelector('#confirmation-screen');
+
+    //  Confirm the loading of the level
+    await page.click('#btn-confirm');
+
+    //  "Save" and "load" buttons should be disabled
+    expect(!!await page.$('#btn-new:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-load:disabled')).toBe(true);
+    expect(!!await page.$('#btn-save:disabled')).toBe(true);
+    expect(!!await page.$('#btn-delete:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-copy:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-rename:not(:disabled)')).toBe(true);
+    expect(!!await page.$('#btn-done')).toBe(false);
+
+    //  Editor's tiles should match that of the selected level's
+    let allTilesMatch = await page.evaluate(() => {
+      const tiles = document.querySelectorAll('#editor-grid .tile > div');
+
+      return (
+        Array.prototype.slice
+          .call(tiles)
+          .filter(
+            (tile, index) =>
+              window.getComputedStyle(tile).backgroundColor !==
+              window.getComputedStyle(
+                document.querySelector(
+                  `.level .level-preview .preview-tile:nth-child(${index + 1}) > div`,
+                ),
+              ).backgroundColor,
+          ).length === 0
+      );
+    });
+
+    expect(allTilesMatch).toBe(true);
+
+    //  Editor's stars should match that of the selected level's
+    allStarsMatch = await page.evaluate(
+      () =>
+        document.querySelector('#stars-editor > ul > li:nth-child(1) span').innerText === '2' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(2) span').innerText === '3' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(3) span').innerText === '4',
+    );
+
+    expect(allStarsMatch).toBe(true);
+
+    //  If we wipe the grid and try and load we shouldn't see the confirm screen
+    await page.click('#btn-reset');
+    await page.click('#btn-load');
+    expect(!!await page.$('#confirmation-screen')).toBe(false);
+
+    //  Editor's tiles should match that of the selected level's
+    allTilesMatch = await page.evaluate(() => {
+      const tiles = document.querySelectorAll('#editor-grid .tile > div');
+
+      return (
+        Array.prototype.slice
+          .call(tiles)
+          .filter(
+            (tile, index) =>
+              window.getComputedStyle(tile).backgroundColor !==
+              window.getComputedStyle(
+                document.querySelector(
+                  `.level .level-preview .preview-tile:nth-child(${index + 1}) > div`,
+                ),
+              ).backgroundColor,
+          ).length === 0
+      );
+    });
+
+    expect(allTilesMatch).toBe(true);
+
+    //  Editor's stars should match that of the selected level's
+    allStarsMatch = await page.evaluate(
+      () =>
+        document.querySelector('#stars-editor > ul > li:nth-child(1) span').innerText === '2' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(2) span').innerText === '3' &&
+        document.querySelector('#stars-editor > ul > li:nth-child(3) span').innerText === '4',
+    );
 
     done();
   });

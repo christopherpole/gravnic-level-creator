@@ -9,7 +9,7 @@ import {
   STOP_DRAG,
   SET_STARS,
 } from '../actions/levelEditor';
-import { LOAD_LEVEL } from '../actions/levelManager';
+import { SAVE_LEVEL, LOAD_LEVEL_CONFIRMED } from '../actions/levelManager';
 import testLevels from '../data/testLevels';
 import { MIN_MOVES, MAX_MOVES } from '../config/settings';
 
@@ -52,6 +52,7 @@ describe('The level editor reducer', () => {
       ...initialState,
       selectedTileId: '3',
       tiles: newTiles,
+      editedSinceLastSave: true,
     });
   });
 
@@ -102,6 +103,7 @@ describe('The level editor reducer', () => {
           ...initialState,
           tiles: newTiles,
           selectedTileId: '3',
+          editedSinceLastSave: true,
         },
         {
           type: RESET_GRID,
@@ -111,19 +113,44 @@ describe('The level editor reducer', () => {
       ...initialState,
       selectedTileId: '3',
       tiles: initialState.tiles,
+      editedSinceLastSave: false,
     });
   });
 
-  it('Should handle the LOAD_LEVEL action', () => {
+  it('Should handle the SAVE_LEVEL action', () => {
     expect(
-      reducer(initialState, {
-        type: LOAD_LEVEL,
-        level: testLevels[1],
-      }),
+      reducer(
+        {
+          ...initialState,
+          editedSinceLastSave: true,
+        },
+        {
+          type: SAVE_LEVEL,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      editedSinceLastSave: false,
+    });
+  });
+
+  it('Should handle the LOAD_LEVEL_CONFIRMED action', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          editedSinceLastSave: true,
+        },
+        {
+          type: LOAD_LEVEL_CONFIRMED,
+          level: testLevels[1],
+        },
+      ),
     ).toEqual({
       ...initialState,
       tiles: testLevels[1].tiles,
       stars: testLevels[1].stars,
+      editedSinceLastSave: false,
     });
   });
 
@@ -171,6 +198,7 @@ describe('The level editor reducer', () => {
     ).toEqual({
       ...initialState,
       stars: [1, 2, 5],
+      editedSinceLastSave: true,
     });
 
     //  Don't allow trailing index values to be higher
@@ -189,6 +217,7 @@ describe('The level editor reducer', () => {
     ).toEqual({
       ...initialState,
       stars: [5, 5, 5],
+      editedSinceLastSave: true,
     });
 
     //  Don't previous index values to be lower
@@ -207,6 +236,7 @@ describe('The level editor reducer', () => {
     ).toEqual({
       ...initialState,
       stars: [1, 1, 1],
+      editedSinceLastSave: true,
     });
 
     //  Ensure values are at least 1
@@ -225,6 +255,7 @@ describe('The level editor reducer', () => {
     ).toEqual({
       ...initialState,
       stars: [MIN_MOVES, MIN_MOVES, 3],
+      editedSinceLastSave: true,
     });
 
     //  Ensure values are at most 99
@@ -243,6 +274,7 @@ describe('The level editor reducer', () => {
     ).toEqual({
       ...initialState,
       stars: [1, MAX_MOVES, MAX_MOVES],
+      editedSinceLastSave: true,
     });
   });
 });

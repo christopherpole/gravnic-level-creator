@@ -5,6 +5,7 @@ import {
   SELECT_LEVEL,
   CREATE_NEW_LEVEL,
   LOAD_LEVEL,
+  LOAD_LEVEL_CONFIRMED,
   SAVE_LEVEL,
   DELETE_SELECTED_LEVEL,
   DELETE_SELECTED_LEVEL_CONFIRMED,
@@ -20,6 +21,7 @@ import {
   selectLevel,
   createNewLevel,
   loadLevel,
+  loadLevelConfirmed,
   saveLevel,
   deleteSelectedLevel,
   deleteSelectedLevelConfirmed,
@@ -76,10 +78,13 @@ describe('The level manager actions', () => {
     expect(level.level.position).toEqual(newLevel.position);
   });
 
-  it('Should create an action to load a level', () => {
+  it('Should create an action to load a level if changes have been made since the last save', () => {
     const fn = loadLevel();
     const dispatchSpy = spy();
     const getState = () => ({
+      levelEditor: {
+        editedSinceLastSave: true,
+      },
       levelManager: {
         selectedLevelId: testLevels[1].id,
         levels: testLevels,
@@ -93,8 +98,42 @@ describe('The level manager actions', () => {
       dispatchSpy.calledWith({
         type: LOAD_LEVEL,
         level: testLevels[1],
+        message: 'Any unsaved changes will be lost. Proceed?',
       }),
     ).toBe(true);
+  });
+
+  it('Should create an action to confirm the load a level if no changes have been made since the last save', () => {
+    const fn = loadLevel();
+    const dispatchSpy = spy();
+    const getState = () => ({
+      levelEditor: {
+        editedSinceLastSave: false,
+      },
+      levelManager: {
+        selectedLevelId: testLevels[1].id,
+        levels: testLevels,
+      },
+    });
+
+    expect(typeof fn).toBe('function');
+    fn(dispatchSpy, getState);
+    expect(dispatchSpy.calledOnce).toBe(true);
+    expect(
+      dispatchSpy.calledWith({
+        type: LOAD_LEVEL_CONFIRMED,
+        level: testLevels[1],
+      }),
+    ).toBe(true);
+  });
+
+  it('Should create an action confirm the loading of a level', () => {
+    const expectedAction = {
+      type: LOAD_LEVEL_CONFIRMED,
+      level: testLevels[1],
+    };
+
+    expect(loadLevelConfirmed(testLevels[1])).toEqual(expectedAction);
   });
 
   it('Should create an action to save a level', () => {
@@ -138,7 +177,7 @@ describe('The level manager actions', () => {
       dispatchSpy.calledWith({
         type: DELETE_SELECTED_LEVEL,
         id: testLevels[1].id,
-        message: 'Are you sure?',
+        message: 'Are you sure you want to permanently delete this level?',
       }),
     ).toBe(true);
   });

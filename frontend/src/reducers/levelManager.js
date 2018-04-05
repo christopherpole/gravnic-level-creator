@@ -3,6 +3,7 @@ import {
   CREATE_NEW_LEVEL,
   SAVE_LEVEL,
   LOAD_LEVEL,
+  LOAD_LEVEL_CONFIRMED,
   COPY_LEVEL,
   DELETE_SELECTED_LEVEL,
   DELETE_SELECTED_LEVEL_CONFIRMED,
@@ -86,6 +87,13 @@ export default function levelManagerReducer(state = initialState, action) {
     }
 
     case LOAD_LEVEL: {
+      return {
+        ...state,
+        confirmationMessage: action.message,
+      };
+    }
+
+    case LOAD_LEVEL_CONFIRMED: {
       return {
         ...state,
         currentLevelId: action.level.id,

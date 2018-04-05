@@ -1,3 +1,5 @@
+import deepEqual from 'deep-equal';
+
 import {
   UPDATE_TILE,
   SELECT_TILE,
@@ -8,7 +10,7 @@ import {
   STOP_DRAG,
   SET_STARS,
 } from '../actions/levelEditor';
-import { LOAD_LEVEL } from '../actions/levelManager';
+import { SAVE_LEVEL, LOAD_LEVEL_CONFIRMED } from '../actions/levelManager';
 import { createNewLevel } from '../utils';
 import { MIN_MOVES, MAX_MOVES } from '../config/settings';
 
@@ -20,6 +22,7 @@ export const initialState = {
   selectedTileId: 0,
   tiles: newLevel.tiles,
   stars: newLevel.stars,
+  editedSinceLastSave: false,
 };
 
 export default function levelEditorReducer(state = initialState, action) {
@@ -41,6 +44,7 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         tiles: newTiles,
+        editedSinceLastSave: true,
       };
     }
 
@@ -62,14 +66,23 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         tiles: initialState.tiles,
+        editedSinceLastSave: false,
       };
     }
 
-    case LOAD_LEVEL: {
+    case SAVE_LEVEL: {
+      return {
+        ...state,
+        editedSinceLastSave: false,
+      };
+    }
+
+    case LOAD_LEVEL_CONFIRMED: {
       return {
         ...state,
         tiles: action.level.tiles,
         stars: action.level.stars,
+        editedSinceLastSave: false,
       };
     }
 
@@ -106,6 +119,7 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         stars: arr,
+        editedSinceLastSave: true,
       };
     }
 

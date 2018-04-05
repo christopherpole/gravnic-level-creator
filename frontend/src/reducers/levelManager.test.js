@@ -3,6 +3,7 @@ import {
   SELECT_LEVEL,
   CREATE_NEW_LEVEL,
   LOAD_LEVEL,
+  LOAD_LEVEL_CONFIRMED,
   SAVE_LEVEL,
   DELETE_SELECTED_LEVEL,
   DELETE_SELECTED_LEVEL_CONFIRMED,
@@ -253,6 +254,18 @@ describe('The level manager reducer', () => {
     expect(
       reducer(undefined, {
         type: LOAD_LEVEL,
+        message: 'Are you sure?',
+      }),
+    ).toEqual({
+      ...levelManagerInitialState,
+      confirmationMessage: 'Are you sure?',
+    });
+  });
+
+  it('Should handle the LOAD_LEVEL_CONFIRMED action', () => {
+    expect(
+      reducer(undefined, {
+        type: LOAD_LEVEL_CONFIRMED,
         level: testLevels[1],
       }),
     ).toEqual({

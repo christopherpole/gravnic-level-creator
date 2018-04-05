@@ -8,6 +8,7 @@ export const RETRIEVE_LEVELS = 'RETRIEVE_LEVELS';
 export const SELECT_LEVEL = 'SELECT_LEVEL';
 export const CREATE_NEW_LEVEL = 'CREATE_NEW_LEVEL';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
+export const LOAD_LEVEL_CONFIRMED = 'LOAD_LEVEL_CONFIRMED';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
 export const DELETE_SELECTED_LEVEL = 'DELETE_SELECTED_LEVEL';
 export const DELETE_SELECTED_LEVEL_CONFIRMED = 'DELETE_SELECTED_LEVEL_CONFIRMED';
@@ -38,15 +39,26 @@ export const createNewLevel = () => (dispatch, getState) => {
   });
 };
 
+export const loadLevelConfirmed = level => ({
+  type: LOAD_LEVEL_CONFIRMED,
+  level,
+});
+
 export const loadLevel = () => (dispatch, getState) => {
+  const { editedSinceLastSave } = getState().levelEditor;
   const currentLevel = getState().levelManager.levels.find(
     level => level.id === getState().levelManager.selectedLevelId,
   );
 
-  dispatch({
-    type: LOAD_LEVEL,
-    level: currentLevel,
-  });
+  if (editedSinceLastSave) {
+    dispatch({
+      type: LOAD_LEVEL,
+      level: currentLevel,
+      message: 'Any unsaved changes will be lost. Proceed?',
+    });
+  } else {
+    dispatch(loadLevelConfirmed(currentLevel));
+  }
 };
 
 export const saveLevel = () => (dispatch, getState) => {
@@ -67,7 +79,7 @@ export const deleteSelectedLevel = () => (dispatch, getState) => {
   dispatch({
     type: DELETE_SELECTED_LEVEL,
     id: selectedLevelId,
-    message: 'Are you sure?',
+    message: 'Are you sure you want to permanently delete this level?',
   });
 };
 
