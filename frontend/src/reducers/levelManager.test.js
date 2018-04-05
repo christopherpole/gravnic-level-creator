@@ -5,6 +5,7 @@ import {
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_SELECTED_LEVEL,
+  DELETE_SELECTED_LEVEL_CONFIRMED,
   COPY_LEVEL,
   BEGIN_RENAME_LEVEL,
   CHANGE_RENAME_LEVEL,
@@ -327,17 +328,36 @@ describe('The level manager reducer', () => {
       reducer(
         {
           ...levelManagerInitialState,
-          selectedLevelId: testLevels[1].id,
-          levels: testLevels,
         },
         {
           type: DELETE_SELECTED_LEVEL,
+          message: 'Are you sure?',
+        },
+      ),
+    ).toEqual({
+      ...levelManagerInitialState,
+      confirmationMessage: 'Are you sure?',
+    });
+  });
+
+  it('Should handle the DELETE_SELECTED_LEVEL_CONFIRMED action', () => {
+    expect(
+      reducer(
+        {
+          ...levelManagerInitialState,
+          selectedLevelId: testLevels[1].id,
+          currentLevelId: testLevels[1].id,
+          levels: testLevels,
+        },
+        {
+          type: DELETE_SELECTED_LEVEL_CONFIRMED,
           id: testLevels[1].id,
         },
       ),
     ).toEqual({
       ...levelManagerInitialState,
       selectedLevelId: null,
+      currentLevelId: null,
       levels: [...testLevels.slice(0, 1), ...testLevels.slice(2)],
     });
   });
@@ -477,7 +497,7 @@ describe('The level manager reducer', () => {
     });
   });
 
-  it('Should handle the CANCEL_CONFIRMATION action', () => {
+  it('Should handle the CONFIRM_CONFIRMATION action', () => {
     expect(
       reducer(
         {
@@ -485,7 +505,7 @@ describe('The level manager reducer', () => {
           confirmationMessage: 'Are you sure?',
         },
         {
-          type: CANCEL_CONFIRMATION,
+          type: CONFIRM_CONFIRMATION,
         },
       ),
     ).toEqual({

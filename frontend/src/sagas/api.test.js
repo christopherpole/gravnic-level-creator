@@ -34,7 +34,7 @@ import {
 } from '../actions/api';
 import testLevels from '../data/testLevels';
 
-describe.only('The level manager sagas', () => {
+describe('The API sagas', () => {
   describe('The retrieve levels saga', () => {
     it('Should handle retrieving levels from the server', () => {
       const generator = cloneableGenerator(retrieveLevelsSaga)();

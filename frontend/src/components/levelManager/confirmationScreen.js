@@ -41,8 +41,12 @@ export const ConfirmationScreen = ({
   <Wrapper id="confirmation-screen">
     <Message>{message}</Message>
     <ActionsWrapper>
-      <CancelButton onClick={cancelConfirmationAction}>Cancel</CancelButton>
-      <ConfirmButton onClick={confirmConfirmationAction}>Confirm</ConfirmButton>
+      <CancelButton id="btn-cancel" onClick={cancelConfirmationAction}>
+        Cancel
+      </CancelButton>
+      <ConfirmButton id="btn-confirm" onClick={confirmConfirmationAction}>
+        Confirm
+      </ConfirmButton>
     </ActionsWrapper>
   </Wrapper>
 );

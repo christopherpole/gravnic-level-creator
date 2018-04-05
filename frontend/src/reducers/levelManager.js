@@ -5,6 +5,7 @@ import {
   LOAD_LEVEL,
   COPY_LEVEL,
   DELETE_SELECTED_LEVEL,
+  DELETE_SELECTED_LEVEL_CONFIRMED,
   BEGIN_RENAME_LEVEL,
   CHANGE_RENAME_LEVEL,
   FINISH_RENAME_LEVEL,
@@ -158,8 +159,16 @@ export default function levelManagerReducer(state = initialState, action) {
     case DELETE_SELECTED_LEVEL: {
       return {
         ...state,
+        confirmationMessage: action.message,
+      };
+    }
+
+    case DELETE_SELECTED_LEVEL_CONFIRMED: {
+      return {
+        ...state,
         levels: [...state.levels].filter(level => level.id !== action.id),
         selectedLevelId: null,
+        currentLevelId: state.currentLevelId === action.id ? null : state.currentLevelId,
       };
     }
 

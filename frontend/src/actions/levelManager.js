@@ -10,6 +10,7 @@ export const CREATE_NEW_LEVEL = 'CREATE_NEW_LEVEL';
 export const LOAD_LEVEL = 'LOAD_LEVEL';
 export const SAVE_LEVEL = 'SAVE_LEVEL';
 export const DELETE_SELECTED_LEVEL = 'DELETE_SELECTED_LEVEL';
+export const DELETE_SELECTED_LEVEL_CONFIRMED = 'DELETE_SELECTED_LEVEL_CONFIRMED';
 export const COPY_LEVEL = 'COPY_LEVEL';
 export const BEGIN_RENAME_LEVEL = 'BEGIN_RENAME_LEVEL';
 export const CHANGE_RENAME_LEVEL = 'CHANGE_RENAME_LEVEL';
@@ -66,8 +67,14 @@ export const deleteSelectedLevel = () => (dispatch, getState) => {
   dispatch({
     type: DELETE_SELECTED_LEVEL,
     id: selectedLevelId,
+    message: 'Are you sure?',
   });
 };
+
+export const deleteSelectedLevelConfirmed = id => ({
+  type: DELETE_SELECTED_LEVEL_CONFIRMED,
+  id,
+});
 
 export const copyLevel = () => (dispatch, getState) => {
   const selectedLevel = getState().levelManager.levels.find(

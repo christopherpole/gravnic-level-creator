@@ -6,7 +6,7 @@ import {
   RETRIEVE_LEVELS,
   CREATE_NEW_LEVEL,
   COPY_LEVEL,
-  DELETE_SELECTED_LEVEL,
+  DELETE_SELECTED_LEVEL_CONFIRMED,
   SAVE_LEVEL,
   FINISH_RENAME_LEVEL,
   REORDER_LEVELS,
@@ -87,7 +87,7 @@ export function* deleteLevelSaga(action) {
 export default function* levelManagerSagas() {
   yield takeLatest(RETRIEVE_LEVELS, retrieveLevelsSaga);
   yield takeLatest([CREATE_NEW_LEVEL, COPY_LEVEL], createLevelSaga);
-  yield takeLatest(DELETE_SELECTED_LEVEL, deleteLevelSaga);
+  yield takeLatest(DELETE_SELECTED_LEVEL_CONFIRMED, deleteLevelSaga);
   yield takeLatest([SAVE_LEVEL, FINISH_RENAME_LEVEL], updateLevelSaga);
   yield takeLatest(REORDER_LEVELS, updateLevelsSaga);
 }

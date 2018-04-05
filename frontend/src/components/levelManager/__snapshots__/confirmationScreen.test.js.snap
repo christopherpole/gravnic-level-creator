@@ -9,11 +9,13 @@ exports[`The confirmation screen Matches the current snapshot 1`] = `
   </styled.p>
   <styled.div>
     <Styled(Button)
+      id="btn-cancel"
       onClick={[Function]}
     >
       Cancel
     </Styled(Button)>
     <Styled(Button)
+      id="btn-confirm"
       onClick={[Function]}
     >
       Confirm

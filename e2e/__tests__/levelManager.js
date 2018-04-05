@@ -381,8 +381,19 @@ describe('The level manager', () => {
     //  Click on the "delete" button
     await page.click('#btn-delete');
 
-    //  Number of levels should now be one
-    const noOfLevels = await page.$$eval('.level', levels => levels.length);
+    //  Ensure that the confirmation screen shows then click on the cancel
+    //  button and ensure that the level is still present
+    await page.waitForSelector('#confirmation-screen');
+    await page.click('#btn-cancel');
+    let noOfLevels = await page.$$eval('.level', levels => levels.length);
+    expect(noOfLevels).toBe(2);
+
+    //  Ensure that the confirmation screen shows then click on the confirm
+    //  button and ensure that the level is has been deleted
+    await page.click('#btn-delete');
+    await page.waitForSelector('#confirmation-screen');
+    await page.click('#btn-confirm');
+    noOfLevels = await page.$$eval('.level', levels => levels.length);
     expect(noOfLevels).toBe(1);
 
     //  Remaining level name should be the first level's

@@ -7,6 +7,7 @@ import {
   LOAD_LEVEL,
   SAVE_LEVEL,
   DELETE_SELECTED_LEVEL,
+  DELETE_SELECTED_LEVEL_CONFIRMED,
   COPY_LEVEL,
   BEGIN_RENAME_LEVEL,
   CHANGE_RENAME_LEVEL,
@@ -21,6 +22,7 @@ import {
   loadLevel,
   saveLevel,
   deleteSelectedLevel,
+  deleteSelectedLevelConfirmed,
   copyLevel,
   beginRenameLevel,
   changeRenameLevel,
@@ -136,8 +138,18 @@ describe('The level manager actions', () => {
       dispatchSpy.calledWith({
         type: DELETE_SELECTED_LEVEL,
         id: testLevels[1].id,
+        message: 'Are you sure?',
       }),
     ).toBe(true);
+  });
+
+  it('Should create an action to confirm the deletion of a level', () => {
+    const expectedAction = {
+      type: DELETE_SELECTED_LEVEL_CONFIRMED,
+      id: testLevels[1].id,
+    };
+
+    expect(deleteSelectedLevelConfirmed(testLevels[1].id)).toEqual(expectedAction);
   });
 
   it('Should create an action copy a level', () => {
