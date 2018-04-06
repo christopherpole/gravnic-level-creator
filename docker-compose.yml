@@ -52,10 +52,10 @@ services:
 
   backend_lint: 
     image: node:9-alpine
-    working_dir: /frontend
+    working_dir: /backend
     command: "yarn lint"
     volumes:
-      - ./frontend:/frontend
+      - ./backend:/backend
 
   backend: 
     build: ./backend
