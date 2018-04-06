@@ -97,7 +97,7 @@ jobs:
           fingerprints:
             - "8e:5c:ca:37:d9:39:f3:19:61:b2:6d:eb:bd:20:f1:82"
       - run:
-          name: Run Setup Script
+          name: Run Heroku Setup Script
           command: bash .circleci/setup-heroku.sh
       - run: heroku git:remote -a $HEROKU_FRONTEND_APP_NAME
       - run: heroku git:remote -a $HEROKU_BACKEND_APP_NAME
