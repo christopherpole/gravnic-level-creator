@@ -22,7 +22,7 @@ jobs:
             - gravnic-frontend-v2-
       - run: docker-compose run frontend_compile
       - save_cache:
-          key: gravnic-frontend-v1-{{ checksum "frontend/yarn.lock" }}
+          key: gravnic-frontend-v2-{{ checksum "frontend/yarn.lock" }}
           paths:
             - frontend/node_modules
       - persist_to_workspace:
@@ -43,7 +43,7 @@ jobs:
             - gravnic-backend-v2-
       - run: docker-compose run backend_compile
       - save_cache:
-          key: gravnic-backend-v1-{{ checksum "backend/yarn.lock" }}
+          key: gravnic-backend-v2-{{ checksum "backend/yarn.lock" }}
           paths:
             - backend/node_modules
       - persist_to_workspace:
