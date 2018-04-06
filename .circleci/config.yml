@@ -86,9 +86,30 @@ jobs:
           at: ~/gravnic-level-creator
       - run: docker-compose up e2e
 
+  deploy: 
+    machine: true
+    working_directory: ~/gravnic-level-creator
+    - add_ssh_keys:
+      fingerprints:
+        - "8e:5c:ca:37:d9:39:f3:19:61:b2:6d:eb:bd:20:f1:82"
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/gravnic-level-creator
+      - run: bash .circleci/setup-heroku.sh
+      - run: heroku git:remote -a $HEROKU_FRONTEND_APP_NAME
+      - run: heroku git:remote -a $HEROKU_BACKEND_APP_NAME
+      - run: heroku container:login
+      - run: cd frontend/
+      - run: heroku container:push --app gravnic-frontend web
+      - run: cd ../backend/
+      - run: heroku container:push --app gravnic-backend web
+      - run: sleep 5
+      - run: heroku restart
+
 workflows:
   version: 2
-  build_and_test:
+  build_test_deploy:
     jobs:
       - build_frontend
       - frontend_tests:
@@ -102,3 +123,9 @@ workflows:
           requires:
             - frontend_tests
             - backend_tests
+      - deploy:
+          requires:
+            - e2e_tests
+          filters:
+            branches:
+              only: develop
