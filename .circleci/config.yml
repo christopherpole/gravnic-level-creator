@@ -59,7 +59,7 @@ jobs:
       - run:
           <<: *install_docker_compose
       - attach_workspace:
-          at: ~/account
+          at: ~/gravnic-level-creator
       - run: docker-compose run frontend_lint
       - run: docker-compose run frontend_tests
 
@@ -71,7 +71,7 @@ jobs:
       - run:
           <<: *install_docker_compose
       - attach_workspace:
-          at: ~/account
+          at: ~/gravnic-level-creator
       - run: docker-compose run backend_lint
       - run: docker-compose run backend_tests
 
@@ -83,7 +83,7 @@ jobs:
       - run:
           <<: *install_docker_compose
       - attach_workspace:
-          at: ~/account/e2e
+          at: ~/gravnic-level-creator/e2e
       - run: docker-compose run e2e
 
 workflows:
