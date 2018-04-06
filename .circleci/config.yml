@@ -83,8 +83,8 @@ jobs:
       - run:
           <<: *install_docker_compose
       - attach_workspace:
-          at: ~/gravnic-level-creator/e2e
-      - run: docker-compose run e2e
+          at: ~/gravnic-level-creator
+      - run: docker-compose up e2e
 
 workflows:
   version: 2
