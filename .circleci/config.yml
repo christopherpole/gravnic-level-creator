@@ -11,20 +11,20 @@ install_docker_compose: &install_docker_compose
 jobs:
   build_frontend:
     machine: true
-    working_directory: ~/gravnic-level-creator/frontend
+    working_directory: ~/gravnic-level-creator
     steps:
       - checkout
       - run:
           <<: *install_docker_compose
       - restore_cache:
           keys:
-            - gravnic-frontend-v2-{{ checksum "yarn.lock" }}
+            - gravnic-frontend-v2-{{ checksum "frontend/yarn.lock" }}
             - gravnic-frontend-v2-
       - run: docker-compose run frontend_compile
       - save_cache:
-          key: gravnic-frontend-v1-{{ checksum "yarn.lock" }}
+          key: gravnic-frontend-v1-{{ checksum "frontend/yarn.lock" }}
           paths:
-            - node_modules
+            - frontend/node_modules
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
@@ -32,49 +32,28 @@ jobs:
 
   build_backend:
     machine: true
-    working_directory: ~/gravnic-level-creator/backend
+    working_directory: ~/gravnic-level-creator
     steps:
       - checkout
       - run:
           <<: *install_docker_compose
       - restore_cache:
           keys:
-            - gravnic-backend-v2-{{ checksum "yarn.lock" }}
+            - gravnic-backend-v2-{{ checksum "backend/yarn.lock" }}
             - gravnic-backend-v2-
       - run: docker-compose run backend_compile
       - save_cache:
-          key: gravnic-backend-v1-{{ checksum "yarn.lock" }}
+          key: gravnic-backend-v1-{{ checksum "backend/yarn.lock" }}
           paths:
-            - node_modules
+            - backend/node_modules
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
             - backend
 
-  build_e2e:
-    machine: true
-    working_directory: ~/gravnic-level-creator/e2e
-    steps:
-      - checkout
-      - run:
-          <<: *install_docker_compose
-      - restore_cache:
-          keys:
-            - gravnic-e2e-v2-{{ checksum "yarn.lock" }}
-            - gravnic-e2e-v2-
-      - run: docker-compose run e2e_compile
-      - save_cache:
-          key: gravnic-e2e-v1-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
-      - persist_to_workspace:
-          root: ~/gravnic-level-creator
-          paths:
-            - e2e
-
   frontend_tests:
     machine: true
-    working_directory: ~/gravnic-level-creator/frontend
+    working_directory: ~/gravnic-level-creator
     steps:
       - checkout
       - run:
@@ -86,7 +65,7 @@ jobs:
 
   backend_tests:
     machine: true
-    working_directory: ~/gravnic-level-creator/backend
+    working_directory: ~/gravnic-level-creator
     steps:
       - checkout
       - run:
@@ -96,20 +75,9 @@ jobs:
       - run: docker-compose run backend_lint
       - run: docker-compose run backend_tests
 
-  e2e_lint:
-    machine: true
-    working_directory: ~/gravnic-level-creator/e2e
-    steps:
-      - checkout
-      - run:
-          <<: *install_docker_compose
-      - attach_workspace:
-          at: ~/account/e2e
-      - run: docker-compose run e2e_lint
-
   e2e_tests:
     machine: true
-    working_directory: ~/gravnic-level-creator/e2e
+    working_directory: ~/gravnic-level-creator
     steps:
       - checkout
       - run:
@@ -130,12 +98,7 @@ workflows:
       - backend_tests:
           requires:
             - build_backend
-      - build_e2e
-      - e2e_lint:
-          requires:
-            - build_e2e
       - e2e_tests:
           requires:
             - frontend_tests
             - backend_tests
-            - e2e_lint
