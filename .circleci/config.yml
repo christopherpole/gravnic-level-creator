@@ -1,5 +1,12 @@
 version: 2
 
+job_defaults: &job_defaults
+  machine: true
+  working_directory: ~/gravnic-level-creator
+  environment:
+    ENVIRONMENT: ci
+    TERM: xterm-color
+
 install_docker_compose: &install_docker_compose
   name: Install docker compose
   user: root
@@ -10,8 +17,7 @@ install_docker_compose: &install_docker_compose
 
 jobs:
   build_frontend:
-    machine: true
-    working_directory: ~/gravnic-level-creator
+    <<: *job_defaults
     steps:
       - checkout
       - run:
@@ -20,7 +26,9 @@ jobs:
           keys:
             - gravnic-frontend-v2-{{ checksum "frontend/yarn.lock" }}
             - gravnic-frontend-v2-
-      - run: docker-compose run frontend_compile
+      - run:
+          name: Frontend compilation
+          command: docker-compose run frontend_compile
       - save_cache:
           key: gravnic-frontend-v2-{{ checksum "frontend/yarn.lock" }}
           paths:
@@ -31,8 +39,7 @@ jobs:
             - frontend
 
   build_backend:
-    machine: true
-    working_directory: ~/gravnic-level-creator
+    <<: *job_defaults
     steps:
       - checkout
       - run:
@@ -41,7 +48,9 @@ jobs:
           keys:
             - gravnic-backend-v2-{{ checksum "backend/yarn.lock" }}
             - gravnic-backend-v2-
-      - run: docker-compose run backend_compile
+      - run:
+          name: Backend compilation
+          command: docker-compose run backend_compile
       - save_cache:
           key: gravnic-backend-v2-{{ checksum "backend/yarn.lock" }}
           paths:
@@ -52,52 +61,61 @@ jobs:
             - backend
 
   frontend_tests:
-    machine: true
-    working_directory: ~/gravnic-level-creator
+    <<: *job_defaults
     steps:
       - checkout
       - run:
           <<: *install_docker_compose
       - attach_workspace:
           at: ~/gravnic-level-creator
-      - run: docker-compose run frontend_lint
-      - run: docker-compose run frontend_tests
+      - run:
+          name: Frontend linting
+          command: docker-compose run frontend_lint
+      - run: 
+          name: Frontend tests
+          command: docker-compose run frontend_tests
 
   backend_tests:
-    machine: true
-    working_directory: ~/gravnic-level-creator
+    <<: *job_defaults
     steps:
       - checkout
       - run:
           <<: *install_docker_compose
       - attach_workspace:
           at: ~/gravnic-level-creator
-      - run: docker-compose run backend_lint
-      - run: docker-compose run backend_tests
+      - run:
+          name: Backing linting
+          command: docker-compose run backend_lint
+      - run:
+          name: Backend tests
+          command: docker-compose run backend_tests
 
   e2e_tests:
-    machine: true
-    working_directory: ~/gravnic-level-creator
+    <<: *job_defaults
     steps:
       - checkout
       - run:
           <<: *install_docker_compose
       - attach_workspace:
           at: ~/gravnic-level-creator
-      - run: docker-compose up e2e
+      - run:
+          name: End to end tests
+          command: docker-compose up e2e
 
   deploy: 
-    machine: true
-    working_directory: ~/gravnic-level-creator
+    <<: *job_defaults
     steps:
       - checkout
       - attach_workspace:
           at: ~/gravnic-level-creator
-      - run: docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
-      - run: docker build --rm=false -t registry.heroku.com/$HEROKU_FRONTEND_APP_NAME/web frontend/
-      - run: docker push registry.heroku.com/$HEROKU_FRONTEND_APP_NAME/web:latest
-      - run: docker build --rm=false -t registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web backend/
-      - run: docker push registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web:latest
+      - run:
+          name: Deploy containers to Heroku
+          command: |
+            docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
+            docker build --rm=false -t registry.heroku.com/$HEROKU_FRONTEND_APP_NAME/web frontend/
+            docker push registry.heroku.com/$HEROKU_FRONTEND_APP_NAME/web:latest
+            docker build --rm=false -t registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web backend/
+            docker push registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web:latest
 
 workflows:
   version: 2
@@ -120,4 +138,4 @@ workflows:
             - e2e_tests
           filters:
             branches:
-              only: develop
+              only: master
