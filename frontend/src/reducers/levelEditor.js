@@ -1,5 +1,3 @@
-import deepEqual from 'deep-equal';
-
 import {
   UPDATE_TILE,
   SELECT_TILE,
