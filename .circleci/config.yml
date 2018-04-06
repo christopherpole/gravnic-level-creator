@@ -59,7 +59,7 @@ jobs:
       - run:
           <<: *install_docker_compose
       - attach_workspace:
-          at: ~/account/frontend
+          at: ~/account
       - run: docker-compose run frontend_lint
       - run: docker-compose run frontend_tests
 
@@ -71,7 +71,7 @@ jobs:
       - run:
           <<: *install_docker_compose
       - attach_workspace:
-          at: ~/account/backend
+          at: ~/account
       - run: docker-compose run backend_lint
       - run: docker-compose run backend_tests
 
