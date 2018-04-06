@@ -1,0 +1,141 @@
+version: 2
+
+job_defaults: &job_defaults
+  machine: true
+  working_directory: ~/gravnic-level-creator
+  environment:
+    ENVIRONMENT: ci
+    TERM: xterm-color
+
+install_docker_compose: &install_docker_compose
+  name: Install docker compose
+  user: root
+  command: |
+    curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+    chmod +x ~/docker-compose
+    sudo mv ~/docker-compose /usr/local/bin/docker-compose
+
+jobs:
+  build_frontend:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - run:
+          <<: *install_docker_compose
+      - restore_cache:
+          keys:
+            - gravnic-frontend-v2-{{ checksum "frontend/yarn.lock" }}
+            - gravnic-frontend-v2-
+      - run:
+          name: Frontend compilation
+          command: docker-compose run frontend_compile
+      - save_cache:
+          key: gravnic-frontend-v2-{{ checksum "frontend/yarn.lock" }}
+          paths:
+            - frontend/node_modules
+      - persist_to_workspace:
+          root: ~/gravnic-level-creator
+          paths:
+            - frontend
+
+  build_backend:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - run:
+          <<: *install_docker_compose
+      - restore_cache:
+          keys:
+            - gravnic-backend-v2-{{ checksum "backend/yarn.lock" }}
+            - gravnic-backend-v2-
+      - run:
+          name: Backend compilation
+          command: docker-compose run backend_compile
+      - save_cache:
+          key: gravnic-backend-v2-{{ checksum "backend/yarn.lock" }}
+          paths:
+            - backend/node_modules
+      - persist_to_workspace:
+          root: ~/gravnic-level-creator
+          paths:
+            - backend
+
+  frontend_tests:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - run:
+          <<: *install_docker_compose
+      - attach_workspace:
+          at: ~/gravnic-level-creator
+      - run:
+          name: Frontend linting
+          command: docker-compose run frontend_lint
+      - run: 
+          name: Frontend tests
+          command: docker-compose run frontend_tests
+
+  backend_tests:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - run:
+          <<: *install_docker_compose
+      - attach_workspace:
+          at: ~/gravnic-level-creator
+      - run:
+          name: Backing linting
+          command: docker-compose run backend_lint
+      - run:
+          name: Backend tests
+          command: docker-compose run backend_tests
+
+  e2e_tests:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - run:
+          <<: *install_docker_compose
+      - attach_workspace:
+          at: ~/gravnic-level-creator
+      - run:
+          name: End to end tests
+          command: docker-compose up e2e
+
+  deploy: 
+    <<: *job_defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/gravnic-level-creator
+      - run:
+          name: Deploy containers to Heroku
+          command: |
+            docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
+            docker build --rm=false -t registry.heroku.com/$HEROKU_FRONTEND_APP_NAME/web frontend/
+            docker push registry.heroku.com/$HEROKU_FRONTEND_APP_NAME/web:latest
+            docker build --rm=false -t registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web backend/
+            docker push registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web:latest
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build_frontend
+      - frontend_tests:
+          requires:
+            - build_frontend
+      - build_backend
+      - backend_tests:
+          requires:
+            - build_backend
+      - e2e_tests:
+          requires:
+            - frontend_tests
+            - backend_tests
+      - deploy:
+          requires:
+            - e2e_tests
+          filters:
+            branches:
+              only: master

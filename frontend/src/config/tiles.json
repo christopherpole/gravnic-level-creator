@@ -1,0 +1,38 @@
+[
+	{
+		"id": 0,
+		"name": "Empty"
+	},
+	{
+		"id": 1,
+		"name": "Floor"
+	},
+	{
+		"id": 2,
+		"name": "Red Colored Block"
+	},
+	{
+		"id": 3,
+		"name": "Orange Colored Block"
+	},
+	{
+		"id": 4,
+		"name": "Yellow Colored Block"
+	},
+	{
+		"id": 5,
+		"name": "Green Colored Block"
+	},
+	{
+		"id": 6,
+		"name": "Blue Colored Block"
+	},
+	{
+		"id": 7,
+		"name": "Purple Colored Block"
+	},
+	{
+		"id": 8,
+		"name": "Glass Block"
+	}
+]

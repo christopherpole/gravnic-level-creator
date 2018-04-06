@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": "Test level 1",
+    "tiles": [
+      {
+        "position": 0,
+        "selectedTileId": 2
+      },
+      {
+        "position": 1,
+        "selectedTileId": 3
+      },
+      {
+        "position": 2,
+        "selectedTileId": 0
+      }
+    ],
+    "stars": [1, 2, 3],
+    "position": 1
+  },
+  {
+    "id": "2",
+    "name": "Test level 2",
+    "tiles": [
+      {
+        "position": 0,
+        "selectedTileId": 2
+      },
+      {
+        "position": 1,
+        "selectedTileId": 3
+      },
+      {
+        "position": 2,
+        "selectedTileId": 0
+      }
+    ],
+    "stars": [1, 2, 3],
+    "position": 2
+  },
+  {
+    "id": "3",
+    "name": "Test level 3",
+    "tiles": [
+      {
+        "position": 0,
+        "selectedTileId": 2
+      },
+      {
+        "position": 1,
+        "selectedTileId": 3
+      },
+      {
+        "position": 2,
+        "selectedTileId": 0
+      }
+    ],
+    "stars": [1, 2, 3],
+    "position": 3
+  }
+]

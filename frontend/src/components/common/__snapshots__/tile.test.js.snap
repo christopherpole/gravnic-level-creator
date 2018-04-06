@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tiles Matches the current snapshot 1`] = `
+<styled.div
+  tileId={1}
+/>
+`;

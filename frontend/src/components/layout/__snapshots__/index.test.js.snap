@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The root layout Matches the current snapshot 1`] = `
+<styled.div
+  id="level-creator"
+>
+  <styled.div>
+    <Connect(Component) />
+    <Connect(LevelManager) />
+  </styled.div>
+</styled.div>
+`;

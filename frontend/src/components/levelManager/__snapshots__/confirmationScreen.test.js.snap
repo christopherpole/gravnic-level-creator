@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The confirmation screen Matches the current snapshot 1`] = `
+<styled.div
+  id="confirmation-screen"
+>
+  <styled.p>
+    Are you sure?
+  </styled.p>
+  <styled.div>
+    <Styled(Button)
+      id="btn-cancel"
+      onClick={[Function]}
+    >
+      Cancel
+    </Styled(Button)>
+    <Styled(Button)
+      id="btn-confirm"
+      onClick={[Function]}
+    >
+      Confirm
+    </Styled(Button)>
+  </styled.div>
+</styled.div>
+`;
