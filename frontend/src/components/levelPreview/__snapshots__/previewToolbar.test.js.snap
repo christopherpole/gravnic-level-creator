@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The preview toolbar Matches the current snapshot 1`] = `
+<styled.div
+  id="editor-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-edit"
+        onClick={[Function]}
+      >
+        Edit
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;

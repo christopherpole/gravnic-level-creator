@@ -5,9 +5,7 @@ exports[`The tile selector Matches the current snapshot 1`] = `
   id="level-preview"
 >
   <styled.div>
-    <p>
-      This is a preview
-    </p>
+    <Connect(Component) />
   </styled.div>
 </styled.div>
 `;

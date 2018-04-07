@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Button from '../common/button';
-import { resetGrid, previewLevel } from '../../actions/levelEditor';
+import { editLevel } from '../../actions/levelEditor';
 
 export const Wrapper = styled.div`
   grid-column: 1 / 2;
@@ -27,41 +27,29 @@ export const ActionContainer = styled.li`
   }
 `;
 
-export const EditorToolbar = ({ resetGridAction, previewLevelAction }) => (
+export const PreviewToolbar = ({ editLevelAction }) => (
   <Wrapper id="editor-toolbar">
     <Toolbar>
       <ActionContainer>
         <Button
-          id="btn-preview"
+          id="btn-edit"
           onClick={() => {
-            previewLevelAction();
+            editLevelAction();
           }}
         >
-          Preview
-        </Button>
-      </ActionContainer>
-      <ActionContainer>
-        <Button
-          id="btn-reset"
-          onClick={() => {
-            resetGridAction();
-          }}
-        >
-          Reset
+          Edit
         </Button>
       </ActionContainer>
     </Toolbar>
   </Wrapper>
 );
 
-EditorToolbar.propTypes = {
-  resetGridAction: PropTypes.func.isRequired,
-  previewLevelAction: PropTypes.func.isRequired,
+PreviewToolbar.propTypes = {
+  editLevelAction: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  resetGridAction: bindActionCreators(resetGrid, dispatch),
-  previewLevelAction: bindActionCreators(previewLevel, dispatch),
+  editLevelAction: bindActionCreators(editLevel, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(EditorToolbar);
+export default connect(null, mapDispatchToProps)(PreviewToolbar);

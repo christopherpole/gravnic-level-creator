@@ -14,10 +14,8 @@ describe('The editor toolbar', () => {
 
   beforeEach(() => {
     props = {
-      previewing: false,
       resetGridAction: () => {},
       previewLevelAction: () => {},
-      editLevelAction: () => {},
     };
   });
 
@@ -27,14 +25,8 @@ describe('The editor toolbar', () => {
     expect(editorToolbar).toHaveLength(1);
   });
 
-  it('Matches the current snapshot if not previewing', () => {
+  it('Matches the current snapshot', () => {
     const editorToolbar = shallow(<EditorToolbar {...props} />);
-
-    expect(toJson(editorToolbar)).toMatchSnapshot();
-  });
-
-  it('Matches the current snapshot if previewing', () => {
-    const editorToolbar = shallow(<EditorToolbar {...props} previewing />);
 
     expect(toJson(editorToolbar)).toMatchSnapshot();
   });

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import LevelPreview from './levelPreview';
+import LevelPreview from '../levelPreview';
+import PreviewToolbar from '../levelPreview/previewToolbar';
 import Grid from './grid';
 import EditorToolbar from './editorToolbar';
 import TileSelector from './tileSelector';
@@ -32,7 +33,7 @@ export const LevelEditor = ({ previewing }) => (
     <WrapperInner>
       <GridWrapper>
         {previewing ? <LevelPreview /> : <Grid />}
-        <EditorToolbar />
+        {previewing ? <PreviewToolbar /> : <EditorToolbar />}
       </GridWrapper>
       <PanesWrapper>
         <StarsEditor />

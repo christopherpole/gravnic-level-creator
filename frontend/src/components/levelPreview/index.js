@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import GameArea from './gameArea';
+
 export const Wrapper = styled.div`
   height: 0;
   padding-bottom: 100%;
@@ -8,6 +10,7 @@ export const Wrapper = styled.div`
 `;
 
 export const WrapperInner = styled.div`
+  border: 1px solid ${props => props.theme.foregroundColor};
   position: absolute;
   top: 0;
   left: 0;
@@ -22,7 +25,7 @@ export const WrapperInner = styled.div`
 export const LevelPreview = () => (
   <Wrapper id="level-preview">
     <WrapperInner>
-      <p>This is a preview</p>
+      <GameArea />
     </WrapperInner>
   </Wrapper>
 );

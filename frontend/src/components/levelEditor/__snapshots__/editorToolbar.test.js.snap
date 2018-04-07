@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The editor toolbar Matches the current snapshot if not previewing 1`] = `
+exports[`The editor toolbar Matches the current snapshot 1`] = `
 <styled.div
   id="editor-toolbar"
 >
@@ -21,24 +21,6 @@ exports[`The editor toolbar Matches the current snapshot if not previewing 1`] =
         onClick={[Function]}
       >
         Reset
-      </Button>
-    </styled.li>
-  </styled.ul>
-</styled.div>
-`;
-
-exports[`The editor toolbar Matches the current snapshot if previewing 1`] = `
-<styled.div
-  id="editor-toolbar"
->
-  <styled.ul>
-    <styled.li>
-      <Button
-        disabled={false}
-        id="btn-edit"
-        onClick={[Function]}
-      >
-        Edit
       </Button>
     </styled.li>
   </styled.ul>

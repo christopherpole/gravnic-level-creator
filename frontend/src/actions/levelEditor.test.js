@@ -1,3 +1,5 @@
+import { spy } from 'sinon';
+
 import {
   UPDATE_TILE,
   SELECT_TILE,
@@ -36,12 +38,29 @@ describe('The level editor actions', () => {
     expect(updateTile(1)).toEqual(expectedAction);
   });
 
-  it('Should create an action to preview the level', () => {
-    const expectedAction = {
-      type: PREVIEW_LEVEL,
-    };
+  it('Should create an action to preview a level', () => {
+    const fn = previewLevel();
+    const dispatchSpy = spy();
+    const getState = () => ({
+      levelEditor: {
+        tiles: [
+          { position: 1, selectedTileId: 0 },
+          { position: 2, selectedTileId: 1 },
+          { position: 3, selectedTileId: 2 },
+          { position: 4, selectedTileId: 0 },
+        ],
+      },
+    });
 
-    expect(previewLevel()).toEqual(expectedAction);
+    expect(typeof fn).toBe('function');
+    fn(dispatchSpy, getState);
+    expect(dispatchSpy.calledOnce).toBe(true);
+    expect(
+      dispatchSpy.calledWith({
+        type: PREVIEW_LEVEL,
+        gameState: [[0, 1], [2, 0]],
+      }),
+    ).toBe(true);
   });
 
   it('Should create an action to edit the level', () => {
