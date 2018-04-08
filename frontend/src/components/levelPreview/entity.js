@@ -11,18 +11,20 @@ export const Wrapper = styled.div`
   position: absolute;
   left: ${props => props.xPos}%;
   top: ${props => props.yPos}%;
-  transition: all 2s;
+  transition: all 1s;
+  background: ${props => (props.entityId === 1 ? 'white' : 'red')};
+  z-index: ${props => (props.entityId === 2 ? 2 : 1)};
 `;
 
-export const Entity = ({ entityId, xPos, yPos }) => (
+export const Entity = ({ id, entityId, xPos, yPos }) => (
   <Wrapper
     xPos={xPos}
     yPos={yPos}
+    id={id}
     heightPercentage={100 / GRID_SIZE}
     widthPercentage={100 / GRID_SIZE}
-  >
-    <Tile tileId={entityId} />
-  </Wrapper>
+    entityId={entityId}
+  />
 );
 
 Entity.propTypes = {

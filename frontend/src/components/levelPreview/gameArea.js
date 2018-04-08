@@ -7,7 +7,7 @@ import { MOVE_LEFT, MOVE_UP, MOVE_RIGHT, MOVE_DOWN } from 'gravnic-game';
 
 import Entity from './entity';
 import { makeMove } from '../../actions/levelPreview';
-import { GRID_SIZE } from '../../config/settings';
+import { getEntitiesData } from '../../selectors';
 
 export const Wrapper = styled.div``;
 
@@ -45,32 +45,31 @@ export class GameArea extends Component {
   }
 
   render() {
-    const { gameState } = this.props;
+    const { entitiesData } = this.props;
 
     return (
       <Wrapper>
-        {gameState.map((gameStateRow, i) =>
-          gameStateRow.map((entity, j) => (
-            <Entity
-              xPos={j * (100 / GRID_SIZE)}
-              yPos={i * (100 / GRID_SIZE)}
-              key={entity.id}
-              entityId={entity.entityId}
-            />
-          )),
-        )}
+        {Object.keys(entitiesData).map(key => (
+          <Entity
+            xPos={entitiesData[key].xPos}
+            yPos={entitiesData[key].yPos}
+            key={key}
+            id={key}
+            entityId={entitiesData[key].entityId}
+          />
+        ))}
       </Wrapper>
     );
   }
 }
 
 GameArea.propTypes = {
-  gameState: PropTypes.array.isRequired,
+  entitiesData: PropTypes.array.isRequired,
   makeMoveAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  gameState: state.levelPreview.gameState,
+  entitiesData: getEntitiesData(state),
 });
 
 const mapDispatchToProps = dispatch => ({

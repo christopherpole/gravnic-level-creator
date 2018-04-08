@@ -23,7 +23,8 @@
     "import/prefer-default-export": 0,
     "global-require": 0,
     "no-underscore-dangle": ["error", { "allow": ["_id", "__v"] }],
-    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
+    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
+    "no-plusplus": 0
   },
   "env": {
     "jest/globals": true

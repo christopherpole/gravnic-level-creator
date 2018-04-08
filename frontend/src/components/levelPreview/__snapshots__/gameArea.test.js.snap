@@ -29,4 +29,14 @@ exports[`The game area Calls the make move action when the user presses the arro
 </styled.div>
 `;
 
-exports[`The game area Matches the current snapshot 1`] = `<styled.div />`;
+exports[`The game area Matches the current snapshot 1`] = `
+<styled.div>
+  <Component
+    entityId={1}
+    id="0"
+    key="0"
+    xPos={10}
+    yPos={10}
+  />
+</styled.div>
+`;

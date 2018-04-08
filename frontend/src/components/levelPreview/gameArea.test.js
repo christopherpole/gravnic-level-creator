@@ -2,10 +2,8 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
-import { convertTilesToGameState } from 'gravnic-game';
 
 import { GameArea } from './gameArea';
-import testLevels from '../../data/testLevels';
 
 configure({ adapter: new Adapter() });
 
@@ -14,7 +12,7 @@ describe('The game area', () => {
 
   beforeEach(() => {
     props = {
-      gameState: convertTilesToGameState(testLevels[0]),
+      entitiesData: [{ xPos: 10, yPos: 10, id: 1, entityId: 1 }],
       makeMoveAction: () => {},
     };
   });
