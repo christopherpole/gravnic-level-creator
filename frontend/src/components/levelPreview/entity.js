@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   position: absolute;
   left: ${props => props.xPos}%;
   top: ${props => props.yPos}%;
+  transition: all 2s;
 `;
 
 export const Entity = ({ entityId, xPos, yPos }) => (

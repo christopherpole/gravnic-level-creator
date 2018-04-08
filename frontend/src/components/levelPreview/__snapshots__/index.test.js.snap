@@ -5,7 +5,7 @@ exports[`The tile selector Matches the current snapshot 1`] = `
   id="level-preview"
 >
   <styled.div>
-    <Connect(Component) />
+    <Connect(GameArea) />
   </styled.div>
 </styled.div>
 `;

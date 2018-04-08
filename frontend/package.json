@@ -8,6 +8,7 @@
         "body-parser": "^1.18.2",
         "deep-equal": "^1.0.1",
         "global": "^4.3.2",
+        "gravnic-game": "git+ssh://git@github.com:christopherpole/gravnic-game",
         "isomorphic-fetch": "^2.2.1",
         "normalize.css": "^8.0.0",
         "prop-types": "^15.6.0",
@@ -25,8 +26,7 @@
         "reselect": "^3.0.1",
         "shortid": "^2.2.8",
         "sortablejs": "1.6.1",
-        "styled-components": "^3.1.6",
-        "gravnic-game": "git+ssh://git@github.com:christopherpole/gravnic-game"
+        "styled-components": "^3.1.6"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -36,6 +36,8 @@
         "lint": "eslint --ext js src"
     },
     "devDependencies": {
+        "babel-jest": "^22.4.3",
+        "babel-preset-react-app": "^3.1.1",
         "enzyme": "^3.3.0",
         "enzyme-adapter-react-16": "^1.1.1",
         "enzyme-to-json": "^3.3.1",

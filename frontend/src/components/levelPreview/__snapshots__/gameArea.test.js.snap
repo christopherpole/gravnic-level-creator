@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The game area Matches the current snapshot 1`] = `
+exports[`The game area Calls the make move action when the user presses the arrow keys on the keyboard 1`] = `
 <styled.div>
   <Component
     entityId={1}
@@ -28,3 +28,5 @@ exports[`The game area Matches the current snapshot 1`] = `
   />
 </styled.div>
 `;
+
+exports[`The game area Matches the current snapshot 1`] = `<styled.div />`;

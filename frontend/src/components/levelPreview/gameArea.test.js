@@ -2,8 +2,10 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import { convertTilesToGameState } from 'gravnic-game';
 
 import { GameArea } from './gameArea';
+import testLevels from '../../data/testLevels';
 
 configure({ adapter: new Adapter() });
 
@@ -12,7 +14,8 @@ describe('The game area', () => {
 
   beforeEach(() => {
     props = {
-      gameState: [[1, 2], [1, 3]],
+      gameState: convertTilesToGameState(testLevels[0]),
+      makeMoveAction: () => {},
     };
   });
 
@@ -27,4 +30,6 @@ describe('The game area', () => {
 
     expect(toJson(gameArea)).toMatchSnapshot();
   });
+
+  it('Calls the make move action when the user presses the arrow keys on the keyboard');
 });

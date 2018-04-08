@@ -1,4 +1,6 @@
 import { spy } from 'sinon';
+import { convertTilesToGameState } from 'gravnic-game';
+import testLevels from '../data/testLevels';
 
 import {
   UPDATE_TILE,
@@ -43,12 +45,7 @@ describe('The level editor actions', () => {
     const dispatchSpy = spy();
     const getState = () => ({
       levelEditor: {
-        tiles: [
-          { position: 1, selectedTileId: 0 },
-          { position: 2, selectedTileId: 1 },
-          { position: 3, selectedTileId: 2 },
-          { position: 4, selectedTileId: 0 },
-        ],
+        tiles: testLevels[0].tiles,
       },
     });
 
@@ -58,7 +55,7 @@ describe('The level editor actions', () => {
     expect(
       dispatchSpy.calledWith({
         type: PREVIEW_LEVEL,
-        gameState: [[0, 1], [2, 0]],
+        gameState: convertTilesToGameState(testLevels[0].tiles),
       }),
     ).toBe(true);
   });

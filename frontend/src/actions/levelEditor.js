@@ -1,4 +1,4 @@
-import Gravnic from 'gravnic-game';
+import { convertTilesToGameState } from 'gravnic-game';
 
 export const UPDATE_TILE = 'UPDATE_TILE';
 export const SELECT_TILE = 'SELECT_TILE';
@@ -21,8 +21,7 @@ export const updateTile = position => ({
 
 export const previewLevel = () => (dispatch, getState) => {
   const { tiles } = getState().levelEditor;
-  const gravnic = new Gravnic();
-  const gameState = gravnic.loadTiles(tiles);
+  const gameState = convertTilesToGameState(tiles);
 
   dispatch({
     type: PREVIEW_LEVEL,
