@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Button from '../common/button';
-import { editLevel } from '../../actions/levelEditor';
+import { editLevel } from '../../actions/levelPreview';
 
 export const Wrapper = styled.div`
   grid-column: 1 / 2;

@@ -1,10 +1,6 @@
-import { convertTilesToGameState } from 'gravnic-game';
-
 export const UPDATE_TILE = 'UPDATE_TILE';
 export const SELECT_TILE = 'SELECT_TILE';
 export const RESET_GRID = 'RESET_GRID';
-export const EDIT_LEVEL = 'EDIT_LEVEL';
-export const PREVIEW_LEVEL = 'PREVIEW_LEVEL';
 export const START_DRAG = 'START_DRAG';
 export const STOP_DRAG = 'STOP_DRAG';
 export const SET_STARS = 'SET_STARS';
@@ -17,20 +13,6 @@ export const selectTile = selectedTileId => ({
 export const updateTile = position => ({
   type: UPDATE_TILE,
   position,
-});
-
-export const previewLevel = () => (dispatch, getState) => {
-  const { tiles } = getState().levelEditor;
-  const gameState = convertTilesToGameState(tiles);
-
-  dispatch({
-    type: PREVIEW_LEVEL,
-    gameState,
-  });
-};
-
-export const editLevel = () => ({
-  type: EDIT_LEVEL,
 });
 
 export const resetGrid = () => ({

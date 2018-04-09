@@ -1,11 +1,13 @@
-import { PREVIEW_LEVEL } from '../actions/levelEditor';
 import {
+  PREVIEW_LEVEL,
+  EDIT_LEVEL,
   CHANGE_GRAVITY_DIRECTION,
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
 } from '../actions/levelPreview';
 
 export const initialState = {
+  previewing: false,
   gameState: null,
   gravityDirection: null,
   entitiesMoving: false,
@@ -16,7 +18,15 @@ export default function levelPreviewReducer(state = initialState, action) {
     case PREVIEW_LEVEL: {
       return {
         ...state,
+        previewing: true,
         gameState: action.gameState,
+      };
+    }
+
+    case EDIT_LEVEL: {
+      return {
+        ...state,
+        previewing: false,
       };
     }
 

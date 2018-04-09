@@ -1,8 +1,6 @@
 import {
   UPDATE_TILE,
   SELECT_TILE,
-  EDIT_LEVEL,
-  PREVIEW_LEVEL,
   RESET_GRID,
   START_DRAG,
   STOP_DRAG,
@@ -43,20 +41,6 @@ export default function levelEditorReducer(state = initialState, action) {
         ...state,
         tiles: newTiles,
         editedSinceLastSave: true,
-      };
-    }
-
-    case PREVIEW_LEVEL: {
-      return {
-        ...state,
-        previewing: true,
-      };
-    }
-
-    case EDIT_LEVEL: {
-      return {
-        ...state,
-        previewing: false,
       };
     }
 

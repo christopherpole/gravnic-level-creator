@@ -1,12 +1,6 @@
-import { spy } from 'sinon';
-import { convertTilesToGameState } from 'gravnic-game';
-import testLevels from '../data/testLevels';
-
 import {
   UPDATE_TILE,
   SELECT_TILE,
-  EDIT_LEVEL,
-  PREVIEW_LEVEL,
   RESET_GRID,
   START_DRAG,
   STOP_DRAG,
@@ -14,7 +8,6 @@ import {
   updateTile,
   selectTile,
   editLevel,
-  previewLevel,
   resetGrid,
   startDrag,
   stopDrag,
@@ -38,34 +31,6 @@ describe('The level editor actions', () => {
     };
 
     expect(updateTile(1)).toEqual(expectedAction);
-  });
-
-  it('Should create an action to preview a level', () => {
-    const fn = previewLevel();
-    const dispatchSpy = spy();
-    const getState = () => ({
-      levelEditor: {
-        tiles: testLevels[0].tiles,
-      },
-    });
-
-    expect(typeof fn).toBe('function');
-    fn(dispatchSpy, getState);
-    expect(dispatchSpy.calledOnce).toBe(true);
-    expect(
-      dispatchSpy.calledWith({
-        type: PREVIEW_LEVEL,
-        gameState: convertTilesToGameState(testLevels[0].tiles),
-      }),
-    ).toBe(true);
-  });
-
-  it('Should create an action to edit the level', () => {
-    const expectedAction = {
-      type: EDIT_LEVEL,
-    };
-
-    expect(editLevel()).toEqual(expectedAction);
   });
 
   it('Should create an action to reset the grid', () => {

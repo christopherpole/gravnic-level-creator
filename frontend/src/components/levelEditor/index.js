@@ -48,7 +48,7 @@ LevelEditor.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  previewing: state.levelEditor.previewing,
+  previewing: state.levelPreview.previewing,
 });
 
 export default connect(mapStateToProps)(LevelEditor);

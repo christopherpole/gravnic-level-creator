@@ -1,7 +1,8 @@
 import { MOVE_LEFT } from 'gravnic-game';
 import reducer, { initialState } from './levelPreview';
-import { PREVIEW_LEVEL } from '../actions/levelEditor';
 import {
+  PREVIEW_LEVEL,
+  EDIT_LEVEL,
   CHANGE_GRAVITY_DIRECTION,
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
@@ -20,7 +21,25 @@ describe('The level editor reducer', () => {
       }),
     ).toEqual({
       ...initialState,
+      previewing: true,
       gameState: [[1, 2], [3, 2]],
+    });
+  });
+
+  it('Should handle the EDIT_LEVEL action', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          previewing: true,
+        },
+        {
+          type: EDIT_LEVEL,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      previewing: false,
     });
   });
 

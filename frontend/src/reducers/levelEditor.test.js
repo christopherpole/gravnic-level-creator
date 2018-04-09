@@ -56,40 +56,6 @@ describe('The level editor reducer', () => {
     });
   });
 
-  it('Should handle the PREVIEW_LEVEL action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          previewing: false,
-        },
-        {
-          type: PREVIEW_LEVEL,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      previewing: true,
-    });
-  });
-
-  it('Should handle the EDIT_LEVEL action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          previewing: true,
-        },
-        {
-          type: EDIT_LEVEL,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      previewing: false,
-    });
-  });
-
   it('Should handle the RESET_GRID action', () => {
     const newTiles = initialState.tiles.slice();
     newTiles[44] = {
