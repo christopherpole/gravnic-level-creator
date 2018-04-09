@@ -5,6 +5,7 @@ export const UPDATE_GAME_STATE = 'UPDATE_GAME_STATE';
 export const ENTITIES_STOPPED_MOVING = 'ENTITIES_STOPPED_MOVING';
 export const PREVIEW_LEVEL = 'PREVIEW_LEVEL';
 export const EDIT_LEVEL = 'EDIT_LEVEL';
+export const RESTART_LEVEL = 'RESTART_LEVEL';
 
 export const previewLevel = () => (dispatch, getState) => {
   const { tiles } = getState().levelEditor;
@@ -19,6 +20,16 @@ export const previewLevel = () => (dispatch, getState) => {
 export const editLevel = () => ({
   type: EDIT_LEVEL,
 });
+
+export const restartLevel = () => (dispatch, getState) => {
+  const { tiles } = getState().levelEditor;
+  const gameState = convertTilesToGameState(tiles);
+
+  dispatch({
+    type: RESTART_LEVEL,
+    gameState,
+  });
+};
 
 export const changeGravityDirection = direction => ({
   type: CHANGE_GRAVITY_DIRECTION,

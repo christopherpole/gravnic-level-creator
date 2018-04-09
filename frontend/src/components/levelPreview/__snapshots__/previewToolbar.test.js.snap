@@ -14,6 +14,15 @@ exports[`The preview toolbar Matches the current snapshot 1`] = `
         Edit
       </Button>
     </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-restart"
+        onClick={[Function]}
+      >
+        Restart
+      </Button>
+    </styled.li>
   </styled.ul>
 </styled.div>
 `;

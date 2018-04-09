@@ -6,6 +6,7 @@ import {
   CHANGE_GRAVITY_DIRECTION,
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
+  RESTART_LEVEL,
 } from '../actions/levelPreview';
 
 describe('The level editor reducer', () => {
@@ -15,14 +16,25 @@ describe('The level editor reducer', () => {
 
   it('Should handle the PREVIEW_LEVEL action', () => {
     expect(
-      reducer(undefined, {
-        type: PREVIEW_LEVEL,
-        gameState: [[1, 2], [3, 2]],
-      }),
+      reducer(
+        {
+          ...initialState,
+          gameHistory: [[[1, 2, 3]]],
+          entitiesMoving: true,
+          gravityDirection: MOVE_LEFT,
+        },
+        {
+          type: PREVIEW_LEVEL,
+          gameState: [[1, 2], [3, 2]],
+        },
+      ),
     ).toEqual({
       ...initialState,
       previewing: true,
       gameState: [[1, 2], [3, 2]],
+      gameHistory: initialState.gameHistory,
+      entitiesMoving: initialState.entitiesMoving,
+      gravityDirection: initialState.gravityDirection,
     });
   });
 
@@ -87,6 +99,29 @@ describe('The level editor reducer', () => {
     ).toEqual({
       ...initialState,
       entitiesMoving: false,
+    });
+  });
+
+  it('Should handle the RESTART_LEVEL action', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          gameHistory: [[[1, 2, 3]]],
+          entitiesMoving: true,
+          gravityDirection: MOVE_LEFT,
+        },
+        {
+          type: RESTART_LEVEL,
+          gameState: [[1, 2], [3, 2]],
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      entitiesMoving: initialState.entitiesMoving,
+      gameHistory: initialState.gameHistory,
+      gravityDirection: initialState.gravityDirection,
+      gameState: [[1, 2], [3, 2]],
     });
   });
 });

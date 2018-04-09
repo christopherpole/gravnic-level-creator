@@ -14,6 +14,7 @@ describe('The preview toolbar', () => {
   beforeEach(() => {
     props = {
       editLevelAction: () => {},
+      restartLevelAction: () => {},
     };
   });
 
@@ -37,5 +38,17 @@ describe('The preview toolbar', () => {
     expect(editLevelSpy.calledOnce).toBe(false);
     btnEditLevel.simulate('click');
     expect(editLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the "restartLevel" action when the restart level button is clicked', () => {
+    const restartLevelSpy = spy();
+    const previewToolbar = shallow(
+      <PreviewToolbar {...props} restartLevelAction={restartLevelSpy} />,
+    );
+    const btnrestartLevel = previewToolbar.find('#btn-restart');
+
+    expect(restartLevelSpy.calledOnce).toBe(false);
+    btnrestartLevel.simulate('click');
+    expect(restartLevelSpy.calledOnce).toBe(true);
   });
 });

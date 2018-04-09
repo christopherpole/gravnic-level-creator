@@ -5,11 +5,13 @@ import testLevels from '../data/testLevels';
 import {
   PREVIEW_LEVEL,
   EDIT_LEVEL,
+  RESTART_LEVEL,
   CHANGE_GRAVITY_DIRECTION,
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
   previewLevel,
   editLevel,
+  restartLevel,
   changeGravityDirection,
   updateGameState,
   entitiesStoppedMoving,
@@ -42,6 +44,26 @@ describe('The level preview actions', () => {
     };
 
     expect(editLevel()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to restart the level', () => {
+    const fn = restartLevel();
+    const dispatchSpy = spy();
+    const getState = () => ({
+      levelEditor: {
+        tiles: testLevels[0].tiles,
+      },
+    });
+
+    expect(typeof fn).toBe('function');
+    fn(dispatchSpy, getState);
+    expect(dispatchSpy.calledOnce).toBe(true);
+    expect(
+      dispatchSpy.calledWith({
+        type: RESTART_LEVEL,
+        gameState: convertTilesToGameState(testLevels[0].tiles),
+      }),
+    ).toBe(true);
   });
 
   it('Should create an action to change the direction of gravity', () => {

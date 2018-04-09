@@ -4,6 +4,7 @@ import {
   CHANGE_GRAVITY_DIRECTION,
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
+  RESTART_LEVEL,
 } from '../actions/levelPreview';
 
 export const initialState = {
@@ -21,6 +22,9 @@ export default function levelPreviewReducer(state = initialState, action) {
         ...state,
         previewing: true,
         gameState: action.gameState,
+        gameHistory: initialState.gameHistory,
+        entitiesMoving: initialState.entitiesMoving,
+        gravityDirection: initialState.gravityDirection,
       };
     }
 
@@ -58,6 +62,16 @@ export default function levelPreviewReducer(state = initialState, action) {
       return {
         ...state,
         entitiesMoving: false,
+      };
+    }
+
+    case RESTART_LEVEL: {
+      return {
+        ...state,
+        entitiesMoving: initialState.entitiesMoving,
+        gameHistory: initialState.gameHistory,
+        gravityDirection: initialState.gravityDirection,
+        gameState: action.gameState,
       };
     }
 
