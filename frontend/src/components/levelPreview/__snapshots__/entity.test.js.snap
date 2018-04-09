@@ -4,6 +4,7 @@ exports[`Level preview entities Matches the current snapshot 1`] = `
 <styled.div
   entityId={3}
   heightPercentage={10}
+  moveSpeed={100}
   widthPercentage={10}
   xPos={10}
   yPos={20}

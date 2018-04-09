@@ -1,15 +1,17 @@
-import { changeGravityDirection } from 'gravnic-game';
+export const CHANGE_GRAVITY_DIRECTION = 'CHANGE_GRAVITY_DIRECTION';
+export const UPDATE_GAME_STATE = 'UPDATE_GAME_STATE';
+export const ENTITIES_STOPPED_MOVING = 'ENTITIES_STOPPED_MOVING';
 
-export const MAKE_MOVE = 'MAKE_MOVE';
+export const changeGravityDirection = direction => ({
+  type: CHANGE_GRAVITY_DIRECTION,
+  direction,
+});
 
-export const makeMove = direction => (dispatch, getState) => {
-  const { gameState } = getState().levelPreview;
-  const gameStates = changeGravityDirection(gameState, direction);
+export const updateGameState = gameState => ({
+  type: UPDATE_GAME_STATE,
+  gameState,
+});
 
-  if (gameStates.length) {
-    dispatch({
-      type: MAKE_MOVE,
-      gameState: gameStates[gameStates.length - 1],
-    });
-  }
-};
+export const entitiesStoppedMoving = () => ({
+  type: ENTITIES_STOPPED_MOVING,
+});

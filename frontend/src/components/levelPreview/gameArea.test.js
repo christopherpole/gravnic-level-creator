@@ -13,7 +13,8 @@ describe('The game area', () => {
   beforeEach(() => {
     props = {
       entitiesData: [{ xPos: 10, yPos: 10, id: 1, entityId: 1 }],
-      makeMoveAction: () => {},
+      changeGravityDirectionAction: () => {},
+      entitiesMoving: false,
     };
   });
 
@@ -29,5 +30,7 @@ describe('The game area', () => {
     expect(toJson(gameArea)).toMatchSnapshot();
   });
 
-  it('Calls the make move action when the user presses the arrow keys on the keyboard');
+  it(
+    'Calls the make move action when the user presses the arrow keys on the keyboard and if a move is not taking place',
+  );
 });

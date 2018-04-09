@@ -1,38 +1,38 @@
-import { MOVE_LEFT, changeGravityDirection, convertTilesToGameState } from 'gravnic-game';
-import { spy } from 'sinon';
+import { MOVE_LEFT } from 'gravnic-game';
 
-import { MAKE_MOVE, makeMove } from './levelPreview';
-import testLevels from '../data/testLevels';
+import {
+  CHANGE_GRAVITY_DIRECTION,
+  UPDATE_GAME_STATE,
+  ENTITIES_STOPPED_MOVING,
+  changeGravityDirection,
+  updateGameState,
+  entitiesStoppedMoving,
+} from './levelPreview';
 
 describe('The level preview actions', () => {
-  it('Should create an action to make a move only when there is a move to be made', () => {
-    const gameState = convertTilesToGameState(testLevels[0].tiles);
-    const newGameStates = changeGravityDirection(gameState, MOVE_LEFT);
-    const fn = makeMove(MOVE_LEFT);
-    const dispatchSpy = spy();
-    const getState = () => ({
-      levelPreview: {
-        gameState,
-      },
-    });
+  it('Should create an action to change the direction of gravity', () => {
+    const expectedAction = {
+      type: CHANGE_GRAVITY_DIRECTION,
+      direction: MOVE_LEFT,
+    };
 
-    expect(typeof fn).toBe('function');
-    fn(dispatchSpy, getState);
-    expect(dispatchSpy.calledOnce).toBe(true);
-    expect(
-      dispatchSpy.calledWith({
-        type: MAKE_MOVE,
-        gameState: newGameStates[newGameStates.length - 1],
-      }),
-    ).toBe(true);
+    expect(changeGravityDirection(MOVE_LEFT)).toEqual(expectedAction);
+  });
 
-    //  Don't dispatch if no tiles moved
-    fn(dispatchSpy, () => ({
-      levelPreview: {
-        gameState: newGameStates[newGameStates.length - 1],
-      },
-    }));
+  it('Should create an action to update the current game state', () => {
+    const expectedAction = {
+      type: UPDATE_GAME_STATE,
+      gameState: [1, 2, 3],
+    };
 
-    expect(dispatchSpy.calledOnce).toBe(true);
+    expect(updateGameState([1, 2, 3])).toEqual(expectedAction);
+  });
+
+  it('Should create an action to signify that the entities have stopped moving', () => {
+    const expectedAction = {
+      type: ENTITIES_STOPPED_MOVING,
+    };
+
+    expect(entitiesStoppedMoving()).toEqual(expectedAction);
   });
 });

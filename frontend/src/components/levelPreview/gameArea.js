@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { MOVE_LEFT, MOVE_UP, MOVE_RIGHT, MOVE_DOWN } from 'gravnic-game';
 
 import Entity from './entity';
-import { makeMove } from '../../actions/levelPreview';
+import { changeGravityDirection } from '../../actions/levelPreview';
 import { getEntitiesData } from '../../selectors';
 
 export const Wrapper = styled.div``;
@@ -27,18 +27,20 @@ export class GameArea extends Component {
   }
 
   handleKeyPress(event) {
+    if (this.props.entitiesMoving) return;
+
     switch (event.keyCode) {
       case 37:
-        this.props.makeMoveAction(MOVE_LEFT);
+        this.props.changeGravityDirectionAction(MOVE_LEFT);
         break;
       case 38:
-        this.props.makeMoveAction(MOVE_UP);
+        this.props.changeGravityDirectionAction(MOVE_UP);
         break;
       case 39:
-        this.props.makeMoveAction(MOVE_RIGHT);
+        this.props.changeGravityDirectionAction(MOVE_RIGHT);
         break;
       case 40:
-        this.props.makeMoveAction(MOVE_DOWN);
+        this.props.changeGravityDirectionAction(MOVE_DOWN);
         break;
       default:
     }
@@ -54,7 +56,6 @@ export class GameArea extends Component {
             xPos={entitiesData[key].xPos}
             yPos={entitiesData[key].yPos}
             key={key}
-            id={key}
             entityId={entitiesData[key].entityId}
           />
         ))}
@@ -65,15 +66,17 @@ export class GameArea extends Component {
 
 GameArea.propTypes = {
   entitiesData: PropTypes.array.isRequired,
-  makeMoveAction: PropTypes.func.isRequired,
+  changeGravityDirectionAction: PropTypes.func.isRequired,
+  entitiesMoving: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   entitiesData: getEntitiesData(state),
+  entitiesMoving: state.levelPreview.entitiesMoving,
 });
 
 const mapDispatchToProps = dispatch => ({
-  makeMoveAction: bindActionCreators(makeMove, dispatch),
+  changeGravityDirectionAction: bindActionCreators(changeGravityDirection, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameArea);
