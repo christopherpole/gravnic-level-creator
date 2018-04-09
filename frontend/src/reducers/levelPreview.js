@@ -11,6 +11,7 @@ export const initialState = {
   gameState: null,
   gravityDirection: null,
   entitiesMoving: false,
+  gameHistory: [],
 };
 
 export default function levelPreviewReducer(state = initialState, action) {
@@ -31,17 +32,25 @@ export default function levelPreviewReducer(state = initialState, action) {
     }
 
     case CHANGE_GRAVITY_DIRECTION: {
+      const newGameHistory = [...state.gameHistory];
+      newGameHistory.push([]);
+
       return {
         ...state,
         gravityDirection: action.direction,
         entitiesMoving: true,
+        gameHistory: newGameHistory,
       };
     }
 
     case UPDATE_GAME_STATE: {
+      const newGameHistory = [...state.gameHistory];
+      newGameHistory[newGameHistory.length - 1].push(action.gameState);
+
       return {
         ...state,
         gameState: action.gameState,
+        gameHistory: newGameHistory,
       };
     }
 

@@ -53,18 +53,23 @@ describe('The level editor reducer', () => {
       ...initialState,
       gravityDirection: MOVE_LEFT,
       entitiesMoving: true,
+      gameHistory: [[]],
     });
   });
 
   it('Should handle the UPDATE_GAME_STATE action', () => {
     expect(
-      reducer(undefined, {
-        type: UPDATE_GAME_STATE,
-        gameState: [1, 2, 3],
-      }),
+      reducer(
+        { ...initialState, gameHistory: [[[4, 5, 6]]] },
+        {
+          type: UPDATE_GAME_STATE,
+          gameState: [1, 2, 3],
+        },
+      ),
     ).toEqual({
       ...initialState,
       gameState: [1, 2, 3],
+      gameHistory: [[[4, 5, 6], [1, 2, 3]]],
     });
   });
 
