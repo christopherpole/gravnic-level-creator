@@ -1,3 +1,5 @@
+import { cloneDeep } from 'lodash';
+
 import {
   PREVIEW_LEVEL,
   EDIT_LEVEL,
@@ -37,8 +39,8 @@ export default function levelPreviewReducer(state = initialState, action) {
     }
 
     case CHANGE_GRAVITY_DIRECTION: {
-      const newGameHistory = [...state.gameHistory];
-      newGameHistory.push([state.gameState]);
+      const newGameHistory = cloneDeep(state.gameHistory);
+      newGameHistory.push([cloneDeep(state.gameState)]);
 
       return {
         ...state,
@@ -49,7 +51,7 @@ export default function levelPreviewReducer(state = initialState, action) {
     }
 
     case UPDATE_GAME_STATE: {
-      const newGameHistory = [...state.gameHistory];
+      const newGameHistory = cloneDeep(state.gameHistory);
       newGameHistory[newGameHistory.length - 1].push(action.gameState);
 
       return {
@@ -70,20 +72,20 @@ export default function levelPreviewReducer(state = initialState, action) {
       return {
         ...state,
         entitiesMoving: initialState.entitiesMoving,
-        gameHistory: [action.gameState],
+        gameHistory: [cloneDeep(state.gameHistory[0])],
         gravityDirection: initialState.gravityDirection,
-        gameState: action.gameState,
+        gameState: cloneDeep(state.gameHistory[0]),
       };
     }
 
     case UNDO_MOVE: {
       if (state.gameHistory.length <= 1) return state;
 
-      const newGameHistory = state.gameHistory.slice(0, state.gameHistory.length - 1);
+      const newGameHistory = cloneDeep(state.gameHistory.slice(0, state.gameHistory.length - 1));
 
       return {
         ...state,
-        gameState: state.gameHistory[state.gameHistory.length - 1][0],
+        gameState: cloneDeep(state.gameHistory[state.gameHistory.length - 1][0]),
         gameHistory: newGameHistory,
       };
     }

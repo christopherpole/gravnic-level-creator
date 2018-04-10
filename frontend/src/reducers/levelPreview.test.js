@@ -11,6 +11,30 @@ import {
 } from '../actions/levelPreview';
 
 describe('The level editor reducer', () => {
+  let testGameHistory;
+  let testGameState;
+
+  beforeEach(() => {
+    testGameHistory = [
+      [
+        [[{}, { staticEntity: { id: 111, entityId: 2 } }, {}], [{}, {}, {}], [{}, {}, {}]],
+        [[{}, {}, {}], [{}, { staticEntity: { id: 111, entityId: 2 } }, {}], [{}, {}, {}]],
+        [[{}, {}, {}], [{}, {}, {}], [{}, { staticEntity: { id: 111, entityId: 2 } }, {}]],
+      ],
+      [
+        [[{}, {}, {}], [{}, {}, {}], [{}, { staticEntity: { id: 111, entityId: 2 } }, {}]],
+        [[{}, {}, {}], [{}, { staticEntity: { id: 111, entityId: 2 } }, {}], [{}, {}, {}]],
+        [[{}, { staticEntity: { id: 111, entityId: 2 } }, {}], [{}, {}, {}], [{}, {}, {}]],
+      ],
+    ];
+
+    testGameState = [
+      [{}, {}, {}],
+      [{}, { staticEntity: { id: 222, entityId: 2 } }, {}],
+      [{}, {}, {}],
+    ];
+  });
+
   it('Should return the initial state', () => {
     expect(reducer(undefined, [])).toEqual(initialState);
   });
@@ -20,20 +44,19 @@ describe('The level editor reducer', () => {
       reducer(
         {
           ...initialState,
-          gameHistory: [[1, 2, 3]],
           entitiesMoving: true,
           gravityDirection: MOVE_LEFT,
         },
         {
           type: PREVIEW_LEVEL,
-          gameState: [4, 5, 6],
+          gameState: testGameState,
         },
       ),
     ).toEqual({
       ...initialState,
       previewing: true,
-      gameState: [4, 5, 6],
-      gameHistory: [[4, 5, 6]],
+      gameState: testGameState,
+      gameHistory: [testGameState],
       entitiesMoving: initialState.entitiesMoving,
       gravityDirection: initialState.gravityDirection,
     });
@@ -61,7 +84,7 @@ describe('The level editor reducer', () => {
       reducer(
         {
           ...initialState,
-          gameState: [1, 2, 3],
+          gameState: testGameState,
         },
         {
           type: CHANGE_GRAVITY_DIRECTION,
@@ -72,24 +95,27 @@ describe('The level editor reducer', () => {
       ...initialState,
       gravityDirection: MOVE_LEFT,
       entitiesMoving: true,
-      gameState: [1, 2, 3],
-      gameHistory: [[[1, 2, 3]]],
+      gameState: testGameState,
+      gameHistory: [[testGameState]],
     });
   });
 
   it('Should handle the UPDATE_GAME_STATE action', () => {
     expect(
       reducer(
-        { ...initialState, gameHistory: [[[4, 5, 6]]] },
+        { ...initialState, gameHistory: testGameHistory },
         {
           type: UPDATE_GAME_STATE,
-          gameState: [1, 2, 3],
+          gameState: testGameState,
         },
       ),
     ).toEqual({
       ...initialState,
-      gameState: [1, 2, 3],
-      gameHistory: [[[4, 5, 6], [1, 2, 3]]],
+      gameState: testGameState,
+      gameHistory: [
+        ...testGameHistory.slice(0, testGameHistory.length - 1),
+        [...testGameHistory[testGameHistory.length - 1], testGameState],
+      ],
     });
   });
 
@@ -115,21 +141,20 @@ describe('The level editor reducer', () => {
       reducer(
         {
           ...initialState,
-          gameHistory: [[1, 2, 3]],
+          gameHistory: testGameHistory,
           entitiesMoving: true,
           gravityDirection: MOVE_LEFT,
         },
         {
           type: RESTART_LEVEL,
-          gameState: [4, 5, 6],
         },
       ),
     ).toEqual({
       ...initialState,
       entitiesMoving: initialState.entitiesMoving,
-      gameHistory: [[4, 5, 6]],
+      gameHistory: [testGameHistory[0]],
       gravityDirection: initialState.gravityDirection,
-      gameState: [4, 5, 6],
+      gameState: testGameHistory[0],
     });
   });
 
@@ -138,8 +163,11 @@ describe('The level editor reducer', () => {
       reducer(
         {
           ...initialState,
-          gameHistory: [[[1, 2, 3]], [[4, 5, 6], [7, 8, 9]]],
-          gameState: [7, 8, 9],
+          gameHistory: testGameHistory,
+          gameState:
+            testGameHistory[testGameHistory.length - 1][
+              testGameHistory[testGameHistory.length - 1].length
+            ],
         },
         {
           type: UNDO_MOVE,
@@ -147,8 +175,8 @@ describe('The level editor reducer', () => {
       ),
     ).toEqual({
       ...initialState,
-      gameHistory: [[[1, 2, 3]]],
-      gameState: [4, 5, 6],
+      gameHistory: testGameHistory.slice(0, testGameHistory.length - 1),
+      gameState: testGameHistory[testGameHistory.length - 1][0],
     });
 
     //  Doesn't do anything if the history isn't big enough

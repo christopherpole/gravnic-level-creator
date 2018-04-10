@@ -22,15 +22,9 @@ export const editLevel = () => ({
   type: EDIT_LEVEL,
 });
 
-export const restartLevel = () => (dispatch, getState) => {
-  const { tiles } = getState().levelEditor;
-  const gameState = convertTilesToGameState(tiles);
-
-  dispatch({
-    type: RESTART_LEVEL,
-    gameState,
-  });
-};
+export const restartLevel = () => ({
+  type: RESTART_LEVEL,
+});
 
 export const changeGravityDirection = direction => ({
   type: CHANGE_GRAVITY_DIRECTION,

@@ -47,6 +47,7 @@ export const PreviewToolbar = ({
       </ActionContainer>
       <ActionContainer>
         <Button
+          disabled={gameHistory.length <= 1}
           id="btn-restart"
           onClick={() => {
             restartLevelAction();

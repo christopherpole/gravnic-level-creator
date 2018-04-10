@@ -49,23 +49,11 @@ describe('The level preview actions', () => {
   });
 
   it('Should create an action to restart the level', () => {
-    const fn = restartLevel();
-    const dispatchSpy = spy();
-    const getState = () => ({
-      levelEditor: {
-        tiles: testLevels[0].tiles,
-      },
-    });
+    const expectedAction = {
+      type: RESTART_LEVEL,
+    };
 
-    expect(typeof fn).toBe('function');
-    fn(dispatchSpy, getState);
-    expect(dispatchSpy.calledOnce).toBe(true);
-    expect(
-      dispatchSpy.calledWith({
-        type: RESTART_LEVEL,
-        gameState: convertTilesToGameState(testLevels[0].tiles),
-      }),
-    ).toBe(true);
+    expect(restartLevel()).toEqual(expectedAction);
   });
 
   it('Should create an action to change the direction of gravity', () => {

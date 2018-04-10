@@ -52,7 +52,7 @@ exports[`The preview toolbar Matches the current snapshot when there are no move
     </styled.li>
     <styled.li>
       <Button
-        disabled={false}
+        disabled={true}
         id="btn-restart"
         onClick={[Function]}
       >
