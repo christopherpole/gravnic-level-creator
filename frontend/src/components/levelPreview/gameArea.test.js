@@ -12,7 +12,7 @@ describe('The game area', () => {
 
   beforeEach(() => {
     props = {
-      entitiesData: [{ xPos: 10, yPos: 10, id: 1, entityId: 1 }],
+      entitiesData: { 1: { xPos: 10, yPos: 10, id: 123, entityId: 1 } },
       changeGravityDirectionAction: () => {},
       entitiesMoving: false,
     };

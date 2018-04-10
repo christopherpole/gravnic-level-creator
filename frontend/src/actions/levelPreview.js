@@ -6,6 +6,7 @@ export const ENTITIES_STOPPED_MOVING = 'ENTITIES_STOPPED_MOVING';
 export const PREVIEW_LEVEL = 'PREVIEW_LEVEL';
 export const EDIT_LEVEL = 'EDIT_LEVEL';
 export const RESTART_LEVEL = 'RESTART_LEVEL';
+export const UNDO_MOVE = 'UNDO_MOVE';
 
 export const previewLevel = () => (dispatch, getState) => {
   const { tiles } = getState().levelEditor;
@@ -43,4 +44,8 @@ export const updateGameState = gameState => ({
 
 export const entitiesStoppedMoving = () => ({
   type: ENTITIES_STOPPED_MOVING,
+});
+
+export const undoMove = () => ({
+  type: UNDO_MOVE,
 });

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Button from '../common/button';
-import { editLevel, restartLevel } from '../../actions/levelPreview';
+import { editLevel, restartLevel, undoMove } from '../../actions/levelPreview';
 
 export const Wrapper = styled.div`
   grid-column: 1 / 2;
@@ -27,7 +27,12 @@ export const ActionContainer = styled.li`
   }
 `;
 
-export const PreviewToolbar = ({ editLevelAction, restartLevelAction }) => (
+export const PreviewToolbar = ({
+  editLevelAction,
+  restartLevelAction,
+  undoMoveAction,
+  gameHistory,
+}) => (
   <Wrapper id="editor-toolbar">
     <Toolbar>
       <ActionContainer>
@@ -50,6 +55,17 @@ export const PreviewToolbar = ({ editLevelAction, restartLevelAction }) => (
           Restart
         </Button>
       </ActionContainer>
+      <ActionContainer>
+        <Button
+          disabled={gameHistory.length <= 1}
+          id="btn-undo"
+          onClick={() => {
+            undoMoveAction();
+          }}
+        >
+          Undo
+        </Button>
+      </ActionContainer>
     </Toolbar>
   </Wrapper>
 );
@@ -57,11 +73,18 @@ export const PreviewToolbar = ({ editLevelAction, restartLevelAction }) => (
 PreviewToolbar.propTypes = {
   editLevelAction: PropTypes.func.isRequired,
   restartLevelAction: PropTypes.func.isRequired,
+  undoMoveAction: PropTypes.func.isRequired,
+  gameHistory: PropTypes.array.isRequired,
 };
+
+const mapStateToProps = state => ({
+  gameHistory: state.levelPreview.gameHistory,
+});
 
 const mapDispatchToProps = dispatch => ({
   editLevelAction: bindActionCreators(editLevel, dispatch),
   restartLevelAction: bindActionCreators(restartLevel, dispatch),
+  undoMoveAction: bindActionCreators(undoMove, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(PreviewToolbar);
+export default connect(mapStateToProps, mapDispatchToProps)(PreviewToolbar);

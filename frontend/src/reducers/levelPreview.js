@@ -5,6 +5,7 @@ import {
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
   RESTART_LEVEL,
+  UNDO_MOVE,
 } from '../actions/levelPreview';
 
 export const initialState = {
@@ -22,7 +23,7 @@ export default function levelPreviewReducer(state = initialState, action) {
         ...state,
         previewing: true,
         gameState: action.gameState,
-        gameHistory: initialState.gameHistory,
+        gameHistory: [action.gameState],
         entitiesMoving: initialState.entitiesMoving,
         gravityDirection: initialState.gravityDirection,
       };
@@ -37,7 +38,7 @@ export default function levelPreviewReducer(state = initialState, action) {
 
     case CHANGE_GRAVITY_DIRECTION: {
       const newGameHistory = [...state.gameHistory];
-      newGameHistory.push([]);
+      newGameHistory.push([state.gameState]);
 
       return {
         ...state,
@@ -69,9 +70,21 @@ export default function levelPreviewReducer(state = initialState, action) {
       return {
         ...state,
         entitiesMoving: initialState.entitiesMoving,
-        gameHistory: initialState.gameHistory,
+        gameHistory: [action.gameState],
         gravityDirection: initialState.gravityDirection,
         gameState: action.gameState,
+      };
+    }
+
+    case UNDO_MOVE: {
+      if (state.gameHistory.length <= 1) return state;
+
+      const newGameHistory = state.gameHistory.slice(0, state.gameHistory.length - 1);
+
+      return {
+        ...state,
+        gameState: state.gameHistory[state.gameHistory.length - 1][0],
+        gameHistory: newGameHistory,
       };
     }
 

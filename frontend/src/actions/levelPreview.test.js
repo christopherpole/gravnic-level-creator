@@ -9,12 +9,14 @@ import {
   CHANGE_GRAVITY_DIRECTION,
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
+  UNDO_MOVE,
   previewLevel,
   editLevel,
   restartLevel,
   changeGravityDirection,
   updateGameState,
   entitiesStoppedMoving,
+  undoMove,
 } from './levelPreview';
 
 describe('The level preview actions', () => {
@@ -90,5 +92,13 @@ describe('The level preview actions', () => {
     };
 
     expect(entitiesStoppedMoving()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to undo the most recent move', () => {
+    const expectedAction = {
+      type: UNDO_MOVE,
+    };
+
+    expect(undoMove()).toEqual(expectedAction);
   });
 });

@@ -23,6 +23,51 @@ exports[`The preview toolbar Matches the current snapshot 1`] = `
         Restart
       </Button>
     </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-undo"
+        onClick={[Function]}
+      >
+        Undo
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
+exports[`The preview toolbar Matches the current snapshot when there are no moves to be undone 1`] = `
+<styled.div
+  id="editor-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-edit"
+        onClick={[Function]}
+      >
+        Edit
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-restart"
+        onClick={[Function]}
+      >
+        Restart
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={true}
+        id="btn-undo"
+        onClick={[Function]}
+      >
+        Undo
+      </Button>
+    </styled.li>
   </styled.ul>
 </styled.div>
 `;

@@ -7,6 +7,7 @@ import {
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
   RESTART_LEVEL,
+  UNDO_MOVE,
 } from '../actions/levelPreview';
 
 describe('The level editor reducer', () => {
@@ -19,20 +20,20 @@ describe('The level editor reducer', () => {
       reducer(
         {
           ...initialState,
-          gameHistory: [[[1, 2, 3]]],
+          gameHistory: [[1, 2, 3]],
           entitiesMoving: true,
           gravityDirection: MOVE_LEFT,
         },
         {
           type: PREVIEW_LEVEL,
-          gameState: [[1, 2], [3, 2]],
+          gameState: [4, 5, 6],
         },
       ),
     ).toEqual({
       ...initialState,
       previewing: true,
-      gameState: [[1, 2], [3, 2]],
-      gameHistory: initialState.gameHistory,
+      gameState: [4, 5, 6],
+      gameHistory: [[4, 5, 6]],
       entitiesMoving: initialState.entitiesMoving,
       gravityDirection: initialState.gravityDirection,
     });
@@ -57,15 +58,22 @@ describe('The level editor reducer', () => {
 
   it('Should handle the CHANGE_GRAVITY_DIRECTION action', () => {
     expect(
-      reducer(undefined, {
-        type: CHANGE_GRAVITY_DIRECTION,
-        direction: MOVE_LEFT,
-      }),
+      reducer(
+        {
+          ...initialState,
+          gameState: [1, 2, 3],
+        },
+        {
+          type: CHANGE_GRAVITY_DIRECTION,
+          direction: MOVE_LEFT,
+        },
+      ),
     ).toEqual({
       ...initialState,
       gravityDirection: MOVE_LEFT,
       entitiesMoving: true,
-      gameHistory: [[]],
+      gameState: [1, 2, 3],
+      gameHistory: [[[1, 2, 3]]],
     });
   });
 
@@ -107,21 +115,58 @@ describe('The level editor reducer', () => {
       reducer(
         {
           ...initialState,
-          gameHistory: [[[1, 2, 3]]],
+          gameHistory: [[1, 2, 3]],
           entitiesMoving: true,
           gravityDirection: MOVE_LEFT,
         },
         {
           type: RESTART_LEVEL,
-          gameState: [[1, 2], [3, 2]],
+          gameState: [4, 5, 6],
         },
       ),
     ).toEqual({
       ...initialState,
       entitiesMoving: initialState.entitiesMoving,
-      gameHistory: initialState.gameHistory,
+      gameHistory: [[4, 5, 6]],
       gravityDirection: initialState.gravityDirection,
-      gameState: [[1, 2], [3, 2]],
+      gameState: [4, 5, 6],
+    });
+  });
+
+  it('Should handle the UNDO_MOVE action', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          gameHistory: [[[1, 2, 3]], [[4, 5, 6], [7, 8, 9]]],
+          gameState: [7, 8, 9],
+        },
+        {
+          type: UNDO_MOVE,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      gameHistory: [[[1, 2, 3]]],
+      gameState: [4, 5, 6],
+    });
+
+    //  Doesn't do anything if the history isn't big enough
+    expect(
+      reducer(
+        {
+          ...initialState,
+          gameHistory: [[[1, 2, 3]]],
+          gameState: [1, 2, 3],
+        },
+        {
+          type: UNDO_MOVE,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      gameHistory: [[[1, 2, 3]]],
+      gameState: [1, 2, 3],
     });
   });
 });

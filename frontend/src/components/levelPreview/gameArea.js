@@ -65,7 +65,7 @@ export class GameArea extends Component {
 }
 
 GameArea.propTypes = {
-  entitiesData: PropTypes.array.isRequired,
+  entitiesData: PropTypes.object.isRequired,
   changeGravityDirectionAction: PropTypes.func.isRequired,
   entitiesMoving: PropTypes.bool.isRequired,
 };

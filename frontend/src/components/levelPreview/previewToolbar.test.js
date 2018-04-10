@@ -15,6 +15,8 @@ describe('The preview toolbar', () => {
     props = {
       editLevelAction: () => {},
       restartLevelAction: () => {},
+      undoMoveAction: () => {},
+      gameHistory: [[[1, 2, 3]], [[4, 5, 6]]],
     };
   });
 
@@ -26,6 +28,12 @@ describe('The preview toolbar', () => {
 
   it('Matches the current snapshot', () => {
     const previewToolbar = shallow(<PreviewToolbar {...props} />);
+
+    expect(toJson(previewToolbar)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot when there are no moves to be undone', () => {
+    const previewToolbar = shallow(<PreviewToolbar {...props} gameHistory={[[[1, 2, 3]]]} />);
 
     expect(toJson(previewToolbar)).toMatchSnapshot();
   });
@@ -45,10 +53,20 @@ describe('The preview toolbar', () => {
     const previewToolbar = shallow(
       <PreviewToolbar {...props} restartLevelAction={restartLevelSpy} />,
     );
-    const btnrestartLevel = previewToolbar.find('#btn-restart');
+    const btnRestartLevel = previewToolbar.find('#btn-restart');
 
     expect(restartLevelSpy.calledOnce).toBe(false);
-    btnrestartLevel.simulate('click');
+    btnRestartLevel.simulate('click');
     expect(restartLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the "undoMove" action when the undo move button is clicked', () => {
+    const undoMoveSpy = spy();
+    const previewToolbar = shallow(<PreviewToolbar {...props} undoMoveAction={undoMoveSpy} />);
+    const btnUndoMove = previewToolbar.find('#btn-undo');
+
+    expect(undoMoveSpy.calledOnce).toBe(false);
+    btnUndoMove.simulate('click');
+    expect(undoMoveSpy.calledOnce).toBe(true);
   });
 });
