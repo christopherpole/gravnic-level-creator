@@ -38,7 +38,7 @@ exports[`The preview toolbar Matches the current snapshot 1`] = `
         id="btn-set-game-speed"
         onClick={[Function]}
       >
-        Game speed: 
+        Speed: 
         NORMAL
       </Button>
     </styled.li>
@@ -84,7 +84,7 @@ exports[`The preview toolbar Matches the current snapshot when the game speed is
         id="btn-set-game-speed"
         onClick={[Function]}
       >
-        Game speed: 
+        Speed: 
         FAST
       </Button>
     </styled.li>
@@ -130,7 +130,7 @@ exports[`The preview toolbar Matches the current snapshot when there are no move
         id="btn-set-game-speed"
         onClick={[Function]}
       >
-        Game speed: 
+        Speed: 
         NORMAL
       </Button>
     </styled.li>
