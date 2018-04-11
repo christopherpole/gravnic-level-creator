@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Button from '../common/button';
-import { editLevel, restartLevel, undoMove } from '../../actions/levelPreview';
+import { GAME_SPEED_NORMAL, GAME_SPEED_FAST } from '../../config/settings';
+import { editLevel, restartLevel, undoMove, setGameSpeed } from '../../actions/levelPreview';
 
 export const Wrapper = styled.div`
   grid-column: 1 / 2;
@@ -31,7 +32,9 @@ export const PreviewToolbar = ({
   editLevelAction,
   restartLevelAction,
   undoMoveAction,
+  setGameSpeedAction,
   gameHistory,
+  gameSpeed,
 }) => (
   <Wrapper id="editor-toolbar">
     <Toolbar>
@@ -67,6 +70,18 @@ export const PreviewToolbar = ({
           Undo
         </Button>
       </ActionContainer>
+      <ActionContainer>
+        <Button
+          id="btn-set-game-speed"
+          onClick={() => {
+            setGameSpeedAction(
+              gameSpeed === GAME_SPEED_NORMAL ? GAME_SPEED_FAST : GAME_SPEED_NORMAL,
+            );
+          }}
+        >
+          Speed: {gameSpeed === GAME_SPEED_NORMAL ? 'NORMAL' : 'FAST'}
+        </Button>
+      </ActionContainer>
     </Toolbar>
   </Wrapper>
 );
@@ -74,18 +89,22 @@ export const PreviewToolbar = ({
 PreviewToolbar.propTypes = {
   editLevelAction: PropTypes.func.isRequired,
   restartLevelAction: PropTypes.func.isRequired,
+  setGameSpeedAction: PropTypes.func.isRequired,
   undoMoveAction: PropTypes.func.isRequired,
   gameHistory: PropTypes.array.isRequired,
+  gameSpeed: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   gameHistory: state.levelPreview.gameHistory,
+  gameSpeed: state.levelPreview.gameSpeed,
 });
 
 const mapDispatchToProps = dispatch => ({
   editLevelAction: bindActionCreators(editLevel, dispatch),
   restartLevelAction: bindActionCreators(restartLevel, dispatch),
   undoMoveAction: bindActionCreators(undoMove, dispatch),
+  setGameSpeedAction: bindActionCreators(setGameSpeed, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PreviewToolbar);
