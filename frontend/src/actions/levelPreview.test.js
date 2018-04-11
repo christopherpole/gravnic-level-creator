@@ -10,6 +10,7 @@ import {
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
   UNDO_MOVE,
+  SET_GAME_SPEED,
   previewLevel,
   editLevel,
   restartLevel,
@@ -17,6 +18,7 @@ import {
   updateGameState,
   entitiesStoppedMoving,
   undoMove,
+  setGameSpeed,
 } from './levelPreview';
 
 describe('The level preview actions', () => {
@@ -88,5 +90,14 @@ describe('The level preview actions', () => {
     };
 
     expect(undoMove()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to set the game speed', () => {
+    const expectedAction = {
+      type: SET_GAME_SPEED,
+      gameSpeed: 100,
+    };
+
+    expect(setGameSpeed(100)).toEqual(expectedAction);
   });
 });

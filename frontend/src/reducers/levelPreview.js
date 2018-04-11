@@ -1,4 +1,5 @@
 import { cloneDeep } from 'lodash';
+import { GAME_SPEED_NORMAL } from '../config/settings';
 
 import {
   PREVIEW_LEVEL,
@@ -8,6 +9,7 @@ import {
   ENTITIES_STOPPED_MOVING,
   RESTART_LEVEL,
   UNDO_MOVE,
+  SET_GAME_SPEED,
 } from '../actions/levelPreview';
 
 export const initialState = {
@@ -16,6 +18,7 @@ export const initialState = {
   gravityDirection: null,
   entitiesMoving: false,
   gameHistory: [],
+  gameSpeed: GAME_SPEED_NORMAL,
 };
 
 export default function levelPreviewReducer(state = initialState, action) {
@@ -87,6 +90,13 @@ export default function levelPreviewReducer(state = initialState, action) {
         ...state,
         gameState: cloneDeep(state.gameHistory[state.gameHistory.length - 1][0]),
         gameHistory: newGameHistory,
+      };
+    }
+
+    case SET_GAME_SPEED: {
+      return {
+        ...state,
+        gameSpeed: action.gameSpeed,
       };
     }
 

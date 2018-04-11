@@ -8,10 +8,9 @@ import {
   entitiesStoppedMoving,
 } from '../actions/levelPreview';
 import { changeGravityDirectionSaga } from './levelPreview';
-import { ENTITY_MOVE_SPEED } from '../config/settings';
 
 describe('The level preview sagas', () => {
-  describe('The delete selected level saga', () => {
+  describe('The change gravity direction saga', () => {
     it('Update the game states until the entities have stopped moving', () => {
       const generator = changeGravityDirectionSaga({
         type: CHANGE_GRAVITY_DIRECTION,
@@ -50,6 +49,7 @@ describe('The level preview sagas', () => {
       const state = {
         levelPreview: {
           gameState: JSON.parse(JSON.stringify(gameState)),
+          gameSpeed: 100,
         },
       };
 
@@ -67,7 +67,7 @@ describe('The level preview sagas', () => {
       //  The next action should be the pause
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(call(delay, ENTITY_MOVE_SPEED));
+      expect(step.value).toEqual(call(delay, state.levelPreview.gameSpeed));
 
       //  The next action should be the move in progress
       gameState = calulateNextGameState(gameState, MOVE_LEFT);
@@ -78,7 +78,7 @@ describe('The level preview sagas', () => {
       //  The next action should be the pause
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(call(delay, ENTITY_MOVE_SPEED));
+      expect(step.value).toEqual(call(delay, state.levelPreview.gameSpeed));
 
       //  The move should be completed now
       gameState = calulateNextGameState(gameState, MOVE_LEFT);

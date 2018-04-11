@@ -3,7 +3,7 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Entity from './entity';
+import { Entity } from './entity';
 
 configure({ adapter: new Adapter() });
 
@@ -15,6 +15,7 @@ describe('Level preview entities', () => {
       entityId: 3,
       xPos: 10,
       yPos: 20,
+      gameSpeed: 100,
     };
   });
 

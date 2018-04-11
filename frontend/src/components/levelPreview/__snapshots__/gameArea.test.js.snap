@@ -2,7 +2,7 @@
 
 exports[`The game area Matches the current snapshot 1`] = `
 <styled.div>
-  <Component
+  <Connect(Component)
     entityId={1}
     key="1"
     xPos={10}

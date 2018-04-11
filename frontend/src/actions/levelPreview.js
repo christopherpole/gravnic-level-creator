@@ -7,6 +7,7 @@ export const PREVIEW_LEVEL = 'PREVIEW_LEVEL';
 export const EDIT_LEVEL = 'EDIT_LEVEL';
 export const RESTART_LEVEL = 'RESTART_LEVEL';
 export const UNDO_MOVE = 'UNDO_MOVE';
+export const SET_GAME_SPEED = 'SET_GAME_SPEED';
 
 export const previewLevel = () => (dispatch, getState) => {
   const { tiles } = getState().levelEditor;
@@ -42,4 +43,9 @@ export const entitiesStoppedMoving = () => ({
 
 export const undoMove = () => ({
   type: UNDO_MOVE,
+});
+
+export const setGameSpeed = gameSpeed => ({
+  type: SET_GAME_SPEED,
+  gameSpeed,
 });

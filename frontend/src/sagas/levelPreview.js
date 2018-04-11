@@ -7,10 +7,10 @@ import {
   updateGameState,
   entitiesStoppedMoving,
 } from '../actions/levelPreview';
-import { ENTITY_MOVE_SPEED } from '../config/settings';
 
 export function* changeGravityDirectionSaga(action) {
   const state = yield select();
+  const { gameSpeed } = state.levelPreview;
   let { gameState } = state.levelPreview;
 
   do {
@@ -18,7 +18,7 @@ export function* changeGravityDirectionSaga(action) {
 
     if (gameState) {
       yield put(updateGameState(gameState));
-      yield call(delay, ENTITY_MOVE_SPEED);
+      yield call(delay, gameSpeed);
     }
   } while (gameState);
 

@@ -8,6 +8,7 @@ import {
   ENTITIES_STOPPED_MOVING,
   RESTART_LEVEL,
   UNDO_MOVE,
+  SET_GAME_SPEED,
 } from '../actions/levelPreview';
 
 describe('The level editor reducer', () => {
@@ -195,6 +196,24 @@ describe('The level editor reducer', () => {
       ...initialState,
       gameHistory: [[[1, 2, 3]]],
       gameState: [1, 2, 3],
+    });
+  });
+
+  it('Should handle the SET_GAME_SPEED action', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          gameSpeed: 100,
+        },
+        {
+          type: SET_GAME_SPEED,
+          gameSpeed: 200,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      gameSpeed: 200,
     });
   });
 });
