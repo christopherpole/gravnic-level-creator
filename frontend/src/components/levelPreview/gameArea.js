@@ -55,6 +55,7 @@ export class GameArea extends Component {
           <Entity
             xPos={entitiesData[key].xPos}
             yPos={entitiesData[key].yPos}
+            fading={entitiesData[key].fading}
             key={key}
             entityId={entitiesData[key].entityId}
           />

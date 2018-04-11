@@ -16,6 +16,7 @@ describe('Level preview entities', () => {
       xPos: 10,
       yPos: 20,
       gameSpeed: 100,
+      fading: false,
     };
   });
 

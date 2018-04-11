@@ -245,7 +245,10 @@ describe.only('The selectors', () => {
             [{}, { staticEntity: { id: 1, entityId: 1 } }, {}],
             [
               { staticEntity: { id: 2, entityId: 1 } },
-              { staticEntity: { id: 3, entityId: 1 }, movableEntity: { id: 4, entityId: 2 } },
+              {
+                staticEntity: { id: 3, entityId: 1 },
+                movableEntity: { id: 4, entityId: 2, fading: true },
+              },
               { staticEntity: { id: 5, entityId: 1 } },
             ],
             [{}, { id: 6, entityId: 1 }, {}],
@@ -260,7 +263,7 @@ describe.only('The selectors', () => {
         '1': { entityId: 1, xPos: GRID_SIZE * 1, yPos: 0 },
         '2': { entityId: 1, xPos: 0, yPos: GRID_SIZE * 1 },
         '3': { entityId: 1, xPos: GRID_SIZE * 1, yPos: GRID_SIZE * 1 },
-        '4': { entityId: 2, xPos: GRID_SIZE * 1, yPos: GRID_SIZE * 1 },
+        '4': { entityId: 2, xPos: GRID_SIZE * 1, yPos: GRID_SIZE * 1, fading: true },
         '5': { entityId: 1, xPos: GRID_SIZE * 2, yPos: GRID_SIZE * 1 },
       });
     });

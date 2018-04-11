@@ -14,9 +14,10 @@ export const Wrapper = styled.div`
   transition: all ${props => props.moveSpeed}ms linear;
   background: ${props => (props.entityId === 1 ? 'white' : 'red')};
   z-index: ${props => (props.entityId === 2 ? 2 : 1)};
+  opacity: ${props => (props.fading ? 0 : 1)};
 `;
 
-export const Entity = ({ entityId, xPos, yPos, gameSpeed }) => (
+export const Entity = ({ entityId, xPos, yPos, fading, gameSpeed }) => (
   <Wrapper
     xPos={xPos}
     yPos={yPos}
@@ -24,13 +25,19 @@ export const Entity = ({ entityId, xPos, yPos, gameSpeed }) => (
     widthPercentage={100 / GRID_SIZE}
     entityId={entityId}
     moveSpeed={gameSpeed}
+    fading={fading}
   />
 );
+
+Entity.defaultProps = {
+  fading: false,
+};
 
 Entity.propTypes = {
   entityId: PropTypes.number.isRequired,
   xPos: PropTypes.number.isRequired,
   yPos: PropTypes.number.isRequired,
+  fading: PropTypes.bool,
   gameSpeed: PropTypes.number.isRequired,
 };
 
