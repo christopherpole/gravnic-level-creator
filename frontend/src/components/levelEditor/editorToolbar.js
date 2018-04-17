@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import Button from '../common/button';
 import { resetGrid } from '../../actions/levelEditor';
 import { previewLevel } from '../../actions/levelPreview';
+import { getLevelEditorButtonDisabledStates } from '../../selectors';
 
 export const Wrapper = styled.div`
   grid-column: 1 / 2;
@@ -28,7 +29,7 @@ export const ActionContainer = styled.li`
   }
 `;
 
-export const EditorToolbar = ({ resetGridAction, previewLevelAction }) => (
+export const EditorToolbar = ({ resetGridAction, previewLevelAction, buttonDisabledStates }) => (
   <Wrapper id="editor-toolbar">
     <Toolbar>
       <ActionContainer>
@@ -37,6 +38,7 @@ export const EditorToolbar = ({ resetGridAction, previewLevelAction }) => (
           onClick={() => {
             previewLevelAction();
           }}
+          disabled={buttonDisabledStates.btnPreview}
         >
           Preview
         </Button>
@@ -47,6 +49,7 @@ export const EditorToolbar = ({ resetGridAction, previewLevelAction }) => (
           onClick={() => {
             resetGridAction();
           }}
+          disabled={buttonDisabledStates.btnReset}
         >
           Reset
         </Button>
@@ -58,11 +61,16 @@ export const EditorToolbar = ({ resetGridAction, previewLevelAction }) => (
 EditorToolbar.propTypes = {
   resetGridAction: PropTypes.func.isRequired,
   previewLevelAction: PropTypes.func.isRequired,
+  buttonDisabledStates: PropTypes.object.isRequired,
 };
+
+const mapStateToProps = state => ({
+  buttonDisabledStates: getLevelEditorButtonDisabledStates(state),
+});
 
 const mapDispatchToProps = dispatch => ({
   resetGridAction: bindActionCreators(resetGrid, dispatch),
   previewLevelAction: bindActionCreators(previewLevel, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(EditorToolbar);
+export default connect(mapStateToProps, mapDispatchToProps)(EditorToolbar);

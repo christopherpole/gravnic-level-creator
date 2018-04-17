@@ -16,6 +16,10 @@ describe('The editor toolbar', () => {
     props = {
       resetGridAction: () => {},
       previewLevelAction: () => {},
+      buttonDisabledStates: {
+        btnReset: true,
+        btnPreview: true,
+      },
     };
   });
 
@@ -27,6 +31,14 @@ describe('The editor toolbar', () => {
 
   it('Matches the current snapshot', () => {
     const editorToolbar = shallow(<EditorToolbar {...props} />);
+
+    expect(toJson(editorToolbar)).toMatchSnapshot();
+  });
+
+  it('Matches the current when the buttons are enabled', () => {
+    const editorToolbar = shallow(
+      <EditorToolbar {...props} buttonDisabledStates={{ btnReset: false, btnPreview: false }} />,
+    );
 
     expect(toJson(editorToolbar)).toMatchSnapshot();
   });

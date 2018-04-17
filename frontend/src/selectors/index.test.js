@@ -1,11 +1,13 @@
 import {
   getLevelManagerButtonDisabledStates,
+  getLevelEditorButtonDisabledStates,
   getSortedLevels,
   getHighestPositionValue,
   getEntitiesData,
 } from './index';
 import testLevels from '../data/testLevels';
 import { GRID_SIZE } from '../config/settings';
+import { initialState as levelEditorInitialState } from '../reducers/levelEditor';
 
 describe.only('The selectors', () => {
   describe('getLevelManagerButtonDisabledStates()', () => {
@@ -169,6 +171,43 @@ describe.only('The selectors', () => {
       expect(buttonDisabledStates.btnDelete).toBe(true);
       expect(buttonDisabledStates.btnCopy).toBe(true);
       expect(buttonDisabledStates.btnRename).toBe(false);
+    });
+  });
+
+  describe('getLevelManagerButtonDisabledStates()', () => {
+    let state;
+
+    beforeEach(() => {
+      state = {
+        levelEditor: {
+          tiles: levelEditorInitialState.tiles,
+        },
+      };
+    });
+
+    it('Disables the clear and reset buttons if there are no changes to the grid', () => {
+      const buttonDisabledStates = getLevelEditorButtonDisabledStates(state);
+
+      expect(buttonDisabledStates.btnReset).toBe(true);
+      expect(buttonDisabledStates.btnPreview).toBe(true);
+    });
+
+    it('Enables the clear and reset buttons if there are changes on the grid', () => {
+      const buttonDisabledStates = getLevelEditorButtonDisabledStates({
+        ...state,
+        levelEditor: {
+          tiles: [
+            {
+              ...levelEditorInitialState.tiles[0],
+              selectedTileId: levelEditorInitialState.tiles[0].selectedTileId + 1,
+            },
+            ...levelEditorInitialState.tiles.slice(1),
+          ],
+        },
+      });
+
+      expect(buttonDisabledStates.btnReset).toBe(false);
+      expect(buttonDisabledStates.btnPreview).toBe(false);
     });
   });
 

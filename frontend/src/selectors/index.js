@@ -1,6 +1,7 @@
-import { createSelector } from 'reselect';
 import deepEqual from 'deep-equal';
+import { createSelector } from 'reselect';
 import { GRID_SIZE } from '../config/settings';
+import { initialState as levelEditorInitialState } from '../reducers/levelEditor';
 
 /**
  * Determines which of the level manager buttons should be disabled
@@ -45,6 +46,31 @@ export const getLevelManagerButtonDisabledStates = createSelector(
     //  Disable every button except for the rename button if the level is being renamed
     if (levelManager.renamingLevelName && levelManager.renamingLevelId) {
       ['btnNew', 'btnLoad', 'btnSave', 'btnDelete', 'btnCopy'].forEach(key => {
+        buttonsDisabledStates[key] = true;
+      });
+    }
+
+    return buttonsDisabledStates;
+  },
+);
+
+/**
+ * Determines which of the level editor buttons should be disabled
+ * @param {Object} levelEditor - The state of the level editor
+ * @returns {Object} An object of booleans for each of the buttons
+ */
+export const getLevelEditorButtonDisabledStates = createSelector(
+  state => state.levelEditor,
+  levelEditor => {
+    //  Disable all buttons by default
+    const buttonsDisabledStates = {
+      btnReset: false,
+      btnPreview: false,
+    };
+
+    //  Enable the buttons if there's been a change on the editor
+    if (deepEqual(levelEditor.tiles, levelEditorInitialState.tiles)) {
+      ['btnReset', 'btnPreview'].forEach(key => {
         buttonsDisabledStates[key] = true;
       });
     }
