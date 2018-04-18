@@ -7,7 +7,6 @@ import {
   SET_STARS,
   updateTile,
   selectTile,
-  editLevel,
   resetGrid,
   startDrag,
   stopDrag,

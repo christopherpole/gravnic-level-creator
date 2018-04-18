@@ -1,16 +1,6 @@
+import { makeActionCreator } from '../utils';
+
 const requestTypes = ['PENDING', 'FULFILLED', 'REJECTED'];
-
-export function makeActionCreator(type, ...argNames) {
-  return (...args) => {
-    const action = { type };
-
-    argNames.forEach((arg, index) => {
-      action[argNames[index]] = args[index];
-    });
-
-    return action;
-  };
-}
 
 export function createRequestTypes(base) {
   return requestTypes.reduce((acc, type) => {

@@ -12,3 +12,15 @@ export const createNewLevel = pos => ({
   stars: [MIN_MOVES, MIN_MOVES + 1, MIN_MOVES + 2],
   position: pos,
 });
+
+export function makeActionCreator(type, ...argNames) {
+  return (...args) => {
+    const action = { type };
+
+    argNames.forEach((arg, index) => {
+      action[argNames[index]] = args[index];
+    });
+
+    return action;
+  };
+}

@@ -1,4 +1,5 @@
 import { convertTilesToGameState } from 'gravnic-game';
+import { makeActionCreator } from '../utils';
 
 export const CHANGE_GRAVITY_DIRECTION = 'CHANGE_GRAVITY_DIRECTION';
 export const UPDATE_GAME_STATE = 'UPDATE_GAME_STATE';
@@ -9,6 +10,14 @@ export const RESTART_LEVEL = 'RESTART_LEVEL';
 export const UNDO_MOVE = 'UNDO_MOVE';
 export const SET_GAME_SPEED = 'SET_GAME_SPEED';
 
+export const editLevel = makeActionCreator(EDIT_LEVEL);
+export const restartLevel = makeActionCreator(RESTART_LEVEL);
+export const changeGravityDirection = makeActionCreator(CHANGE_GRAVITY_DIRECTION, 'direction');
+export const updateGameState = makeActionCreator(UPDATE_GAME_STATE, 'gameState');
+export const entitiesStoppedMoving = makeActionCreator(ENTITIES_STOPPED_MOVING);
+export const undoMove = makeActionCreator(UNDO_MOVE);
+export const setGameSpeed = makeActionCreator(SET_GAME_SPEED, 'gameSpeed');
+
 export const previewLevel = () => (dispatch, getState) => {
   const { tiles } = getState().levelEditor;
   const gameState = convertTilesToGameState(tiles);
@@ -18,34 +27,3 @@ export const previewLevel = () => (dispatch, getState) => {
     gameState,
   });
 };
-
-export const editLevel = () => ({
-  type: EDIT_LEVEL,
-});
-
-export const restartLevel = () => ({
-  type: RESTART_LEVEL,
-});
-
-export const changeGravityDirection = direction => ({
-  type: CHANGE_GRAVITY_DIRECTION,
-  direction,
-});
-
-export const updateGameState = gameState => ({
-  type: UPDATE_GAME_STATE,
-  gameState,
-});
-
-export const entitiesStoppedMoving = () => ({
-  type: ENTITIES_STOPPED_MOVING,
-});
-
-export const undoMove = () => ({
-  type: UNDO_MOVE,
-});
-
-export const setGameSpeed = gameSpeed => ({
-  type: SET_GAME_SPEED,
-  gameSpeed,
-});

@@ -1,7 +1,6 @@
 import shortid from 'shortid';
 import { arrayMove } from 'react-sortable-hoc';
-
-import { createNewLevel as utilsCreateNewLevel } from '../utils';
+import { createNewLevel as utilsCreateNewLevel, makeActionCreator } from '../utils';
 import { getHighestPositionValue } from '../selectors';
 
 export const RETRIEVE_LEVELS = 'RETRIEVE_LEVELS';
@@ -21,14 +20,18 @@ export const SHOW_CONFIRMATION_SCREEN = 'SHOW_CONFIRMATION_SCREEN';
 export const CANCEL_CONFIRMATION = 'CANCEL_CONFIRMATION';
 export const CONFIRM_CONFIRMATION = 'CONFIRM_CONFIRMATION';
 
-export const retrieveLevels = () => ({
-  type: RETRIEVE_LEVELS,
-});
-
-export const selectLevel = id => ({
-  type: SELECT_LEVEL,
-  id,
-});
+export const retrieveLevels = makeActionCreator(RETRIEVE_LEVELS);
+export const selectLevel = makeActionCreator(SELECT_LEVEL, 'id');
+export const loadLevelConfirmed = makeActionCreator(LOAD_LEVEL_CONFIRMED, 'level');
+export const deleteSelectedLevelConfirmed = makeActionCreator(
+  DELETE_SELECTED_LEVEL_CONFIRMED,
+  'id',
+);
+export const beginRenameLevel = makeActionCreator(BEGIN_RENAME_LEVEL);
+export const changeRenameLevel = makeActionCreator(CHANGE_RENAME_LEVEL, 'name');
+export const showConfirmationScreen = makeActionCreator(SHOW_CONFIRMATION_SCREEN, 'message');
+export const cancelConfirmation = makeActionCreator(CANCEL_CONFIRMATION);
+export const confirmConfirmation = makeActionCreator(CONFIRM_CONFIRMATION);
 
 export const createNewLevel = () => (dispatch, getState) => {
   const level = utilsCreateNewLevel(getHighestPositionValue(getState()) + 1);
@@ -38,11 +41,6 @@ export const createNewLevel = () => (dispatch, getState) => {
     level,
   });
 };
-
-export const loadLevelConfirmed = level => ({
-  type: LOAD_LEVEL_CONFIRMED,
-  level,
-});
 
 export const loadLevel = () => (dispatch, getState) => {
   const { editedSinceLastSave } = getState().levelEditor;
@@ -83,11 +81,6 @@ export const deleteSelectedLevel = () => (dispatch, getState) => {
   });
 };
 
-export const deleteSelectedLevelConfirmed = id => ({
-  type: DELETE_SELECTED_LEVEL_CONFIRMED,
-  id,
-});
-
 export const copyLevel = () => (dispatch, getState) => {
   const selectedLevel = getState().levelManager.levels.find(
     level => level.id === getState().levelManager.selectedLevelId,
@@ -102,15 +95,6 @@ export const copyLevel = () => (dispatch, getState) => {
     },
   });
 };
-
-export const beginRenameLevel = () => ({
-  type: BEGIN_RENAME_LEVEL,
-});
-
-export const changeRenameLevel = name => ({
-  type: CHANGE_RENAME_LEVEL,
-  name,
-});
 
 export const finishRenameLevel = () => (dispatch, getState) => {
   const selectedLevel = getState().levelManager.levels.find(
@@ -137,16 +121,3 @@ export const reorderLevels = (oldIndex, newIndex) => (dispatch, getState) => {
     levels: sortedLevels,
   });
 };
-
-export const showConfirmationScreen = message => ({
-  type: SHOW_CONFIRMATION_SCREEN,
-  message,
-});
-
-export const cancelConfirmation = () => ({
-  type: CANCEL_CONFIRMATION,
-});
-
-export const confirmConfirmation = () => ({
-  type: CONFIRM_CONFIRMATION,
-});
