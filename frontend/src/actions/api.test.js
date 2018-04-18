@@ -17,7 +17,7 @@ import {
 
 describe('The API actions', () => {
   describe('createRequestTypes()', () => {
-    it('Create the PENDING, FULFILLED and REJECTED actions', () => {
+    it('Creates the PENDING, FULFILLED and REJECTED actions', () => {
       const testActions = createRequestTypes('TEST');
 
       expect(typeof testActions).toBe('object');
@@ -28,7 +28,7 @@ describe('The API actions', () => {
   });
 
   describe('createRequestActions()', () => {
-    it('Create the pending, fulfilled and rejected actions', () => {
+    it('Creates the pending, fulfilled and rejected actions', () => {
       const testActions = createRequestTypes('TEST');
       const testActionsFunctions = createRequestActions(testActions);
 
@@ -48,16 +48,18 @@ describe('The API actions', () => {
     });
   });
 
-  describe('The retrieve levels actions', () => {
-    it('Should create an action for when the API request starts', () => {
+  describe('retrieveLevels.pending()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: RETRIEVE_LEVELS.PENDING,
       };
 
       expect(retrieveLevels.pending()).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request succeeds', () => {
+  describe('retrieveLevels.fulfilled()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: RETRIEVE_LEVELS.FULFILLED,
         payload: {
@@ -67,9 +69,12 @@ describe('The API actions', () => {
 
       expect(retrieveLevels.fulfilled({ levels: testLevels })).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request fails', () => {
+  describe('retrieveLevels.rejected()', () => {
+    it('Creates the correct action', () => {
       const testError = new Error('Test error');
+
       const expectedAction = {
         type: RETRIEVE_LEVELS.REJECTED,
         payload: {
@@ -81,16 +86,18 @@ describe('The API actions', () => {
     });
   });
 
-  describe('The create level actions', () => {
-    it('Should create an action for when the API request starts', () => {
+  describe('createLevel.pending()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: CREATE_LEVEL.PENDING,
       };
 
       expect(createLevel.pending()).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request succeeds', () => {
+  describe('createLevel.fulfilled()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: CREATE_LEVEL.FULFILLED,
         payload: {
@@ -106,8 +113,10 @@ describe('The API actions', () => {
         }),
       ).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request fails', () => {
+  describe('createLevel.rejected()', () => {
+    it('Creates the correct action', () => {
       const testError = new Error('Test error');
       const expectedAction = {
         type: CREATE_LEVEL.REJECTED,
@@ -120,16 +129,18 @@ describe('The API actions', () => {
     });
   });
 
-  describe('The update level actions', () => {
-    it('Should create an action for when the API request starts', () => {
+  describe('updateLevel.pending()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: UPDATE_LEVEL.PENDING,
       };
 
       expect(updateLevel.pending()).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request succeeds', () => {
+  describe('updateLevel.fulfilled()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: UPDATE_LEVEL.FULFILLED,
         payload: {
@@ -141,8 +152,10 @@ describe('The API actions', () => {
         updateLevel.fulfilled({ level: { ...testLevels[1], name: 'New level name' } }),
       ).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request fails', () => {
+  describe('updateLevel.rejected()', () => {
+    it('Creates the correct action', () => {
       const testError = new Error('Test error');
       const expectedAction = {
         type: UPDATE_LEVEL.REJECTED,
@@ -155,16 +168,18 @@ describe('The API actions', () => {
     });
   });
 
-  describe('The update levels actions', () => {
-    it('Should create an action for when the API request starts', () => {
+  describe('updateLevels.pending()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: UPDATE_LEVELS.PENDING,
       };
 
       expect(updateLevels.pending()).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request succeeds', () => {
+  describe('updateLevels.fulfilled()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: UPDATE_LEVELS.FULFILLED,
         payload: {
@@ -174,8 +189,10 @@ describe('The API actions', () => {
 
       expect(updateLevels.fulfilled({ levels: testLevels })).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request fails', () => {
+  describe('updateLevels.rejected()', () => {
+    it('Creates the correct action', () => {
       const testError = new Error('Test error');
       const expectedAction = {
         type: UPDATE_LEVELS.REJECTED,
@@ -188,16 +205,18 @@ describe('The API actions', () => {
     });
   });
 
-  describe('The delete level actions', () => {
-    it('Should create an action for when the API request starts', () => {
+  describe('deleteLevel.pending()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: DELETE_LEVEL.PENDING,
       };
 
       expect(deleteLevel.pending()).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request succeeds', () => {
+  describe('deleteLevel.fulfilled()', () => {
+    it('Creates the correct action', () => {
       const expectedAction = {
         type: DELETE_LEVEL.FULFILLED,
         payload: {
@@ -207,8 +226,10 @@ describe('The API actions', () => {
 
       expect(deleteLevel.fulfilled({ level: testLevels[1] })).toEqual(expectedAction);
     });
+  });
 
-    it('Should create an action for when the API request fails', () => {
+  describe('deleteLevel.rejected()', () => {
+    it('Creates the correct action', () => {
       const testError = new Error('Test error');
       const expectedAction = {
         type: DELETE_LEVEL.REJECTED,

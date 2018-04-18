@@ -1,6 +1,6 @@
 const Level = require('./level');
 
-describe('The level model', () => {
+describe('Level()', () => {
   let testLevel;
 
   beforeEach(() => {

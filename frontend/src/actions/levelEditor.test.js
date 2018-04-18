@@ -14,55 +14,67 @@ import {
 } from './levelEditor';
 
 describe('The level editor actions', () => {
-  it('Should create an action select a tile', () => {
-    const expectedAction = {
-      type: SELECT_TILE,
-      selectedTileId: 2,
-    };
+  describe('selectTile()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: SELECT_TILE,
+        selectedTileId: 2,
+      };
 
-    expect(selectTile(2)).toEqual(expectedAction);
+      expect(selectTile(2)).toEqual(expectedAction);
+    });
   });
 
-  it('Should create an action to update a tile', () => {
-    const expectedAction = {
-      type: UPDATE_TILE,
-      position: 1,
-    };
+  describe('updateTile()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: UPDATE_TILE,
+        position: 1,
+      };
 
-    expect(updateTile(1)).toEqual(expectedAction);
+      expect(updateTile(1)).toEqual(expectedAction);
+    });
   });
 
-  it('Should create an action to reset the grid', () => {
-    const expectedAction = {
-      type: RESET_GRID,
-    };
+  describe('resetGrid()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: RESET_GRID,
+      };
 
-    expect(resetGrid()).toEqual(expectedAction);
+      expect(resetGrid()).toEqual(expectedAction);
+    });
   });
 
-  it('Should create an action to start dragging on the grid', () => {
-    const expectedAction = {
-      type: START_DRAG,
-    };
+  describe('startDrag()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: START_DRAG,
+      };
 
-    expect(startDrag()).toEqual(expectedAction);
+      expect(startDrag()).toEqual(expectedAction);
+    });
   });
 
-  it('Should create an action to stop dragging on the grid', () => {
-    const expectedAction = {
-      type: STOP_DRAG,
-    };
+  describe('startDrag()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: STOP_DRAG,
+      };
 
-    expect(stopDrag()).toEqual(expectedAction);
+      expect(stopDrag()).toEqual(expectedAction);
+    });
   });
 
-  it('Should create an action to set the number of stars for a stars array index', () => {
-    const expectedAction = {
-      type: SET_STARS,
-      starsIndex: 1,
-      stars: 3,
-    };
+  describe('setStars()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: SET_STARS,
+        starsIndex: 1,
+        stars: 3,
+      };
 
-    expect(setStars(1, 3)).toEqual(expectedAction);
+      expect(setStars(1, 3)).toEqual(expectedAction);
+    });
   });
 });
