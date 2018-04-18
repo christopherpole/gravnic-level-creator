@@ -16,16 +16,11 @@ import {
   CONFIRM_CONFIRMATION,
 } from '../actions/levelManager';
 import {
-  RETRIEVE_LEVELS_PENDING,
-  RETRIEVE_LEVELS_FULFILLED,
-  RETRIEVE_LEVELS_REJECTED,
-  CREATE_LEVEL_FULFILLED,
-  CREATE_LEVEL_REJECTED,
-  UPDATE_LEVEL_FULFILLED,
-  UPDATE_LEVELS_FULFILLED,
-  UPDATE_LEVEL_REJECTED,
-  UPDATE_LEVELS_REJECTED,
-  DELETE_LEVEL_REJECTED,
+  RETRIEVE_LEVELS,
+  CREATE_LEVEL,
+  UPDATE_LEVEL,
+  UPDATE_LEVELS,
+  DELETE_LEVEL,
 } from '../actions/api';
 
 export const initialState = {
@@ -49,24 +44,24 @@ export default function levelManagerReducer(state = initialState, action) {
       };
     }
 
-    case RETRIEVE_LEVELS_PENDING: {
+    case RETRIEVE_LEVELS.PENDING: {
       return {
         ...state,
         loading: true,
       };
     }
 
-    case RETRIEVE_LEVELS_FULFILLED: {
+    case RETRIEVE_LEVELS.FULFILLED: {
       return {
         ...state,
         loading: false,
         loaded: true,
         error: false,
-        levels: action.levels,
+        levels: action.payload.levels,
       };
     }
 
-    case RETRIEVE_LEVELS_REJECTED: {
+    case RETRIEVE_LEVELS.REJECTED: {
       return {
         ...state,
         loading: false,
@@ -100,7 +95,7 @@ export default function levelManagerReducer(state = initialState, action) {
       };
     }
 
-    case CREATE_LEVEL_REJECTED: {
+    case CREATE_LEVEL.REJECTED: {
       return {
         ...state,
         error: true,
@@ -108,26 +103,44 @@ export default function levelManagerReducer(state = initialState, action) {
       };
     }
 
-    case CREATE_LEVEL_FULFILLED: {
-      const levelIndex = state.levels.findIndex(level => level.id === action.oldLevel.id);
+    case CREATE_LEVEL.FULFILLED: {
+      const levelIndex = state.levels.findIndex(level => level.id === action.payload.oldLevel.id);
 
       return {
         ...state,
         levels: [
           ...state.levels.slice(0, levelIndex),
-          action.newLevel,
+          action.payload.newLevel,
           ...state.levels.slice(levelIndex + 1),
         ],
         selectedLevelId:
-          state.selectedLevelId === action.oldLevel.id ? action.newLevel.id : state.selectedLevelId,
+          state.selectedLevelId === action.payload.oldLevel.id
+            ? action.payload.newLevel.id
+            : state.selectedLevelId,
         currentLevelId:
-          state.currentLevelId === action.oldLevel.id ? action.newLevel.id : state.currentLevelId,
+          state.currentLevelId === action.payload.oldLevel.id
+            ? action.payload.newLevel.id
+            : state.currentLevelId,
         renamingLevelId:
-          state.renamingLevelId === action.oldLevel.id ? action.newLevel.id : state.renamingLevelId,
+          state.renamingLevelId === action.payload.oldLevel.id
+            ? action.payload.newLevel.id
+            : state.renamingLevelId,
       };
     }
 
-    case UPDATE_LEVEL_FULFILLED:
+    case UPDATE_LEVEL.FULFILLED: {
+      const levelIndex = state.levels.findIndex(level => level.id === action.payload.level.id);
+
+      return {
+        ...state,
+        levels: [
+          ...state.levels.slice(0, levelIndex),
+          action.payload.level,
+          ...state.levels.slice(levelIndex + 1),
+        ],
+      };
+    }
+
     case SAVE_LEVEL: {
       const levelIndex = state.levels.findIndex(level => level.id === action.level.id);
 
@@ -141,10 +154,10 @@ export default function levelManagerReducer(state = initialState, action) {
       };
     }
 
-    case UPDATE_LEVELS_FULFILLED: {
+    case UPDATE_LEVELS.FULFILLED: {
       const newLevels = [...state.levels];
 
-      action.levels.forEach(actionLevel => {
+      action.payload.levels.forEach(actionLevel => {
         const ind = newLevels.findIndex(newLevel => actionLevel.id === newLevel.id);
         newLevels[ind] = actionLevel;
       });
@@ -155,8 +168,8 @@ export default function levelManagerReducer(state = initialState, action) {
       };
     }
 
-    case UPDATE_LEVELS_REJECTED:
-    case UPDATE_LEVEL_REJECTED: {
+    case UPDATE_LEVELS.REJECTED:
+    case UPDATE_LEVEL.REJECTED: {
       return {
         ...state,
         error: true,
@@ -180,7 +193,7 @@ export default function levelManagerReducer(state = initialState, action) {
       };
     }
 
-    case DELETE_LEVEL_REJECTED: {
+    case DELETE_LEVEL.REJECTED: {
       return {
         ...state,
         loaded: false,

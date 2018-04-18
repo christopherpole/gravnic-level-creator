@@ -1,7 +1,13 @@
 import { takeLatest } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 
-import { fetchLevels, createLevel, deleteLevel, updateLevel, updateLevels } from '../api';
+import {
+  fetchLevels as apiFetchLevels,
+  createLevel as apiCreateLevel,
+  deleteLevel as apiDeleteLevel,
+  updateLevel as apiUpdateLevel,
+  updateLevels as apiUpdateLevels,
+} from '../api';
 import {
   RETRIEVE_LEVELS,
   CREATE_NEW_LEVEL,
@@ -12,75 +18,65 @@ import {
   REORDER_LEVELS,
 } from '../actions/levelManager';
 import {
-  retrieveLevelsPending,
-  retrieveLevelsFulfilled,
-  retrieveLevelsRejected,
-  createLevelPending,
-  createLevelFulfilled,
-  createLevelRejected,
-  updateLevelPending,
-  updateLevelFulfilled,
-  updateLevelRejected,
-  updateLevelsPending,
-  updateLevelsFulfilled,
-  updateLevelsRejected,
-  deleteLevelPending,
-  deleteLevelFulfilled,
-  deleteLevelRejected,
+  retrieveLevels,
+  createLevel,
+  updateLevel,
+  updateLevels,
+  deleteLevel,
 } from '../actions/api';
 
 export function* retrieveLevelsSaga() {
-  yield put(retrieveLevelsPending());
+  yield put(retrieveLevels.pending());
 
   try {
-    const res = yield call(fetchLevels);
-    yield put(retrieveLevelsFulfilled(res));
+    const res = yield call(apiFetchLevels);
+    yield put(retrieveLevels.fulfilled({ levels: res }));
   } catch (err) {
-    yield put(retrieveLevelsRejected(err));
+    yield put(retrieveLevels.rejected({ error: err }));
   }
 }
 
 export function* createLevelSaga(action) {
-  yield put(createLevelPending());
+  yield put(createLevel.pending());
 
   try {
-    const res = yield call(createLevel, action.level);
-    yield put(createLevelFulfilled(action.level, res));
+    const res = yield call(apiCreateLevel, action.level);
+    yield put(createLevel.fulfilled({ oldLevel: action.level, newLevel: res }));
   } catch (err) {
-    yield put(createLevelRejected(err));
+    yield put(createLevel.rejected({ error: err }));
   }
 }
 
 export function* updateLevelSaga(action) {
-  yield put(updateLevelPending());
+  yield put(updateLevel.pending());
 
   try {
-    const res = yield call(updateLevel, action.level);
-    yield put(updateLevelFulfilled(res));
+    const res = yield call(apiUpdateLevel, action.level);
+    yield put(updateLevel.fulfilled({ level: res }));
   } catch (err) {
-    yield put(updateLevelRejected(err));
+    yield put(updateLevel.rejected({ error: err }));
   }
 }
 
 export function* updateLevelsSaga(action) {
-  yield put(updateLevelsPending());
+  yield put(updateLevels.pending());
 
   try {
-    const res = yield call(updateLevels, action.levels);
-    yield put(updateLevelsFulfilled(res));
+    const res = yield call(apiUpdateLevels, action.levels);
+    yield put(updateLevels.fulfilled({ levels: res }));
   } catch (err) {
-    yield put(updateLevelsRejected(err));
+    yield put(updateLevels.rejected({ error: err }));
   }
 }
 
 export function* deleteLevelSaga(action) {
-  yield put(deleteLevelPending());
+  yield put(deleteLevel.pending());
 
   try {
-    const res = yield call(deleteLevel, action.id);
-    yield put(deleteLevelFulfilled(res));
+    const res = yield call(apiDeleteLevel, action.id);
+    yield put(deleteLevel.fulfilled({ level: res }));
   } catch (err) {
-    yield put(deleteLevelRejected(err));
+    yield put(deleteLevel.rejected({ error: err }));
   }
 }
 

@@ -1,90 +1,39 @@
-export const RETRIEVE_LEVELS_PENDING = 'RETRIEVE_LEVELS_PENDING';
-export const RETRIEVE_LEVELS_FULFILLED = 'RETRIEVE_LEVELS_FULFILLED';
-export const RETRIEVE_LEVELS_REJECTED = 'RETRIEVE_LEVELS_REJECTED';
-export const CREATE_LEVEL_PENDING = 'CREATE_LEVEL_PENDING';
-export const CREATE_LEVEL_FULFILLED = 'CREATE_LEVEL_FULFILLED';
-export const CREATE_LEVEL_REJECTED = 'CREATE_LEVEL_REJECTED';
-export const UPDATE_LEVEL_PENDING = 'UPDATE_LEVEL_PENDING';
-export const UPDATE_LEVEL_FULFILLED = 'UPDATE_LEVEL_FULFILLED';
-export const UPDATE_LEVEL_REJECTED = 'UPDATE_LEVEL_REJECTED';
-export const UPDATE_LEVELS_PENDING = 'UPDATE_LEVELS_PENDING';
-export const UPDATE_LEVELS_FULFILLED = 'UPDATE_LEVELS_FULFILLED';
-export const UPDATE_LEVELS_REJECTED = 'UPDATE_LEVELS_REJECTED';
-export const DELETE_LEVEL_PENDING = 'DELETE_LEVEL_PENDING';
-export const DELETE_LEVEL_FULFILLED = 'DELETE_LEVEL_FULFILLED';
-export const DELETE_LEVEL_REJECTED = 'DELETE_LEVEL_REJECTED';
+const requestTypes = ['PENDING', 'FULFILLED', 'REJECTED'];
 
-export const retrieveLevelsPending = () => ({
-  type: RETRIEVE_LEVELS_PENDING,
-});
+export function makeActionCreator(type, ...argNames) {
+  return (...args) => {
+    const action = { type };
 
-export const retrieveLevelsFulfilled = levels => ({
-  type: RETRIEVE_LEVELS_FULFILLED,
-  levels,
-});
+    argNames.forEach((arg, index) => {
+      action[argNames[index]] = args[index];
+    });
 
-export const retrieveLevelsRejected = error => ({
-  type: RETRIEVE_LEVELS_REJECTED,
-  error,
-});
+    return action;
+  };
+}
 
-export const createLevelPending = level => ({
-  type: CREATE_LEVEL_PENDING,
-  level,
-});
+export function createRequestTypes(base) {
+  return requestTypes.reduce((acc, type) => {
+    acc[type] = `${base}_${type}`;
+    return acc;
+  }, {});
+}
 
-export const createLevelFulfilled = (oldLevel, newLevel) => ({
-  type: CREATE_LEVEL_FULFILLED,
-  oldLevel,
-  newLevel,
-});
+export function createRequestActions(base) {
+  return requestTypes.reduce((acc, type) => {
+    acc[type.toLowerCase()] = makeActionCreator(base[type], 'payload');
+    return acc;
+  }, {});
+}
 
-export const createLevelRejected = error => ({
-  type: CREATE_LEVEL_REJECTED,
-  error,
-});
+export const RETRIEVE_LEVELS = createRequestTypes('RETRIEVE_LEVELS');
+export const CREATE_LEVEL = createRequestTypes('CREATE_LEVEL');
+export const UPDATE_LEVEL = createRequestTypes('UPDATE_LEVEL');
+export const UPDATE_LEVELS = createRequestTypes('UPDATE_LEVELS');
+export const DELETE_LEVEL = createRequestTypes('DELETE_LEVEL');
 
-export const updateLevelPending = level => ({
-  type: UPDATE_LEVEL_PENDING,
-  level,
-});
-
-export const updateLevelFulfilled = level => ({
-  type: UPDATE_LEVEL_FULFILLED,
-  level,
-});
-
-export const updateLevelRejected = error => ({
-  type: UPDATE_LEVEL_REJECTED,
-  error,
-});
-
-export const updateLevelsPending = levels => ({
-  type: UPDATE_LEVELS_PENDING,
-  levels,
-});
-
-export const updateLevelsFulfilled = levels => ({
-  type: UPDATE_LEVELS_FULFILLED,
-  levels,
-});
-
-export const updateLevelsRejected = error => ({
-  type: UPDATE_LEVELS_REJECTED,
-  error,
-});
-
-export const deleteLevelPending = level => ({
-  type: DELETE_LEVEL_PENDING,
-  level,
-});
-
-export const deleteLevelFulfilled = level => ({
-  type: DELETE_LEVEL_FULFILLED,
-  level,
-});
-
-export const deleteLevelRejected = error => ({
-  type: DELETE_LEVEL_REJECTED,
-  error,
-});
+export const retrieveLevels = createRequestActions(RETRIEVE_LEVELS);
+export const createLevel = createRequestActions(CREATE_LEVEL);
+export const updateLevel = createRequestActions(UPDATE_LEVEL);
+export const updateLevels = createRequestActions(UPDATE_LEVELS);
+export const deleteLevel = createRequestActions(DELETE_LEVEL);

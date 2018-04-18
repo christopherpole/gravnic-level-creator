@@ -17,16 +17,11 @@ import {
   CONFIRM_CONFIRMATION,
 } from '../actions/levelManager';
 import {
-  RETRIEVE_LEVELS_PENDING,
-  RETRIEVE_LEVELS_FULFILLED,
-  RETRIEVE_LEVELS_REJECTED,
-  CREATE_LEVEL_FULFILLED,
-  CREATE_LEVEL_REJECTED,
-  UPDATE_LEVEL_FULFILLED,
-  UPDATE_LEVELS_FULFILLED,
-  UPDATE_LEVEL_REJECTED,
-  UPDATE_LEVELS_REJECTED,
-  DELETE_LEVEL_REJECTED,
+  RETRIEVE_LEVELS,
+  CREATE_LEVEL,
+  UPDATE_LEVEL,
+  UPDATE_LEVELS,
+  DELETE_LEVEL,
 } from '../actions/api';
 import testLevels from '../data/testLevels';
 import { createNewLevel } from '../utils';
@@ -56,7 +51,7 @@ describe('The level manager reducer', () => {
   it('Should handle the RETRIEVE_LEVELS_PENDING action', () => {
     expect(
       reducer(undefined, {
-        type: RETRIEVE_LEVELS_PENDING,
+        type: RETRIEVE_LEVELS.PENDING,
       }),
     ).toEqual({
       ...levelManagerInitialState,
@@ -67,8 +62,10 @@ describe('The level manager reducer', () => {
   it('Should handle the RETRIEVE_LEVELS_FULFILLED action', () => {
     expect(
       reducer(undefined, {
-        type: RETRIEVE_LEVELS_FULFILLED,
-        levels: testLevels,
+        type: RETRIEVE_LEVELS.FULFILLED,
+        payload: {
+          levels: testLevels,
+        },
       }),
     ).toEqual({
       ...levelManagerInitialState,
@@ -82,8 +79,10 @@ describe('The level manager reducer', () => {
   it('Should handle the RETRIEVE_LEVELS_REJECTED action', () => {
     expect(
       reducer(undefined, {
-        type: RETRIEVE_LEVELS_REJECTED,
-        error: new Error('Test error'),
+        type: RETRIEVE_LEVELS.REJECTED,
+        payload: {
+          error: new Error('Test error'),
+        },
       }),
     ).toEqual({
       ...levelManagerInitialState,
@@ -150,9 +149,11 @@ describe('The level manager reducer', () => {
           renamingLevelId: testLevels[1].id,
         },
         {
-          type: CREATE_LEVEL_FULFILLED,
-          oldLevel: testLevels[1],
-          newLevel,
+          type: CREATE_LEVEL.FULFILLED,
+          payload: {
+            oldLevel: testLevels[1],
+            newLevel,
+          },
         },
       ),
     ).toEqual({
@@ -173,9 +174,11 @@ describe('The level manager reducer', () => {
           renamingLevelId: testLevels[0].id,
         },
         {
-          type: CREATE_LEVEL_FULFILLED,
-          oldLevel: testLevels[1],
-          newLevel,
+          type: CREATE_LEVEL.FULFILLED,
+          payload: {
+            oldLevel: testLevels[1],
+            newLevel,
+          },
         },
       ),
     ).toEqual({
@@ -195,8 +198,10 @@ describe('The level manager reducer', () => {
           loaded: true,
         },
         {
-          type: CREATE_LEVEL_REJECTED,
-          error: new Error('Test error'),
+          type: CREATE_LEVEL.REJECTED,
+          payload: {
+            error: new Error('Test error'),
+          },
         },
       ),
     ).toEqual({
@@ -214,8 +219,10 @@ describe('The level manager reducer', () => {
           levels: testLevels,
         },
         {
-          type: UPDATE_LEVEL_FULFILLED,
-          level: { ...testLevels[1], name: 'New name' },
+          type: UPDATE_LEVEL.FULFILLED,
+          payload: {
+            level: { ...testLevels[1], name: 'New name' },
+          },
         },
       ),
     ).toEqual({
@@ -232,11 +239,13 @@ describe('The level manager reducer', () => {
           levels: testLevels,
         },
         {
-          type: UPDATE_LEVELS_FULFILLED,
-          levels: [
-            { ...testLevels[0], name: 'New name 1' },
-            { ...testLevels[2], name: 'New name 3' },
-          ],
+          type: UPDATE_LEVELS.FULFILLED,
+          payload: {
+            levels: [
+              { ...testLevels[0], name: 'New name 1' },
+              { ...testLevels[2], name: 'New name 3' },
+            ],
+          },
         },
       ),
     ).toEqual({
@@ -282,8 +291,10 @@ describe('The level manager reducer', () => {
           loaded: true,
         },
         {
-          type: UPDATE_LEVEL_REJECTED,
-          error: 'Test error',
+          type: UPDATE_LEVEL.REJECTED,
+          payload: {
+            error: 'Test error',
+          },
         },
       ),
     ).toEqual({
@@ -301,8 +312,10 @@ describe('The level manager reducer', () => {
           loaded: true,
         },
         {
-          type: UPDATE_LEVELS_REJECTED,
-          error: 'Test error',
+          type: UPDATE_LEVELS.REJECTED,
+          payload: {
+            error: 'Test error',
+          },
         },
       ),
     ).toEqual({
@@ -377,11 +390,18 @@ describe('The level manager reducer', () => {
 
   it('Should handle the DELETE_LEVEL_REJECTED action', () => {
     expect(
-      reducer(undefined, {
-        type: DELETE_LEVEL_REJECTED,
-        error: 'Test error',
-        loaded: true,
-      }),
+      reducer(
+        {
+          ...levelManagerInitialState,
+          loaded: true,
+        },
+        {
+          type: DELETE_LEVEL.REJECTED,
+          payload: {
+            error: 'Test error',
+          },
+        },
+      ),
     ).toEqual({
       ...levelManagerInitialState,
       error: true,
