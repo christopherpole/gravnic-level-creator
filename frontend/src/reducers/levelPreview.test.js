@@ -40,180 +40,197 @@ describe('The level editor reducer', () => {
     expect(reducer(undefined, [])).toEqual(initialState);
   });
 
-  it('Should handle the PREVIEW_LEVEL action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          entitiesMoving: true,
-          gravityDirection: MOVE_LEFT,
-        },
-        {
-          type: PREVIEW_LEVEL,
-          gameState: testGameState,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      previewing: true,
-      gameState: testGameState,
-      gameHistory: [testGameState],
-      entitiesMoving: initialState.entitiesMoving,
-      gravityDirection: initialState.gravityDirection,
+  describe('PREVIEW_LEVEL', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            entitiesMoving: true,
+            gravityDirection: MOVE_LEFT,
+          },
+          {
+            type: PREVIEW_LEVEL,
+            gameState: testGameState,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        previewing: true,
+        gameState: testGameState,
+        gameHistory: [testGameState],
+        entitiesMoving: initialState.entitiesMoving,
+        gravityDirection: initialState.gravityDirection,
+      });
     });
   });
 
-  it('Should handle the EDIT_LEVEL action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          previewing: true,
-        },
-        {
-          type: EDIT_LEVEL,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      previewing: false,
+  describe('EDIT_LEVEL', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            previewing: true,
+          },
+          {
+            type: EDIT_LEVEL,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        previewing: false,
+      });
     });
   });
 
-  it('Should handle the CHANGE_GRAVITY_DIRECTION action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          gameState: testGameState,
-        },
-        {
-          type: CHANGE_GRAVITY_DIRECTION,
-          direction: MOVE_LEFT,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      gravityDirection: MOVE_LEFT,
-      entitiesMoving: true,
-      gameState: testGameState,
-      gameHistory: [[testGameState]],
+  describe('CHANGE_GRAVITY_DIRECTION', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            gameState: testGameState,
+          },
+          {
+            type: CHANGE_GRAVITY_DIRECTION,
+            direction: MOVE_LEFT,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        gravityDirection: MOVE_LEFT,
+        entitiesMoving: true,
+        gameState: testGameState,
+        gameHistory: [[testGameState]],
+      });
     });
   });
 
-  it('Should handle the UPDATE_GAME_STATE action', () => {
-    expect(
-      reducer(
-        { ...initialState, gameHistory: testGameHistory },
-        {
-          type: UPDATE_GAME_STATE,
-          gameState: testGameState,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      gameState: testGameState,
-      gameHistory: [
-        ...testGameHistory.slice(0, testGameHistory.length - 1),
-        [...testGameHistory[testGameHistory.length - 1], testGameState],
-      ],
+  describe('UPDATE_GAME_STATE', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          { ...initialState, gameHistory: testGameHistory },
+          {
+            type: UPDATE_GAME_STATE,
+            gameState: testGameState,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        gameState: testGameState,
+        gameHistory: [
+          ...testGameHistory.slice(0, testGameHistory.length - 1),
+          [...testGameHistory[testGameHistory.length - 1], testGameState],
+        ],
+      });
     });
   });
 
-  it('Should handle the ENTITIES_STOPPED_MOVING action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          entitiesMoving: true,
-        },
-        {
-          type: ENTITIES_STOPPED_MOVING,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      entitiesMoving: false,
+  describe('ENTITIES_STOPPED_MOVING', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            entitiesMoving: true,
+          },
+          {
+            type: ENTITIES_STOPPED_MOVING,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        entitiesMoving: false,
+      });
     });
   });
 
-  it('Should handle the RESTART_LEVEL action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          gameHistory: testGameHistory,
-          entitiesMoving: true,
-          gravityDirection: MOVE_LEFT,
-        },
-        {
-          type: RESTART_LEVEL,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      entitiesMoving: initialState.entitiesMoving,
-      gameHistory: [testGameHistory[0]],
-      gravityDirection: initialState.gravityDirection,
-      gameState: testGameHistory[0],
+  describe('RESTART_LEVEL', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            gameHistory: testGameHistory,
+            entitiesMoving: true,
+            gravityDirection: MOVE_LEFT,
+          },
+          {
+            type: RESTART_LEVEL,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        entitiesMoving: initialState.entitiesMoving,
+        gameHistory: [testGameHistory[0]],
+        gravityDirection: initialState.gravityDirection,
+        gameState: testGameHistory[0],
+      });
     });
   });
 
-  it('Should handle the UNDO_MOVE action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          gameHistory: testGameHistory,
-          gameState:
-            testGameHistory[testGameHistory.length - 1][
-              testGameHistory[testGameHistory.length - 1].length
-            ],
-        },
-        {
-          type: UNDO_MOVE,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      gameHistory: testGameHistory.slice(0, testGameHistory.length - 1),
-      gameState: testGameHistory[testGameHistory.length - 1][0],
+  describe('UNDO_MOVE', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            gameHistory: testGameHistory,
+            gameState:
+              testGameHistory[testGameHistory.length - 1][
+                testGameHistory[testGameHistory.length - 1].length
+              ],
+          },
+          {
+            type: UNDO_MOVE,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        gameHistory: testGameHistory.slice(0, testGameHistory.length - 1),
+        gameState: testGameHistory[testGameHistory.length - 1][0],
+      });
     });
 
-    //  Doesn't do anything if the history isn't big enough
-    expect(
-      reducer(
-        {
-          ...initialState,
-          gameHistory: [[[1, 2, 3]]],
-          gameState: [1, 2, 3],
-        },
-        {
-          type: UNDO_MOVE,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      gameHistory: [[[1, 2, 3]]],
-      gameState: [1, 2, 3],
+    it('Handles the action correctly if there are no more moves to undo', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            gameHistory: [[[1, 2, 3]]],
+            gameState: [1, 2, 3],
+          },
+          {
+            type: UNDO_MOVE,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        gameHistory: [[[1, 2, 3]]],
+        gameState: [1, 2, 3],
+      });
     });
   });
 
-  it('Should handle the SET_GAME_SPEED action', () => {
-    expect(
-      reducer(
-        {
-          ...initialState,
-          gameSpeed: 100,
-        },
-        {
-          type: SET_GAME_SPEED,
-          gameSpeed: 200,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      gameSpeed: 200,
+  describe('SET_GAME_SPEED', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            gameSpeed: 100,
+          },
+          {
+            type: SET_GAME_SPEED,
+            gameSpeed: 200,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        gameSpeed: 200,
+      });
     });
   });
 });
