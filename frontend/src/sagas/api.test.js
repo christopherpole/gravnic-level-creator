@@ -25,8 +25,8 @@ import {
 import testLevels from '../data/testLevels';
 
 describe('The API sagas', () => {
-  describe('The retrieve levels saga', () => {
-    it('Should handle retrieving levels from the server', () => {
+  describe('retrieveLevelsSaga()', () => {
+    it('Handles the retrieval of levels from the server', () => {
       const generator = cloneableGenerator(retrieveLevelsSaga)();
 
       //  Fire the pending action
@@ -62,8 +62,8 @@ describe('The API sagas', () => {
     });
   });
 
-  describe('The create level saga', () => {
-    it('Should create a level successfully', () => {
+  describe('createLevelSaga()', () => {
+    it('Handles the creation of levels from the server', () => {
       const generator = cloneableGenerator(createLevelSaga)({
         level: testLevels[1],
       });
@@ -108,8 +108,8 @@ describe('The API sagas', () => {
     });
   });
 
-  describe('The update level saga', () => {
-    it('Should update a level successfully', () => {
+  describe('updateLevelSaga()', () => {
+    it('Handles the updating of a level from the server', () => {
       const generator = cloneableGenerator(updateLevelSaga)({
         level: testLevels[1],
       });
@@ -148,8 +148,8 @@ describe('The API sagas', () => {
     });
   });
 
-  describe('The update levels saga', () => {
-    it('Should update levels successfully', () => {
+  describe('updateLevelsSaga()', () => {
+    it('Handles the updating of levels from the server', () => {
       const generator = cloneableGenerator(updateLevelsSaga)({
         levels: testLevels,
       });
@@ -194,8 +194,8 @@ describe('The API sagas', () => {
     });
   });
 
-  describe('The delete level saga', () => {
-    it('Should delete a level successfully', () => {
+  describe('deleteLevelSaga()', () => {
+    it('Handles the deletion of levels from the server', () => {
       const generator = cloneableGenerator(deleteLevelSaga)({
         id: testLevels[1].id,
       });

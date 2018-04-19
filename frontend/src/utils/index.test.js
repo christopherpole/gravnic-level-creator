@@ -2,8 +2,8 @@ import { createNewLevel, makeActionCreator } from './index';
 import { GRID_SIZE, MIN_MOVES } from '../config/settings';
 
 describe('The utils', () => {
-  describe('The function to create a new level template', () => {
-    it('Should return a new level template', () => {
+  describe('createNewLevel()', () => {
+    it('Returns a new level template', () => {
       const newLevel = createNewLevel(5);
 
       expect(typeof newLevel.id).toBe('string');
@@ -19,7 +19,7 @@ describe('The utils', () => {
   });
 
   describe('makeActionCreator()', () => {
-    it('Should create new actions', () => {
+    it('Creates new action creators', () => {
       const action = makeActionCreator('CREATE_LEVEL', 'level');
 
       expect(typeof action).toBe('function');
