@@ -8,7 +8,7 @@ import testLevels from '../../data/testLevels';
 
 configure({ adapter: new Adapter() });
 
-describe('The level manager', () => {
+describe('<LevelsList />', () => {
   let props;
 
   beforeEach(() => {

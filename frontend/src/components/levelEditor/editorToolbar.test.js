@@ -9,7 +9,7 @@ import { EditorToolbar } from './editorToolbar';
 
 configure({ adapter: new Adapter() });
 
-describe('The editor toolbar', () => {
+describe('<EditorToolbar />', () => {
   let props;
 
   beforeEach(() => {

@@ -9,7 +9,7 @@ import { PreviewToolbar } from './previewToolbar';
 
 configure({ adapter: new Adapter() });
 
-describe('The preview toolbar', () => {
+describe('<PreviewToolbar />', () => {
   let props;
 
   beforeEach(() => {

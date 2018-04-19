@@ -7,7 +7,7 @@ import { LevelEditor } from './index';
 
 configure({ adapter: new Adapter() });
 
-describe('The level editor', () => {
+describe('<LevelEditor />', () => {
   let props;
 
   beforeEach(() => {

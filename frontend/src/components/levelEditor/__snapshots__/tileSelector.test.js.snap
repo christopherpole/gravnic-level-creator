@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The tile selector Matches the current snapshot 1`] = `
+exports[`<TileSelector /> Matches the current snapshot 1`] = `
 <styled.div
   id="tile-selector"
 >
@@ -108,7 +108,7 @@ exports[`The tile selector Matches the current snapshot 1`] = `
 </styled.div>
 `;
 
-exports[`The tile selector Matches the current snapshot if a tile is selected 1`] = `
+exports[`<TileSelector /> Matches the current snapshot if a tile is selected 1`] = `
 <styled.div
   id="tile-selector"
 >

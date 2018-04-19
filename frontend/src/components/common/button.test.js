@@ -7,7 +7,7 @@ import Button from './button';
 
 configure({ adapter: new Adapter() });
 
-describe('The generic button component', () => {
+describe('<Button />', () => {
   let props;
 
   beforeEach(() => {

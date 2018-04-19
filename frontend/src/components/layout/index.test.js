@@ -7,7 +7,7 @@ import Layout from './index';
 
 configure({ adapter: new Adapter() });
 
-describe('The root layout', () => {
+describe('<Layout />', () => {
   it('Renders without exploding', () => {
     const layout = shallow(<Layout />);
 

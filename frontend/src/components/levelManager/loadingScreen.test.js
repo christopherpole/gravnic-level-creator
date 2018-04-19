@@ -7,7 +7,7 @@ import LoadingScreen from './loadingScreen';
 
 configure({ adapter: new Adapter() });
 
-describe('The loading screen', () => {
+describe('<LoadingScreen />', () => {
   it('Renders without exploding', () => {
     const loadingScreen = shallow(<LoadingScreen />);
 

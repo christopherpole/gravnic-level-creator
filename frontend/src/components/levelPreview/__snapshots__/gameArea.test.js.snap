@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The game area Matches the current snapshot 1`] = `
+exports[`<GameArea /> Matches the current snapshot 1`] = `
 <styled.div>
   <Connect(Component)
     entityId={1}

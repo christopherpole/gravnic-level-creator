@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loading icon Matches the current snapshot 1`] = `
+exports[`<WarningIcon /> Matches the current snapshot 1`] = `
 <svg
   enableBackground="new 0 0 294.951 294.951"
   height="30px"

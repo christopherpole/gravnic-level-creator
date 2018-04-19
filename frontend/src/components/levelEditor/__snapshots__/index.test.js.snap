@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The level editor Matches the current snapshot 1`] = `
+exports[`<LevelEditor /> Matches the current snapshot 1`] = `
 <styled.section>
   <styled.div>
     <styled.div>

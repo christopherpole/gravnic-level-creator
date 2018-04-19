@@ -14,7 +14,7 @@ const props = {
   selectedTileId: null,
 };
 
-describe('The tile selector', () => {
+describe('<TileSelector />', () => {
   it('Renders without exploding', () => {
     const tileSelector = shallow(<TileSelector {...props} />);
 

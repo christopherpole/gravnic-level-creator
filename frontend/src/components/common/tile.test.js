@@ -7,7 +7,7 @@ import Tile from './tile';
 
 configure({ adapter: new Adapter() });
 
-describe('Tiles', () => {
+describe('<Tile />', () => {
   let props;
 
   beforeEach(() => {

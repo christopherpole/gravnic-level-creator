@@ -7,7 +7,7 @@ import { LevelPreview } from './index';
 
 configure({ adapter: new Adapter() });
 
-describe('The tile selector', () => {
+describe('<LevelPreview />', () => {
   let props;
 
   beforeEach(() => {

@@ -8,7 +8,7 @@ import { ManagerActions, StyledButton } from './managerActions';
 
 configure({ adapter: new Adapter() });
 
-describe('The level manager actions', () => {
+describe('<ManagerActions />', () => {
   let props;
 
   beforeEach(() => {

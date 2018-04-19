@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The level manager actions Matches the current snapshot 1`] = `
+exports[`<ManagerActions /> Matches the current snapshot 1`] = `
 <styled.div>
   <styled.ul>
     <styled.li>
@@ -73,7 +73,7 @@ exports[`The level manager actions Matches the current snapshot 1`] = `
 </styled.div>
 `;
 
-exports[`The level manager actions Matches the current snapshot with disabled buttons 1`] = `
+exports[`<ManagerActions /> Matches the current snapshot with disabled buttons 1`] = `
 <styled.div>
   <styled.ul>
     <styled.li>

@@ -13,7 +13,7 @@ const props = {
   setStarsAction: () => {},
 };
 
-describe('The tile selector', () => {
+describe('<StarsEditor />', () => {
   it('Renders without exploding', () => {
     const starsEditor = shallow(<StarsEditor {...props} />);
 

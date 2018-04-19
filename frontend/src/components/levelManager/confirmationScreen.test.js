@@ -8,7 +8,7 @@ import { ConfirmationScreen, CancelButton, ConfirmButton } from './confirmationS
 
 configure({ adapter: new Adapter() });
 
-describe('The confirmation screen', () => {
+describe('<ConfirmationScreen />', () => {
   let props;
 
   beforeAll(() => {

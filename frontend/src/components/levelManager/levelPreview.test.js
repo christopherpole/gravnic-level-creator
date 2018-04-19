@@ -8,7 +8,7 @@ import testLevels from '../../data/testLevels';
 
 configure({ adapter: new Adapter() });
 
-describe('The level preview', () => {
+describe('<LevelPreview />', () => {
   let props;
 
   beforeEach(() => {

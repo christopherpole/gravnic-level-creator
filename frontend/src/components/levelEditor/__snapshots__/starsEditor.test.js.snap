@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The tile selector Matches the current snapshot 1`] = `
+exports[`<StarsEditor /> Matches the current snapshot 1`] = `
 <styled.div
   id="stars-editor"
 >

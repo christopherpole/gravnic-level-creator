@@ -7,7 +7,7 @@ import { Entity } from './entity';
 
 configure({ adapter: new Adapter() });
 
-describe('Level preview entities', () => {
+describe('<Entity />', () => {
   let props;
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The editor toolbar Matches the current snapshot 1`] = `
+exports[`<EditorToolbar /> Matches the current snapshot 1`] = `
 <styled.div
   id="editor-toolbar"
 >
@@ -27,7 +27,7 @@ exports[`The editor toolbar Matches the current snapshot 1`] = `
 </styled.div>
 `;
 
-exports[`The editor toolbar Matches the current when the buttons are enabled 1`] = `
+exports[`<EditorToolbar /> Matches the current when the buttons are enabled 1`] = `
 <styled.div
   id="editor-toolbar"
 >

@@ -7,7 +7,7 @@ import LevelSolver from './index';
 
 configure({ adapter: new Adapter() });
 
-describe('The root layout', () => {
+describe('<LevelSolver />', () => {
   it('Renders without exploding', () => {
     const levelSolver = shallow(<LevelSolver />);
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The root layout Matches the current snapshot 1`] = `
+exports[`<LevelSolver /> Matches the current snapshot 1`] = `
 <styled.section>
   <p>
     Level Solver goes here

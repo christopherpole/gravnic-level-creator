@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The confirmation screen Matches the current snapshot 1`] = `
+exports[`<ConfirmationScreen /> Matches the current snapshot 1`] = `
 <styled.div
   id="confirmation-screen"
 >

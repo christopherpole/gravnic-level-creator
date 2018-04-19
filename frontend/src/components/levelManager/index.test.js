@@ -8,7 +8,7 @@ import { LevelManager } from './index';
 
 configure({ adapter: new Adapter() });
 
-describe('The level manager', () => {
+describe('<LevelManager />', () => {
   let props;
 
   beforeEach(() => {

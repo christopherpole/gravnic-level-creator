@@ -7,7 +7,7 @@ import WarningIcon from './warningIcon';
 
 configure({ adapter: new Adapter() });
 
-describe('Loading icon', () => {
+describe('<WarningIcon />', () => {
   it('Renders without exploding', () => {
     const tile = shallow(<WarningIcon />);
 

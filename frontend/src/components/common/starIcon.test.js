@@ -7,7 +7,7 @@ import StarIcon from './starIcon';
 
 configure({ adapter: new Adapter() });
 
-describe('Loading icon', () => {
+describe('<LoadingIcon />', () => {
   it('Renders without exploding', () => {
     const tile = shallow(<StarIcon />);
 

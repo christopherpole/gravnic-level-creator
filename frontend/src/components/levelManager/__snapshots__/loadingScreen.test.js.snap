@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The loading screen Matches the current snapshot 1`] = `
+exports[`<LoadingScreen /> Matches the current snapshot 1`] = `
 <styled.div>
   <LoadingIcon
     fillColor="white"

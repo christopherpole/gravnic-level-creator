@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The generic button component Matches the current snapshot 1`] = `
+exports[`<Button /> Matches the current snapshot 1`] = `
 <styled.button
   disabled={false}
 />
 `;
 
-exports[`The generic button component Matches the current snapshot for a disabled button 1`] = `
+exports[`<Button /> Matches the current snapshot for a disabled button 1`] = `
 <styled.button
   disabled={true}
 />

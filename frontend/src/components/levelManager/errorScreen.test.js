@@ -8,7 +8,7 @@ import { ErrorScreen, ReloadButton } from './errorScreen';
 
 configure({ adapter: new Adapter() });
 
-describe('The error screen', () => {
+describe('<ErrorScreen />', () => {
   let props;
 
   beforeAll(() => {

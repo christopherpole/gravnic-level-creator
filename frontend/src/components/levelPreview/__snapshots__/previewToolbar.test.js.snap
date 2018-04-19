@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The preview toolbar Matches the current snapshot 1`] = `
+exports[`<PreviewToolbar /> Matches the current snapshot 1`] = `
 <styled.div
   id="editor-toolbar"
 >
@@ -46,7 +46,7 @@ exports[`The preview toolbar Matches the current snapshot 1`] = `
 </styled.div>
 `;
 
-exports[`The preview toolbar Matches the current snapshot when the game speed is fast 1`] = `
+exports[`<PreviewToolbar /> Matches the current snapshot when the game speed is fast 1`] = `
 <styled.div
   id="editor-toolbar"
 >
@@ -92,7 +92,7 @@ exports[`The preview toolbar Matches the current snapshot when the game speed is
 </styled.div>
 `;
 
-exports[`The preview toolbar Matches the current snapshot when there are no moves to be undone 1`] = `
+exports[`<PreviewToolbar /> Matches the current snapshot when there are no moves to be undone 1`] = `
 <styled.div
   id="editor-toolbar"
 >

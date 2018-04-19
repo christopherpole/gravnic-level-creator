@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The level preview Matches the current snapshot 1`] = `
+exports[`<LevelPreview /> Matches the current snapshot 1`] = `
 <styled.div
   className="level-preview"
 >

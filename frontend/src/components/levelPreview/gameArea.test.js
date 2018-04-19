@@ -7,7 +7,7 @@ import { GameArea } from './gameArea';
 
 configure({ adapter: new Adapter() });
 
-describe('The game area', () => {
+describe('<GameArea />', () => {
   let props;
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The error screen Matches the current snapshot 1`] = `
+exports[`<ErrorScreen /> Matches the current snapshot 1`] = `
 <styled.div
   id="error-screen"
 >

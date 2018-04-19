@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The level manager Matches the current snapshot if a level is being renamed 1`] = `
+exports[`<LevelsList /> Matches the current snapshot if a level is being renamed 1`] = `
 <styled.div>
   <styled.div>
     <sortableList(styled.ul)
@@ -1296,7 +1296,7 @@ exports[`The level manager Matches the current snapshot if a level is being rena
 </styled.div>
 `;
 
-exports[`The level manager Matches the current snapshot if a level is selected 1`] = `
+exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] = `
 <styled.div>
   <styled.div>
     <sortableList(styled.ul)
@@ -2592,7 +2592,7 @@ exports[`The level manager Matches the current snapshot if a level is selected 1
 </styled.div>
 `;
 
-exports[`The level manager Matches the current snapshot if a level is the current level 1`] = `
+exports[`<LevelsList /> Matches the current snapshot if a level is the current level 1`] = `
 <styled.div>
   <styled.div>
     <sortableList(styled.ul)
@@ -3888,7 +3888,7 @@ exports[`The level manager Matches the current snapshot if a level is the curren
 </styled.div>
 `;
 
-exports[`The level manager Matches the current snapshot if the was an issue communicating with the server 1`] = `
+exports[`<LevelsList /> Matches the current snapshot if the was an issue communicating with the server 1`] = `
 <styled.div>
   <Styled(styled.div)>
     <styled.p
@@ -3900,7 +3900,7 @@ exports[`The level manager Matches the current snapshot if the was an issue comm
 </styled.div>
 `;
 
-exports[`The level manager Matches the current snapshot when loading levels from the server 1`] = `
+exports[`<LevelsList /> Matches the current snapshot when loading levels from the server 1`] = `
 <styled.div>
   <Styled(styled.div)>
     <styled.p
@@ -3912,7 +3912,7 @@ exports[`The level manager Matches the current snapshot when loading levels from
 </styled.div>
 `;
 
-exports[`The level manager Matches the current snapshot with levels 1`] = `
+exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
 <styled.div>
   <styled.div>
     <sortableList(styled.ul)
@@ -5208,7 +5208,7 @@ exports[`The level manager Matches the current snapshot with levels 1`] = `
 </styled.div>
 `;
 
-exports[`The level manager Matches the current snapshot with no levels 1`] = `
+exports[`<LevelsList /> Matches the current snapshot with no levels 1`] = `
 <styled.div>
   <Styled(styled.div)>
     <styled.p

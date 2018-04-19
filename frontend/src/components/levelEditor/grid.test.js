@@ -9,7 +9,7 @@ import { initialState } from '../../reducers/levelEditor';
 
 configure({ adapter: new Adapter() });
 
-describe('The editor grid', () => {
+describe('<Grid />', () => {
   let props;
 
   beforeEach(() => {
