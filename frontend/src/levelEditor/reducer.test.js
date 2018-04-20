@@ -1,3 +1,5 @@
+import { ENTITIES } from 'gravnic-game';
+
 import { SAVE_LEVEL, LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import testLevels from 'data/testLevels';
 import { MIN_MOVES, MAX_MOVES } from 'config/settings';
@@ -14,11 +16,11 @@ describe('The level editor reducer', () => {
       expect(
         reducer(undefined, {
           type: SELECT_TILE,
-          selectedTileId: '3',
+          selectedTileId: ENTITIES.BLOCK,
         }),
       ).toEqual({
         ...initialState,
-        selectedTileId: '3',
+        selectedTileId: ENTITIES.BLOCK,
       });
     });
   });
@@ -28,14 +30,14 @@ describe('The level editor reducer', () => {
       const newTiles = initialState.tiles.slice();
       newTiles[44] = {
         ...initialState.tiles[44],
-        selectedTileId: '3',
+        selectedTileId: ENTITIES.BLOCK,
       };
 
       expect(
         reducer(
           {
             ...initialState,
-            selectedTileId: '3',
+            selectedTileId: ENTITIES.BLOCK,
           },
           {
             type: UPDATE_TILE,
@@ -44,7 +46,7 @@ describe('The level editor reducer', () => {
         ),
       ).toEqual({
         ...initialState,
-        selectedTileId: '3',
+        selectedTileId: ENTITIES.BLOCK,
         tiles: newTiles,
         editedSinceLastSave: true,
       });
@@ -56,7 +58,7 @@ describe('The level editor reducer', () => {
       const newTiles = initialState.tiles.slice();
       newTiles[44] = {
         ...initialState.tiles[44],
-        selectedTileId: '3',
+        selectedTileId: ENTITIES.BLOCK,
       };
 
       expect(
@@ -64,7 +66,7 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             tiles: newTiles,
-            selectedTileId: '3',
+            selectedTileId: ENTITIES.BLOCK,
             editedSinceLastSave: true,
           },
           {
@@ -73,7 +75,7 @@ describe('The level editor reducer', () => {
         ),
       ).toEqual({
         ...initialState,
-        selectedTileId: '3',
+        selectedTileId: ENTITIES.BLOCK,
         tiles: initialState.tiles,
         editedSinceLastSave: false,
       });

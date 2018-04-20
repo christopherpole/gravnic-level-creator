@@ -2,6 +2,6 @@
 
 exports[`<Tile /> Matches the current snapshot 1`] = `
 <styled.div
-  tileId={1}
+  tileId="ENTITY_FLOOR"
 />
 `;

@@ -10,7 +10,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="0"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -18,7 +18,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="1"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -26,7 +26,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="2"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -34,7 +34,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="3"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -42,7 +42,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="4"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -50,7 +50,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="5"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -58,7 +58,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="6"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -66,7 +66,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="7"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -74,7 +74,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="8"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -82,7 +82,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="9"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -90,7 +90,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="10"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -98,7 +98,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="11"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -106,7 +106,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="12"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -114,7 +114,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="13"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -122,7 +122,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="14"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -130,7 +130,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="15"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -138,7 +138,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="16"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -146,7 +146,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="17"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -154,7 +154,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="18"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -162,7 +162,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="19"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -170,7 +170,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="20"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -178,7 +178,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="21"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -186,7 +186,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="22"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -194,7 +194,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="23"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -202,7 +202,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="24"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -210,7 +210,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="25"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -218,7 +218,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="26"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -226,7 +226,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="27"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -234,7 +234,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="28"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -242,7 +242,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="29"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -250,7 +250,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="30"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -258,7 +258,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="31"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -266,7 +266,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="32"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -274,7 +274,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="33"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -282,7 +282,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="34"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -290,7 +290,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="35"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -298,7 +298,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="36"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -306,7 +306,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="37"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -314,7 +314,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="38"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -322,7 +322,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="39"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -330,7 +330,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="40"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -338,7 +338,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="41"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -346,7 +346,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="42"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -354,7 +354,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="43"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -362,7 +362,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="44"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -370,7 +370,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="45"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -378,7 +378,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="46"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -386,7 +386,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="47"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -394,7 +394,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="48"
     >
       <Tile
-        tileId={2}
+        tileId="ENTITY_BLOCK"
       />
     </styled.div>
     <styled.div
@@ -402,7 +402,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="49"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -410,7 +410,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="50"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -418,7 +418,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="51"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -426,7 +426,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="52"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -434,7 +434,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="53"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -442,7 +442,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="54"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -450,7 +450,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="55"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -458,7 +458,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="56"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -466,7 +466,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="57"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -474,7 +474,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="58"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -482,7 +482,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="59"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -490,7 +490,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="60"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -498,7 +498,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="61"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -506,7 +506,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="62"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -514,7 +514,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="63"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -522,7 +522,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="64"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -530,7 +530,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="65"
     >
       <Tile
-        tileId={1}
+        tileId="ENTITY_FLOOR"
       />
     </styled.div>
     <styled.div
@@ -538,7 +538,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="66"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -546,7 +546,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="67"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -554,7 +554,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="68"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -562,7 +562,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="69"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -570,7 +570,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="70"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -578,7 +578,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="71"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -586,7 +586,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="72"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -594,7 +594,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="73"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -602,7 +602,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="74"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -610,7 +610,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="75"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -618,7 +618,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="76"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -626,7 +626,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="77"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -634,7 +634,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="78"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -642,7 +642,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="79"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -650,7 +650,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="80"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -658,7 +658,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="81"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -666,7 +666,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="82"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -674,7 +674,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="83"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -682,7 +682,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="84"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -690,7 +690,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="85"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -698,7 +698,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="86"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -706,7 +706,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="87"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -714,7 +714,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="88"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -722,7 +722,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="89"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -730,7 +730,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="90"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -738,7 +738,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="91"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -746,7 +746,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="92"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -754,7 +754,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="93"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -762,7 +762,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="94"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -770,7 +770,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="95"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -778,7 +778,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="96"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -786,7 +786,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="97"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -794,7 +794,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="98"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
     <styled.div
@@ -802,7 +802,7 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
       key="99"
     >
       <Tile
-        tileId={0}
+        tileId="ENTITY_NONE"
       />
     </styled.div>
   </styled.div>

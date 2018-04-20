@@ -12,7 +12,7 @@ describe('The utils', () => {
       expect(newLevel.tiles.length).toBe(GRID_SIZE * GRID_SIZE);
       expect(typeof newLevel.tiles[0]).toBe('object');
       expect(typeof newLevel.tiles[0].position).toBe('number');
-      expect(typeof newLevel.tiles[0].selectedTileId).toBe('number');
+      expect(typeof newLevel.tiles[0].selectedTileId).toBe('string');
       expect(newLevel.stars).toEqual([MIN_MOVES, MIN_MOVES + 1, MIN_MOVES + 2]);
       expect(newLevel.position).toBe(5);
     });

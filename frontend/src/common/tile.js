@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { ENTITIES } from 'gravnic-game';
 
 export const Wrapper = styled.div`
   background: ${props => props.theme.backgroundColor};
@@ -11,57 +12,21 @@ export const Wrapper = styled.div`
   bottom: 0;
 
   ${props =>
-    props.tileId === 0 &&
+    props.tileId === ENTITIES.NONE &&
     css`
       background: ${props.theme.backgroundColor};
     `}
 
   ${props =>
-    props.tileId === 1 &&
+    props.tileId === ENTITIES.FLOOR &&
     css`
       background: white;
     `}
 
   ${props =>
-    props.tileId === 2 &&
+    props.tileId === ENTITIES.BLOCK &&
     css`
       background: red;
-    `}
-
-  ${props =>
-    props.tileId === 3 &&
-    css`
-      background: orange;
-    `}
-
-  ${props =>
-    props.tileId === 4 &&
-    css`
-      background: yellow;
-    `}
-
-  ${props =>
-    props.tileId === 5 &&
-    css`
-      background: green;
-    `}
-
-  ${props =>
-    props.tileId === 6 &&
-    css`
-      background: blue;
-    `}
-
-  ${props =>
-    props.tileId === 7 &&
-    css`
-      background: purple;
-    `}
-
-  ${props =>
-    props.tileId === 8 &&
-    css`
-      background: grey;
     `}
 `;
 
@@ -72,7 +37,7 @@ Tile.defaultProps = {
 };
 
 Tile.propTypes = {
-  tileId: PropTypes.number,
+  tileId: PropTypes.string,
 };
 
 export default Tile;

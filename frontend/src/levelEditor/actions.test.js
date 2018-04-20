@@ -1,3 +1,4 @@
+import { ENTITIES } from 'gravnic-game';
 import {
   UPDATE_TILE,
   SELECT_TILE,
@@ -18,10 +19,10 @@ describe('The level editor actions', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
         type: SELECT_TILE,
-        selectedTileId: 2,
+        selectedTileId: ENTITIES.BLOCK,
       };
 
-      expect(selectTile(2)).toEqual(expectedAction);
+      expect(selectTile(ENTITIES.BLOCK)).toEqual(expectedAction);
     });
   });
 

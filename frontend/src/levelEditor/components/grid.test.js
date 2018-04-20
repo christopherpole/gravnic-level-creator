@@ -3,6 +3,7 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
+import { ENTITIES } from 'gravnic-game';
 
 import { initialState } from '../reducer';
 import { Grid, TilesWrapper, TileWrapper } from './grid';
@@ -14,7 +15,7 @@ describe('<Grid />', () => {
 
   beforeEach(() => {
     props = {
-      selectedTileId: 3,
+      selectedTileId: ENTITIES.FLOOR,
       dragging: false,
       tiles: initialState.tiles,
       updateTileAction: () => {},

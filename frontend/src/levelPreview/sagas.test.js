@@ -1,4 +1,4 @@
-import { MOVE_LEFT, calulateNextGameState } from 'gravnic-game';
+import { MOVE_LEFT, ENTITIES, calulateNextGameState } from 'gravnic-game';
 import { delay } from 'redux-saga';
 import { call, select, put } from 'redux-saga/effects';
 
@@ -18,25 +18,25 @@ describe('The level preview sagas', () => {
           {
             staticEntity: {
               id: 1,
-              entityId: 1,
+              entityId: ENTITIES.FLOOR,
             },
             movableEntity: null,
           },
           {
             staticEntity: {
               id: 2,
-              entityId: 1,
+              entityId: ENTITIES.FLOOR,
             },
             movableEntity: null,
           },
           {
             staticEntity: {
               id: 3,
-              entityId: 1,
+              entityId: ENTITIES.FLOOR,
             },
             movableEntity: {
               id: 4,
-              entityId: 2,
+              entityId: ENTITIES.BLOCK,
             },
           },
         ],

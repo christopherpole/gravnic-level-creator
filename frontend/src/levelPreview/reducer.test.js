@@ -1,4 +1,4 @@
-import { MOVE_LEFT } from 'gravnic-game';
+import { MOVE_LEFT, ENTITIES } from 'gravnic-game';
 import reducer, { initialState } from './reducer';
 import {
   PREVIEW_LEVEL,
@@ -18,20 +18,44 @@ describe('The level editor reducer', () => {
   beforeEach(() => {
     testGameHistory = [
       [
-        [[{}, { staticEntity: { id: 111, entityId: 2 } }, {}], [{}, {}, {}], [{}, {}, {}]],
-        [[{}, {}, {}], [{}, { staticEntity: { id: 111, entityId: 2 } }, {}], [{}, {}, {}]],
-        [[{}, {}, {}], [{}, {}, {}], [{}, { staticEntity: { id: 111, entityId: 2 } }, {}]],
+        [
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, {}, {}],
+          [{}, {}, {}],
+        ],
+        [
+          [{}, {}, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, {}, {}],
+        ],
+        [
+          [{}, {}, {}],
+          [{}, {}, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+        ],
       ],
       [
-        [[{}, {}, {}], [{}, {}, {}], [{}, { staticEntity: { id: 111, entityId: 2 } }, {}]],
-        [[{}, {}, {}], [{}, { staticEntity: { id: 111, entityId: 2 } }, {}], [{}, {}, {}]],
-        [[{}, { staticEntity: { id: 111, entityId: 2 } }, {}], [{}, {}, {}], [{}, {}, {}]],
+        [
+          [{}, {}, {}],
+          [{}, {}, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+        ],
+        [
+          [{}, {}, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, {}, {}],
+        ],
+        [
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, {}, {}],
+          [{}, {}, {}],
+        ],
       ],
     ];
 
     testGameState = [
       [{}, {}, {}],
-      [{}, { staticEntity: { id: 222, entityId: 2 } }, {}],
+      [{}, { staticEntity: { id: 222, entityId: ENTITIES.BLOCK } }, {}],
       [{}, {}, {}],
     ];
   });

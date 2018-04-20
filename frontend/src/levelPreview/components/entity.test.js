@@ -2,6 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import { ENTITIES } from 'gravnic-game';
 
 import { Entity } from './entity';
 
@@ -12,11 +13,12 @@ describe('<Entity />', () => {
 
   beforeEach(() => {
     props = {
-      entityId: 3,
+      entityId: ENTITIES.BLOCK,
       xPos: 10,
       yPos: 20,
       gameSpeed: 100,
       fading: false,
+      isMovableEntity: false,
     };
   });
 

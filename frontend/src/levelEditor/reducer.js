@@ -1,3 +1,5 @@
+import { ENTITIES } from 'gravnic-game';
+
 import { SAVE_LEVEL, LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { createNewLevel } from 'utils';
 import { MIN_MOVES, MAX_MOVES } from 'config/settings';
@@ -8,7 +10,7 @@ const newLevel = createNewLevel();
 export const initialState = {
   previewing: false,
   dragging: false,
-  selectedTileId: 0,
+  selectedTileId: ENTITIES.NONE,
   tiles: newLevel.tiles,
   stars: newLevel.stars,
   editedSinceLastSave: false,

@@ -3,7 +3,8 @@
 exports[`<GameArea /> Matches the current snapshot 1`] = `
 <styled.div>
   <Connect(Component)
-    entityId={1}
+    entityId="ENTITY_BLOCK"
+    isMovableEntity={true}
     key="1"
     xPos={10}
     yPos={10}

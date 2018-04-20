@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Tile from 'common/tile';
-import tiles from 'config/tiles.json';
+import tiles from 'config/tiles';
 import { selectTile } from '../actions';
 
 export const Wrapper = styled.div`
@@ -74,7 +74,7 @@ TileSelector.defaultProps = {
 };
 
 TileSelector.propTypes = {
-  selectedTileId: PropTypes.number,
+  selectedTileId: PropTypes.string,
   selectTileAction: PropTypes.func.isRequired,
 };
 

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { GRID_SIZE } from 'config/settings';
+import Tile from 'common/tile';
 
 export const Wrapper = styled.div`
   height: ${props => props.heightPercentage}%;
@@ -12,21 +13,22 @@ export const Wrapper = styled.div`
   left: ${props => props.xPos}%;
   top: ${props => props.yPos}%;
   transition: all ${props => props.moveSpeed}ms linear;
-  background: ${props => (props.entityId === 1 ? 'white' : 'red')};
-  z-index: ${props => (props.entityId === 2 ? 2 : 1)};
   opacity: ${props => (props.fading ? 0 : 1)};
+  z-index: ${props => (props.isMovableEntity ? 1 : 0)};
 `;
 
-export const Entity = ({ entityId, xPos, yPos, fading, gameSpeed }) => (
+export const Entity = ({ entityId, xPos, yPos, fading, gameSpeed, isMovableEntity }) => (
   <Wrapper
     xPos={xPos}
     yPos={yPos}
     heightPercentage={100 / GRID_SIZE}
     widthPercentage={100 / GRID_SIZE}
-    entityId={entityId}
     moveSpeed={gameSpeed}
     fading={fading}
-  />
+    isMovableEntity={isMovableEntity}
+  >
+    <Tile tileId={entityId} />
+  </Wrapper>
 );
 
 Entity.defaultProps = {
@@ -34,11 +36,12 @@ Entity.defaultProps = {
 };
 
 Entity.propTypes = {
-  entityId: PropTypes.number.isRequired,
+  entityId: PropTypes.string.isRequired,
   xPos: PropTypes.number.isRequired,
   yPos: PropTypes.number.isRequired,
   fading: PropTypes.bool,
   gameSpeed: PropTypes.number.isRequired,
+  isMovableEntity: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({

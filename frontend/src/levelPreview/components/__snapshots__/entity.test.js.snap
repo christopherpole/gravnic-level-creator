@@ -2,12 +2,16 @@
 
 exports[`<Entity /> Matches the current snapshot 1`] = `
 <styled.div
-  entityId={3}
   fading={false}
   heightPercentage={10}
+  isMovableEntity={false}
   moveSpeed={100}
   widthPercentage={10}
   xPos={10}
   yPos={20}
-/>
+>
+  <Tile
+    tileId="ENTITY_BLOCK"
+  />
+</styled.div>
 `;

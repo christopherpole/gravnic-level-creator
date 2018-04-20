@@ -84,12 +84,12 @@ Grid.propTypes = {
   updateTileAction: PropTypes.func.isRequired,
   tiles: PropTypes.arrayOf(
     PropTypes.shape({
-      selectedTileId: PropTypes.number,
+      selectedTileId: PropTypes.string,
       position: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
   dragging: PropTypes.bool.isRequired,
-  selectedTileId: PropTypes.number.isRequired,
+  selectedTileId: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({

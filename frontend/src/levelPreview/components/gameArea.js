@@ -58,6 +58,7 @@ export class GameArea extends Component {
             fading={entitiesData[key].fading}
             key={key}
             entityId={entitiesData[key].entityId}
+            isMovableEntity={entitiesData[key].isMovableEntity}
           />
         ))}
       </Wrapper>

@@ -2,6 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import { ENTITIES } from 'gravnic-game';
 
 import Tile from './tile';
 
@@ -12,7 +13,7 @@ describe('<Tile />', () => {
 
   beforeEach(() => {
     props = {
-      tileId: 1,
+      tileId: ENTITIES.FLOOR,
     };
   });
 

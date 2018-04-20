@@ -17,6 +17,7 @@ export const getEntitiesData = createSelector(
         if (gameState[i][j].staticEntity) {
           entitiesData[gameState[i][j].staticEntity.id] = {
             entityId: gameState[i][j].staticEntity.entityId,
+            isMovableEntity: false,
             xPos: j * GRID_SIZE,
             yPos: i * GRID_SIZE,
           };
@@ -26,6 +27,7 @@ export const getEntitiesData = createSelector(
           entitiesData[gameState[i][j].movableEntity.id] = {
             entityId: gameState[i][j].movableEntity.entityId,
             fading: gameState[i][j].movableEntity.fading,
+            isMovableEntity: true,
             xPos: j * GRID_SIZE,
             yPos: i * GRID_SIZE,
           };
