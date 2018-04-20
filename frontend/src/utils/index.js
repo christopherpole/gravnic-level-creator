@@ -1,6 +1,6 @@
 import shortid from 'shortid';
 
-import { GRID_SIZE, MIN_MOVES } from '../config/settings';
+import { GRID_SIZE, MIN_MOVES } from 'config/settings';
 
 export const createNewLevel = pos => ({
   id: shortid.generate(),

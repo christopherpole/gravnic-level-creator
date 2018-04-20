@@ -1,5 +1,5 @@
+import { GRID_SIZE, MIN_MOVES } from 'config/settings';
 import { createNewLevel, makeActionCreator } from './index';
-import { GRID_SIZE, MIN_MOVES } from '../config/settings';
 
 describe('The utils', () => {
   describe('createNewLevel()', () => {
