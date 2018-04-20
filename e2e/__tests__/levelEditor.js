@@ -165,9 +165,14 @@ describe('The level editor', () => {
 
     expect(allTilesBlank).toBe(true);
 
+    //  Reset and preview buttons should not be enabled
+    expect(!!await page.$('#btn-reset:disabled')).toBe(true);
+    expect(!!await page.$('#btn-preview:disabled')).toBe(true);
+
     done();
   });
 
+  //  @TODO: make this less brittle...
   it('Allows users to set tiles by dragging the mouse over them', async done => {
     //  Drag the mouse over 5 tiles
     const { mouse } = page;
@@ -189,7 +194,6 @@ describe('The level editor', () => {
     expect(nonBlankTilesCount).toBe(5);
 
     //  Make sure that the tiles that have been dragged over are not blank
-    //  @TODO: make this less brittle...
     const tilesAreUpdated = await page.evaluate(() => {
       const tiles = document.querySelectorAll(
         '#editor-grid .tile:nth-child(13) > div, #editor-grid .tile:nth-child(14) > div, #editor-grid .tile:nth-child(15) > div, #editor-grid .tile:nth-child(25) > div, #editor-grid .tile:nth-child(35) > div',
