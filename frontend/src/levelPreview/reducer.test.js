@@ -7,7 +7,8 @@ import {
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
   RESTART_LEVEL,
-  UNDO_MOVE,
+  UNDO_MOVE_STEP,
+  UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
 } from './actions';
 
@@ -195,26 +196,29 @@ describe('The level editor reducer', () => {
     });
   });
 
-  describe('UNDO_MOVE', () => {
+  describe('UNDO_MOVE_STEP', () => {
     it('Handles the action correctly', () => {
+      const gameHistoryLength = testGameHistory.length - 1;
+      const latestMoveLength = testGameHistory[gameHistoryLength].length;
+
       expect(
         reducer(
           {
             ...initialState,
             gameHistory: testGameHistory,
-            gameState:
-              testGameHistory[testGameHistory.length - 1][
-                testGameHistory[testGameHistory.length - 1].length
-              ],
+            gameState: testGameHistory[gameHistoryLength][latestMoveLength],
           },
           {
-            type: UNDO_MOVE,
+            type: UNDO_MOVE_STEP,
           },
         ),
       ).toEqual({
         ...initialState,
-        gameHistory: testGameHistory.slice(0, testGameHistory.length - 1),
-        gameState: testGameHistory[testGameHistory.length - 1][0],
+        gameHistory: [
+          ...testGameHistory.slice(0, gameHistoryLength),
+          testGameHistory[gameHistoryLength].slice(0, latestMoveLength - 1),
+        ],
+        gameState: testGameHistory[gameHistoryLength][latestMoveLength - 2],
       });
     });
 
@@ -227,13 +231,34 @@ describe('The level editor reducer', () => {
             gameState: [1, 2, 3],
           },
           {
-            type: UNDO_MOVE,
+            type: UNDO_MOVE_STEP,
           },
         ),
       ).toEqual({
         ...initialState,
         gameHistory: [[[1, 2, 3]]],
         gameState: [1, 2, 3],
+      });
+    });
+  });
+
+  describe('UNDO_MOVE_FINISHED', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            gameHistory: testGameHistory,
+            entitiesMoving: true,
+          },
+          {
+            type: UNDO_MOVE_FINISHED,
+            entitiesMoving: false,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        gameHistory: testGameHistory.slice(0, testGameHistory.length - 1),
       });
     });
   });

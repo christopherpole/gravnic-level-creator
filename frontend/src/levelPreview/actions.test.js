@@ -10,6 +10,8 @@ import {
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
   UNDO_MOVE,
+  UNDO_MOVE_STEP,
+  UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
   previewLevel,
   editLevel,
@@ -18,6 +20,8 @@ import {
   updateGameState,
   entitiesStoppedMoving,
   undoMove,
+  undoMoveStep,
+  undoMoveFinished,
   setGameSpeed,
 } from './actions';
 
@@ -103,6 +107,26 @@ describe('The level preview actions', () => {
       };
 
       expect(undoMove()).toEqual(expectedAction);
+    });
+  });
+
+  describe('undoMoveStep()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: UNDO_MOVE_STEP,
+      };
+
+      expect(undoMoveStep()).toEqual(expectedAction);
+    });
+  });
+
+  describe('undoMoveFinished()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: UNDO_MOVE_FINISHED,
+      };
+
+      expect(undoMoveFinished()).toEqual(expectedAction);
     });
   });
 
