@@ -38,3 +38,29 @@ export const getEntitiesData = createSelector(
     return entitiesData;
   },
 );
+
+/**
+ * Determines which of the level preview buttons should be disabled
+ * @param {Object} levelPreview - The state of the level preview
+ * @returns {Object} An object of booleans denoting the
+ * disabled state for each of the buttons
+ */
+export const getLevelPreviewButtonDisabledStates = createSelector(
+  state => state.levelPreview,
+  levelPreview => {
+    //  Enable all buttons by default
+    const buttonsDisabledStates = {
+      btnRestart: false,
+      btnUndo: false,
+    };
+
+    //  Disable buttons if entities are moving or the game history length is
+    //  greater than 1
+    if (levelPreview.entitiesMoving || levelPreview.gameHistory.length <= 1) {
+      buttonsDisabledStates.btnRestart = true;
+      buttonsDisabledStates.btnUndo = true;
+    }
+
+    return buttonsDisabledStates;
+  },
+);

@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import Button from 'common/button';
 import { GAME_SPEED_NORMAL, GAME_SPEED_FAST } from 'config/settings';
 import { editLevel, restartLevel, undoMove, setGameSpeed } from '../actions';
+import { getLevelPreviewButtonDisabledStates } from '../selectors';
 
 export const Wrapper = styled.div`
   grid-column: 1 / 2;
@@ -33,7 +34,7 @@ export const PreviewToolbar = ({
   restartLevelAction,
   undoMoveAction,
   setGameSpeedAction,
-  gameHistory,
+  buttonDisabledStates,
   gameSpeed,
 }) => (
   <Wrapper id="editor-toolbar">
@@ -50,7 +51,7 @@ export const PreviewToolbar = ({
       </ActionContainer>
       <ActionContainer>
         <Button
-          disabled={gameHistory.length <= 1}
+          disabled={buttonDisabledStates.btnRestart}
           id="btn-restart"
           onClick={() => {
             restartLevelAction();
@@ -61,7 +62,7 @@ export const PreviewToolbar = ({
       </ActionContainer>
       <ActionContainer>
         <Button
-          disabled={gameHistory.length <= 1}
+          disabled={buttonDisabledStates.btnUndo}
           id="btn-undo"
           onClick={() => {
             undoMoveAction();
@@ -91,13 +92,12 @@ PreviewToolbar.propTypes = {
   restartLevelAction: PropTypes.func.isRequired,
   setGameSpeedAction: PropTypes.func.isRequired,
   undoMoveAction: PropTypes.func.isRequired,
-  gameHistory: PropTypes.array.isRequired,
+  buttonDisabledStates: PropTypes.object.isRequired,
   gameSpeed: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
-  gameHistory: state.levelPreview.gameHistory,
-  gameSpeed: state.levelPreview.gameSpeed,
+  buttonDisabledStates: getLevelPreviewButtonDisabledStates(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -46,6 +46,52 @@ exports[`<PreviewToolbar /> Matches the current snapshot 1`] = `
 </styled.div>
 `;
 
+exports[`<PreviewToolbar /> Matches the current snapshot when buttons are disabled 1`] = `
+<styled.div
+  id="editor-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-edit"
+        onClick={[Function]}
+      >
+        Edit
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={true}
+        id="btn-restart"
+        onClick={[Function]}
+      >
+        Restart
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={true}
+        id="btn-undo"
+        onClick={[Function]}
+      >
+        Undo
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-set-game-speed"
+        onClick={[Function]}
+      >
+        Speed: 
+        NORMAL
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
 exports[`<PreviewToolbar /> Matches the current snapshot when the game speed is fast 1`] = `
 <styled.div
   id="editor-toolbar"
@@ -86,52 +132,6 @@ exports[`<PreviewToolbar /> Matches the current snapshot when the game speed is 
       >
         Speed: 
         FAST
-      </Button>
-    </styled.li>
-  </styled.ul>
-</styled.div>
-`;
-
-exports[`<PreviewToolbar /> Matches the current snapshot when there are no moves to be undone 1`] = `
-<styled.div
-  id="editor-toolbar"
->
-  <styled.ul>
-    <styled.li>
-      <Button
-        disabled={false}
-        id="btn-edit"
-        onClick={[Function]}
-      >
-        Edit
-      </Button>
-    </styled.li>
-    <styled.li>
-      <Button
-        disabled={true}
-        id="btn-restart"
-        onClick={[Function]}
-      >
-        Restart
-      </Button>
-    </styled.li>
-    <styled.li>
-      <Button
-        disabled={true}
-        id="btn-undo"
-        onClick={[Function]}
-      >
-        Undo
-      </Button>
-    </styled.li>
-    <styled.li>
-      <Button
-        disabled={false}
-        id="btn-set-game-speed"
-        onClick={[Function]}
-      >
-        Speed: 
-        NORMAL
       </Button>
     </styled.li>
   </styled.ul>

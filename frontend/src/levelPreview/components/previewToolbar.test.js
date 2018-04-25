@@ -18,7 +18,10 @@ describe('<PreviewToolbar />', () => {
       restartLevelAction: () => {},
       undoMoveAction: () => {},
       setGameSpeedAction: () => {},
-      gameHistory: [[[1, 2, 3]], [[4, 5, 6]]],
+      buttonDisabledStates: {
+        btnRestart: false,
+        btnUndo: false,
+      },
       gameSpeed: GAME_SPEED_NORMAL,
     };
   });
@@ -35,8 +38,10 @@ describe('<PreviewToolbar />', () => {
     expect(toJson(previewToolbar)).toMatchSnapshot();
   });
 
-  it('Matches the current snapshot when there are no moves to be undone', () => {
-    const previewToolbar = shallow(<PreviewToolbar {...props} gameHistory={[[[1, 2, 3]]]} />);
+  it('Matches the current snapshot when buttons are disabled', () => {
+    const previewToolbar = shallow(
+      <PreviewToolbar {...props} buttonDisabledStates={{ btnRestart: true, btnUndo: true }} />,
+    );
 
     expect(toJson(previewToolbar)).toMatchSnapshot();
   });
