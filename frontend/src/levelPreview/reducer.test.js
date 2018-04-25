@@ -3,9 +3,9 @@ import reducer, { initialState } from './reducer';
 import {
   PREVIEW_LEVEL,
   EDIT_LEVEL,
-  CHANGE_GRAVITY_DIRECTION,
-  UPDATE_GAME_STATE,
-  ENTITIES_STOPPED_MOVING,
+  MAKE_MOVE,
+  MAKE_MOVE_STEP,
+  MAKE_MOVE_FINISHED,
   RESTART_LEVEL,
   UNDO_MOVE,
   UNDO_MOVE_STEP,
@@ -110,7 +110,7 @@ describe('The level editor reducer', () => {
     });
   });
 
-  describe('CHANGE_GRAVITY_DIRECTION', () => {
+  describe('MAKE_MOVE', () => {
     it('Handles the action correctly', () => {
       expect(
         reducer(
@@ -119,7 +119,7 @@ describe('The level editor reducer', () => {
             gameState: testGameState,
           },
           {
-            type: CHANGE_GRAVITY_DIRECTION,
+            type: MAKE_MOVE,
             direction: MOVE_LEFT,
           },
         ),
@@ -133,13 +133,13 @@ describe('The level editor reducer', () => {
     });
   });
 
-  describe('UPDATE_GAME_STATE', () => {
+  describe('MAKE_MOVE_STEP', () => {
     it('Handles the action correctly', () => {
       expect(
         reducer(
           { ...initialState, gameHistory: testGameHistory },
           {
-            type: UPDATE_GAME_STATE,
+            type: MAKE_MOVE_STEP,
             gameState: testGameState,
           },
         ),
@@ -154,7 +154,7 @@ describe('The level editor reducer', () => {
     });
   });
 
-  describe('ENTITIES_STOPPED_MOVING', () => {
+  describe('MAKE_MOVE_FINISHED', () => {
     it('Handles the action correctly', () => {
       expect(
         reducer(
@@ -163,7 +163,7 @@ describe('The level editor reducer', () => {
             entitiesMoving: true,
           },
           {
-            type: ENTITIES_STOPPED_MOVING,
+            type: MAKE_MOVE_FINISHED,
           },
         ),
       ).toEqual({

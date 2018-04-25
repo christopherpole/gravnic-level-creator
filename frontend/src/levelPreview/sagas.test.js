@@ -3,19 +3,19 @@ import { delay } from 'redux-saga';
 import { call, select, put } from 'redux-saga/effects';
 
 import {
-  CHANGE_GRAVITY_DIRECTION,
-  updateGameState,
-  entitiesStoppedMoving,
+  MAKE_MOVE,
+  makeMoveStep,
+  makeMoveFinished,
   undoMoveStep,
   undoMoveFinished,
 } from './actions';
-import { changeGravityDirectionSaga, undoMoveSaga } from './sagas';
+import { makeMoveSaga, undoMoveSaga } from './sagas';
 
 describe('The level preview sagas', () => {
   describe('The change gravity direction saga', () => {
     it('Update the game states until the entities have stopped moving', () => {
-      const generator = changeGravityDirectionSaga({
-        type: CHANGE_GRAVITY_DIRECTION,
+      const generator = makeMoveSaga({
+        type: MAKE_MOVE,
         direction: MOVE_LEFT,
       });
 
@@ -64,7 +64,7 @@ describe('The level preview sagas', () => {
       gameState = calulateNextGameState(gameState, MOVE_LEFT);
       step = generator.next(state);
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(updateGameState(gameState)));
+      expect(step.value).toEqual(put(makeMoveStep(gameState)));
 
       //  The next action should be the pause
       step = generator.next();
@@ -75,7 +75,7 @@ describe('The level preview sagas', () => {
       gameState = calulateNextGameState(gameState, MOVE_LEFT);
       step = generator.next(state);
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(updateGameState(gameState)));
+      expect(step.value).toEqual(put(makeMoveStep(gameState)));
 
       //  The next action should be the pause
       step = generator.next();
@@ -89,7 +89,7 @@ describe('The level preview sagas', () => {
       //  The entities stopped action should be called
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(entitiesStoppedMoving()));
+      expect(step.value).toEqual(put(makeMoveFinished()));
 
       //  Finish
       step = generator.next();

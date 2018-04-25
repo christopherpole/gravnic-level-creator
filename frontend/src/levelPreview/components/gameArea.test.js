@@ -16,7 +16,7 @@ describe('<GameArea />', () => {
       entitiesData: {
         1: { xPos: 10, yPos: 10, id: 123, entityId: ENTITIES.BLOCK, isMovableEntity: true },
       },
-      changeGravityDirectionAction: () => {},
+      makeMoveAction: () => {},
       entitiesMoving: false,
     };
   });

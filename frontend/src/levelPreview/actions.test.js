@@ -6,9 +6,9 @@ import {
   PREVIEW_LEVEL,
   EDIT_LEVEL,
   RESTART_LEVEL,
-  CHANGE_GRAVITY_DIRECTION,
-  UPDATE_GAME_STATE,
-  ENTITIES_STOPPED_MOVING,
+  MAKE_MOVE,
+  MAKE_MOVE_STEP,
+  MAKE_MOVE_FINISHED,
   UNDO_MOVE,
   UNDO_MOVE_STEP,
   UNDO_MOVE_FINISHED,
@@ -16,9 +16,9 @@ import {
   previewLevel,
   editLevel,
   restartLevel,
-  changeGravityDirection,
-  updateGameState,
-  entitiesStoppedMoving,
+  makeMove,
+  makeMoveStep,
+  makeMoveFinished,
   undoMove,
   undoMoveStep,
   undoMoveFinished,
@@ -68,35 +68,35 @@ describe('The level preview actions', () => {
     });
   });
 
-  describe('changeGravityDirection()', () => {
+  describe('makeMove()', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
-        type: CHANGE_GRAVITY_DIRECTION,
+        type: MAKE_MOVE,
         direction: MOVE_LEFT,
       };
 
-      expect(changeGravityDirection(MOVE_LEFT)).toEqual(expectedAction);
+      expect(makeMove(MOVE_LEFT)).toEqual(expectedAction);
     });
   });
 
-  describe('updateGameState()', () => {
+  describe('makeMoveStep()', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
-        type: UPDATE_GAME_STATE,
+        type: MAKE_MOVE_STEP,
         gameState: [1, 2, 3],
       };
 
-      expect(updateGameState([1, 2, 3])).toEqual(expectedAction);
+      expect(makeMoveStep([1, 2, 3])).toEqual(expectedAction);
     });
   });
 
-  describe('entitiesStoppedMoving()', () => {
+  describe('makeMoveFinished()', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
-        type: ENTITIES_STOPPED_MOVING,
+        type: MAKE_MOVE_FINISHED,
       };
 
-      expect(entitiesStoppedMoving()).toEqual(expectedAction);
+      expect(makeMoveFinished()).toEqual(expectedAction);
     });
   });
 

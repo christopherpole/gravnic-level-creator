@@ -3,15 +3,15 @@ import { takeLatest, delay } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
 
 import {
-  CHANGE_GRAVITY_DIRECTION,
+  MAKE_MOVE,
   UNDO_MOVE,
-  updateGameState,
+  makeMoveStep,
+  makeMoveFinished,
   undoMoveStep,
   undoMoveFinished,
-  entitiesStoppedMoving,
 } from './actions';
 
-export function* changeGravityDirectionSaga(action) {
+export function* makeMoveSaga(action) {
   const state = yield select();
   const { gameSpeed } = state.levelPreview;
   let { gameState } = state.levelPreview;
@@ -20,12 +20,12 @@ export function* changeGravityDirectionSaga(action) {
     gameState = calulateNextGameState(gameState, action.direction);
 
     if (gameState) {
-      yield put(updateGameState(gameState));
+      yield put(makeMoveStep(gameState));
       yield call(delay, gameSpeed);
     }
   } while (gameState);
 
-  yield put(entitiesStoppedMoving());
+  yield put(makeMoveFinished());
 }
 
 export function* undoMoveSaga() {
@@ -44,6 +44,6 @@ export function* undoMoveSaga() {
 }
 
 export default function* levelManagerSagas() {
-  yield takeLatest(CHANGE_GRAVITY_DIRECTION, changeGravityDirectionSaga);
+  yield takeLatest(MAKE_MOVE, makeMoveSaga);
   yield takeLatest(UNDO_MOVE, undoMoveSaga);
 }

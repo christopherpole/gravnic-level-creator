@@ -4,9 +4,9 @@ import { GAME_SPEED_NORMAL } from 'config/settings';
 import {
   PREVIEW_LEVEL,
   EDIT_LEVEL,
-  CHANGE_GRAVITY_DIRECTION,
-  UPDATE_GAME_STATE,
-  ENTITIES_STOPPED_MOVING,
+  MAKE_MOVE,
+  MAKE_MOVE_STEP,
+  MAKE_MOVE_FINISHED,
   RESTART_LEVEL,
   UNDO_MOVE,
   UNDO_MOVE_STEP,
@@ -43,7 +43,7 @@ export default function levelPreviewReducer(state = initialState, action) {
       };
     }
 
-    case CHANGE_GRAVITY_DIRECTION: {
+    case MAKE_MOVE: {
       const newGameHistory = cloneDeep(state.gameHistory);
       newGameHistory.push([cloneDeep(state.gameState)]);
 
@@ -55,7 +55,7 @@ export default function levelPreviewReducer(state = initialState, action) {
       };
     }
 
-    case UPDATE_GAME_STATE: {
+    case MAKE_MOVE_STEP: {
       const newGameHistory = cloneDeep(state.gameHistory);
       newGameHistory[newGameHistory.length - 1].push(action.gameState);
 
@@ -66,7 +66,7 @@ export default function levelPreviewReducer(state = initialState, action) {
       };
     }
 
-    case ENTITIES_STOPPED_MOVING: {
+    case MAKE_MOVE_FINISHED: {
       return {
         ...state,
         entitiesMoving: false,

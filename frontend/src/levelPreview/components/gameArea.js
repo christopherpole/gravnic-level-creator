@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { MOVE_LEFT, MOVE_UP, MOVE_RIGHT, MOVE_DOWN } from 'gravnic-game';
 
 import Entity from './entity';
-import { changeGravityDirection } from '../actions';
+import { makeMove } from '../actions';
 import { getEntitiesData } from '../selectors';
 
 export const Wrapper = styled.div``;
@@ -31,16 +31,16 @@ export class GameArea extends Component {
 
     switch (event.keyCode) {
       case 37:
-        this.props.changeGravityDirectionAction(MOVE_LEFT);
+        this.props.makeMoveAction(MOVE_LEFT);
         break;
       case 38:
-        this.props.changeGravityDirectionAction(MOVE_UP);
+        this.props.makeMoveAction(MOVE_UP);
         break;
       case 39:
-        this.props.changeGravityDirectionAction(MOVE_RIGHT);
+        this.props.makeMoveAction(MOVE_RIGHT);
         break;
       case 40:
-        this.props.changeGravityDirectionAction(MOVE_DOWN);
+        this.props.makeMoveAction(MOVE_DOWN);
         break;
       default:
     }
@@ -68,7 +68,7 @@ export class GameArea extends Component {
 
 GameArea.propTypes = {
   entitiesData: PropTypes.object.isRequired,
-  changeGravityDirectionAction: PropTypes.func.isRequired,
+  makeMoveAction: PropTypes.func.isRequired,
   entitiesMoving: PropTypes.bool.isRequired,
 };
 
@@ -78,7 +78,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  changeGravityDirectionAction: bindActionCreators(changeGravityDirection, dispatch),
+  makeMoveAction: bindActionCreators(makeMove, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameArea);
