@@ -7,6 +7,7 @@ import {
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
   RESTART_LEVEL,
+  UNDO_MOVE,
   UNDO_MOVE_STEP,
   UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
@@ -192,6 +193,25 @@ describe('The level editor reducer', () => {
         gameHistory: [testGameHistory[0]],
         gravityDirection: initialState.gravityDirection,
         gameState: testGameHistory[0],
+      });
+    });
+  });
+
+  describe('UNDO_MOVE', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            entitiesMoving: false,
+          },
+          {
+            type: UNDO_MOVE,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        entitiesMoving: true,
       });
     });
   });

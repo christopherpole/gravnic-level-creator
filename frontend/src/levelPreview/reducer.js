@@ -8,6 +8,7 @@ import {
   UPDATE_GAME_STATE,
   ENTITIES_STOPPED_MOVING,
   RESTART_LEVEL,
+  UNDO_MOVE,
   UNDO_MOVE_STEP,
   UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
@@ -79,6 +80,13 @@ export default function levelPreviewReducer(state = initialState, action) {
         gameHistory: [cloneDeep(state.gameHistory[0])],
         gravityDirection: initialState.gravityDirection,
         gameState: cloneDeep(state.gameHistory[0]),
+      };
+    }
+
+    case UNDO_MOVE: {
+      return {
+        ...state,
+        entitiesMoving: true,
       };
     }
 
