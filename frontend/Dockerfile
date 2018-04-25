@@ -1,14 +1,7 @@
-FROM node:9-alpine
+FROM node:9.11.1-alpine
 
-RUN apk add --update curl && \
-    rm -rf /var/cache/apk/*
-
-ADD yarn.lock /yarn.lock
-ADD package.json /package.json
-
-ENV NODE_PATH=/node_modules
-ENV PATH=$PATH:/node_modules/.bin
-RUN yarn
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git curl
 
 WORKDIR /frontend
 ADD . /frontend

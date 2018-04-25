@@ -15,80 +15,90 @@ install_docker_compose: &install_docker_compose
     chmod +x ~/docker-compose
     sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
+install_node: &install_node
+  name: Install Node
+  user: root
+  command: |
+    set +e             
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
+    export NVM_DIR="/opt/circleci/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install v9.11.1
+    nvm alias default v9.11.1
+    
+    # Each step uses the same `$BASH_ENV`, so need to modify it
+    echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
+    echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
+
+install_yarn: &install_yarn
+  name: Install yarn
+  command: npm install --global yarn
+
 jobs:
-  build_frontend:
+  build_and_test_frontend:
     <<: *job_defaults
     steps:
       - checkout
       - run:
-          <<: *install_docker_compose
+          <<: *install_node
+      - run:
+          <<: *install_yarn
       - restore_cache:
           keys:
-            - gravnic-frontend-v2-{{ checksum "frontend/yarn.lock" }}
-            - gravnic-frontend-v2-
+            - gravnic-frontend-v3-{{ checksum "frontend/yarn.lock" }}
+            - gravnic-frontend-v3-
       - run:
-          name: Frontend compilation
-          command: docker-compose run frontend_compile
+          name: Install dependancies
+          command: cd frontend && yarn
       - save_cache:
-          key: gravnic-frontend-v2-{{ checksum "frontend/yarn.lock" }}
+          key: gravnic-frontend-v3-{{ checksum "frontend/yarn.lock" }}
           paths:
-            - frontend/node_modules
+            - node_modules
+      - run:
+          name: Run linter
+          command: cd frontend && yarn lint
+      - run:
+          name: Run tests
+          command: cd frontend && yarn test
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
             - frontend
 
-  build_backend:
+  build_and_test_backend:
     <<: *job_defaults
     steps:
       - checkout
       - run:
-          <<: *install_docker_compose
+          <<: *install_node
+      - run:
+          <<: *install_yarn
       - restore_cache:
           keys:
-            - gravnic-backend-v2-{{ checksum "backend/yarn.lock" }}
-            - gravnic-backend-v2-
+            - gravnic-backend-v3-{{ checksum "backend/yarn.lock" }}
+            - gravnic-backend-v3-
       - run:
-          name: Backend compilation
-          command: docker-compose run backend_compile
+          name: Install dependancies
+          command: cd backend && yarn
       - save_cache:
-          key: gravnic-backend-v2-{{ checksum "backend/yarn.lock" }}
+          key: gravnic-backend-v3-{{ checksum "backend/yarn.lock" }}
           paths:
-            - backend/node_modules
+            - node_modules
+      - run:
+          name: Run linter
+          command: cd backend && yarn lint
+      - run:
+          name: Install MongoDB
+          command: |
+            sudo apt-get update
+            sudo apt-get install mongodb-server
+      - run:
+          name: Run tests
+          command: cd backend && yarn test --forceExit
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
             - backend
-
-  frontend_tests:
-    <<: *job_defaults
-    steps:
-      - checkout
-      - run:
-          <<: *install_docker_compose
-      - attach_workspace:
-          at: ~/gravnic-level-creator
-      - run:
-          name: Frontend linting
-          command: docker-compose run frontend_lint
-      - run: 
-          name: Frontend tests
-          command: docker-compose run frontend_tests
-
-  backend_tests:
-    <<: *job_defaults
-    steps:
-      - checkout
-      - run:
-          <<: *install_docker_compose
-      - attach_workspace:
-          at: ~/gravnic-level-creator
-      - run:
-          name: Backing linting
-          command: docker-compose run backend_lint
-      - run:
-          name: Backend tests
-          command: docker-compose run backend_tests
 
   e2e_tests:
     <<: *job_defaults
@@ -121,18 +131,12 @@ workflows:
   version: 2
   build_test_deploy:
     jobs:
-      - build_frontend
-      - frontend_tests:
-          requires:
-            - build_frontend
-      - build_backend
-      - backend_tests:
-          requires:
-            - build_backend
+      - build_and_test_frontend
+      - build_and_test_backend
       - e2e_tests:
           requires:
-            - frontend_tests
-            - backend_tests
+            - build_and_test_frontend
+            - build_and_test_backend
       - deploy:
           requires:
             - e2e_tests
