@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LevelPreview /> Matches the current snapshot 1`] = `
+<styled.div
+  id="level-preview"
+>
+  <styled.div>
+    <Connect(GameArea) />
+  </styled.div>
+</styled.div>
+`;

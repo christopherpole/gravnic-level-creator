@@ -1,29 +1,6 @@
 version: '2.1'
 
 services:
-  frontend_compile: 
-    image: node:9-alpine
-    working_dir: /frontend
-    command: "yarn"
-    volumes:
-      - ./frontend:/frontend
-
-  frontend_lint: 
-    image: node:9-alpine
-    working_dir: /frontend
-    command: "yarn lint"
-    volumes:
-      - ./frontend:/frontend
-
-  frontend_tests: 
-    image: node:9-alpine
-    working_dir: /frontend
-    command: "yarn test"
-    volumes:
-      - ./frontend:/frontend
-    environment:
-      - CI=true
-
   frontend:
     build: ./frontend
     working_dir: /frontend
@@ -43,20 +20,6 @@ services:
       timeout: 5s
       retries: 15
 
-  backend_compile:
-    image: node:9-alpine
-    working_dir: /backend
-    command: "yarn"
-    volumes:
-      - ./backend:/backend
-
-  backend_lint: 
-    image: node:9-alpine
-    working_dir: /backend
-    command: "yarn lint"
-    volumes:
-      - ./backend:/backend
-
   backend: 
     build: ./backend
     working_dir: /backend
@@ -75,32 +38,6 @@ services:
       timeout: 5s
       retries: 15
       
-  backend_tests: 
-    image: node:9-alpine
-    working_dir: /backend
-    command: "yarn test --forceExit"
-    volumes:
-      - ./backend:/backend
-    environment:
-      - CI=true
-      - DB_ADDRESS=database:27017
-    depends_on:
-      - database
-
-  e2e_compile: 
-    image: node:9-alpine
-    working_dir: /e2e
-    command: "yarn"
-    volumes:
-      - ./e2e:/e2e
-
-  e2e_lint: 
-    image: node:9-alpine
-    working_dir: /e2e
-    command: "yarn lint"
-    volumes:
-      - ./e2e:/e2e 
-
   e2e: 
     build: ./e2e
     working_dir: /e2e

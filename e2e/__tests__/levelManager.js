@@ -27,7 +27,7 @@ describe('The level manager', () => {
     browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: 10,
+      slowMo: 20,
     });
 
     page = await browser.newPage();

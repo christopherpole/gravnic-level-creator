@@ -1,6 +1,6 @@
 const Level = require('./level');
 
-describe('The level model', () => {
+describe('Level()', () => {
   let testLevel;
 
   beforeEach(() => {
@@ -41,7 +41,7 @@ describe('The level model', () => {
     expect(testLevelJson.tiles instanceof Array).toBe(true);
     expect(testLevelJson.tiles[0]._id).toBe(undefined);
     expect(typeof testLevelJson.tiles[0].position).toBe('number');
-    expect(typeof testLevelJson.tiles[0].selectedTileId).toBe('number');
+    expect(typeof testLevelJson.tiles[0].selectedTileId).toBe('string');
     expect(typeof testLevelJson.id).toBe('object');
     expect(testLevelJson.stars).toEqual([1, 2, 3]);
     expect(testLevelJson.position).toEqual(11);

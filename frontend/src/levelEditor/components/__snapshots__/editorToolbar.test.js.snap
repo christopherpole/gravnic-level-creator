@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditorToolbar /> Matches the current snapshot 1`] = `
+<styled.div
+  id="editor-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={true}
+        id="btn-preview"
+        onClick={[Function]}
+      >
+        Preview
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={true}
+        id="btn-reset"
+        onClick={[Function]}
+      >
+        Reset
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
+exports[`<EditorToolbar /> Matches the current when the buttons are enabled 1`] = `
+<styled.div
+  id="editor-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-preview"
+        onClick={[Function]}
+      >
+        Preview
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-reset"
+        onClick={[Function]}
+      >
+        Reset
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;

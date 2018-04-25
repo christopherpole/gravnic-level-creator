@@ -5,7 +5,7 @@ mongoose.Promise = require('bluebird');
 //  Tile schema
 const TileSchema = new mongoose.Schema({
   position: { type: Number, required: true },
-  selectedTileId: { type: Number, required: true },
+  selectedTileId: { type: String, required: true },
 });
 
 TileSchema.set('toJSON', {

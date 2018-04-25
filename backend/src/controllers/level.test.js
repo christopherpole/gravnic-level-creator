@@ -25,7 +25,7 @@ const testLevels = [
   },
 ];
 
-describe('The /levels routes', () => {
+describe('/levels', () => {
   let server;
   const recordIds = [];
 
@@ -44,8 +44,8 @@ describe('The /levels routes', () => {
 
   afterEach(() => server.close()); //  @FIXME: wait for server to close before proceeding
 
-  describe('POST actio', () => {
-    it('Can create new levels', async done => {
+  describe('POST action', () => {
+    it('Creates new levels', async done => {
       await request(server)
         .post('/levels')
         .send(testLevels[0])

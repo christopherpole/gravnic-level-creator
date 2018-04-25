@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TileSelector /> Matches the current snapshot 1`] = `
+<styled.div
+  id="tile-selector"
+>
+  <styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="ENTITY_NONE"
+      onClick={[Function]}
+    >
+      <Tile
+        isSelected={false}
+        tileId="ENTITY_NONE"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="ENTITY_FLOOR"
+      onClick={[Function]}
+    >
+      <Tile
+        isSelected={false}
+        tileId="ENTITY_FLOOR"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="ENTITY_BLOCK"
+      onClick={[Function]}
+    >
+      <Tile
+        isSelected={false}
+        tileId="ENTITY_BLOCK"
+      />
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<TileSelector /> Matches the current snapshot if a tile is selected 1`] = `
+<styled.div
+  id="tile-selector"
+>
+  <styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="ENTITY_NONE"
+      onClick={[Function]}
+    >
+      <Tile
+        isSelected={false}
+        tileId="ENTITY_NONE"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="ENTITY_FLOOR"
+      onClick={[Function]}
+    >
+      <Tile
+        isSelected={false}
+        tileId="ENTITY_FLOOR"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={true}
+      key="ENTITY_BLOCK"
+      onClick={[Function]}
+    >
+      <Tile
+        isSelected={true}
+        tileId="ENTITY_BLOCK"
+      />
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

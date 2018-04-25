@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameArea /> Matches the current snapshot 1`] = `
+<styled.div>
+  <Connect(Component)
+    entityId="ENTITY_BLOCK"
+    isMovableEntity={true}
+    key="1"
+    xPos={10}
+    yPos={10}
+  />
+</styled.div>
+`;

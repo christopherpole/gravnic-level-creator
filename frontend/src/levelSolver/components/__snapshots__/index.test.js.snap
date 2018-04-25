@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LevelSolver /> Matches the current snapshot 1`] = `
+<styled.section>
+  <p>
+    Level Solver goes here
+  </p>
+</styled.section>
+`;
