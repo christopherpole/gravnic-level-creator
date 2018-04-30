@@ -3,21 +3,49 @@ import dovenv from 'dotenv';
 
 dovenv.config();
 
-//  Set the timeout to 10 seconds. Good for when using slowMo for ddebugging
-jest.setTimeout(10000);
+const debugMode = false;
+
+//  Set the timeout. Good for when using slowMo for debugging
+jest.setTimeout(debugMode ? 10000 : 5000);
 
 describe('The level editor', () => {
   let browser;
   let page;
 
+  //  Retrieves the border width for the :before pseudoelement
+  const getComputedStyleProperty = (property, selector, pseudoelement) =>
+    page.evaluate(
+      (property2, selector2, pseudoelement2) =>
+        window.getComputedStyle(document.querySelector(selector2), pseudoelement2)[property2],
+      property,
+      selector,
+      pseudoelement,
+    );
+
+  //  Returns the number of elements with with the given selector whose
+  //  given CSS property matches the given value
+  const getNoNoOfElementsWithStyle = async (selector, property, value) =>
+    page.evaluate(
+      (selector2, property2, value2) =>
+        Array.prototype.slice
+          .call(document.querySelectorAll(selector2))
+          .filter(tile => window.getComputedStyle(tile)[property2] === value2).length,
+      selector,
+      property,
+      value,
+    );
+
+  //  Returns "true" if given selector is in the DOM and "false" otherwise
+  const isDisplayed = async selector => !!await page.$(selector);
+
   beforeAll(async done => {
     browser = await puppeteer.launch({
-      headless: true,
+      headless: !debugMode,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: 20,
+      slowMo: debugMode ? 200 : 20,
     });
     page = await browser.newPage();
-    await page.setViewport({ width: 1000, height: 600, deviceScaleFactor: 1 });
+    await page.setViewport({ width: 1200, height: 600, deviceScaleFactor: 1 });
     done();
   });
 
@@ -33,45 +61,37 @@ describe('The level editor', () => {
   });
 
   it('Shows the highlighted state when the user clicks on a tile', async done => {
-    //  Assert that the selected border is present on the first tile
-    let borderWidth = await page.evaluate(
-      () =>
-        window.getComputedStyle(
-          document.querySelector('#tile-selector .tile:nth-child(1)'),
-          ':before',
-        ).borderWidth,
+    //  The first element in the tile container should have the
+    //  selected border from the start
+    let borderWidth = await getComputedStyleProperty(
+      'borderWidth',
+      '#tile-selector .tile:nth-child(1)',
+      ':before',
     );
     expect(borderWidth).toBe('2px');
 
     //  Assert that the initial border width of one of the other selector tiles is 0
-    borderWidth = await page.evaluate(
-      () =>
-        window.getComputedStyle(
-          document.querySelector('#tile-selector .tile:nth-child(3)'),
-          ':before',
-        ).borderWidth,
+    borderWidth = await getComputedStyleProperty(
+      'borderWidth',
+      '#tile-selector .tile:nth-child(3)',
+      ':before',
     );
     expect(borderWidth).toBe('0px');
 
     //  Click in that selector tile and assert that it now has a border
     await page.click('#tile-selector .tile:nth-child(3)');
-
-    borderWidth = await page.evaluate(
-      () =>
-        window.getComputedStyle(
-          document.querySelector('#tile-selector .tile:nth-child(3)'),
-          ':before',
-        ).borderWidth,
+    borderWidth = await getComputedStyleProperty(
+      'borderWidth',
+      '#tile-selector .tile:nth-child(3)',
+      ':before',
     );
     expect(borderWidth).toBe('2px');
 
     //  Assert that the original tile now doesn't have a border
-    borderWidth = await page.evaluate(
-      () =>
-        window.getComputedStyle(
-          document.querySelector('#tile-selector .tile:nth-child(1)'),
-          ':before',
-        ).borderWidth,
+    borderWidth = await getComputedStyleProperty(
+      'borderWidth',
+      '#tile-selector .tile:nth-child(1)',
+      ':before',
     );
     expect(borderWidth).toBe('0px');
 
@@ -80,21 +100,18 @@ describe('The level editor', () => {
 
   it('Updates tiles in the editor grid with the currently selected tile when clicked on', async done => {
     //  Check that a tile is blank by defualt
-    let backgroundColor = await page.evaluate(
-      () =>
-        window.getComputedStyle(document.querySelector('#editor-grid .tile:nth-child(54) > div'))
-          .backgroundColor,
+    let backgroundColor = await getComputedStyleProperty(
+      'backgroundColor',
+      '#editor-grid .tile:nth-child(54) > div',
     );
     expect(backgroundColor).toBe('rgb(51, 51, 51)');
 
-    //  Check that the tile changes color to the that of the currently
-    //  selected tile after being clicked on
+    //  Check that the tile changes color to the that of the
+    //  currently selected tile after being clicked on
     await page.click('#editor-grid .tile:nth-child(54)');
-
-    backgroundColor = await page.evaluate(
-      () =>
-        window.getComputedStyle(document.querySelector('#editor-grid .tile:nth-child(54) > div'))
-          .backgroundColor,
+    backgroundColor = await getComputedStyleProperty(
+      'backgroundColor',
+      '#editor-grid .tile:nth-child(54) > div',
     );
     expect(backgroundColor).toBe('rgb(255, 0, 0)');
 
@@ -102,154 +119,124 @@ describe('The level editor', () => {
   });
 
   it('Shows the preview placeholder when clicking on the "preview" button', async done => {
-    //  Assert the editor grid is showing and the level preview is not showing
-    let editorGridShowing = !!await page.$('#editor-grid');
+    //  The editor grid is showing
+    let editorGridShowing = await isDisplayed('#editor-grid');
     expect(editorGridShowing).toBe(true);
 
-    let levelPreviewShowing = !!await page.$('#level-preview');
+    // The level preview is hidden
+    let levelPreviewShowing = await isDisplayed('#level-preview');
     expect(levelPreviewShowing).toBe(false);
 
-    //  Click on the preview button and asset that the editor grid
-    //  is hidden and the level preview is showing
+    //  Click on the preview button
     await page.click('#btn-preview');
 
-    editorGridShowing = !!await page.$('#editor-grid');
+    //  Editor grid should be hidden
+    editorGridShowing = await isDisplayed('#editor-grid');
     expect(editorGridShowing).toBe(false);
 
-    levelPreviewShowing = !!await page.$('#level-preview');
+    //  Level preview should be showing
+    levelPreviewShowing = await isDisplayed('#level-preview');
     expect(levelPreviewShowing).toBe(true);
 
     done();
   });
 
   it('Hides the preview placeholder when clicking on the "edit" button in preview mode', async done => {
+    //  Click on the show editor button
     await page.click('#btn-edit');
 
-    const editorGridShowing = !!await page.$('#editor-grid');
+    //  Level preview should be showing
+    const editorGridShowing = await isDisplayed('#editor-grid');
     expect(editorGridShowing).toBe(true);
 
-    const levelPreviewShowing = !!await page.$('#level-preview');
+    //  Level preview should be hidden
+    const levelPreviewShowing = await isDisplayed('#level-preview');
     expect(levelPreviewShowing).toBe(false);
 
     done();
   });
 
   it('Resets the level editor when the "Reset" button is clicked', async done => {
-    //  All tiles are initally not blank
-    let allTilesBlank = await page.evaluate(() => {
-      const tiles = document.querySelectorAll('#editor-grid .tile > div');
-
-      return (
-        Array.prototype.slice
-          .call(tiles)
-          .filter(tile => window.getComputedStyle(tile).backgroundColor !== 'rgb(51, 51, 51)')
-          .length === 0
-      );
-    });
-
-    expect(allTilesBlank).toBe(false);
+    //  One of the tiles should be colored
+    let coloredTilesCount = await getNoNoOfElementsWithStyle(
+      '#editor-grid .tile > div',
+      'backgroundColor',
+      'rgb(255, 0, 0)',
+    );
+    expect(coloredTilesCount).toBe(1);
 
     //  All tiles are blank after resetting grid
     await page.click('#btn-reset');
-
-    allTilesBlank = await page.evaluate(() => {
-      const tiles = document.querySelectorAll('#editor-grid .tile > div');
-
-      return (
-        Array.prototype.slice
-          .call(tiles)
-          .filter(tile => window.getComputedStyle(tile).backgroundColor !== 'rgb(51, 51, 51)')
-          .length === 0
-      );
-    });
-
-    expect(allTilesBlank).toBe(true);
+    coloredTilesCount = await getNoNoOfElementsWithStyle(
+      '#editor-grid .tile > div',
+      'backgroundColor',
+      'rgb(255, 0, 0)',
+    );
+    expect(coloredTilesCount).toBe(0);
 
     //  Reset and preview buttons should not be enabled
-    expect(!!await page.$('#btn-reset:disabled')).toBe(true);
-    expect(!!await page.$('#btn-preview:disabled')).toBe(true);
+    expect(await isDisplayed('#btn-reset:disabled')).toBe(true);
+    expect(await isDisplayed('#btn-preview:disabled')).toBe(true);
 
     done();
   });
 
-  //  @TODO: make this less brittle...
   it('Allows users to set tiles by dragging the mouse over them', async done => {
     //  Drag the mouse over 5 tiles
     const { mouse } = page;
-    await mouse.move(100, 100);
+
+    //  Get the coords of the starting/finishing tiles
+    const startingTile = await page.$('#editor-grid .tile:nth-child(13)');
+    const finishingTile = await page.$('#editor-grid .tile:nth-child(35)');
+    const startingTilePos = await startingTile.boundingBox();
+    const finishingTilePos = await finishingTile.boundingBox();
+
+    //  Drag the cursor right first and then down toward to the finishing tile
+    await mouse.move(startingTilePos.x + 10, startingTilePos.y + 10);
     await mouse.down();
-    await mouse.move(200, 100, { steps: 10 });
-    await mouse.move(200, 200, { steps: 10 });
+    await mouse.move(finishingTilePos.x + 10, startingTilePos.y + 10, { steps: 5 });
+    await mouse.move(finishingTilePos.x + 10, finishingTilePos.y + 10, { steps: 5 });
     await mouse.up();
 
-    //  Count the number of non-blank tiles and make sure that it's 5
-    const nonBlankTilesCount = await page.evaluate(() => {
-      const tiles = document.querySelectorAll('#editor-grid .tile > div');
-
-      return Array.prototype.slice
-        .call(tiles)
-        .filter(tile => window.getComputedStyle(tile).backgroundColor !== 'rgb(51, 51, 51)').length;
-    });
-
-    expect(nonBlankTilesCount).toBe(5);
-
-    //  Make sure that the tiles that have been dragged over are not blank
-    const tilesAreUpdated = await page.evaluate(() => {
-      const tiles = document.querySelectorAll(
-        '#editor-grid .tile:nth-child(13) > div, #editor-grid .tile:nth-child(14) > div, #editor-grid .tile:nth-child(15) > div, #editor-grid .tile:nth-child(25) > div, #editor-grid .tile:nth-child(35) > div',
-      );
-
-      return (
-        Array.prototype.slice
-          .call(tiles)
-          .filter(tile => window.getComputedStyle(tile).backgroundColor === 'rgb(255, 0, 0)')
-          .length === 5
-      );
-    });
-
-    expect(tilesAreUpdated).toBe(true);
+    //  Count the number of colored tiles and make sure that it's 5
+    const coloredTilesCount = await getNoNoOfElementsWithStyle(
+      '#editor-grid .tile > div',
+      'backgroundColor',
+      'rgb(255, 0, 0)',
+    );
+    expect(coloredTilesCount).toBe(5);
 
     done();
   });
 
   it('Allows the user to change the number of moves needed to obtain stars', async done => {
-    //  Check the default stars
-    let res = await page.evaluate(
-      () =>
-        document.querySelector('#stars-editor > ul > li:nth-child(1) > span').innerText === '1' &&
-        document.querySelector('#stars-editor > ul > li:nth-child(2) > span').innerText === '2' &&
-        document.querySelector('#stars-editor > ul > li:nth-child(3) > span').innerText === '3',
-    );
+    //  Gets the values of the stars
+    const getStarsValues = async () =>
+      page.evaluate(() =>
+        Array.prototype.slice
+          .call(document.querySelectorAll('#stars-editor > ul > li > span'))
+          .map(span => span.innerText),
+      );
 
-    expect(res).toBe(true);
+    //  Check the default values
+    let starsValues = await getStarsValues();
+    expect(starsValues).toEqual(['1', '2', '3']);
 
     //  Increase the 3-star moves and check that the others move with it
+    //  @FIXME clickCount doesn't work?
     await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
     await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
     await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
-
-    res = await page.evaluate(
-      () =>
-        document.querySelector('#stars-editor > ul > li:nth-child(1) > span').innerText === '4' &&
-        document.querySelector('#stars-editor > ul > li:nth-child(2) > span').innerText === '4' &&
-        document.querySelector('#stars-editor > ul > li:nth-child(3) > span').innerText === '4',
-    );
-
-    expect(res).toBe(true);
+    starsValues = await getStarsValues();
+    expect(starsValues).toEqual(['4', '4', '4']);
 
     //  Decrease the 1-star moves and check that the others move with it
+    //  @FIXME clickCount doesn't work?
     await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
     await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
     await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
-
-    res = await page.evaluate(
-      () =>
-        document.querySelector('#stars-editor > ul > li:nth-child(1) > span').innerText === '1' &&
-        document.querySelector('#stars-editor > ul > li:nth-child(2) > span').innerText === '1' &&
-        document.querySelector('#stars-editor > ul > li:nth-child(3) > span').innerText === '1',
-    );
-
-    expect(res).toBe(true);
+    starsValues = await getStarsValues();
+    expect(starsValues).toEqual(['1', '1', '1']);
 
     done();
   });
