@@ -1,5 +1,11 @@
 import puppeteer from 'puppeteer';
 import dovenv from 'dotenv';
+import {
+  getComputedStyleProperty,
+  getNoOfElementsWithStyle,
+  isDisplayed,
+  getStarsValues,
+} from '../testUtils';
 
 dovenv.config();
 
@@ -11,32 +17,6 @@ jest.setTimeout(debugMode ? 10000 : 5000);
 describe('The level editor', () => {
   let browser;
   let page;
-
-  //  Retrieves the border width for the :before pseudoelement
-  const getComputedStyleProperty = (property, selector, pseudoelement) =>
-    page.evaluate(
-      (property2, selector2, pseudoelement2) =>
-        window.getComputedStyle(document.querySelector(selector2), pseudoelement2)[property2],
-      property,
-      selector,
-      pseudoelement,
-    );
-
-  //  Returns the number of elements with with the given selector whose
-  //  given CSS property matches the given value
-  const getNoNoOfElementsWithStyle = async (selector, property, value) =>
-    page.evaluate(
-      (selector2, property2, value2) =>
-        Array.prototype.slice
-          .call(document.querySelectorAll(selector2))
-          .filter(tile => window.getComputedStyle(tile)[property2] === value2).length,
-      selector,
-      property,
-      value,
-    );
-
-  //  Returns "true" if given selector is in the DOM and "false" otherwise
-  const isDisplayed = async selector => !!await page.$(selector);
 
   beforeAll(async done => {
     browser = await puppeteer.launch({
@@ -64,6 +44,7 @@ describe('The level editor', () => {
     //  The first element in the tile container should have the
     //  selected border from the start
     let borderWidth = await getComputedStyleProperty(
+      page,
       'borderWidth',
       '#tile-selector .tile:nth-child(1)',
       ':before',
@@ -72,6 +53,7 @@ describe('The level editor', () => {
 
     //  Assert that the initial border width of one of the other selector tiles is 0
     borderWidth = await getComputedStyleProperty(
+      page,
       'borderWidth',
       '#tile-selector .tile:nth-child(3)',
       ':before',
@@ -81,6 +63,7 @@ describe('The level editor', () => {
     //  Click in that selector tile and assert that it now has a border
     await page.click('#tile-selector .tile:nth-child(3)');
     borderWidth = await getComputedStyleProperty(
+      page,
       'borderWidth',
       '#tile-selector .tile:nth-child(3)',
       ':before',
@@ -89,6 +72,7 @@ describe('The level editor', () => {
 
     //  Assert that the original tile now doesn't have a border
     borderWidth = await getComputedStyleProperty(
+      page,
       'borderWidth',
       '#tile-selector .tile:nth-child(1)',
       ':before',
@@ -101,6 +85,7 @@ describe('The level editor', () => {
   it('Updates tiles in the editor grid with the currently selected tile when clicked on', async done => {
     //  Check that a tile is blank by defualt
     let backgroundColor = await getComputedStyleProperty(
+      page,
       'backgroundColor',
       '#editor-grid .tile:nth-child(54) > div',
     );
@@ -110,6 +95,7 @@ describe('The level editor', () => {
     //  currently selected tile after being clicked on
     await page.click('#editor-grid .tile:nth-child(54)');
     backgroundColor = await getComputedStyleProperty(
+      page,
       'backgroundColor',
       '#editor-grid .tile:nth-child(54) > div',
     );
@@ -120,22 +106,22 @@ describe('The level editor', () => {
 
   it('Shows the preview placeholder when clicking on the "preview" button', async done => {
     //  The editor grid is showing
-    let editorGridShowing = await isDisplayed('#editor-grid');
+    let editorGridShowing = await isDisplayed(page, '#editor-grid');
     expect(editorGridShowing).toBe(true);
 
     // The level preview is hidden
-    let levelPreviewShowing = await isDisplayed('#level-preview');
+    let levelPreviewShowing = await isDisplayed(page, '#level-preview');
     expect(levelPreviewShowing).toBe(false);
 
     //  Click on the preview button
     await page.click('#btn-preview');
 
     //  Editor grid should be hidden
-    editorGridShowing = await isDisplayed('#editor-grid');
+    editorGridShowing = await isDisplayed(page, '#editor-grid');
     expect(editorGridShowing).toBe(false);
 
     //  Level preview should be showing
-    levelPreviewShowing = await isDisplayed('#level-preview');
+    levelPreviewShowing = await isDisplayed(page, '#level-preview');
     expect(levelPreviewShowing).toBe(true);
 
     done();
@@ -146,11 +132,11 @@ describe('The level editor', () => {
     await page.click('#btn-edit');
 
     //  Level preview should be showing
-    const editorGridShowing = await isDisplayed('#editor-grid');
+    const editorGridShowing = await isDisplayed(page, '#editor-grid');
     expect(editorGridShowing).toBe(true);
 
     //  Level preview should be hidden
-    const levelPreviewShowing = await isDisplayed('#level-preview');
+    const levelPreviewShowing = await isDisplayed(page, '#level-preview');
     expect(levelPreviewShowing).toBe(false);
 
     done();
@@ -158,7 +144,8 @@ describe('The level editor', () => {
 
   it('Resets the level editor when the "Reset" button is clicked', async done => {
     //  One of the tiles should be colored
-    let coloredTilesCount = await getNoNoOfElementsWithStyle(
+    let coloredTilesCount = await getNoOfElementsWithStyle(
+      page,
       '#editor-grid .tile > div',
       'backgroundColor',
       'rgb(255, 0, 0)',
@@ -167,7 +154,8 @@ describe('The level editor', () => {
 
     //  All tiles are blank after resetting grid
     await page.click('#btn-reset');
-    coloredTilesCount = await getNoNoOfElementsWithStyle(
+    coloredTilesCount = await getNoOfElementsWithStyle(
+      page,
       '#editor-grid .tile > div',
       'backgroundColor',
       'rgb(255, 0, 0)',
@@ -175,8 +163,8 @@ describe('The level editor', () => {
     expect(coloredTilesCount).toBe(0);
 
     //  Reset and preview buttons should not be enabled
-    expect(await isDisplayed('#btn-reset:disabled')).toBe(true);
-    expect(await isDisplayed('#btn-preview:disabled')).toBe(true);
+    expect(await isDisplayed(page, '#btn-reset:disabled')).toBe(true);
+    expect(await isDisplayed(page, '#btn-preview:disabled')).toBe(true);
 
     done();
   });
@@ -199,7 +187,8 @@ describe('The level editor', () => {
     await mouse.up();
 
     //  Count the number of colored tiles and make sure that it's 5
-    const coloredTilesCount = await getNoNoOfElementsWithStyle(
+    const coloredTilesCount = await getNoOfElementsWithStyle(
+      page,
       '#editor-grid .tile > div',
       'backgroundColor',
       'rgb(255, 0, 0)',
@@ -210,16 +199,8 @@ describe('The level editor', () => {
   });
 
   it('Allows the user to change the number of moves needed to obtain stars', async done => {
-    //  Gets the values of the stars
-    const getStarsValues = async () =>
-      page.evaluate(() =>
-        Array.prototype.slice
-          .call(document.querySelectorAll('#stars-editor > ul > li > span'))
-          .map(span => span.innerText),
-      );
-
     //  Check the default values
-    let starsValues = await getStarsValues();
+    let starsValues = await getStarsValues(page);
     expect(starsValues).toEqual(['1', '2', '3']);
 
     //  Increase the 3-star moves and check that the others move with it
@@ -227,7 +208,7 @@ describe('The level editor', () => {
     await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
     await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
     await page.click('#stars-editor > ul > li:nth-child(1) .btn-increment');
-    starsValues = await getStarsValues();
+    starsValues = await getStarsValues(page);
     expect(starsValues).toEqual(['4', '4', '4']);
 
     //  Decrease the 1-star moves and check that the others move with it
@@ -235,7 +216,7 @@ describe('The level editor', () => {
     await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
     await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
     await page.click('#stars-editor > ul > li:nth-child(3) .btn-decrement');
-    starsValues = await getStarsValues();
+    starsValues = await getStarsValues(page);
     expect(starsValues).toEqual(['1', '1', '1']);
 
     done();
