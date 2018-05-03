@@ -4,7 +4,6 @@ import mongoose from 'mongoose';
 import bluebird from 'bluebird';
 import {
   getComputedStyleProperty,
-  getNoOfElementsWithStyle,
   isDisplayed,
   getStarsValues,
   getNoOfElements,
@@ -33,7 +32,7 @@ describe('The level manager', () => {
   //  Check that the editor grid tiles match those of the only level's
   //  preview tiles in the manager
   const editorTilesMatchPreviewTiles = async () =>
-    await page.evaluate(
+    page.evaluate(
       () =>
         Array.prototype.slice
           .call(document.querySelectorAll('#editor-grid .tile > div'))
