@@ -44,11 +44,20 @@ export const getNoOfElementsWithStyle = (page, selector, property, value) =>
 export const isDisplayed = async (page, selector) => !!await page.$(selector);
 
 /**
+ * Returns the number of elements on the page that match the given selector
+ * @param {Object} page - The current Pupeteer page
+ * @param {String} selector - A selector string for the element to check
+ * @returns {Number} The number of elements on the page
+ */
+export const getNoOfElements = async (page, selector) =>
+  await page.$$eval(selector, eles => eles.length);
+
+/**
  * Reads the values of the star requirements from the DOM
  * @param {Object} page - The current Pupeteer page
  * @returns {String[]} An array of the star requrements for this level
  */
-export const getStarsValues = async page =>
+export const getStarsValues = page =>
   page.evaluate(() =>
     Array.prototype.slice
       .call(document.querySelectorAll('#stars-editor > ul > li > span'))
