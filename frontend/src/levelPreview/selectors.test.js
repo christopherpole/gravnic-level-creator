@@ -1,7 +1,7 @@
 import { ENTITIES } from 'gravnic-game';
 
 import { GRID_SIZE } from 'config/settings';
-import { getEntitiesData, getLevelPreviewButtonDisabledStates, getMoveHistory } from './selectors';
+import { getEntitiesData, getLevelPreviewButtonDisabledStates } from './selectors';
 
 describe('getEntitiesData()', () => {
   let state;
