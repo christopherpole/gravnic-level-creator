@@ -32,6 +32,7 @@ export default function levelPreviewReducer(state = initialState, action) {
         previewing: true,
         gameState: action.gameState,
         gameHistory: [action.gameState],
+        moveHistory: initialState.moveHistory,
         entitiesMoving: initialState.entitiesMoving,
         gravityDirection: initialState.gravityDirection,
       };

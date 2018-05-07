@@ -41,15 +41,15 @@ const MovesMade = styled.p`
 `;
 
 export const MoveHistoryDisplay = ({ moveHistory }) => (
-  <Wrapper>
+  <Wrapper id="moves-container">
     <MovesContainerWrapper>
       <MovesContainer>
-        <MovesContainerInner>
+        <MovesContainerInner id="move-icons-container">
           {moveHistory.map((direction, i) => <ArrowIcon key={i} direction={direction} />)}
         </MovesContainerInner>
       </MovesContainer>
     </MovesContainerWrapper>
-    <MovesMade>Moves made: {moveHistory.length}</MovesMade>
+    <MovesMade id="moves-made-label">Moves made: {moveHistory.length}</MovesMade>
   </Wrapper>
 );
 

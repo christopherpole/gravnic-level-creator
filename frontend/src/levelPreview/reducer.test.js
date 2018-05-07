@@ -74,6 +74,7 @@ describe('The level editor reducer', () => {
             ...initialState,
             entitiesMoving: true,
             gravityDirection: MOVE_LEFT,
+            moveHistory: [MOVE_LEFT],
           },
           {
             type: PREVIEW_LEVEL,
