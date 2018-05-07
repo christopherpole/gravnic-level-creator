@@ -78,15 +78,22 @@ describe('The level preview', () => {
     done();
   });
 
-  it('Disables the correct action bar buttons by default', async done => {
+  it('Disables the correct buttons by default', async done => {
     //  Click on the show editor button
     await page.click('#btn-preview');
 
-    //  Level preview should be showing and the level preview should be hidden
+    //  "Restart" and "Undo" buttons should be disabled
     expect(await isDisplayed(page, '#btn-edit:not(:disabled)')).toBe(true);
     expect(await isDisplayed(page, '#btn-restart:disabled')).toBe(true);
     expect(await isDisplayed(page, '#btn-undo:disabled')).toBe(true);
     expect(await isDisplayed(page, '#btn-set-game-speed:not(:disabled)')).toBe(true);
+
+    //  All star editor buttons should be disabled
+    expect(
+      await page.evaluate(
+        () => document.querySelectorAll('.btn-increment:disabled, .btn-decrement:disabled').length,
+      ),
+    ).toBe(6);
 
     done();
   });

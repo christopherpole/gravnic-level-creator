@@ -66,7 +66,7 @@ export const ButtonDecrement = styled(ControlButton)``;
 
 export const ButtonIncrement = styled(ControlButton)``;
 
-export const StarsEditor = ({ stars, setStarsAction }) => (
+export const StarsEditor = ({ stars, setStarsAction, previewing }) => (
   <Wrapper id="stars-editor">
     <StarsList>
       {stars.map((noOfMoves, i) => (
@@ -83,6 +83,7 @@ export const StarsEditor = ({ stars, setStarsAction }) => (
 
           <ControlsWrapper>
             <ButtonDecrement
+              disabled={previewing}
               onClick={() => {
                 setStarsAction(i, noOfMoves - 1);
               }}
@@ -91,6 +92,7 @@ export const StarsEditor = ({ stars, setStarsAction }) => (
               -
             </ButtonDecrement>
             <ButtonIncrement
+              disabled={previewing}
               onClick={() => {
                 setStarsAction(i, noOfMoves + 1);
               }}
@@ -110,10 +112,12 @@ StarsEditor.defaultProps = {};
 StarsEditor.propTypes = {
   stars: PropTypes.array.isRequired,
   setStarsAction: PropTypes.func.isRequired,
+  previewing: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   stars: state.levelEditor.stars,
+  previewing: state.levelPreview.previewing,
 });
 
 const mapDispatchToProps = dispatch => ({
