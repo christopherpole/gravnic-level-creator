@@ -97,6 +97,7 @@ PreviewToolbar.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  gameSpeed: state.levelPreview.gameSpeed,
   buttonDisabledStates: getLevelPreviewButtonDisabledStates(state),
 });
 

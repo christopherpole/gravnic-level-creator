@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GameArea /> Matches the current snapshot 1`] = `
-<styled.div>
+<styled.div
+  id="tiles-container"
+>
   <Connect(Component)
     entityId="ENTITY_BLOCK"
     isMovableEntity={true}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
@@ -39,6 +39,12 @@ export const StarListItem = styled.li`
   &:last-child {
     margin-bottom: 0;
   }
+
+  ${props =>
+    props.grayedOut &&
+    css`
+      color: #999;
+    `};
 `;
 
 export const StarsLabel = styled.span`
@@ -66,23 +72,35 @@ export const ButtonDecrement = styled(ControlButton)``;
 
 export const ButtonIncrement = styled(ControlButton)``;
 
-export const StarsEditor = ({ stars, setStarsAction }) => (
+export const StarsEditor = ({ stars, setStarsAction, previewing, movesMade }) => (
   <Wrapper id="stars-editor">
     <StarsList>
       {stars.map((noOfMoves, i) => (
-        <StarListItem key={i}>
+        <StarListItem
+          className="stars-container"
+          grayedOut={previewing && movesMade > noOfMoves}
+          key={i}
+        >
           <StarsWrapper>
-            {[...Array(3)].map((_, j) => (
-              <StarIconWrapper key={j}>
-                <StarIcon fillColor={i > j ? 'transparent' : undefined} size={20} />
-              </StarIconWrapper>
-            ))}
+            {[...Array(3)].map((_, j) => {
+              let starColor;
+
+              if (previewing && movesMade > noOfMoves) starColor = '#999';
+              if (i > j) starColor = 'transparent';
+
+              return (
+                <StarIconWrapper key={j}>
+                  <StarIcon fillColor={starColor} size={20} />
+                </StarIconWrapper>
+              );
+            })}
           </StarsWrapper>
 
           <StarsLabel>{noOfMoves}</StarsLabel>
 
           <ControlsWrapper>
             <ButtonDecrement
+              disabled={previewing}
               onClick={() => {
                 setStarsAction(i, noOfMoves - 1);
               }}
@@ -91,6 +109,7 @@ export const StarsEditor = ({ stars, setStarsAction }) => (
               -
             </ButtonDecrement>
             <ButtonIncrement
+              disabled={previewing}
               onClick={() => {
                 setStarsAction(i, noOfMoves + 1);
               }}
@@ -110,10 +129,14 @@ StarsEditor.defaultProps = {};
 StarsEditor.propTypes = {
   stars: PropTypes.array.isRequired,
   setStarsAction: PropTypes.func.isRequired,
+  previewing: PropTypes.bool.isRequired,
+  movesMade: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   stars: state.levelEditor.stars,
+  previewing: state.levelPreview.previewing,
+  movesMade: state.levelPreview.gameHistory.length - 1,
 });
 
 const mapDispatchToProps = dispatch => ({

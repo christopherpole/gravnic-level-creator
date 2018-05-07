@@ -11,6 +11,8 @@ configure({ adapter: new Adapter() });
 const props = {
   stars: [1, 2, 3],
   setStarsAction: () => {},
+  previewing: false,
+  movesMade: 0,
 };
 
 describe('<StarsEditor />', () => {
@@ -22,6 +24,18 @@ describe('<StarsEditor />', () => {
 
   it('Matches the current snapshot', () => {
     const starsEditor = shallow(<StarsEditor {...props} />);
+
+    expect(toJson(starsEditor)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot if some moves have been made', () => {
+    const starsEditor = shallow(<StarsEditor {...props} movesMade={3} />);
+
+    expect(toJson(starsEditor)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot if entities are moving', () => {
+    const starsEditor = shallow(<StarsEditor {...props} previewing />);
 
     expect(toJson(starsEditor)).toMatchSnapshot();
   });
