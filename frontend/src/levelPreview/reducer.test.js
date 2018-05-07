@@ -1,4 +1,4 @@
-import { MOVE_LEFT, ENTITIES } from 'gravnic-game';
+import { MOVE_LEFT, MOVE_RIGHT, ENTITIES } from 'gravnic-game';
 import reducer, { initialState } from './reducer';
 import {
   PREVIEW_LEVEL,
@@ -85,6 +85,7 @@ describe('The level editor reducer', () => {
         previewing: true,
         gameState: testGameState,
         gameHistory: [testGameState],
+        moveHistory: initialState.moveHistory,
         entitiesMoving: initialState.entitiesMoving,
         gravityDirection: initialState.gravityDirection,
       });
@@ -117,6 +118,7 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             gameState: testGameState,
+            moveHistory: [MOVE_RIGHT],
           },
           {
             type: MAKE_MOVE,
@@ -129,6 +131,7 @@ describe('The level editor reducer', () => {
         entitiesMoving: true,
         gameState: testGameState,
         gameHistory: [[testGameState]],
+        moveHistory: [MOVE_RIGHT, MOVE_LEFT],
       });
     });
   });
@@ -180,6 +183,7 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             gameHistory: testGameHistory,
+            moveHistory: [MOVE_LEFT, MOVE_LEFT],
             entitiesMoving: true,
             gravityDirection: MOVE_LEFT,
           },
@@ -193,6 +197,7 @@ describe('The level editor reducer', () => {
         gameHistory: [testGameHistory[0]],
         gravityDirection: initialState.gravityDirection,
         gameState: testGameHistory[0],
+        moveHistory: [],
       });
     });
   });
@@ -204,6 +209,7 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             entitiesMoving: false,
+            moveHistory: [MOVE_LEFT, MOVE_RIGHT],
           },
           {
             type: UNDO_MOVE,
@@ -212,6 +218,7 @@ describe('The level editor reducer', () => {
       ).toEqual({
         ...initialState,
         entitiesMoving: true,
+        moveHistory: [MOVE_LEFT],
       });
     });
   });

@@ -1,9 +1,17 @@
 import React from 'react';
 import styled, { injectGlobal } from 'styled-components';
 import 'normalize.css';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import LevelEditor from 'levelEditor/components';
+import LevelPreview from 'levelPreview/components';
 import LevelManager from 'levelManager/components';
+import EditorToolbar from 'levelEditor/components/editorToolbar';
+import StarsEditor from 'levelEditor/components/starsEditor';
+import TileSelector from 'levelEditor/components/tileSelector';
+import PreviewToolbar from 'levelPreview/components/previewToolbar';
+import MoveHistoryDisplay from 'levelPreview/components/moveHistoryDisplay';
 
 injectGlobal`
   * {
@@ -37,18 +45,48 @@ export const AppContainer = styled.div`
   font-family: ${props => props.theme.fontFamily};
   color: ${props => props.theme.foregroundColor};
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 1.8fr 1fr 1.2fr;
   min-width: ${props => props.theme.containerWidth};
   max-width: ${props => props.theme.containerWidth};
 `;
 
-const Layout = () => (
+export const GridWrapper = styled.div`
+  display: flex;
+  padding: ${props => props.theme.structureSpacing};
+  padding-right: 0;
+  flex-direction: column;
+`;
+
+export const PanesWrapper = styled.div`
+  display: flex;
+  padding: ${props => props.theme.structureSpacing};
+  flex-direction: column;
+`;
+
+export const Layout = ({ previewing }) => (
   <Wrapper id="level-creator">
     <AppContainer>
-      <LevelEditor />
+      <GridWrapper>
+        {previewing ? <LevelPreview /> : <LevelEditor />}
+        {previewing ? <PreviewToolbar /> : <EditorToolbar />}
+      </GridWrapper>
+
+      <PanesWrapper>
+        <StarsEditor />
+        {previewing ? <MoveHistoryDisplay /> : <TileSelector />}
+      </PanesWrapper>
+
       <LevelManager />
     </AppContainer>
   </Wrapper>
 );
 
-export default Layout;
+Layout.propTypes = {
+  previewing: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  previewing: state.levelPreview.previewing,
+});
+
+export default connect(mapStateToProps)(Layout);

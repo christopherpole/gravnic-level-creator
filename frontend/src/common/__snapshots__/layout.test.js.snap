@@ -5,7 +5,32 @@ exports[`<Layout /> Matches the current snapshot 1`] = `
   id="level-creator"
 >
   <styled.div>
-    <Connect(Component) />
+    <styled.div>
+      <Connect(Component) />
+      <Connect(Component) />
+    </styled.div>
+    <styled.div>
+      <Connect(Component) />
+      <Connect(Component) />
+    </styled.div>
+    <Connect(LevelManager) />
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<Layout /> Matches the current snapshot when previewing 1`] = `
+<styled.div
+  id="level-creator"
+>
+  <styled.div>
+    <styled.div>
+      <Connect(LevelPreview) />
+      <Connect(Component) />
+    </styled.div>
+    <styled.div>
+      <Connect(Component) />
+      <Connect(Component) />
+    </styled.div>
     <Connect(LevelManager) />
   </styled.div>
 </styled.div>

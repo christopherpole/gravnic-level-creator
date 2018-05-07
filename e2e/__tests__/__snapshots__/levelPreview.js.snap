@@ -3,24 +3,24 @@
 exports[`The level preview Allows the user to make moves 1`] = `
 Array [
   Object {
-    "left": "132.656px",
-    "top": "221.094px",
+    "left": "129.594px",
+    "top": "216px",
   },
   Object {
-    "left": "176.875px",
-    "top": "221.094px",
+    "left": "172.797px",
+    "top": "216px",
   },
   Object {
-    "left": "221.094px",
-    "top": "221.094px",
+    "left": "216px",
+    "top": "216px",
   },
   Object {
-    "left": "265.312px",
-    "top": "221.094px",
+    "left": "259.188px",
+    "top": "216px",
   },
   Object {
-    "left": "265.312px",
-    "top": "221.094px",
+    "left": "259.188px",
+    "top": "216px",
   },
 ]
 `;
@@ -28,24 +28,24 @@ Array [
 exports[`The level preview Allows the user to make moves 2`] = `
 Array [
   Object {
-    "left": "132.656px",
-    "top": "221.094px",
+    "left": "129.594px",
+    "top": "216px",
   },
   Object {
-    "left": "176.875px",
-    "top": "221.094px",
+    "left": "172.797px",
+    "top": "216px",
   },
   Object {
-    "left": "221.094px",
-    "top": "221.094px",
+    "left": "216px",
+    "top": "216px",
   },
   Object {
-    "left": "132.656px",
-    "top": "221.094px",
+    "left": "216px",
+    "top": "216px",
   },
   Object {
-    "left": "265.312px",
-    "top": "221.094px",
+    "left": "259.188px",
+    "top": "216px",
   },
 ]
 `;
@@ -53,24 +53,24 @@ Array [
 exports[`The level preview Allows the user to make moves 3`] = `
 Array [
   Object {
-    "left": "132.656px",
-    "top": "221.094px",
+    "left": "129.594px",
+    "top": "216px",
   },
   Object {
-    "left": "176.875px",
-    "top": "221.094px",
+    "left": "172.797px",
+    "top": "216px",
   },
   Object {
-    "left": "221.094px",
-    "top": "221.094px",
+    "left": "216px",
+    "top": "216px",
   },
   Object {
-    "left": "265.312px",
-    "top": "221.094px",
+    "left": "172.797px",
+    "top": "216px",
   },
   Object {
-    "left": "265.312px",
-    "top": "221.094px",
+    "left": "259.188px",
+    "top": "216px",
   },
 ]
 `;
@@ -78,24 +78,24 @@ Array [
 exports[`The level preview Allows the user to reset the game 1`] = `
 Array [
   Object {
-    "left": "132.656px",
-    "top": "221.094px",
+    "left": "129.594px",
+    "top": "216px",
   },
   Object {
-    "left": "176.875px",
-    "top": "221.094px",
+    "left": "172.797px",
+    "top": "216px",
   },
   Object {
-    "left": "221.094px",
-    "top": "221.094px",
+    "left": "216px",
+    "top": "216px",
   },
   Object {
-    "left": "132.656px",
-    "top": "221.094px",
+    "left": "216px",
+    "top": "216px",
   },
   Object {
-    "left": "265.312px",
-    "top": "221.094px",
+    "left": "259.188px",
+    "top": "216px",
   },
 ]
 `;
@@ -103,24 +103,24 @@ Array [
 exports[`The level preview Allows the user to reset the game 2`] = `
 Array [
   Object {
-    "left": "132.656px",
-    "top": "221.094px",
+    "left": "129.594px",
+    "top": "216px",
   },
   Object {
-    "left": "176.875px",
-    "top": "221.094px",
+    "left": "172.797px",
+    "top": "216px",
   },
   Object {
-    "left": "221.094px",
-    "top": "221.094px",
+    "left": "216px",
+    "top": "216px",
   },
   Object {
-    "left": "265.312px",
-    "top": "221.094px",
+    "left": "259.188px",
+    "top": "216px",
   },
   Object {
-    "left": "265.312px",
-    "top": "221.094px",
+    "left": "259.188px",
+    "top": "216px",
   },
 ]
 `;

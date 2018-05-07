@@ -20,6 +20,7 @@ export const initialState = {
   gravityDirection: null,
   entitiesMoving: false,
   gameHistory: [],
+  moveHistory: [],
   gameSpeed: GAME_SPEED_NORMAL,
 };
 
@@ -52,6 +53,7 @@ export default function levelPreviewReducer(state = initialState, action) {
         gravityDirection: action.direction,
         entitiesMoving: true,
         gameHistory: newGameHistory,
+        moveHistory: [...state.moveHistory.slice(0), action.direction],
       };
     }
 
@@ -80,6 +82,7 @@ export default function levelPreviewReducer(state = initialState, action) {
         gameHistory: [cloneDeep(state.gameHistory[0])],
         gravityDirection: initialState.gravityDirection,
         gameState: cloneDeep(state.gameHistory[0]),
+        moveHistory: initialState.moveHistory,
       };
     }
 
@@ -87,6 +90,7 @@ export default function levelPreviewReducer(state = initialState, action) {
       return {
         ...state,
         entitiesMoving: true,
+        moveHistory: [...state.moveHistory.slice(0, state.moveHistory.length - 1)],
       };
     }
 
