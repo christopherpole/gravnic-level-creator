@@ -7,6 +7,7 @@ import {
   isDisplayed,
   getStarsValues,
   getNoOfElements,
+  editorTilesMatchPreviewTiles,
 } from '../testUtils';
 
 mongoose.Promise = bluebird;
@@ -28,24 +29,6 @@ const clearDatabase = () => {
 describe('The level manager', () => {
   let browser;
   let page;
-
-  //  Check that the editor grid tiles match those of the only level's
-  //  preview tiles in the manager
-  const editorTilesMatchPreviewTiles = async () =>
-    page.evaluate(
-      () =>
-        Array.prototype.slice
-          .call(document.querySelectorAll('#editor-grid .tile > div'))
-          .filter(
-            (tile, index) =>
-              window.getComputedStyle(tile).backgroundColor !==
-              window.getComputedStyle(
-                document.querySelector(
-                  `.level .level-preview .preview-tile:nth-child(${index + 1}) > div`,
-                ),
-              ).backgroundColor,
-          ).length === 0,
-    );
 
   beforeAll(async done => {
     clearDatabase();
@@ -200,25 +183,7 @@ describe('The level manager', () => {
     await page.click('#btn-save');
 
     //  Check the level preview reflects the editor grid
-    const allTilesMatch = await page.evaluate(() => {
-      const tiles = document.querySelectorAll('#editor-grid .tile > div');
-
-      return (
-        Array.prototype.slice
-          .call(tiles)
-          .filter(
-            (tile, index) =>
-              window.getComputedStyle(tile).backgroundColor !==
-              window.getComputedStyle(
-                document.querySelector(
-                  `.level .level-preview .preview-tile:nth-child(${index + 1}) > div`,
-                ),
-              ).backgroundColor,
-          ).length === 0
-      );
-    });
-
-    expect(allTilesMatch).toBe(true);
+    expect(await editorTilesMatchPreviewTiles(page)).toBe(true);
 
     //  Check that the stars match too
     expect(await getStarsValues(page)).toEqual(['2', '3', '4']);
@@ -355,7 +320,7 @@ describe('The level manager', () => {
     expect(await isDisplayed(page, '#btn-done')).toBe(false);
 
     //  Editor's tiles should match that of the selected level's
-    expect(await editorTilesMatchPreviewTiles()).toBe(true);
+    expect(await editorTilesMatchPreviewTiles(page)).toBe(true);
 
     //  Editor's stars should match that of the selected level's
     expect(await getStarsValues(page)).toEqual(['2', '3', '4']);
@@ -366,7 +331,7 @@ describe('The level manager', () => {
     expect(await isDisplayed(page, '#confirmation-screen')).toBe(false);
 
     //  Editor's tiles should match that of the selected level's
-    expect(await editorTilesMatchPreviewTiles()).toBe(true);
+    expect(await editorTilesMatchPreviewTiles(page)).toBe(true);
 
     //  Editor's stars should match that of the selected level's
     expect(await getStarsValues(page)).toEqual(['2', '3', '4']);

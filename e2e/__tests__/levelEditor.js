@@ -104,44 +104,6 @@ describe('The level editor', () => {
     done();
   });
 
-  it('Shows the preview placeholder when clicking on the "preview" button', async done => {
-    //  The editor grid is showing
-    let editorGridShowing = await isDisplayed(page, '#editor-grid');
-    expect(editorGridShowing).toBe(true);
-
-    // The level preview is hidden
-    let levelPreviewShowing = await isDisplayed(page, '#level-preview');
-    expect(levelPreviewShowing).toBe(false);
-
-    //  Click on the preview button
-    await page.click('#btn-preview');
-
-    //  Editor grid should be hidden
-    editorGridShowing = await isDisplayed(page, '#editor-grid');
-    expect(editorGridShowing).toBe(false);
-
-    //  Level preview should be showing
-    levelPreviewShowing = await isDisplayed(page, '#level-preview');
-    expect(levelPreviewShowing).toBe(true);
-
-    done();
-  });
-
-  it('Hides the preview placeholder when clicking on the "edit" button in preview mode', async done => {
-    //  Click on the show editor button
-    await page.click('#btn-edit');
-
-    //  Level preview should be showing
-    const editorGridShowing = await isDisplayed(page, '#editor-grid');
-    expect(editorGridShowing).toBe(true);
-
-    //  Level preview should be hidden
-    const levelPreviewShowing = await isDisplayed(page, '#level-preview');
-    expect(levelPreviewShowing).toBe(false);
-
-    done();
-  });
-
   it('Resets the level editor when the "Reset" button is clicked', async done => {
     //  One of the tiles should be colored
     let coloredTilesCount = await getNoOfElementsWithStyle(

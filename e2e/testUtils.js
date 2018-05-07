@@ -49,8 +49,7 @@ export const isDisplayed = async (page, selector) => !!await page.$(selector);
  * @param {String} selector - A selector string for the element to check
  * @returns {Number} The number of elements on the page
  */
-export const getNoOfElements = async (page, selector) =>
-  await page.$$eval(selector, eles => eles.length);
+export const getNoOfElements = async (page, selector) => page.$$eval(selector, eles => eles.length);
 
 /**
  * Reads the values of the star requirements from the DOM
@@ -62,4 +61,52 @@ export const getStarsValues = page =>
     Array.prototype.slice
       .call(document.querySelectorAll('#stars-editor > ul > li > span'))
       .map(span => span.innerText),
+  );
+
+/**
+ * Returns a Promise which will resolve after the given time
+ * @param {Number} ms - The number of miliseconds before the Promise resolves
+ * @returns {Function} A Promise which will resolve after the elapsed time
+ */
+export const sleep = ms =>
+  new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+
+/**
+ * Returns a representation of the left/top styles on the preview entities
+ * @param {Object} page - The current Pupeteer page
+ * @returns {Array} An array of objects with the top/left styles for each preview entity
+ */
+export const getPreviewEntityPositions = async page =>
+  page.evaluate(() =>
+    Array.from(document.querySelectorAll('#tiles-container > div')).map(tile => {
+      const tileStyles = window.getComputedStyle(tile);
+
+      return {
+        left: tileStyles.left,
+        top: tileStyles.top,
+      };
+    }),
+  );
+
+/**
+ * Check that the editor grid tiles match those of the first preview level's
+ * @param {Object} page - The current Pupeteer page
+ * @returns {Boolean} "true" if the preview matches the editor tiles and false otherwise
+ */
+export const editorTilesMatchPreviewTiles = async page =>
+  page.evaluate(
+    () =>
+      Array.prototype.slice
+        .call(document.querySelectorAll('#editor-grid .tile > div'))
+        .filter(
+          (tile, index) =>
+            window.getComputedStyle(tile).backgroundColor !==
+            window.getComputedStyle(
+              document.querySelector(
+                `.level:first-child .level-preview .preview-tile:nth-child(${index + 1}) > div`,
+              ),
+            ).backgroundColor,
+        ).length === 0,
   );

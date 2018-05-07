@@ -50,7 +50,7 @@ export class GameArea extends Component {
     const { entitiesData } = this.props;
 
     return (
-      <Wrapper>
+      <Wrapper id="tiles-container">
         {Object.keys(entitiesData).map(key => (
           <Entity
             xPos={entitiesData[key].xPos}
