@@ -6,6 +6,8 @@ exports[`<StarsEditor /> Matches the current snapshot 1`] = `
 >
   <styled.ul>
     <styled.li
+      className="stars-container"
+      grayedOut={false}
       key="0"
     >
       <styled.ul>
@@ -55,6 +57,8 @@ exports[`<StarsEditor /> Matches the current snapshot 1`] = `
       </styled.div>
     </styled.li>
     <styled.li
+      className="stars-container"
+      grayedOut={false}
       key="1"
     >
       <styled.ul>
@@ -104,6 +108,8 @@ exports[`<StarsEditor /> Matches the current snapshot 1`] = `
       </styled.div>
     </styled.li>
     <styled.li
+      className="stars-container"
+      grayedOut={false}
       key="2"
     >
       <styled.ul>
@@ -162,6 +168,8 @@ exports[`<StarsEditor /> Matches the current snapshot if entities are moving 1`]
 >
   <styled.ul>
     <styled.li
+      className="stars-container"
+      grayedOut={false}
       key="0"
     >
       <styled.ul>
@@ -211,6 +219,8 @@ exports[`<StarsEditor /> Matches the current snapshot if entities are moving 1`]
       </styled.div>
     </styled.li>
     <styled.li
+      className="stars-container"
+      grayedOut={false}
       key="1"
     >
       <styled.ul>
@@ -260,6 +270,8 @@ exports[`<StarsEditor /> Matches the current snapshot if entities are moving 1`]
       </styled.div>
     </styled.li>
     <styled.li
+      className="stars-container"
+      grayedOut={false}
       key="2"
     >
       <styled.ul>
@@ -302,6 +314,168 @@ exports[`<StarsEditor /> Matches the current snapshot if entities are moving 1`]
         <Styled(Styled(Button))
           className="btn-increment"
           disabled={true}
+          onClick={[Function]}
+        >
+          +
+        </Styled(Styled(Button))>
+      </styled.div>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
+exports[`<StarsEditor /> Matches the current snapshot if some moves have been made 1`] = `
+<styled.div
+  id="stars-editor"
+>
+  <styled.ul>
+    <styled.li
+      className="stars-container"
+      grayedOut={false}
+      key="0"
+    >
+      <styled.ul>
+        <styled.li
+          key="0"
+        >
+          <StarIcon
+            fillColor="white"
+            size={20}
+          />
+        </styled.li>
+        <styled.li
+          key="1"
+        >
+          <StarIcon
+            fillColor="white"
+            size={20}
+          />
+        </styled.li>
+        <styled.li
+          key="2"
+        >
+          <StarIcon
+            fillColor="white"
+            size={20}
+          />
+        </styled.li>
+      </styled.ul>
+      <styled.span>
+        1
+      </styled.span>
+      <styled.div>
+        <Styled(Styled(Button))
+          className="btn-decrement"
+          disabled={false}
+          onClick={[Function]}
+        >
+          -
+        </Styled(Styled(Button))>
+        <Styled(Styled(Button))
+          className="btn-increment"
+          disabled={false}
+          onClick={[Function]}
+        >
+          +
+        </Styled(Styled(Button))>
+      </styled.div>
+    </styled.li>
+    <styled.li
+      className="stars-container"
+      grayedOut={false}
+      key="1"
+    >
+      <styled.ul>
+        <styled.li
+          key="0"
+        >
+          <StarIcon
+            fillColor="transparent"
+            size={20}
+          />
+        </styled.li>
+        <styled.li
+          key="1"
+        >
+          <StarIcon
+            fillColor="white"
+            size={20}
+          />
+        </styled.li>
+        <styled.li
+          key="2"
+        >
+          <StarIcon
+            fillColor="white"
+            size={20}
+          />
+        </styled.li>
+      </styled.ul>
+      <styled.span>
+        2
+      </styled.span>
+      <styled.div>
+        <Styled(Styled(Button))
+          className="btn-decrement"
+          disabled={false}
+          onClick={[Function]}
+        >
+          -
+        </Styled(Styled(Button))>
+        <Styled(Styled(Button))
+          className="btn-increment"
+          disabled={false}
+          onClick={[Function]}
+        >
+          +
+        </Styled(Styled(Button))>
+      </styled.div>
+    </styled.li>
+    <styled.li
+      className="stars-container"
+      grayedOut={false}
+      key="2"
+    >
+      <styled.ul>
+        <styled.li
+          key="0"
+        >
+          <StarIcon
+            fillColor="transparent"
+            size={20}
+          />
+        </styled.li>
+        <styled.li
+          key="1"
+        >
+          <StarIcon
+            fillColor="transparent"
+            size={20}
+          />
+        </styled.li>
+        <styled.li
+          key="2"
+        >
+          <StarIcon
+            fillColor="white"
+            size={20}
+          />
+        </styled.li>
+      </styled.ul>
+      <styled.span>
+        3
+      </styled.span>
+      <styled.div>
+        <Styled(Styled(Button))
+          className="btn-decrement"
+          disabled={false}
+          onClick={[Function]}
+        >
+          -
+        </Styled(Styled(Button))>
+        <Styled(Styled(Button))
+          className="btn-increment"
+          disabled={false}
           onClick={[Function]}
         >
           +

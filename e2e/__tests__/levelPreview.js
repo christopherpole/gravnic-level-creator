@@ -1,6 +1,12 @@
 import puppeteer from 'puppeteer';
 import dovenv from 'dotenv';
-import { isDisplayed, getPreviewEntityPositions, sleep } from '../testUtils';
+import {
+  isDisplayed,
+  getPreviewEntityPositions,
+  sleep,
+  getNoOfElementsWithStyle,
+  getStarsValues,
+} from '../testUtils';
 
 dovenv.config();
 
@@ -222,6 +228,61 @@ describe('The level preview', () => {
 
     //  Check the game state
     expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
+
+    done();
+  });
+
+  //  @FIXME - use of sleep()
+  it('Grays stars when the number of moves made exceeds their requirements', async done => {
+    const getNoOfActiveLabels = async () =>
+      getNoOfElementsWithStyle(page, '.stars-container > span', 'color', 'rgb(238, 238, 238)');
+
+    const getNoOfActiveStars = async () =>
+      getNoOfElementsWithStyle(page, '.stars-container svg path', 'fill', 'rgb(255, 255, 255)');
+
+    //  Check that the star requirements are 1, 2 and 3
+    expect(await getStarsValues(page)).toEqual(['1', '2', '3']);
+
+    //  Check that all of the star labels and icons are white
+    expect(await getNoOfActiveLabels()).toBe(3);
+    expect(await getNoOfActiveStars()).toBe(6);
+
+    //  Make a move
+    await page.keyboard.down('ArrowLeft');
+    await sleep(moveSleepDuration);
+
+    //  Star labels and icons are still white
+    expect(await getNoOfActiveLabels()).toBe(3);
+    expect(await getNoOfActiveStars()).toBe(6);
+
+    //  Make another move
+    await page.keyboard.down('ArrowRight');
+    await sleep(moveSleepDuration);
+
+    //  The three-star requirement is no longer white
+    expect(await getNoOfActiveLabels()).toBe(2);
+    expect(await getNoOfActiveStars()).toBe(3);
+
+    //  Make another move
+    await page.keyboard.down('ArrowLeft');
+    await sleep(moveSleepDuration);
+
+    //  The two-star requirement is no longer white
+    expect(await getNoOfActiveLabels()).toBe(1);
+    expect(await getNoOfActiveStars()).toBe(1);
+
+    //  Make one move move
+    await page.keyboard.down('ArrowRight');
+    await sleep(moveSleepDuration);
+
+    //  No stars are white
+    expect(await getNoOfActiveLabels()).toBe(0);
+    expect(await getNoOfActiveStars()).toBe(0);
+
+    //  All is white again after restarting the level
+    await page.click('#btn-restart');
+    expect(await getNoOfActiveLabels()).toBe(3);
+    expect(await getNoOfActiveStars()).toBe(6);
 
     done();
   });
