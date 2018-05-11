@@ -1,4 +1,4 @@
-import { calulateNextGameState } from 'gravnic-game';
+import { changeGravityDirection } from 'gravnic-game';
 import { takeLatest, delay } from 'redux-saga';
 import { call, put, select } from 'redux-saga/effects';
 
@@ -13,17 +13,13 @@ import {
 
 export function* makeMoveSaga(action) {
   const state = yield select();
-  const { gameSpeed } = state.levelPreview;
-  let { gameState } = state.levelPreview;
+  const { gameSpeed, gameState } = state.levelPreview;
+  const gameStates = changeGravityDirection(gameState, action.direction);
 
-  do {
-    gameState = calulateNextGameState(gameState, action.direction);
-
-    if (gameState) {
-      yield put(makeMoveStep(gameState));
-      yield call(delay, gameSpeed);
-    }
-  } while (gameState);
+  for (let i = 0; i < gameStates.length; i++) {
+    yield put(makeMoveStep(gameStates[i]));
+    yield call(delay, gameSpeed);
+  }
 
   yield put(makeMoveFinished());
 }
