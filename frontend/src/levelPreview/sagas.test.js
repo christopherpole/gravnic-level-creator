@@ -1,14 +1,8 @@
-import { MOVE_LEFT, ENTITIES, calulateNextGameState } from 'gravnic-game';
+import { MOVE_LEFT, ENTITIES, changeGravityDirection } from 'gravnic-game';
 import { delay } from 'redux-saga';
 import { call, select, put } from 'redux-saga/effects';
 
-import {
-  MAKE_MOVE,
-  makeMoveStep,
-  makeMoveFinished,
-  undoMoveStep,
-  undoMoveFinished,
-} from './actions';
+import { MAKE_MOVE, setGameState, makeMoveFinished, undoMoveFinished } from './actions';
 import { makeMoveSaga, undoMoveSaga } from './sagas';
 
 describe('The level preview sagas', () => {
@@ -19,7 +13,7 @@ describe('The level preview sagas', () => {
         direction: MOVE_LEFT,
       });
 
-      let gameState = [
+      const gameState = [
         [
           {
             staticEntity: {
@@ -55,16 +49,17 @@ describe('The level preview sagas', () => {
         },
       };
 
+      const gameStates = changeGravityDirection(gameState, MOVE_LEFT);
+
       //  Get the current game state from the store
       let step = generator.next();
       expect(step.done).toBe(false);
       expect(step.value).toEqual(select());
 
       //  The next action should be the move in progress
-      gameState = calulateNextGameState(gameState, MOVE_LEFT);
       step = generator.next(state);
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(makeMoveStep(gameState)));
+      expect(step.value).toEqual(put(setGameState(gameStates[0])));
 
       //  The next action should be the pause
       step = generator.next();
@@ -72,24 +67,19 @@ describe('The level preview sagas', () => {
       expect(step.value).toEqual(call(delay, state.levelPreview.gameSpeed));
 
       //  The next action should be the move in progress
-      gameState = calulateNextGameState(gameState, MOVE_LEFT);
       step = generator.next(state);
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(makeMoveStep(gameState)));
+      expect(step.value).toEqual(put(setGameState(gameStates[1])));
 
       //  The next action should be the pause
       step = generator.next();
       expect(step.done).toBe(false);
       expect(step.value).toEqual(call(delay, state.levelPreview.gameSpeed));
 
-      //  The move should be completed now
-      gameState = calulateNextGameState(gameState, MOVE_LEFT);
-      expect(gameState).toBe(false);
-
       //  The entities stopped action should be called
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(makeMoveFinished()));
+      expect(step.value).toEqual(put(makeMoveFinished(gameStates)));
 
       //  Finish
       step = generator.next();
@@ -103,7 +93,7 @@ describe('The level preview sagas', () => {
 
       const state = {
         levelPreview: {
-          gameHistory: [[{}, {}, {}], [{}, {}]],
+          gameHistory: [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[10, 11, 12], [13, 14, 15]]],
           gameSpeed: 500,
         },
       };
@@ -116,7 +106,7 @@ describe('The level preview sagas', () => {
       //  The next action should be a move step
       step = generator.next(state);
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(undoMoveStep()));
+      expect(step.value).toEqual(put(setGameState([13, 14, 15])));
 
       //  The next action should be the pause
       step = generator.next();
@@ -126,7 +116,7 @@ describe('The level preview sagas', () => {
       //  The next action should be another move step
       step = generator.next(state);
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(undoMoveStep()));
+      expect(step.value).toEqual(put(setGameState([10, 11, 12])));
 
       //  The next action should be the pause
       step = generator.next();
