@@ -28,6 +28,11 @@ export const WrapperInner = styled.div`
   font-weight: bold;
 `;
 
+export const EntitiesWrapper = styled.div`
+  height: ${props => props.height};
+  width: ${props => props.width};
+`;
+
 export class LevelPreview extends Component {
   constructor(props) {
     super(props);

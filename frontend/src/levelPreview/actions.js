@@ -1,5 +1,4 @@
-import { convertTilesToGameState } from 'gravnic-game';
-import { makeActionCreator } from 'utils';
+import { makeActionCreator, convertEditorTilesToGameState } from 'utils';
 
 export const MAKE_MOVE = 'MAKE_MOVE';
 export const MAKE_MOVE_STEP = 'MAKE_MOVE_STEP';
@@ -24,7 +23,7 @@ export const setGameSpeed = makeActionCreator(SET_GAME_SPEED, 'gameSpeed');
 
 export const previewLevel = () => (dispatch, getState) => {
   const { tiles } = getState().levelEditor;
-  const gameState = convertTilesToGameState(tiles);
+  const gameState = convertEditorTilesToGameState(tiles);
 
   dispatch({
     type: PREVIEW_LEVEL,

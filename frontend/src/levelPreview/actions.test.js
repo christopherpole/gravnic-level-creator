@@ -1,5 +1,6 @@
 import { spy } from 'sinon';
-import { MOVE_LEFT, convertTilesToGameState } from 'gravnic-game';
+import { MOVE_LEFT } from 'gravnic-game';
+import { convertEditorTilesToGameState } from 'utils';
 import testLevels from 'data/testLevels';
 
 import {
@@ -42,7 +43,7 @@ describe('The level preview actions', () => {
       expect(
         dispatchSpy.calledWith({
           type: PREVIEW_LEVEL,
-          gameState: convertTilesToGameState(testLevels[0].tiles),
+          gameState: convertEditorTilesToGameState(testLevels[0].tiles),
         }),
       ).toBe(true);
     });

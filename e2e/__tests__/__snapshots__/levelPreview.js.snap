@@ -4,23 +4,23 @@ exports[`The level preview Allows the user to make moves 1`] = `
 Array [
   Object {
     "left": "129.594px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "172.797px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "216px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "259.188px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "259.188px",
-    "top": "216px",
+    "top": "194.391px",
   },
 ]
 `;
@@ -29,23 +29,23 @@ exports[`The level preview Allows the user to make moves 2`] = `
 Array [
   Object {
     "left": "129.594px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "172.797px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "216px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "129.594px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "259.188px",
-    "top": "216px",
+    "top": "194.391px",
   },
 ]
 `;
@@ -54,23 +54,23 @@ exports[`The level preview Allows the user to make moves 3`] = `
 Array [
   Object {
     "left": "129.594px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "172.797px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "216px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "259.188px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "259.188px",
-    "top": "216px",
+    "top": "194.391px",
   },
 ]
 `;
@@ -79,23 +79,23 @@ exports[`The level preview Allows the user to reset the game 1`] = `
 Array [
   Object {
     "left": "129.594px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "172.797px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "216px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "129.594px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "259.188px",
-    "top": "216px",
+    "top": "194.391px",
   },
 ]
 `;
@@ -104,23 +104,23 @@ exports[`The level preview Allows the user to reset the game 2`] = `
 Array [
   Object {
     "left": "129.594px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "172.797px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "216px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "259.188px",
-    "top": "216px",
+    "top": "194.391px",
   },
   Object {
     "left": "259.188px",
-    "top": "216px",
+    "top": "194.391px",
   },
 ]
 `;
