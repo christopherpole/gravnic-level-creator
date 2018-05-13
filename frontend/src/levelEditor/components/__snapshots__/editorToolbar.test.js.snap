@@ -23,6 +23,18 @@ exports[`<EditorToolbar /> Matches the current snapshot 1`] = `
         Reset
       </Button>
     </styled.li>
+    <styled.li>
+      <CopyToClipboard
+        text="test"
+      >
+        <Button
+          disabled={true}
+          id="btn-export"
+        >
+          Export
+        </Button>
+      </CopyToClipboard>
+    </styled.li>
   </styled.ul>
 </styled.div>
 `;
@@ -49,6 +61,18 @@ exports[`<EditorToolbar /> Matches the current when the buttons are enabled 1`] 
       >
         Reset
       </Button>
+    </styled.li>
+    <styled.li>
+      <CopyToClipboard
+        text="test"
+      >
+        <Button
+          disabled={false}
+          id="btn-export"
+        >
+          Export
+        </Button>
+      </CopyToClipboard>
     </styled.li>
   </styled.ul>
 </styled.div>
