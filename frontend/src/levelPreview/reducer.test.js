@@ -1,14 +1,13 @@
-import { MOVE_LEFT, ENTITIES } from 'gravnic-game';
+import { MOVE_LEFT, MOVE_RIGHT, ENTITIES } from 'gravnic-game';
 import reducer, { initialState } from './reducer';
 import {
   PREVIEW_LEVEL,
   EDIT_LEVEL,
+  SET_GAME_STATE,
   MAKE_MOVE,
-  MAKE_MOVE_STEP,
   MAKE_MOVE_FINISHED,
   RESTART_LEVEL,
   UNDO_MOVE,
-  UNDO_MOVE_STEP,
   UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
 } from './actions';
@@ -74,6 +73,7 @@ describe('The level editor reducer', () => {
             ...initialState,
             entitiesMoving: true,
             gravityDirection: MOVE_LEFT,
+            moveHistory: [MOVE_LEFT],
           },
           {
             type: PREVIEW_LEVEL,
@@ -84,7 +84,8 @@ describe('The level editor reducer', () => {
         ...initialState,
         previewing: true,
         gameState: testGameState,
-        gameHistory: [testGameState],
+        gameHistory: [[testGameState]],
+        moveHistory: initialState.moveHistory,
         entitiesMoving: initialState.entitiesMoving,
         gravityDirection: initialState.gravityDirection,
       });
@@ -117,6 +118,7 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             gameState: testGameState,
+            moveHistory: [MOVE_RIGHT],
           },
           {
             type: MAKE_MOVE,
@@ -128,28 +130,21 @@ describe('The level editor reducer', () => {
         gravityDirection: MOVE_LEFT,
         entitiesMoving: true,
         gameState: testGameState,
-        gameHistory: [[testGameState]],
+        moveHistory: [MOVE_RIGHT, MOVE_LEFT],
       });
     });
   });
 
-  describe('MAKE_MOVE_STEP', () => {
+  describe('SET_GAME_STATE', () => {
     it('Handles the action correctly', () => {
       expect(
-        reducer(
-          { ...initialState, gameHistory: testGameHistory },
-          {
-            type: MAKE_MOVE_STEP,
-            gameState: testGameState,
-          },
-        ),
+        reducer(undefined, {
+          type: SET_GAME_STATE,
+          gameState: testGameState,
+        }),
       ).toEqual({
         ...initialState,
         gameState: testGameState,
-        gameHistory: [
-          ...testGameHistory.slice(0, testGameHistory.length - 1),
-          [...testGameHistory[testGameHistory.length - 1], testGameState],
-        ],
       });
     });
   });
@@ -161,14 +156,17 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             entitiesMoving: true,
+            gameHistory: [[1, 2, 3]],
           },
           {
             type: MAKE_MOVE_FINISHED,
+            gameStates: [4, 5, 6],
           },
         ),
       ).toEqual({
         ...initialState,
         entitiesMoving: false,
+        gameHistory: [[1, 2, 3], [3, 4, 5, 6]],
       });
     });
   });
@@ -180,6 +178,7 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             gameHistory: testGameHistory,
+            moveHistory: [MOVE_LEFT, MOVE_LEFT],
             entitiesMoving: true,
             gravityDirection: MOVE_LEFT,
           },
@@ -192,7 +191,8 @@ describe('The level editor reducer', () => {
         entitiesMoving: initialState.entitiesMoving,
         gameHistory: [testGameHistory[0]],
         gravityDirection: initialState.gravityDirection,
-        gameState: testGameHistory[0],
+        gameState: testGameHistory[0][0],
+        moveHistory: [],
       });
     });
   });
@@ -204,6 +204,7 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             entitiesMoving: false,
+            moveHistory: [MOVE_LEFT, MOVE_RIGHT],
           },
           {
             type: UNDO_MOVE,
@@ -212,52 +213,7 @@ describe('The level editor reducer', () => {
       ).toEqual({
         ...initialState,
         entitiesMoving: true,
-      });
-    });
-  });
-
-  describe('UNDO_MOVE_STEP', () => {
-    it('Handles the action correctly', () => {
-      const gameHistoryLength = testGameHistory.length - 1;
-      const latestMoveLength = testGameHistory[gameHistoryLength].length;
-
-      expect(
-        reducer(
-          {
-            ...initialState,
-            gameHistory: testGameHistory,
-            gameState: testGameHistory[gameHistoryLength][latestMoveLength],
-          },
-          {
-            type: UNDO_MOVE_STEP,
-          },
-        ),
-      ).toEqual({
-        ...initialState,
-        gameHistory: [
-          ...testGameHistory.slice(0, gameHistoryLength),
-          testGameHistory[gameHistoryLength].slice(0, latestMoveLength - 1),
-        ],
-        gameState: testGameHistory[gameHistoryLength][latestMoveLength - 2],
-      });
-    });
-
-    it('Handles the action correctly if there are no more moves to undo', () => {
-      expect(
-        reducer(
-          {
-            ...initialState,
-            gameHistory: [[[1, 2, 3]]],
-            gameState: [1, 2, 3],
-          },
-          {
-            type: UNDO_MOVE_STEP,
-          },
-        ),
-      ).toEqual({
-        ...initialState,
-        gameHistory: [[[1, 2, 3]]],
-        gameState: [1, 2, 3],
+        moveHistory: [MOVE_LEFT],
       });
     });
   });

@@ -18,8 +18,8 @@ export const getEntitiesData = createSelector(
           entitiesData[gameState[i][j].staticEntity.id] = {
             entityId: gameState[i][j].staticEntity.entityId,
             isMovableEntity: false,
-            xPos: j * GRID_SIZE,
-            yPos: i * GRID_SIZE,
+            xPos: ((GRID_SIZE - gameState[0].length) / 2 + j) * GRID_SIZE,
+            yPos: ((GRID_SIZE - gameState.length) / 2 + i) * GRID_SIZE,
           };
         }
 
@@ -28,8 +28,8 @@ export const getEntitiesData = createSelector(
             entityId: gameState[i][j].movableEntity.entityId,
             fading: gameState[i][j].movableEntity.fading,
             isMovableEntity: true,
-            xPos: j * GRID_SIZE,
-            yPos: i * GRID_SIZE,
+            xPos: ((GRID_SIZE - gameState[0].length) / 2 + j) * GRID_SIZE,
+            yPos: ((GRID_SIZE - gameState.length) / 2 + i) * GRID_SIZE,
           };
         }
       }

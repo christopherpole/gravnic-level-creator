@@ -2649,7 +2649,7 @@ eslint@4.10.0:
     table "^4.0.1"
     text-table "~0.2.0"
 
-eslint@^4.18.0:
+eslint@^4.19.1:
   version "4.19.1"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.19.1.tgz#32d1d653e1d90408854bfb296f076ec7e186a300"
   dependencies:
@@ -3337,9 +3337,9 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
-"gravnic-game@git+ssh://git@github.com:christopherpole/gravnic-game":
+"gravnic-game@git+ssh://git@github.com:christopherpole/gravnic-game#master":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:christopherpole/gravnic-game#d9c040f288accaaae17fb78451320966bbe9adb7"
+  resolved "git+ssh://git@github.com:christopherpole/gravnic-game#aa498d6a2bf4a4c2d34ad5e18f22e9f3c047d8a9"
 
 growly@^1.3.0:
   version "1.3.0"

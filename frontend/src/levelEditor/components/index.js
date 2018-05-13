@@ -2,53 +2,106 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 
-import LevelPreview from 'levelPreview/components';
-import PreviewToolbar from 'levelPreview/components/previewToolbar';
-import Grid from './grid';
-import EditorToolbar from './editorToolbar';
-import TileSelector from './tileSelector';
-import StarsEditor from './starsEditor';
+import Tile from 'common/tile';
+import { updateTile, startDrag, stopDrag } from '../actions';
 
-export const Wrapper = styled.section`
-  padding: ${props => props.theme.structureSpacing};
+export const Wrapper = styled.div`
+  height: 0;
+  padding-bottom: 100%;
   position: relative;
 `;
 
-export const WrapperInner = styled.div`
+export const TilesWrapper = styled.div`
+  border: 1px solid ${props => props.theme.foregroundColor};
+  background: white;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-column-gap: ${props => props.theme.structureSpacing};
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-gap: 1px;
 `;
 
-export const GridWrapper = styled.div``;
-
-export const PanesWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+export const TileWrapper = styled.div`
+  position: relative;
+  cursor: pointer;
 `;
 
-export const LevelEditor = ({ previewing }) => (
-  <Wrapper>
-    <WrapperInner>
-      <GridWrapper>
-        {previewing ? <LevelPreview /> : <Grid />}
-        {previewing ? <PreviewToolbar /> : <EditorToolbar />}
-      </GridWrapper>
-      <PanesWrapper>
-        <StarsEditor />
-        <TileSelector />
-      </PanesWrapper>
-    </WrapperInner>
-  </Wrapper>
-);
+export const LevelEditor = ({
+  tiles,
+  selectedTileId,
+  updateTileAction,
+  startDragAction,
+  stopDragAction,
+  dragging,
+}) => {
+  const handleMouseUp = () => {
+    stopDragAction();
+    document.removeEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseDown = () => {
+    startDragAction();
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseMove = tile => {
+    if (dragging && selectedTileId !== tile.selectedTileId) {
+      updateTileAction(tile.position);
+    }
+  };
+
+  return (
+    <Wrapper id="editor-grid">
+      <TilesWrapper onMouseDown={handleMouseDown}>
+        {tiles.map(editorTile => (
+          <TileWrapper
+            onClick={() => {
+              updateTileAction(editorTile.position);
+            }}
+            key={editorTile.position}
+            onMouseMove={() => {
+              handleMouseMove(editorTile);
+            }}
+            className="tile"
+          >
+            <Tile tileId={editorTile.selectedTileId} />
+          </TileWrapper>
+        ))}
+      </TilesWrapper>
+    </Wrapper>
+  );
+};
 
 LevelEditor.propTypes = {
-  previewing: PropTypes.bool.isRequired,
+  startDragAction: PropTypes.func.isRequired,
+  stopDragAction: PropTypes.func.isRequired,
+  updateTileAction: PropTypes.func.isRequired,
+  tiles: PropTypes.arrayOf(
+    PropTypes.shape({
+      selectedTileId: PropTypes.string,
+      position: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+  dragging: PropTypes.bool.isRequired,
+  selectedTileId: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  previewing: state.levelPreview.previewing,
+  tiles: state.levelEditor.tiles,
+  selectedTileId: state.levelEditor.selectedTileId,
+  dragging: state.levelEditor.dragging,
 });
 
-export default connect(mapStateToProps)(LevelEditor);
+const mapDispatchToProps = dispatch => ({
+  updateTileAction: bindActionCreators(updateTile, dispatch),
+  startDragAction: bindActionCreators(startDrag, dispatch),
+  stopDragAction: bindActionCreators(stopDrag, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LevelEditor);

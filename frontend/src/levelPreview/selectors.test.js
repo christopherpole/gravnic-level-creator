@@ -28,25 +28,35 @@ describe('getEntitiesData()', () => {
   it('Converts the game state into raw entity data for the preview area to work with', () => {
     const entitiesData = getEntitiesData(state);
     expect(entitiesData).toEqual({
-      '1': { entityId: ENTITIES.FLOOR, xPos: GRID_SIZE * 1, yPos: 0, isMovableEntity: false },
-      '2': { entityId: ENTITIES.FLOOR, xPos: 0, yPos: GRID_SIZE * 1, isMovableEntity: false },
+      '1': {
+        entityId: ENTITIES.FLOOR,
+        xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 1) * GRID_SIZE,
+        yPos: ((GRID_SIZE - state.levelPreview.gameState.length) / 2 + 0) * GRID_SIZE,
+        isMovableEntity: false,
+      },
+      '2': {
+        entityId: ENTITIES.FLOOR,
+        xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 0) * GRID_SIZE,
+        yPos: ((GRID_SIZE - state.levelPreview.gameState.length) / 2 + 1) * GRID_SIZE,
+        isMovableEntity: false,
+      },
       '3': {
         entityId: ENTITIES.FLOOR,
-        xPos: GRID_SIZE * 1,
-        yPos: GRID_SIZE * 1,
+        xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 1) * GRID_SIZE,
+        yPos: ((GRID_SIZE - state.levelPreview.gameState.length) / 2 + 1) * GRID_SIZE,
         isMovableEntity: false,
       },
       '4': {
         entityId: ENTITIES.BLOCK,
-        xPos: GRID_SIZE * 1,
-        yPos: GRID_SIZE * 1,
+        xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 1) * GRID_SIZE,
+        yPos: ((GRID_SIZE - state.levelPreview.gameState.length) / 2 + 1) * GRID_SIZE,
         fading: true,
         isMovableEntity: true,
       },
       '5': {
         entityId: ENTITIES.FLOOR,
-        xPos: GRID_SIZE * 2,
-        yPos: GRID_SIZE * 1,
+        xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 2) * GRID_SIZE,
+        yPos: ((GRID_SIZE - state.levelPreview.gameState.length) / 2 + 1) * GRID_SIZE,
         isMovableEntity: false,
       },
     });

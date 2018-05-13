@@ -6,6 +6,8 @@ import {
   sleep,
   getNoOfElementsWithStyle,
   getStarsValues,
+  getNoOfElements,
+  getComputedStyleProperty,
 } from '../testUtils';
 
 dovenv.config();
@@ -283,6 +285,100 @@ describe('The level preview', () => {
     await page.click('#btn-restart');
     expect(await getNoOfActiveLabels()).toBe(3);
     expect(await getNoOfActiveStars()).toBe(6);
+
+    done();
+  });
+
+  it('Shows the correct moves on the move history display', async done => {
+    //  The move history display should be in its initial state
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
+      'Moves made: 0',
+    );
+
+    //  The move history displays correctly after moving up
+    await page.keyboard.down('ArrowUp');
+    await sleep(moveSleepDuration);
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(1);
+    expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
+      'Moves made: 1',
+    );
+    expect(
+      await getComputedStyleProperty(
+        page,
+        'transform',
+        '#move-icons-container > svg:nth-child(1) path',
+      ),
+    ).toBe('matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)');
+
+    //  The move history displays correctly after moving left
+    await page.keyboard.down('ArrowLeft');
+    await sleep(moveSleepDuration);
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(2);
+    expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
+      'Moves made: 2',
+    );
+    expect(
+      await getComputedStyleProperty(
+        page,
+        'transform',
+        '#move-icons-container > svg:nth-child(2) path',
+      ),
+    ).toBe('matrix(6.12323e-17, 1, -1, 6.12323e-17, 0, 0)');
+
+    //  The move history displays correctly after moving right
+    await page.keyboard.down('ArrowRight');
+    await sleep(moveSleepDuration);
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(3);
+    expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
+      'Moves made: 3',
+    );
+    expect(
+      await getComputedStyleProperty(
+        page,
+        'transform',
+        '#move-icons-container > svg:nth-child(3) path',
+      ),
+    ).toBe('matrix(-1.83697e-16, -1, 1, -1.83697e-16, 0, 0)');
+
+    //  The move history displays correctly after moving down
+    await page.keyboard.down('ArrowDown');
+    await sleep(moveSleepDuration);
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(4);
+    expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
+      'Moves made: 4',
+    );
+    expect(
+      await getComputedStyleProperty(
+        page,
+        'transform',
+        '#move-icons-container > svg:nth-child(4) path',
+      ),
+    ).toBe('matrix(1, 0, 0, 1, 0, 0)');
+
+    //  It should update when moves get undone
+    await page.click('#btn-undo');
+    await sleep(moveSleepDuration);
+    await page.click('#btn-undo');
+    await sleep(moveSleepDuration);
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(2);
+    expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
+      'Moves made: 2',
+    );
+
+    //  It should return to the initial state when reset
+    await page.click('#btn-restart');
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
+      'Moves made: 0',
+    );
+
+    //  It should reset when entering the level preview
+    await page.keyboard.down('ArrowDown');
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(1);
+    await page.click('#btn-edit');
+    await page.click('#btn-preview');
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
 
     done();
   });

@@ -1,5 +1,6 @@
 import { spy } from 'sinon';
-import { MOVE_LEFT, convertTilesToGameState } from 'gravnic-game';
+import { MOVE_LEFT } from 'gravnic-game';
+import { convertEditorTilesToGameState } from 'utils';
 import testLevels from 'data/testLevels';
 
 import {
@@ -7,20 +8,18 @@ import {
   EDIT_LEVEL,
   RESTART_LEVEL,
   MAKE_MOVE,
-  MAKE_MOVE_STEP,
+  SET_GAME_STATE,
   MAKE_MOVE_FINISHED,
   UNDO_MOVE,
-  UNDO_MOVE_STEP,
   UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
   previewLevel,
   editLevel,
   restartLevel,
+  setGameState,
   makeMove,
-  makeMoveStep,
   makeMoveFinished,
   undoMove,
-  undoMoveStep,
   undoMoveFinished,
   setGameSpeed,
 } from './actions';
@@ -42,7 +41,7 @@ describe('The level preview actions', () => {
       expect(
         dispatchSpy.calledWith({
           type: PREVIEW_LEVEL,
-          gameState: convertTilesToGameState(testLevels[0].tiles),
+          gameState: convertEditorTilesToGameState(testLevels[0].tiles),
         }),
       ).toBe(true);
     });
@@ -68,6 +67,17 @@ describe('The level preview actions', () => {
     });
   });
 
+  describe('setGameState()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: SET_GAME_STATE,
+        gameState: [1, 2, 3],
+      };
+
+      expect(setGameState([1, 2, 3])).toEqual(expectedAction);
+    });
+  });
+
   describe('makeMove()', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
@@ -79,24 +89,14 @@ describe('The level preview actions', () => {
     });
   });
 
-  describe('makeMoveStep()', () => {
-    it('Creates the correct action', () => {
-      const expectedAction = {
-        type: MAKE_MOVE_STEP,
-        gameState: [1, 2, 3],
-      };
-
-      expect(makeMoveStep([1, 2, 3])).toEqual(expectedAction);
-    });
-  });
-
   describe('makeMoveFinished()', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
         type: MAKE_MOVE_FINISHED,
+        gameStates: [1, 2, 3],
       };
 
-      expect(makeMoveFinished()).toEqual(expectedAction);
+      expect(makeMoveFinished([1, 2, 3])).toEqual(expectedAction);
     });
   });
 
@@ -107,16 +107,6 @@ describe('The level preview actions', () => {
       };
 
       expect(undoMove()).toEqual(expectedAction);
-    });
-  });
-
-  describe('undoMoveStep()', () => {
-    it('Creates the correct action', () => {
-      const expectedAction = {
-        type: UNDO_MOVE_STEP,
-      };
-
-      expect(undoMoveStep()).toEqual(expectedAction);
     });
   });
 

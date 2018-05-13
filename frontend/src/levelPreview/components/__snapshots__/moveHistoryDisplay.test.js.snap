@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MoveHistoryDisplay /> Matches the current snapshot 1`] = `
+<styled.div
+  id="moves-container"
+>
+  <styled.div>
+    <styled.div>
+      <styled.div
+        id="move-icons-container"
+      >
+        <ArrowIcon
+          direction="MOVE_UP"
+          fillColor="white"
+          key="0"
+          size="100%"
+        />
+        <ArrowIcon
+          direction="MOVE_RIGHT"
+          fillColor="white"
+          key="1"
+          size="100%"
+        />
+        <ArrowIcon
+          direction="MOVE_DOWN"
+          fillColor="white"
+          key="2"
+          size="100%"
+        />
+        <ArrowIcon
+          direction="MOVE_LEFT"
+          fillColor="white"
+          key="3"
+          size="100%"
+        />
+      </styled.div>
+    </styled.div>
+  </styled.div>
+  <styled.p
+    id="moves-made-label"
+  >
+    Moves made: 
+    4
+  </styled.p>
+</styled.div>
+`;

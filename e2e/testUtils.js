@@ -80,7 +80,7 @@ export const sleep = ms =>
  */
 export const getPreviewEntityPositions = async page =>
   page.evaluate(() =>
-    Array.from(document.querySelectorAll('#tiles-container > div')).map(tile => {
+    Array.from(document.querySelectorAll('#level-preview > div > div')).map(tile => {
       const tileStyles = window.getComputedStyle(tile);
 
       return {

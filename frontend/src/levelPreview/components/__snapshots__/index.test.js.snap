@@ -5,7 +5,13 @@ exports[`<LevelPreview /> Matches the current snapshot 1`] = `
   id="level-preview"
 >
   <styled.div>
-    <Connect(GameArea) />
+    <Connect(Component)
+      entityId="ENTITY_BLOCK"
+      isMovableEntity={true}
+      key="1"
+      xPos={10}
+      yPos={10}
+    />
   </styled.div>
 </styled.div>
 `;
