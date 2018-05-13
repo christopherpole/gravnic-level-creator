@@ -2,7 +2,6 @@ import { ENTITIES } from 'gravnic-game';
 
 import { GRID_SIZE, MIN_MOVES } from 'config/settings';
 import { createNewLevel, makeActionCreator, convertEditorTilesToGameState } from './index';
-import testLevels from 'data/testLevels';
 
 describe('createNewLevel()', () => {
   it('Returns a new level template', () => {
