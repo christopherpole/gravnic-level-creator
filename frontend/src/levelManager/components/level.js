@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SortableElement } from 'react-sortable-hoc';
 
-import StarIcon from 'common/starIcon';
+import StarIcon from 'common/icons/starIcon';
 import { selectLevel, loadLevel, changeRenameLevel, finishRenameLevel } from '../actions';
 import LevelPreview from './levelPreview';
 

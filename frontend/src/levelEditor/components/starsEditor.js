@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Button from 'common/button';
-import StarIcon from 'common/starIcon';
+import StarIcon from 'common/icons/starIcon';
 import { setStars } from '../actions';
 
 export const Wrapper = styled.div`

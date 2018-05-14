@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import WarningIcon from 'common/warningIcon';
+import WarningIcon from 'common/icons/warningIcon';
 import Button from 'common/button';
 import { retrieveLevels } from '../actions';
 
