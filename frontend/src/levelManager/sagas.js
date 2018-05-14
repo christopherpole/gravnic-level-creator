@@ -1,5 +1,4 @@
-import { takeLatest } from 'redux-saga';
-import { put, take, race } from 'redux-saga/effects';
+import { takeLatest, put, take, race } from 'redux-saga/effects';
 
 import {
   DELETE_SELECTED_LEVEL,

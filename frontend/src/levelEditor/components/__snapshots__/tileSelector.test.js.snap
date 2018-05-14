@@ -8,34 +8,45 @@ exports[`<TileSelector /> Matches the current snapshot 1`] = `
     <styled.div
       className="tile"
       isSelected={false}
-      key="ENTITY_NONE"
+      key="NONE"
       onClick={[Function]}
     >
       <Tile
         isSelected={false}
-        tileId="ENTITY_NONE"
+        tileId="NONE"
       />
     </styled.div>
     <styled.div
       className="tile"
       isSelected={false}
-      key="ENTITY_FLOOR"
+      key="FLOOR"
       onClick={[Function]}
     >
       <Tile
         isSelected={false}
-        tileId="ENTITY_FLOOR"
+        tileId="FLOOR"
       />
     </styled.div>
     <styled.div
       className="tile"
       isSelected={false}
-      key="ENTITY_BLOCK"
+      key="GLASS"
       onClick={[Function]}
     >
       <Tile
         isSelected={false}
-        tileId="ENTITY_BLOCK"
+        tileId="GLASS"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="BLOCK"
+      onClick={[Function]}
+    >
+      <Tile
+        isSelected={false}
+        tileId="BLOCK"
       />
     </styled.div>
   </styled.div>
@@ -50,34 +61,45 @@ exports[`<TileSelector /> Matches the current snapshot if a tile is selected 1`]
     <styled.div
       className="tile"
       isSelected={false}
-      key="ENTITY_NONE"
+      key="NONE"
       onClick={[Function]}
     >
       <Tile
         isSelected={false}
-        tileId="ENTITY_NONE"
+        tileId="NONE"
       />
     </styled.div>
     <styled.div
       className="tile"
       isSelected={false}
-      key="ENTITY_FLOOR"
+      key="FLOOR"
       onClick={[Function]}
     >
       <Tile
         isSelected={false}
-        tileId="ENTITY_FLOOR"
+        tileId="FLOOR"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="GLASS"
+      onClick={[Function]}
+    >
+      <Tile
+        isSelected={false}
+        tileId="GLASS"
       />
     </styled.div>
     <styled.div
       className="tile"
       isSelected={true}
-      key="ENTITY_BLOCK"
+      key="BLOCK"
       onClick={[Function]}
     >
       <Tile
         isSelected={true}
-        tileId="ENTITY_BLOCK"
+        tileId="BLOCK"
       />
     </styled.div>
   </styled.div>

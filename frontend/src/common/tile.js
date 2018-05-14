@@ -28,6 +28,12 @@ export const Wrapper = styled.div`
     css`
       background: red;
     `}
+
+  ${props =>
+    props.tileId === ENTITIES.GLASS &&
+    css`
+      background: #ccc;
+    `}
 `;
 
 const Tile = ({ tileId }) => <Wrapper tileId={tileId} />;

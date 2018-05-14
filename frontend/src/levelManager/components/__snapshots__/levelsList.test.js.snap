@@ -40,403 +40,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -464,403 +464,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -888,403 +888,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -1336,403 +1336,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -1760,403 +1760,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -2184,403 +2184,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -2632,403 +2632,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -3056,403 +3056,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -3480,403 +3480,403 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -3952,403 +3952,403 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -4376,403 +4376,403 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }
@@ -4800,403 +4800,403 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
           Array [
             Object {
               "position": 0,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 1,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 2,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 3,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 4,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 5,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 6,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 7,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 8,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 9,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 10,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 11,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 12,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 13,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 14,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 15,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 16,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 17,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 18,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 19,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 20,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 21,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 22,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 23,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 24,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 25,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 26,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 27,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 28,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 29,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 30,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 31,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 32,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 33,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 34,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 35,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 36,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 37,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 38,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 39,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 40,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 41,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 42,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 43,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 44,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 45,
-              "selectedTileId": "ENTITY_BLOCK",
+              "selectedTileId": "BLOCK",
             },
             Object {
               "position": 46,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 47,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 48,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 49,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 50,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 51,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 52,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 53,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 54,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 55,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 56,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 57,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 58,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 59,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 60,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 61,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 62,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 63,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 64,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 65,
-              "selectedTileId": "ENTITY_FLOOR",
+              "selectedTileId": "FLOOR",
             },
             Object {
               "position": 66,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 67,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 68,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 69,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 70,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 71,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 72,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 73,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 74,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 75,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 76,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 77,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 78,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 79,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 80,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 81,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 82,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 83,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 84,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 85,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 86,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 87,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 88,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 89,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 90,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 91,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 92,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 93,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 94,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 95,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 96,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 97,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 98,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
             Object {
               "position": 99,
-              "selectedTileId": "ENTITY_NONE",
+              "selectedTileId": "NONE",
             },
           ]
         }

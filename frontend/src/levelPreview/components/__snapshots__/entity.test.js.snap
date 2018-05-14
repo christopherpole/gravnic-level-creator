@@ -11,7 +11,7 @@ exports[`<Entity /> Matches the current snapshot 1`] = `
   yPos={20}
 >
   <Tile
-    tileId="ENTITY_BLOCK"
+    tileId="BLOCK"
   />
 </styled.div>
 `;

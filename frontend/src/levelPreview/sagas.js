@@ -1,6 +1,6 @@
 import { changeGravityDirection } from 'gravnic-game';
-import { takeLatest, delay } from 'redux-saga';
-import { call, put, select } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
+import { takeLatest, call, put, select } from 'redux-saga/effects';
 
 import { MAKE_MOVE, UNDO_MOVE, setGameState, makeMoveFinished, undoMoveFinished } from './actions';
 

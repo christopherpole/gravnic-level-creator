@@ -10,6 +10,10 @@ export default [
     name: 'Floor',
   },
   {
+    id: ENTITIES.GLASS,
+    name: 'Glass Block',
+  },
+  {
     id: ENTITIES.BLOCK,
     name: 'Colored Block',
   },
