@@ -9,6 +9,7 @@ export const RESTART_LEVEL = 'RESTART_LEVEL';
 export const UNDO_MOVE = 'UNDO_MOVE';
 export const UNDO_MOVE_FINISHED = 'UNDO_MOVE_FINISHED';
 export const SET_GAME_SPEED = 'SET_GAME_SPEED';
+export const SET_FAST_MODE = 'SET_FAST_MODE';
 
 export const editLevel = makeActionCreator(EDIT_LEVEL);
 export const restartLevel = makeActionCreator(RESTART_LEVEL);
@@ -18,6 +19,7 @@ export const makeMoveFinished = makeActionCreator(MAKE_MOVE_FINISHED, 'gameState
 export const undoMove = makeActionCreator(UNDO_MOVE);
 export const undoMoveFinished = makeActionCreator(UNDO_MOVE_FINISHED);
 export const setGameSpeed = makeActionCreator(SET_GAME_SPEED, 'gameSpeed');
+export const setFastMode = makeActionCreator(SET_FAST_MODE, 'fastMode');
 
 export const previewLevel = () => (dispatch, getState) => {
   const { tiles } = getState().levelEditor;

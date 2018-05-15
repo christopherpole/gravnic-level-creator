@@ -1,8 +1,15 @@
 import { MOVE_LEFT, ENTITIES, changeGravityDirection } from 'gravnic-game';
 import { delay } from 'redux-saga';
 import { call, select, put } from 'redux-saga/effects';
+import { DEFAULT_GAME_SPEED, FADING_GAME_SPEED } from 'config/settings';
 
-import { MAKE_MOVE, setGameState, makeMoveFinished, undoMoveFinished } from './actions';
+import {
+  MAKE_MOVE,
+  setGameState,
+  makeMoveFinished,
+  undoMoveFinished,
+  setGameSpeed,
+} from './actions';
 import { makeMoveSaga, undoMoveSaga } from './sagas';
 
 describe('The level preview sagas', () => {
@@ -16,28 +23,17 @@ describe('The level preview sagas', () => {
       const gameState = [
         [
           {
-            staticEntity: {
-              id: 1,
-              entityId: ENTITIES.FLOOR,
-            },
-            movableEntity: null,
+            staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
+            movableEntity: { id: 1, entityId: ENTITIES.BLOCK },
+          },
+          { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+          {
+            staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
+            movableEntity: { id: 4, entityId: ENTITIES.BLOCK },
           },
           {
-            staticEntity: {
-              id: 2,
-              entityId: ENTITIES.FLOOR,
-            },
-            movableEntity: null,
-          },
-          {
-            staticEntity: {
-              id: 3,
-              entityId: ENTITIES.FLOOR,
-            },
-            movableEntity: {
-              id: 4,
-              entityId: ENTITIES.BLOCK,
-            },
+            staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
+            movableEntity: { id: 6, entityId: ENTITIES.GLASS },
           },
         ],
       ];
@@ -45,7 +41,7 @@ describe('The level preview sagas', () => {
       const state = {
         levelPreview: {
           gameState: JSON.parse(JSON.stringify(gameState)),
-          gameSpeed: 100,
+          gameSpeed: DEFAULT_GAME_SPEED,
         },
       };
 
@@ -66,15 +62,55 @@ describe('The level preview sagas', () => {
       expect(step.done).toBe(false);
       expect(step.value).toEqual(call(delay, state.levelPreview.gameSpeed));
 
+      //  The next action should be setting the game speed
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(setGameSpeed(FADING_GAME_SPEED)));
+
       //  The next action should be the move in progress
-      step = generator.next(state);
+      step = generator.next();
       expect(step.done).toBe(false);
       expect(step.value).toEqual(put(setGameState(gameStates[1])));
 
       //  The next action should be the pause
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(call(delay, state.levelPreview.gameSpeed));
+      expect(step.value).toEqual(call(delay, FADING_GAME_SPEED));
+
+      //  The next action should be setting the game speed
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(setGameSpeed(DEFAULT_GAME_SPEED)));
+
+      //  The next action should be the move in progress
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(setGameState(gameStates[2])));
+
+      //  The next action should be the pause
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(call(delay, DEFAULT_GAME_SPEED));
+
+      //  The next action should be the move in progress
+      step = generator.next(state);
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(setGameState(gameStates[3])));
+
+      //  The next action should be the pause
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(call(delay, DEFAULT_GAME_SPEED));
+
+      //  The next action should be the move in progress
+      step = generator.next(state);
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(setGameState(gameStates[4])));
+
+      //  The next action should be the pause
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(call(delay, DEFAULT_GAME_SPEED));
 
       //  The entities stopped action should be called
       step = generator.next();

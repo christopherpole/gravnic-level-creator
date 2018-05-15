@@ -1,4 +1,6 @@
 import { MOVE_LEFT, MOVE_RIGHT, ENTITIES } from 'gravnic-game';
+
+import { FAST_GAME_MODIFIER } from 'config/settings';
 import reducer, { initialState } from './reducer';
 import {
   PREVIEW_LEVEL,
@@ -10,6 +12,7 @@ import {
   UNDO_MOVE,
   UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
+  SET_FAST_MODE,
 } from './actions';
 
 describe('The level editor reducer', () => {
@@ -240,7 +243,7 @@ describe('The level editor reducer', () => {
   });
 
   describe('SET_GAME_SPEED', () => {
-    it('Handles the action correctly', () => {
+    it('Handles the action correctly fast mode is not on', () => {
       expect(
         reducer(
           {
@@ -255,6 +258,68 @@ describe('The level editor reducer', () => {
       ).toEqual({
         ...initialState,
         gameSpeed: 200,
+      });
+    });
+
+    it('Handles the action correctly fast mode is on', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            gameSpeed: 100,
+            fastMode: true,
+          },
+          {
+            type: SET_GAME_SPEED,
+            gameSpeed: 200,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        fastMode: true,
+        gameSpeed: 200 * FAST_GAME_MODIFIER,
+      });
+    });
+  });
+
+  describe('SET_FAST_MODE', () => {
+    it('Handles the action correctly when setting fast mode to "true"', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            fastMode: false,
+            gameSpeed: 100,
+          },
+          {
+            type: SET_FAST_MODE,
+            fastMode: true,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        fastMode: true,
+        gameSpeed: 100 * FAST_GAME_MODIFIER,
+      });
+    });
+
+    it('Handles the action correctly when setting fast mode to "false"', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            fastMode: true,
+            gameSpeed: 200,
+          },
+          {
+            type: SET_FAST_MODE,
+            fastMode: false,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        fastMode: false,
+        gameSpeed: 200 / FAST_GAME_MODIFIER,
       });
     });
   });

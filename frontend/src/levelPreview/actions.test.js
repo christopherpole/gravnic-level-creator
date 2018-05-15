@@ -13,6 +13,7 @@ import {
   UNDO_MOVE,
   UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
+  SET_FAST_MODE,
   previewLevel,
   editLevel,
   restartLevel,
@@ -22,6 +23,7 @@ import {
   undoMove,
   undoMoveFinished,
   setGameSpeed,
+  setFastMode,
 } from './actions';
 
 describe('The level preview actions', () => {
@@ -128,6 +130,17 @@ describe('The level preview actions', () => {
       };
 
       expect(setGameSpeed(100)).toEqual(expectedAction);
+    });
+  });
+
+  describe('setFastMode()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: SET_FAST_MODE,
+        fastMode: true,
+      };
+
+      expect(setFastMode(true)).toEqual(expectedAction);
     });
   });
 });

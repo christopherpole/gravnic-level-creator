@@ -1,4 +1,4 @@
-import { GAME_SPEED_NORMAL } from 'config/settings';
+import { DEFAULT_GAME_SPEED, FAST_GAME_MODIFIER } from 'config/settings';
 
 import {
   PREVIEW_LEVEL,
@@ -10,6 +10,7 @@ import {
   UNDO_MOVE,
   UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
+  SET_FAST_MODE,
 } from './actions';
 
 export const initialState = {
@@ -19,7 +20,8 @@ export const initialState = {
   entitiesMoving: false,
   gameHistory: [],
   moveHistory: [],
-  gameSpeed: GAME_SPEED_NORMAL,
+  gameSpeed: DEFAULT_GAME_SPEED,
+  fastMode: false,
 };
 
 export default function levelPreviewReducer(state = initialState, action) {
@@ -104,9 +106,23 @@ export default function levelPreviewReducer(state = initialState, action) {
     }
 
     case SET_GAME_SPEED: {
+      const gameSpeed = state.fastMode ? action.gameSpeed * FAST_GAME_MODIFIER : action.gameSpeed;
+
       return {
         ...state,
-        gameSpeed: action.gameSpeed,
+        gameSpeed,
+      };
+    }
+
+    case SET_FAST_MODE: {
+      const gameSpeed = action.fastMode
+        ? state.gameSpeed * FAST_GAME_MODIFIER
+        : state.gameSpeed / FAST_GAME_MODIFIER;
+
+      return {
+        ...state,
+        fastMode: action.fastMode,
+        gameSpeed,
       };
     }
 

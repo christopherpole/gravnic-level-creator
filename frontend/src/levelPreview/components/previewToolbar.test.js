@@ -4,7 +4,6 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
-import { GAME_SPEED_NORMAL, GAME_SPEED_FAST } from 'config/settings';
 import { PreviewToolbar } from './previewToolbar';
 
 configure({ adapter: new Adapter() });
@@ -17,12 +16,12 @@ describe('<PreviewToolbar />', () => {
       editLevelAction: () => {},
       restartLevelAction: () => {},
       undoMoveAction: () => {},
-      setGameSpeedAction: () => {},
+      setFastModeAction: () => {},
       buttonDisabledStates: {
         btnRestart: false,
         btnUndo: false,
       },
-      gameSpeed: GAME_SPEED_NORMAL,
+      fastMode: false,
     };
   });
 
@@ -42,12 +41,6 @@ describe('<PreviewToolbar />', () => {
     const previewToolbar = shallow(
       <PreviewToolbar {...props} buttonDisabledStates={{ btnRestart: true, btnUndo: true }} />,
     );
-
-    expect(toJson(previewToolbar)).toMatchSnapshot();
-  });
-
-  it('Matches the current snapshot when the game speed is fast', () => {
-    const previewToolbar = shallow(<PreviewToolbar {...props} gameSpeed={GAME_SPEED_FAST} />);
 
     expect(toJson(previewToolbar)).toMatchSnapshot();
   });
@@ -84,35 +77,33 @@ describe('<PreviewToolbar />', () => {
     expect(undoMoveSpy.calledOnce).toBe(true);
   });
 
-  it('Fires the "setGameSpeedAction" action with the fast speed when the set game speed button is clicked', () => {
-    const setGameSpeedSpy = spy();
+  it('Fires the "setFastModeAction" action with the fast speed when the set game speed button is clicked', () => {
+    const setFastModeSpy = spy();
     const previewToolbar = shallow(
-      <PreviewToolbar {...props} setGameSpeedAction={setGameSpeedSpy} />,
+      <PreviewToolbar {...props} setFastModeAction={setFastModeSpy} />,
     );
-    const btnSetGameSpeed = previewToolbar.find('#btn-set-game-speed');
+    const btnSetFastMode = previewToolbar.find('#btn-set-fast-mode');
 
     //  Initial state is normal speed, sets fast speed when clicking the first time
-    expect(setGameSpeedSpy.calledOnce).toBe(false);
-    btnSetGameSpeed.simulate('click');
-    expect(setGameSpeedSpy.calledOnce).toBe(true);
-    expect(setGameSpeedSpy.calledWith(GAME_SPEED_FAST)).toBe(true);
+    expect(setFastModeSpy.calledOnce).toBe(false);
+    btnSetFastMode.simulate('click');
+    expect(setFastModeSpy.calledOnce).toBe(true);
+    expect(setFastModeSpy.calledWith(true)).toBe(true);
+    expect(toJson(previewToolbar)).toMatchSnapshot();
   });
 
-  it('Fires the "setGameSpeedAction" action with the normal speed when the set game speed button is clicked', () => {
-    const setGameSpeedSpy = spy();
+  it('Fires the "setFastModeAction" action with the normal speed when the set game speed button is clicked again', () => {
+    const setFastModeSpy = spy();
     const previewToolbar = shallow(
-      <PreviewToolbar
-        {...props}
-        setGameSpeedAction={setGameSpeedSpy}
-        gameSpeed={GAME_SPEED_FAST}
-      />,
+      <PreviewToolbar {...props} fastMode setFastModeAction={setFastModeSpy} />,
     );
-    const btnSetGameSpeed = previewToolbar.find('#btn-set-game-speed');
+    const btnSetFastMode = previewToolbar.find('#btn-set-fast-mode');
 
-    //  Initial state is normal speed, sets fast speed when clicking the first time
-    expect(setGameSpeedSpy.calledOnce).toBe(false);
-    btnSetGameSpeed.simulate('click');
-    expect(setGameSpeedSpy.calledOnce).toBe(true);
-    expect(setGameSpeedSpy.calledWith(GAME_SPEED_NORMAL)).toBe(true);
+    //  Initial state is fast speed, sets normal speed when clicking the second time
+    expect(setFastModeSpy.calledOnce).toBe(false);
+    btnSetFastMode.simulate('click');
+    expect(setFastModeSpy.calledOnce).toBe(true);
+    expect(setFastModeSpy.calledWith(false)).toBe(true);
+    expect(toJson(previewToolbar)).toMatchSnapshot();
   });
 });
