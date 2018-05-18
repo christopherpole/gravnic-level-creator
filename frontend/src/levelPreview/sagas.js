@@ -2,7 +2,12 @@ import { changeGravityDirection } from 'gravnic-game';
 import { delay } from 'redux-saga';
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 
-import { DEFAULT_GAME_SPEED, FADING_GAME_SPEED, FAST_GAME_MODIFIER } from 'config/settings';
+import {
+  DEFAULT_GAME_SPEED,
+  FADING_GAME_SPEED,
+  FAST_GAME_MODIFIER,
+  UNDOING_GAME_SPEED,
+} from 'config/settings';
 import {
   MAKE_MOVE,
   UNDO_MOVE,
@@ -14,6 +19,7 @@ import {
 
 //  @TODO: the solution for checking for fading elements isn't great. Should consider
 //  associating this with each game state from gravnic game via meta data
+//  @TODO: remove all of this in favour of the web animation API
 export function* makeMoveSaga(action) {
   const state = yield select();
   const { gameState, fastMode } = state.levelPreview;
@@ -56,13 +62,17 @@ export function* makeMoveSaga(action) {
 
 export function* undoMoveSaga() {
   const state = yield select();
-  const { gameSpeed } = state.levelPreview;
+  const { fastMode } = state.levelPreview;
   const gameStates = state.levelPreview.gameHistory[state.levelPreview.gameHistory.length - 1];
+
+  yield put(setGameSpeed(UNDOING_GAME_SPEED));
 
   for (let i = gameStates.length - 1; i >= 0; i--) {
     yield put(setGameState(gameStates[i]));
-    yield call(delay, gameSpeed);
+    yield call(delay, fastMode ? UNDOING_GAME_SPEED * FAST_GAME_MODIFIER : UNDOING_GAME_SPEED);
   }
+
+  yield put(setGameSpeed(DEFAULT_GAME_SPEED));
 
   yield put(undoMoveFinished());
 }

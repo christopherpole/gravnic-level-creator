@@ -1,7 +1,7 @@
 import { MOVE_LEFT, ENTITIES, changeGravityDirection } from 'gravnic-game';
 import { delay } from 'redux-saga';
 import { call, select, put } from 'redux-saga/effects';
-import { DEFAULT_GAME_SPEED, FADING_GAME_SPEED } from 'config/settings';
+import { DEFAULT_GAME_SPEED, FADING_GAME_SPEED, UNDOING_GAME_SPEED } from 'config/settings';
 
 import {
   MAKE_MOVE,
@@ -130,7 +130,7 @@ describe('The level preview sagas', () => {
       const state = {
         levelPreview: {
           gameHistory: [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[10, 11, 12], [13, 14, 15]]],
-          gameSpeed: 500,
+          fastMode: false,
         },
       };
 
@@ -139,15 +139,20 @@ describe('The level preview sagas', () => {
       expect(step.done).toBe(false);
       expect(step.value).toEqual(select());
 
-      //  The next action should be a move step
+      //  The next action should be setting the game speed
       step = generator.next(state);
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(setGameSpeed(UNDOING_GAME_SPEED)));
+
+      //  The next action should be a move step
+      step = generator.next();
       expect(step.done).toBe(false);
       expect(step.value).toEqual(put(setGameState([13, 14, 15])));
 
       //  The next action should be the pause
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(call(delay, state.levelPreview.gameSpeed));
+      expect(step.value).toEqual(call(delay, UNDOING_GAME_SPEED));
 
       //  The next action should be another move step
       step = generator.next(state);
@@ -157,7 +162,12 @@ describe('The level preview sagas', () => {
       //  The next action should be the pause
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(call(delay, state.levelPreview.gameSpeed));
+      expect(step.value).toEqual(call(delay, UNDOING_GAME_SPEED));
+
+      //  The next action should be setting the game speed
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(setGameSpeed(DEFAULT_GAME_SPEED)));
 
       //  The undo move finished action should be called
       step = generator.next();
