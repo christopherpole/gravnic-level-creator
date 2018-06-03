@@ -33,7 +33,5 @@ describe('<LevelPreview />', () => {
     expect(toJson(gameArea)).toMatchSnapshot();
   });
 
-  it(
-    'Calls the make move action when the user presses the arrow keys on the keyboard and if a move is not taking place',
-  );
+  it('Calls the make move action when the user presses the arrow keys on the keyboard');
 });

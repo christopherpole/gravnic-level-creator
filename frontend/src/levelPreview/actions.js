@@ -14,12 +14,24 @@ export const SET_FAST_MODE = 'SET_FAST_MODE';
 export const editLevel = makeActionCreator(EDIT_LEVEL);
 export const restartLevel = makeActionCreator(RESTART_LEVEL);
 export const setGameState = makeActionCreator(SET_GAME_STATE, 'gameState');
-export const makeMove = makeActionCreator(MAKE_MOVE, 'direction');
 export const makeMoveFinished = makeActionCreator(MAKE_MOVE_FINISHED, 'gameStates');
 export const undoMove = makeActionCreator(UNDO_MOVE);
 export const undoMoveFinished = makeActionCreator(UNDO_MOVE_FINISHED);
 export const setGameSpeed = makeActionCreator(SET_GAME_SPEED, 'gameSpeed');
 export const setFastMode = makeActionCreator(SET_FAST_MODE, 'fastMode');
+
+export const makeMove = direction => (dispatch, getState) => {
+  const { entitiesMoving, gravityDirection } = getState().levelPreview;
+
+  //  Don't create the action if entities are moving or the gravity is
+  //  already going in the given direction
+  if (entitiesMoving || direction === gravityDirection) return;
+
+  dispatch({
+    type: MAKE_MOVE,
+    direction,
+  });
+};
 
 export const previewLevel = () => (dispatch, getState) => {
   const { tiles } = getState().levelEditor;

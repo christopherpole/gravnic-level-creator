@@ -122,6 +122,7 @@ describe('The level editor reducer', () => {
             ...initialState,
             gameState: testGameState,
             moveHistory: [MOVE_RIGHT],
+            gravityDirection: MOVE_RIGHT,
           },
           {
             type: MAKE_MOVE,

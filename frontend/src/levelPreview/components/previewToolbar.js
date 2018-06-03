@@ -72,7 +72,7 @@ export const PreviewToolbar = ({
       </ActionContainer>
       <ActionContainer>
         <Button
-          id="btn-set-fast-mode"
+          id="btn-set-game-speed"
           onClick={() => {
             setFastModeAction(!fastMode);
           }}

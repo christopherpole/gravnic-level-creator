@@ -1,5 +1,5 @@
 import { spy } from 'sinon';
-import { MOVE_LEFT } from 'gravnic-game';
+import { MOVE_LEFT, MOVE_RIGHT } from 'gravnic-game';
 import { convertEditorTilesToGameState } from 'utils';
 import testLevels from 'data/testLevels';
 
@@ -81,13 +81,54 @@ describe('The level preview actions', () => {
   });
 
   describe('makeMove()', () => {
-    it('Creates the correct action', () => {
-      const expectedAction = {
-        type: MAKE_MOVE,
-        direction: MOVE_LEFT,
-      };
+    it('Creates the correct action if the move if valid', () => {
+      const fn = makeMove(MOVE_LEFT);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelPreview: {
+          entitiesMoving: false,
+          gravityDirection: MOVE_RIGHT,
+        },
+      });
 
-      expect(makeMove(MOVE_LEFT)).toEqual(expectedAction);
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: MAKE_MOVE,
+          direction: MOVE_LEFT,
+        }),
+      ).toBe(true);
+    });
+
+    it("Doesn't create the action if entities are moving", () => {
+      const fn = makeMove(MOVE_LEFT);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelPreview: {
+          entitiesMoving: true,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
+    });
+
+    it("Doesn't create the action if current gravity direction equals the given direction", () => {
+      const fn = makeMove(MOVE_LEFT);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelPreview: {
+          entitiesMoving: false,
+          gravityDirection: MOVE_LEFT,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
     });
   });
 

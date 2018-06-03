@@ -170,6 +170,22 @@ describe('The level preview', () => {
     done();
   });
 
+  it("Doesn't allow the user to move in the same direction twice", async done => {
+    //  Use the keyboard to move the block left
+    await page.keyboard.down('ArrowRight');
+
+    //  The "undo" and "restart" buttons shouldn't be disabled
+    expect(await isDisplayed(page, '#btn-restart:not(:disabled)')).toBe(true);
+    expect(await isDisplayed(page, '#btn-undo:not(:disabled)')).toBe(true);
+
+    //  Check the moves made counter
+    expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
+      'Moves made: 2',
+    );
+
+    done();
+  });
+
   //  @FIXME - brittle af
   it('Allows the user to undo moves', async done => {
     //  Undo the last move

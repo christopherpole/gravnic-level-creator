@@ -35,7 +35,7 @@ exports[`<PreviewToolbar /> Fires the "setFastModeAction" action with the fast s
     <styled.li>
       <Button
         disabled={false}
-        id="btn-set-fast-mode"
+        id="btn-set-game-speed"
         onClick={[Function]}
       >
         Speed: 
@@ -81,7 +81,7 @@ exports[`<PreviewToolbar /> Fires the "setFastModeAction" action with the normal
     <styled.li>
       <Button
         disabled={false}
-        id="btn-set-fast-mode"
+        id="btn-set-game-speed"
         onClick={[Function]}
       >
         Speed: 
@@ -127,7 +127,7 @@ exports[`<PreviewToolbar /> Matches the current snapshot 1`] = `
     <styled.li>
       <Button
         disabled={false}
-        id="btn-set-fast-mode"
+        id="btn-set-game-speed"
         onClick={[Function]}
       >
         Speed: 
@@ -173,7 +173,7 @@ exports[`<PreviewToolbar /> Matches the current snapshot when buttons are disabl
     <styled.li>
       <Button
         disabled={false}
-        id="btn-set-fast-mode"
+        id="btn-set-game-speed"
         onClick={[Function]}
       >
         Speed: 

@@ -82,7 +82,7 @@ describe('<PreviewToolbar />', () => {
     const previewToolbar = shallow(
       <PreviewToolbar {...props} setFastModeAction={setFastModeSpy} />,
     );
-    const btnSetFastMode = previewToolbar.find('#btn-set-fast-mode');
+    const btnSetFastMode = previewToolbar.find('#btn-set-game-speed');
 
     //  Initial state is normal speed, sets fast speed when clicking the first time
     expect(setFastModeSpy.calledOnce).toBe(false);
@@ -97,7 +97,7 @@ describe('<PreviewToolbar />', () => {
     const previewToolbar = shallow(
       <PreviewToolbar {...props} fastMode setFastModeAction={setFastModeSpy} />,
     );
-    const btnSetFastMode = previewToolbar.find('#btn-set-fast-mode');
+    const btnSetFastMode = previewToolbar.find('#btn-set-game-speed');
 
     //  Initial state is fast speed, sets normal speed when clicking the second time
     expect(setFastModeSpy.calledOnce).toBe(false);

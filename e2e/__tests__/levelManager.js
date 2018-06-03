@@ -137,7 +137,7 @@ describe('The level manager', () => {
 
   it("Should enable the save/load buttons if the editor grid differs from the selected level's tiles", async done => {
     //  Change the editor grid a bit and check if the buttons are enabled
-    await page.click('#tile-selector .tile:nth-child(3)');
+    await page.click('#tile-selector .tile:nth-child(4)');
     await page.click('#editor-grid .tile:nth-child(50)');
 
     expect(await isDisplayed(page, '#btn-load:not(:disabled)')).toBe(true);
@@ -171,7 +171,7 @@ describe('The level manager', () => {
 
   it('Should let the user save the selected level', async done => {
     //  Change the editor grid a bit
-    await page.click('#tile-selector .tile:nth-child(3)');
+    await page.click('#tile-selector .tile:nth-child(4)');
     await page.click('#editor-grid .tile:nth-child(50)');
 
     //  Change the stars too
