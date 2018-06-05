@@ -224,4 +224,9 @@ const mapDispatchToProps = dispatch => ({
   finishRenameLevelAction: bindActionCreators(finishRenameLevel, dispatch),
 });
 
-export default SortableElement(connect(null, mapDispatchToProps)(Level));
+export default SortableElement(
+  connect(
+    null,
+    mapDispatchToProps,
+  )(Level),
+);

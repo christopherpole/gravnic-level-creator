@@ -152,4 +152,7 @@ const mapDispatchToProps = dispatch => ({
   finishRenameLevelAction: bindActionCreators(finishRenameLevel, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManagerActions);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ManagerActions);

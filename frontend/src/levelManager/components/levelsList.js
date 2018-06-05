@@ -123,4 +123,7 @@ const mapDispatchToProps = dispatch => ({
   reorderLevelsAction: bindActionCreators(reorderLevels, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LevelsList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(LevelsList);

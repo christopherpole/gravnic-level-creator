@@ -105,4 +105,7 @@ const mapDispatchToProps = dispatch => ({
   setFastModeAction: bindActionCreators(setFastMode, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PreviewToolbar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PreviewToolbar);

@@ -86,4 +86,7 @@ const mapDispatchToProps = dispatch => ({
   selectTileAction: bindActionCreators(selectTile, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TileSelector);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TileSelector);

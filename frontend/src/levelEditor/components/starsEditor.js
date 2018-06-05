@@ -143,4 +143,7 @@ const mapDispatchToProps = dispatch => ({
   setStarsAction: bindActionCreators(setStars, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(StarsEditor);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(StarsEditor);

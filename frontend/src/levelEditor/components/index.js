@@ -104,4 +104,7 @@ const mapDispatchToProps = dispatch => ({
   stopDragAction: bindActionCreators(stopDrag, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LevelEditor);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(LevelEditor);
