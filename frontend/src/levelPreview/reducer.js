@@ -22,19 +22,20 @@ export const initialState = {
   moveHistory: [],
   gameSpeed: DEFAULT_GAME_SPEED,
   fastMode: false,
+  levelComplete: false,
 };
 
 export default function levelPreviewReducer(state = initialState, action) {
   switch (action.type) {
     case PREVIEW_LEVEL: {
       return {
-        ...state,
+        ...initialState,
         previewing: true,
         gameState: action.gameState,
         gameHistory: [[action.gameState]],
         moveHistory: [],
-        entitiesMoving: false,
-        gravityDirection: null,
+        gameSpeed: state.gameSpeed,
+        fastMode: state.fastMode,
       };
     }
 
@@ -75,17 +76,18 @@ export default function levelPreviewReducer(state = initialState, action) {
         ...state,
         entitiesMoving: false,
         gameHistory: newGameHistory,
+        levelComplete: action.levelComplete,
       };
     }
 
     case RESTART_LEVEL: {
       return {
-        ...state,
-        entitiesMoving: false,
+        ...initialState,
         gameHistory: [[...state.gameHistory[0]]],
-        gravityDirection: null,
         gameState: [...state.gameHistory[0][0]],
-        moveHistory: [],
+        gameSpeed: state.gameSpeed,
+        fastMode: state.fastMode,
+        previewing: true,
       };
     }
 
@@ -93,6 +95,9 @@ export default function levelPreviewReducer(state = initialState, action) {
       return {
         ...state,
         entitiesMoving: true,
+        levelComplete: false,
+        gravityDirection:
+          state.moveHistory.length > 1 ? state.moveHistory[state.moveHistory.length - 2] : null,
         moveHistory: state.moveHistory.slice(0, state.moveHistory.length - 1),
       };
     }

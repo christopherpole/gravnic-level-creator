@@ -130,6 +130,20 @@ describe('The level preview actions', () => {
       fn(dispatchSpy, getState);
       expect(dispatchSpy.called).toBe(false);
     });
+
+    it("Doesn't create the action if the level is complete", () => {
+      const fn = makeMove(MOVE_LEFT);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelPreview: {
+          levelComplete: true,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
+    });
   });
 
   describe('makeMoveFinished()', () => {
@@ -137,9 +151,10 @@ describe('The level preview actions', () => {
       const expectedAction = {
         type: MAKE_MOVE_FINISHED,
         gameStates: [1, 2, 3],
+        levelComplete: true,
       };
 
-      expect(makeMoveFinished([1, 2, 3])).toEqual(expectedAction);
+      expect(makeMoveFinished([1, 2, 3], true)).toEqual(expectedAction);
     });
   });
 

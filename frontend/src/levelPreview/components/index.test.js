@@ -18,6 +18,7 @@ describe('<LevelPreview />', () => {
       },
       makeMoveAction: () => {},
       entitiesMoving: false,
+      levelComplete: false,
     };
   });
 
@@ -27,8 +28,14 @@ describe('<LevelPreview />', () => {
     expect(gameArea).toHaveLength(1);
   });
 
-  it('Matches the current snapshot', () => {
+  it("Matches the current snapshot if the level isn't complete", () => {
     const gameArea = shallow(<LevelPreview {...props} />);
+
+    expect(toJson(gameArea)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot if the level is complete', () => {
+    const gameArea = shallow(<LevelPreview {...props} levelComplete />);
 
     expect(toJson(gameArea)).toMatchSnapshot();
   });

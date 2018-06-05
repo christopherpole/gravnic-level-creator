@@ -12,7 +12,7 @@ import {
 
 dovenv.config();
 
-const debugMode = false;
+const debugMode = true;
 const moveSleepDuration = debugMode ? 1000 : 500;
 
 //  Set the timeout. Good for when using slowMo for debugging
@@ -61,7 +61,7 @@ describe('The level preview', () => {
     await page.click('#editor-grid .tile:nth-child(54)');
     await page.click('#editor-grid .tile:nth-child(55)');
     await page.click('#editor-grid .tile:nth-child(56)');
-    await page.click('#tile-selector .tile:nth-child(3)');
+    await page.click('#tile-selector .tile:nth-child(4)');
     await page.click('#editor-grid .tile:nth-child(57)');
 
     //  Click the preview button
@@ -395,6 +395,52 @@ describe('The level preview', () => {
     await page.click('#btn-edit');
     await page.click('#btn-preview');
     expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+
+    done();
+  });
+
+  it('Should display a "level complete" overlay when the level is complete', async done => {
+    //  Go to the edit screen and add another block
+    await page.click('#btn-edit');
+    await page.click('#editor-grid .tile:nth-child(54)');
+
+    //  Go to the level preview and complete the level
+    await page.click('#btn-preview');
+    await page.keyboard.down('ArrowLeft');
+    await sleep(moveSleepDuration);
+
+    //  Snapshot the entities state
+    expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
+
+    //  Ensure that the level complete overlay is showing
+    expect(await isDisplayed(page, '#level-complete-overlay')).toBe(true);
+
+    //  No moves should be able to be made when the overlay is showing
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(1);
+    await page.keyboard.down('ArrowLeft');
+    await sleep(moveSleepDuration);
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(1);
+    expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
+
+    //  The overlay should disappear on clicking "undo"
+    expect(await isDisplayed(page, '#level-complete-overlay')).toBe(true);
+    await page.click('#btn-undo');
+    expect(await isDisplayed(page, '#level-complete-overlay')).toBe(false);
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    await sleep(moveSleepDuration);
+    expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
+
+    //  Show the overlay again
+    await page.keyboard.down('ArrowLeft');
+    await sleep(moveSleepDuration);
+
+    //  The overlay should disappear on clicking "reset"
+    expect(await isDisplayed(page, '#level-complete-overlay')).toBe(true);
+    await page.click('#btn-restart');
+    expect(await isDisplayed(page, '#level-complete-overlay')).toBe(false);
+    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    await sleep(moveSleepDuration);
+    expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
 
     done();
   });

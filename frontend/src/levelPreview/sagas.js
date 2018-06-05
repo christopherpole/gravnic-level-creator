@@ -1,4 +1,4 @@
-import { changeGravityDirection } from 'gravnic-game';
+import { changeGravityDirection, levelIsComplete } from 'gravnic-game';
 import { delay } from 'redux-saga';
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 
@@ -27,6 +27,7 @@ export function* makeMoveSaga(action) {
   let { gameSpeed } = state.levelPreview;
   let fadingSpeed = false;
   let fading = false;
+  let levelComplete = false;
 
   for (let i = 0; i < gameStates.length; i++) {
     //  Check the gamestate for fading entities
@@ -57,7 +58,11 @@ export function* makeMoveSaga(action) {
     yield call(delay, gameSpeed);
   }
 
-  yield put(makeMoveFinished(gameStates));
+  if (gameStates.length) {
+    levelComplete = levelIsComplete(gameStates[gameStates.length - 1]);
+  }
+
+  yield put(makeMoveFinished(gameStates, levelComplete));
 }
 
 export function* undoMoveSaga() {

@@ -115,7 +115,7 @@ describe('The level preview sagas', () => {
       //  The entities stopped action should be called
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(makeMoveFinished(gameStates)));
+      expect(step.value).toEqual(put(makeMoveFinished(gameStates, true)));
 
       //  Finish
       step = generator.next();
