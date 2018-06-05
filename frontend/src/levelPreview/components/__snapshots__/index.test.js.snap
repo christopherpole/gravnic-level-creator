@@ -13,7 +13,9 @@ exports[`<LevelPreview /> Matches the current snapshot if the level is complete 
       yPos={10}
     />
   </styled.div>
-  <styled.div>
+  <styled.div
+    id="level-complete-overlay"
+  >
     <p>
       Level Complete!
     </p>
