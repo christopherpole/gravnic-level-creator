@@ -34,16 +34,56 @@ export default [
     id: '5',
     entity: {
       entityId: ENTITIES.BLOCK,
-      color: '#00ff00',
+      color: '#FF8C00',
     },
-    name: 'Green block',
+    name: 'Orange block',
   },
   {
     id: '6',
     entity: {
       entityId: ENTITIES.BLOCK,
-      color: '#0000ff',
+      color: '#FFFF00',
+    },
+    name: 'Yellow block',
+  },
+  {
+    id: '7',
+    entity: {
+      entityId: ENTITIES.BLOCK,
+      color: '#008000',
+    },
+    name: 'Green block',
+  },
+  {
+    id: '8',
+    entity: {
+      entityId: ENTITIES.BLOCK,
+      color: '#0000FF',
     },
     name: 'Blue block',
+  },
+  {
+    id: '9',
+    entity: {
+      entityId: ENTITIES.BLOCK,
+      color: '#800080',
+    },
+    name: 'Purple block',
+  },
+  {
+    id: '10',
+    entity: {
+      entityId: ENTITIES.BLOCK,
+      color: '#8B4513',
+    },
+    name: 'Brown block',
+  },
+  {
+    id: '11',
+    entity: {
+      entityId: ENTITIES.BLOCK,
+      color: '#FFE4E1',
+    },
+    name: 'Pink block',
   },
 ];
