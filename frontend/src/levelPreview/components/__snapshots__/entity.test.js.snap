@@ -10,8 +10,9 @@ exports[`<Entity /> Matches the current snapshot 1`] = `
   xPos={10}
   yPos={20}
 >
-  <Tile
-    tileId="BLOCK"
+  <styled.div
+    color={null}
+    entityId="BLOCK"
   />
 </styled.div>
 `;

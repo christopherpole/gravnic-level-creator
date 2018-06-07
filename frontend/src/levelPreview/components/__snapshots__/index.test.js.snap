@@ -6,7 +6,9 @@ exports[`<LevelPreview /> Matches the current snapshot if the level is complete 
 >
   <styled.div>
     <Connect(Component)
+      color="#ff0000"
       entityId="BLOCK"
+      id={123}
       isMovableEntity={true}
       key="1"
       xPos={10}
@@ -29,7 +31,9 @@ exports[`<LevelPreview /> Matches the current snapshot if the level isn't comple
 >
   <styled.div>
     <Connect(Component)
+      color="#ff0000"
       entityId="BLOCK"
+      id={123}
       isMovableEntity={true}
       key="1"
       xPos={10}

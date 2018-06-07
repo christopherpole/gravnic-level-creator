@@ -2,19 +2,48 @@ import { ENTITIES } from 'gravnic-game';
 
 export default [
   {
-    id: ENTITIES.NONE,
+    id: '1',
+    entity: {
+      entityId: ENTITIES.NONE,
+    },
     name: 'Empty',
   },
   {
-    id: ENTITIES.FLOOR,
+    id: '2',
+    entity: {
+      entityId: ENTITIES.FLOOR,
+    },
     name: 'Floor',
   },
   {
-    id: ENTITIES.GLASS,
-    name: 'Glass Block',
+    id: '3',
+    entity: {
+      entityId: ENTITIES.GLASS,
+    },
+    name: 'Glass',
   },
   {
-    id: ENTITIES.BLOCK,
-    name: 'Colored Block',
+    id: '4',
+    entity: {
+      entityId: ENTITIES.BLOCK,
+      color: '#ff0000',
+    },
+    name: 'Red block',
+  },
+  {
+    id: '5',
+    entity: {
+      entityId: ENTITIES.BLOCK,
+      color: '#00ff00',
+    },
+    name: 'Green block',
+  },
+  {
+    id: '6',
+    entity: {
+      entityId: ENTITIES.BLOCK,
+      color: '#0000ff',
+    },
+    name: 'Blue block',
   },
 ];

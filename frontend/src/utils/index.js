@@ -13,7 +13,7 @@ export const createNewLevel = pos => ({
   name: 'New level',
   tiles: [...Array(GRID_SIZE * GRID_SIZE)].map((_, index) => ({
     position: index,
-    selectedTileId: ENTITIES.NONE,
+    selectedTileId: '1',
   })),
   stars: [MIN_MOVES, MIN_MOVES + 1, MIN_MOVES + 2],
   position: pos,
@@ -40,23 +40,25 @@ export function makeActionCreator(type, ...argNames) {
 /**
  * Converts the editor tile data into a Gravnic game state
  * @param {Object[]} tileData - An array of the basic tile data
+ * @param {Object[]} availableTiles - An array of available tiles to match the tile IDs against
  * @returns {Object[]} The computed Gravnic game state
  */
-export function convertEditorTilesToGameState(tileData) {
+export function convertEditorTilesToGameState(tileData, availableTiles) {
   const gridSize = Math.round(Math.sqrt(tileData.length));
   const gameState = [];
   let currentIdCount = 1;
   let entityRow;
-  let entityId;
+  let entityData;
   let staticEntity;
   let movableEntity;
   let i;
   let j;
+  const blankTileId = availableTiles.find(tile => tile.entity.entityId === ENTITIES.NONE).id;
 
   //  Get first row index with an entity
   let firstRowIndexWithEntity = -1;
   for (i = 0; i < tileData.length; i++) {
-    if (tileData[i].selectedTileId !== ENTITIES.NONE) {
+    if (tileData[i].selectedTileId !== blankTileId) {
       firstRowIndexWithEntity = Math.floor(i / 10);
       break;
     }
@@ -65,7 +67,7 @@ export function convertEditorTilesToGameState(tileData) {
   //  Get last row index with an entity
   let lastRowIndexWithEntity = -1;
   for (i = tileData.length - 1; i >= 0; i--) {
-    if (tileData[i].selectedTileId !== ENTITIES.NONE) {
+    if (tileData[i].selectedTileId !== blankTileId) {
       lastRowIndexWithEntity = Math.floor(i / 10);
       break;
     }
@@ -74,7 +76,7 @@ export function convertEditorTilesToGameState(tileData) {
   //  Get first column index with an entity
   let firstColumnIndexWithEntity = -1;
   for (i = 0; i < tileData.length; i++) {
-    if (tileData[(i % 10) * 10 + Math.floor(i / 10)].selectedTileId !== ENTITIES.NONE) {
+    if (tileData[(i % 10) * 10 + Math.floor(i / 10)].selectedTileId !== blankTileId) {
       firstColumnIndexWithEntity = ((i % 10) * 10 + Math.floor(i / 10)) % 10;
       break;
     }
@@ -83,11 +85,13 @@ export function convertEditorTilesToGameState(tileData) {
   //  Get last column index with an entity
   let lastColumnIndexWithEntity = -1;
   for (i = tileData.length - 1; i >= 0; i--) {
-    if (tileData[(i % 10) * 10 + Math.floor(i / 10)].selectedTileId !== ENTITIES.NONE) {
+    if (tileData[(i % 10) * 10 + Math.floor(i / 10)].selectedTileId !== blankTileId) {
       lastColumnIndexWithEntity = ((i % 10) * 10 + Math.floor(i / 10)) % 10;
       break;
     }
   }
+
+  const getEntityDataForTileId = tileId => availableTiles.find(tile => tile.id === tileId).entity;
 
   //  If there's no entities then jsut return en empty array
   if (firstRowIndexWithEntity === -1) return [];
@@ -98,21 +102,21 @@ export function convertEditorTilesToGameState(tileData) {
 
     //  For each of the non-blank columns...
     for (j = firstColumnIndexWithEntity; j <= lastColumnIndexWithEntity; j++) {
-      entityId = tileData[i * gridSize + j].selectedTileId;
+      entityData = getEntityDataForTileId(tileData[i * gridSize + j].selectedTileId);
       staticEntity = null;
       movableEntity = null;
 
       //  If the entity is a block then add it as the movable entity
-      if (entityId === ENTITIES.BLOCK || entityId === ENTITIES.GLASS) {
+      if (entityData.entityId === ENTITIES.BLOCK || entityData.entityId === ENTITIES.GLASS) {
         movableEntity = {
+          ...entityData,
           id: currentIdCount++,
-          entityId,
         };
       }
 
       //  If the entity is a floor then add it as the static entity, and if
       //  there is a movable entity on this tile then we'll need to add a floor too
-      if (entityId === ENTITIES.FLOOR || movableEntity) {
+      if (entityData.entityId === ENTITIES.FLOOR || movableEntity) {
         staticEntity = {
           id: currentIdCount++,
           entityId: ENTITIES.FLOOR,

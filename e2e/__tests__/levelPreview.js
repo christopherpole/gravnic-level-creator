@@ -12,11 +12,11 @@ import {
 
 dovenv.config();
 
-const debugMode = true;
-const moveSleepDuration = debugMode ? 1000 : 500;
+const debugMode = false;
+const moveSleepDuration = debugMode ? 1500 : 1000;
 
 //  Set the timeout. Good for when using slowMo for debugging
-jest.setTimeout(debugMode ? 10000 : 5000);
+jest.setTimeout(debugMode ? 15000 : 10000);
 
 describe('The level preview', () => {
   let browser;

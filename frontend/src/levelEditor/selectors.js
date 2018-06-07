@@ -37,5 +37,18 @@ export const getLevelEditorButtonDisabledStates = createSelector(
  */
 export const convertTileDataToGravnicGameStateString = createSelector(
   state => state.levelEditor,
-  levelEditor => JSON.stringify(convertEditorTilesToGameState(levelEditor.tiles)),
+  levelEditor =>
+    JSON.stringify(convertEditorTilesToGameState(levelEditor.tiles, levelEditor.availableTiles)),
+);
+
+/**
+ * Finds the entity from the available tiles that match the given tile id
+ * @param {Object} levelEditor - The state of the level editor
+ * @param {String} tileId - The ID of the tile to find
+ * @returns {Object} The entity data for the given tile ID
+ */
+export const getEntityForTileId = createSelector(
+  state => state.levelEditor,
+  (state, tileId) => tileId,
+  (levelEditor, tileId) => levelEditor.availableTiles.find(tile => tile.id === tileId).entity,
 );

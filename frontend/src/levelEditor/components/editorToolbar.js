@@ -87,4 +87,7 @@ const mapDispatchToProps = dispatch => ({
   previewLevelAction: bindActionCreators(previewLevel, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditorToolbar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(EditorToolbar);

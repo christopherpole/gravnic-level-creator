@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Tile from 'common/tile';
-import tiles from 'config/tiles';
 import { selectTile } from '../actions';
 
 export const Wrapper = styled.div`
@@ -50,10 +49,10 @@ export const TileWrapper = styled.div`
     `};
 `;
 
-export const TileSelector = ({ selectedTileId, selectTileAction }) => (
+export const TileSelector = ({ selectedTileId, selectTileAction, availableTiles }) => (
   <Wrapper id="tile-selector">
     <WrapperInner>
-      {tiles.map(tile => (
+      {availableTiles.map(tile => (
         <TileWrapper
           className="tile"
           isSelected={tile.id === selectedTileId}
@@ -62,7 +61,7 @@ export const TileSelector = ({ selectedTileId, selectTileAction }) => (
           }}
           key={tile.id}
         >
-          <Tile tileId={tile.id} isSelected={tile.id === selectedTileId} />
+          <Tile tileId={tile.id} />
         </TileWrapper>
       ))}
     </WrapperInner>
@@ -76,10 +75,12 @@ TileSelector.defaultProps = {
 TileSelector.propTypes = {
   selectedTileId: PropTypes.string,
   selectTileAction: PropTypes.func.isRequired,
+  availableTiles: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
   selectedTileId: state.levelEditor.selectedTileId,
+  availableTiles: state.levelEditor.availableTiles,
 });
 
 const mapDispatchToProps = dispatch => ({

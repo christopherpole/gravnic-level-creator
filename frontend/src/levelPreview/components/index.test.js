@@ -14,7 +14,14 @@ describe('<LevelPreview />', () => {
   beforeEach(() => {
     props = {
       entitiesData: {
-        1: { xPos: 10, yPos: 10, id: 123, entityId: ENTITIES.BLOCK, isMovableEntity: true },
+        1: {
+          xPos: 10,
+          yPos: 10,
+          id: 123,
+          color: '#ff0000',
+          entityId: ENTITIES.BLOCK,
+          isMovableEntity: true,
+        },
       },
       makeMoveAction: () => {},
       entitiesMoving: false,

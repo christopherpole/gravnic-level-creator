@@ -15,7 +15,7 @@ describe('getEntitiesData()', () => {
             { staticEntity: { id: 2, entityId: ENTITIES.FLOOR } },
             {
               staticEntity: { id: 3, entityId: ENTITIES.FLOOR },
-              movableEntity: { id: 4, entityId: ENTITIES.BLOCK, fading: true },
+              movableEntity: { id: 4, entityId: ENTITIES.BLOCK, color: '#ff0000', fading: true },
             },
             { staticEntity: { id: 5, entityId: ENTITIES.FLOOR } },
           ],
@@ -51,6 +51,7 @@ describe('getEntitiesData()', () => {
         xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 1) * GRID_SIZE,
         yPos: ((GRID_SIZE - state.levelPreview.gameState.length) / 2 + 1) * GRID_SIZE,
         fading: true,
+        color: '#ff0000',
         isMovableEntity: true,
       },
       '5': {

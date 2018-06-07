@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 import { ENTITIES } from 'gravnic-game';
 
-import tiles from 'config/tiles';
+import availableTiles from 'config/tiles';
 import { TileSelector, TileWrapper } from './tileSelector';
 
 configure({ adapter: new Adapter() });
@@ -13,6 +13,7 @@ configure({ adapter: new Adapter() });
 const props = {
   selectTileAction: () => {},
   selectedTileId: null,
+  availableTiles,
 };
 
 describe('<TileSelector />', () => {
@@ -41,6 +42,6 @@ describe('<TileSelector />', () => {
     tile.simulate('click');
 
     expect(tileClickSpy.calledOnce).toBe(true);
-    expect(tileClickSpy.calledWith(tiles[2].id)).toBe(true);
+    expect(tileClickSpy.calledWith(availableTiles[2].id)).toBe(true);
   });
 });

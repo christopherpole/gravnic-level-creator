@@ -16,21 +16,23 @@ export const getEntitiesData = createSelector(
       for (let j = 0; j < gameState[i].length; j++) {
         if (gameState[i][j].staticEntity) {
           entitiesData[gameState[i][j].staticEntity.id] = {
-            entityId: gameState[i][j].staticEntity.entityId,
+            ...gameState[i][j].staticEntity,
             isMovableEntity: false,
             xPos: ((GRID_SIZE - gameState[0].length) / 2 + j) * GRID_SIZE,
             yPos: ((GRID_SIZE - gameState.length) / 2 + i) * GRID_SIZE,
           };
+          delete entitiesData[gameState[i][j].staticEntity.id].id;
         }
 
         if (gameState[i][j].movableEntity) {
           entitiesData[gameState[i][j].movableEntity.id] = {
-            entityId: gameState[i][j].movableEntity.entityId,
+            ...gameState[i][j].movableEntity,
             fading: gameState[i][j].movableEntity.fading,
             isMovableEntity: true,
             xPos: ((GRID_SIZE - gameState[0].length) / 2 + j) * GRID_SIZE,
             yPos: ((GRID_SIZE - gameState.length) / 2 + i) * GRID_SIZE,
           };
+          delete entitiesData[gameState[i][j].movableEntity.id].id;
         }
       }
     }

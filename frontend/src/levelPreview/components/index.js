@@ -85,16 +85,7 @@ export class LevelPreview extends Component {
     return (
       <Wrapper id="level-preview">
         <EntitiesWrapper>
-          {Object.keys(entitiesData).map(key => (
-            <Entity
-              xPos={entitiesData[key].xPos}
-              yPos={entitiesData[key].yPos}
-              fading={entitiesData[key].fading}
-              key={key}
-              entityId={entitiesData[key].entityId}
-              isMovableEntity={entitiesData[key].isMovableEntity}
-            />
-          ))}
+          {Object.keys(entitiesData).map(key => <Entity key={key} {...entitiesData[key]} />)}
         </EntitiesWrapper>
 
         {levelComplete && (

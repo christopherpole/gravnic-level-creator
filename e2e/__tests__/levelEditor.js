@@ -24,8 +24,10 @@ describe('The level editor', () => {
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
       slowMo: debugMode ? 200 : 20,
     });
+
     page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 600, deviceScaleFactor: 1 });
+
     done();
   });
 

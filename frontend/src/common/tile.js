@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { ENTITIES } from 'gravnic-game';
+import { connect } from 'react-redux';
+
+import { getEntityForTileId } from 'levelEditor/selectors';
 
 export const Wrapper = styled.div`
   background: ${props => props.theme.backgroundColor};
@@ -12,38 +15,41 @@ export const Wrapper = styled.div`
   bottom: 0;
 
   ${props =>
-    props.tileId === ENTITIES.NONE &&
+    props.entityId === ENTITIES.NONE &&
     css`
       background: ${props.theme.backgroundColor};
     `}
 
   ${props =>
-    props.tileId === ENTITIES.FLOOR &&
+    props.entityId === ENTITIES.FLOOR &&
     css`
       background: white;
     `}
 
   ${props =>
-    props.tileId === ENTITIES.BLOCK &&
+    props.entityId === ENTITIES.BLOCK &&
     css`
-      background: red;
+      background: ${props.color};
     `}
 
   ${props =>
-    props.tileId === ENTITIES.GLASS &&
+    props.entityId === ENTITIES.GLASS &&
     css`
       background: #ccc;
     `}
 `;
 
-const Tile = ({ tileId }) => <Wrapper tileId={tileId} />;
-
-Tile.defaultProps = {
-  tileId: null,
-};
+export const Tile = ({ entity }) => <Wrapper entityId={entity.entityId} color={entity.color} />;
 
 Tile.propTypes = {
-  tileId: PropTypes.string,
+  entity: PropTypes.shape({
+    entityId: PropTypes.string.isRequired,
+    color: PropTypes.string,
+  }).isRequired,
 };
 
-export default Tile;
+const mapStateToProps = (state, props) => ({
+  entity: getEntityForTileId(state, props.tileId),
+});
+
+export default connect(mapStateToProps)(Tile);

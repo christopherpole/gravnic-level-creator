@@ -4,6 +4,7 @@ import { initialState as levelEditorInitialState } from './reducer';
 import {
   getLevelEditorButtonDisabledStates,
   convertTileDataToGravnicGameStateString,
+  getEntityForTileId,
 } from './selectors';
 
 describe('getLevelEditorButtonDisabledStates()', () => {
@@ -13,6 +14,7 @@ describe('getLevelEditorButtonDisabledStates()', () => {
     state = {
       levelEditor: {
         tiles: levelEditorInitialState.tiles,
+        availableTiles: levelEditorInitialState.availableTiles,
       },
     };
   });
@@ -36,6 +38,7 @@ describe('getLevelEditorButtonDisabledStates()', () => {
           },
           ...levelEditorInitialState.tiles.slice(1),
         ],
+        availableTiles: levelEditorInitialState.availableTiles,
       },
     });
 
@@ -52,6 +55,7 @@ describe('convertTileDataToGravnicGameStateString()', () => {
     state = {
       levelEditor: {
         tiles: testLevels[0],
+        availableTiles: levelEditorInitialState.availableTiles,
       },
     };
   });
@@ -60,7 +64,46 @@ describe('convertTileDataToGravnicGameStateString()', () => {
     const gameStateString = convertTileDataToGravnicGameStateString(state);
 
     expect(gameStateString).toBe(
-      JSON.stringify(convertEditorTilesToGameState(state.levelEditor.tiles)),
+      JSON.stringify(
+        convertEditorTilesToGameState(state.levelEditor.tiles, state.levelEditor.availableTiles),
+      ),
     );
+  });
+});
+
+describe('getEntityForTileId()', () => {
+  let state;
+
+  beforeEach(() => {
+    state = {
+      levelEditor: {
+        availableTiles: [
+          {
+            id: '1',
+            entity: {
+              entityId: 'NONE',
+            },
+          },
+          {
+            id: '2',
+            entity: {
+              entityId: 'FLOOR',
+            },
+          },
+          {
+            id: '3',
+            entity: {
+              entityId: 'BLOCK',
+            },
+          },
+        ],
+      },
+    };
+  });
+
+  it('Retrieves the correct entity data for the given tile ID', () => {
+    const entity = getEntityForTileId(state, state.levelEditor.availableTiles[1].id);
+
+    expect(entity).toBe(state.levelEditor.availableTiles[1].entity);
   });
 });

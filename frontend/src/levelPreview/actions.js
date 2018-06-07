@@ -38,8 +38,8 @@ export const makeMove = direction => (dispatch, getState) => {
 };
 
 export const previewLevel = () => (dispatch, getState) => {
-  const { tiles } = getState().levelEditor;
-  const gameState = convertEditorTilesToGameState(tiles);
+  const { tiles, availableTiles } = getState().levelEditor;
+  const gameState = convertEditorTilesToGameState(tiles, availableTiles);
 
   dispatch({
     type: PREVIEW_LEVEL,
