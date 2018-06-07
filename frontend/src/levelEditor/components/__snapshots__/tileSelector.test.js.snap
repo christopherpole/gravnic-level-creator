@@ -115,6 +115,16 @@ exports[`<TileSelector /> Matches the current snapshot 1`] = `
         tileId="11"
       />
     </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="12"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="12"
+      />
+    </styled.div>
   </styled.div>
 </styled.div>
 `;
@@ -232,6 +242,16 @@ exports[`<TileSelector /> Matches the current snapshot if a tile is selected 1`]
     >
       <Connect(Component)
         tileId="11"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="12"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="12"
       />
     </styled.div>
   </styled.div>

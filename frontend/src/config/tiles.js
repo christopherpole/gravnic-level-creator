@@ -86,4 +86,11 @@ export default [
     },
     name: 'Pink block',
   },
+  {
+    id: '12',
+    entity: {
+      entityId: ENTITIES.RAINBOW_BLOCK,
+    },
+    name: 'Rainbow block',
+  },
 ];

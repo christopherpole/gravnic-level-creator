@@ -37,6 +37,12 @@ export const Wrapper = styled.div`
     css`
       background: #ccc;
     `}
+
+  ${props =>
+    props.entityId === ENTITIES.RAINBOW_BLOCK &&
+    css`
+      background: linear-gradient(to bottom right, red, orange, yellow, green, cyan, blue, violet);
+    `}
 `;
 
 export const Tile = ({ entity }) => <Wrapper entityId={entity.entityId} color={entity.color} />;
