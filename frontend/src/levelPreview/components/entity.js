@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { GRID_SIZE } from 'config/settings';
-import Tile from 'common/tile';
+import { Wrapper as EntityWrapper } from 'common/tile';
 
 export const Wrapper = styled.div`
   height: ${props => props.heightPercentage}%;
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   z-index: ${props => (props.isMovableEntity ? 1 : 0)};
 `;
 
-export const Entity = ({ entityId, xPos, yPos, fading, gameSpeed, isMovableEntity }) => (
+export const Entity = ({ entityId, color, xPos, yPos, fading, gameSpeed, isMovableEntity }) => (
   <Wrapper
     xPos={xPos}
     yPos={yPos}
@@ -27,12 +27,13 @@ export const Entity = ({ entityId, xPos, yPos, fading, gameSpeed, isMovableEntit
     fading={fading}
     isMovableEntity={isMovableEntity}
   >
-    <Tile tileId={entityId} />
+    <EntityWrapper entityId={entityId} color={color} />
   </Wrapper>
 );
 
 Entity.defaultProps = {
   fading: false,
+  color: null,
 };
 
 Entity.propTypes = {
@@ -40,6 +41,7 @@ Entity.propTypes = {
   xPos: PropTypes.number.isRequired,
   yPos: PropTypes.number.isRequired,
   fading: PropTypes.bool,
+  color: PropTypes.string,
   gameSpeed: PropTypes.number.isRequired,
   isMovableEntity: PropTypes.bool.isRequired,
 };

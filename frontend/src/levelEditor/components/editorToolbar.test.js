@@ -14,11 +14,13 @@ describe('<EditorToolbar />', () => {
 
   beforeEach(() => {
     props = {
+      gameStateString: 'test',
       resetGridAction: () => {},
       previewLevelAction: () => {},
       buttonDisabledStates: {
         btnReset: true,
         btnPreview: true,
+        btnExport: true,
       },
     };
   });
@@ -37,7 +39,10 @@ describe('<EditorToolbar />', () => {
 
   it('Matches the current when the buttons are enabled', () => {
     const editorToolbar = shallow(
-      <EditorToolbar {...props} buttonDisabledStates={{ btnReset: false, btnPreview: false }} />,
+      <EditorToolbar
+        {...props}
+        buttonDisabledStates={{ btnReset: false, btnPreview: false, btnExport: false }}
+      />,
     );
 
     expect(toJson(editorToolbar)).toMatchSnapshot();
@@ -64,4 +69,6 @@ describe('<EditorToolbar />', () => {
     btnResetGrid.simulate('click');
     expect(resetGridSpy.calledOnce).toBe(true);
   });
+
+  it('Copies the game state to the clipboard after clicking the "export" button');
 });

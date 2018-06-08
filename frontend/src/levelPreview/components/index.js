@@ -15,7 +15,23 @@ export const Wrapper = styled.div`
   position: relative;
 `;
 
-export const WrapperInner = styled.div`
+export const LevelCompleteOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2em;
+  z-index: 1;
+`;
+
+export const EntitiesWrapper = styled.div`
   border: 1px solid ${props => props.theme.foregroundColor};
   position: absolute;
   top: 0;
@@ -26,11 +42,6 @@ export const WrapperInner = styled.div`
   align-items: center;
   justify-content: center;
   font-weight: bold;
-`;
-
-export const EntitiesWrapper = styled.div`
-  height: ${props => props.height};
-  width: ${props => props.width};
 `;
 
 export class LevelPreview extends Component {
@@ -69,22 +80,19 @@ export class LevelPreview extends Component {
   }
 
   render() {
-    const { entitiesData } = this.props;
+    const { entitiesData, levelComplete } = this.props;
 
     return (
       <Wrapper id="level-preview">
-        <WrapperInner>
-          {Object.keys(entitiesData).map(key => (
-            <Entity
-              xPos={entitiesData[key].xPos}
-              yPos={entitiesData[key].yPos}
-              fading={entitiesData[key].fading}
-              key={key}
-              entityId={entitiesData[key].entityId}
-              isMovableEntity={entitiesData[key].isMovableEntity}
-            />
-          ))}
-        </WrapperInner>
+        <EntitiesWrapper>
+          {Object.keys(entitiesData).map(key => <Entity key={key} {...entitiesData[key]} />)}
+        </EntitiesWrapper>
+
+        {levelComplete && (
+          <LevelCompleteOverlay id="level-complete-overlay">
+            <p>Level Complete!</p>
+          </LevelCompleteOverlay>
+        )}
       </Wrapper>
     );
   }
@@ -94,11 +102,13 @@ LevelPreview.propTypes = {
   entitiesData: PropTypes.object.isRequired,
   makeMoveAction: PropTypes.func.isRequired,
   entitiesMoving: PropTypes.bool.isRequired,
+  levelComplete: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   entitiesData: getEntitiesData(state),
   entitiesMoving: state.levelPreview.entitiesMoving,
+  levelComplete: state.levelPreview.levelComplete,
 });
 
 const mapDispatchToProps = dispatch => ({

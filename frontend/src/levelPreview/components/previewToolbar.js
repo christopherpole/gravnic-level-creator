@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Button from 'common/button';
-import { GAME_SPEED_NORMAL, GAME_SPEED_FAST } from 'config/settings';
-import { editLevel, restartLevel, undoMove, setGameSpeed } from '../actions';
+import { editLevel, restartLevel, undoMove, setFastMode } from '../actions';
 import { getLevelPreviewButtonDisabledStates } from '../selectors';
 
 export const Wrapper = styled.div`
@@ -33,9 +32,9 @@ export const PreviewToolbar = ({
   editLevelAction,
   restartLevelAction,
   undoMoveAction,
-  setGameSpeedAction,
+  setFastModeAction,
   buttonDisabledStates,
-  gameSpeed,
+  fastMode,
 }) => (
   <Wrapper id="editor-toolbar">
     <Toolbar>
@@ -75,12 +74,10 @@ export const PreviewToolbar = ({
         <Button
           id="btn-set-game-speed"
           onClick={() => {
-            setGameSpeedAction(
-              gameSpeed === GAME_SPEED_NORMAL ? GAME_SPEED_FAST : GAME_SPEED_NORMAL,
-            );
+            setFastModeAction(!fastMode);
           }}
         >
-          Speed: {gameSpeed === GAME_SPEED_NORMAL ? 'NORMAL' : 'FAST'}
+          Speed: {fastMode ? 'FAST' : 'NORMAL'}
         </Button>
       </ActionContainer>
     </Toolbar>
@@ -90,14 +87,14 @@ export const PreviewToolbar = ({
 PreviewToolbar.propTypes = {
   editLevelAction: PropTypes.func.isRequired,
   restartLevelAction: PropTypes.func.isRequired,
-  setGameSpeedAction: PropTypes.func.isRequired,
   undoMoveAction: PropTypes.func.isRequired,
   buttonDisabledStates: PropTypes.object.isRequired,
-  gameSpeed: PropTypes.number.isRequired,
+  setFastModeAction: PropTypes.func.isRequired,
+  fastMode: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
-  gameSpeed: state.levelPreview.gameSpeed,
+  fastMode: state.levelPreview.fastMode,
   buttonDisabledStates: getLevelPreviewButtonDisabledStates(state),
 });
 
@@ -105,7 +102,10 @@ const mapDispatchToProps = dispatch => ({
   editLevelAction: bindActionCreators(editLevel, dispatch),
   restartLevelAction: bindActionCreators(restartLevel, dispatch),
   undoMoveAction: bindActionCreators(undoMove, dispatch),
-  setGameSpeedAction: bindActionCreators(setGameSpeed, dispatch),
+  setFastModeAction: bindActionCreators(setFastMode, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PreviewToolbar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PreviewToolbar);

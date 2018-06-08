@@ -87,4 +87,7 @@ const mapDispatchToProps = dispatch => ({
   retrieveLevelsAction: bindActionCreators(retrieveLevels, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LevelManager);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(LevelManager);

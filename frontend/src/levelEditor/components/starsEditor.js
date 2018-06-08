@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Button from 'common/button';
-import StarIcon from 'common/starIcon';
+import StarIcon from 'common/icons/starIcon';
 import { setStars } from '../actions';
 
 export const Wrapper = styled.div`
@@ -136,7 +136,7 @@ StarsEditor.propTypes = {
 const mapStateToProps = state => ({
   stars: state.levelEditor.stars,
   previewing: state.levelPreview.previewing,
-  movesMade: state.levelPreview.gameHistory.length - 1,
+  movesMade: state.levelPreview.moveHistory.length,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { ENTITIES } from 'gravnic-game';
 
-import Tile from './tile';
+import { Tile } from './tile';
 
 configure({ adapter: new Adapter() });
 
@@ -13,7 +13,10 @@ describe('<Tile />', () => {
 
   beforeEach(() => {
     props = {
-      tileId: ENTITIES.FLOOR,
+      entity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#ff0000',
+      },
     };
   });
 

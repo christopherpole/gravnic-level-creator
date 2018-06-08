@@ -14,10 +14,19 @@ describe('<LevelPreview />', () => {
   beforeEach(() => {
     props = {
       entitiesData: {
-        1: { xPos: 10, yPos: 10, id: 123, entityId: ENTITIES.BLOCK, isMovableEntity: true },
+        1: {
+          xPos: 10,
+          yPos: 10,
+          id: 123,
+          color: '#ff0000',
+          entityId: ENTITIES.BLOCK,
+          isMovableEntity: true,
+        },
       },
       makeMoveAction: () => {},
+      setInitialStateAction: () => {},
       entitiesMoving: false,
+      levelComplete: false,
     };
   });
 
@@ -27,13 +36,17 @@ describe('<LevelPreview />', () => {
     expect(gameArea).toHaveLength(1);
   });
 
-  it('Matches the current snapshot', () => {
+  it("Matches the current snapshot if the level isn't complete", () => {
     const gameArea = shallow(<LevelPreview {...props} />);
 
     expect(toJson(gameArea)).toMatchSnapshot();
   });
 
-  it(
-    'Calls the make move action when the user presses the arrow keys on the keyboard and if a move is not taking place',
-  );
+  it('Matches the current snapshot if the level is complete', () => {
+    const gameArea = shallow(<LevelPreview {...props} levelComplete />);
+
+    expect(toJson(gameArea)).toMatchSnapshot();
+  });
+
+  it('Calls the make move action when the user presses the arrow keys on the keyboard');
 });

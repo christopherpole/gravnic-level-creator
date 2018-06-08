@@ -45,13 +45,13 @@ jobs:
           <<: *install_yarn
       - restore_cache:
           keys:
-            - gravnic-frontend-v3-{{ checksum "frontend/yarn.lock" }}
-            - gravnic-frontend-v3-
+            - gravnic-frontend-v4-{{ checksum "frontend/yarn.lock" }}
+            - gravnic-frontend-v4-
       - run:
           name: Install dependancies
           command: cd frontend && yarn
       - save_cache:
-          key: gravnic-frontend-v3-{{ checksum "frontend/yarn.lock" }}
+          key: gravnic-frontend-v4-{{ checksum "frontend/yarn.lock" }}
           paths:
             - node_modules
       - run:
@@ -75,13 +75,13 @@ jobs:
           <<: *install_yarn
       - restore_cache:
           keys:
-            - gravnic-backend-v3-{{ checksum "backend/yarn.lock" }}
-            - gravnic-backend-v3-
+            - gravnic-backend-v4-{{ checksum "backend/yarn.lock" }}
+            - gravnic-backend-v4-
       - run:
           name: Install dependancies
           command: cd backend && yarn
       - save_cache:
-          key: gravnic-backend-v3-{{ checksum "backend/yarn.lock" }}
+          key: gravnic-backend-v4-{{ checksum "backend/yarn.lock" }}
           paths:
             - node_modules
       - run:

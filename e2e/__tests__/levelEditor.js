@@ -24,8 +24,10 @@ describe('The level editor', () => {
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
       slowMo: debugMode ? 200 : 20,
     });
+
     page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 600, deviceScaleFactor: 1 });
+
     done();
   });
 
@@ -55,17 +57,17 @@ describe('The level editor', () => {
     borderWidth = await getComputedStyleProperty(
       page,
       'borderWidth',
-      '#tile-selector .tile:nth-child(3)',
+      '#tile-selector .tile:nth-child(4)',
       ':before',
     );
     expect(borderWidth).toBe('0px');
 
     //  Click in that selector tile and assert that it now has a border
-    await page.click('#tile-selector .tile:nth-child(3)');
+    await page.click('#tile-selector .tile:nth-child(4)');
     borderWidth = await getComputedStyleProperty(
       page,
       'borderWidth',
-      '#tile-selector .tile:nth-child(3)',
+      '#tile-selector .tile:nth-child(4)',
       ':before',
     );
     expect(borderWidth).toBe('2px');
@@ -183,4 +185,7 @@ describe('The level editor', () => {
 
     done();
   });
+
+  //  @TODO
+  it('Allows the user to export the level');
 });

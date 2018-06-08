@@ -84,7 +84,7 @@ LevelEditor.propTypes = {
   updateTileAction: PropTypes.func.isRequired,
   tiles: PropTypes.arrayOf(
     PropTypes.shape({
-      selectedTileId: PropTypes.string,
+      selectedTileId: PropTypes.string.isRequired,
       position: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
@@ -104,4 +104,7 @@ const mapDispatchToProps = dispatch => ({
   stopDragAction: bindActionCreators(stopDrag, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LevelEditor);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(LevelEditor);

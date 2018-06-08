@@ -1,4 +1,4 @@
-import { ENTITIES } from 'gravnic-game';
+import { ENTITIES, MOVE_UP } from 'gravnic-game';
 
 import { GRID_SIZE } from 'config/settings';
 import { getEntitiesData, getLevelPreviewButtonDisabledStates } from './selectors';
@@ -15,7 +15,7 @@ describe('getEntitiesData()', () => {
             { staticEntity: { id: 2, entityId: ENTITIES.FLOOR } },
             {
               staticEntity: { id: 3, entityId: ENTITIES.FLOOR },
-              movableEntity: { id: 4, entityId: ENTITIES.BLOCK, fading: true },
+              movableEntity: { id: 4, entityId: ENTITIES.BLOCK, color: '#ff0000', fading: true },
             },
             { staticEntity: { id: 5, entityId: ENTITIES.FLOOR } },
           ],
@@ -51,6 +51,7 @@ describe('getEntitiesData()', () => {
         xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 1) * GRID_SIZE,
         yPos: ((GRID_SIZE - state.levelPreview.gameState.length) / 2 + 1) * GRID_SIZE,
         fading: true,
+        color: '#ff0000',
         isMovableEntity: true,
       },
       '5': {
@@ -69,13 +70,13 @@ describe('getLevelPreviewButtonDisabledStates()', () => {
   beforeEach(() => {
     state = {
       levelPreview: {
-        gameHistory: [{}, {}],
+        moveHistory: [MOVE_UP],
         entitesMoving: false,
       },
     };
   });
 
-  it('Enables the undo and reset buttons if entities are not moving and there is a game history of at least size 2', () => {
+  it('Enables the undo and reset buttons if entities are not moving and there is a move history of at least size 2', () => {
     const buttonDisabledStates = getLevelPreviewButtonDisabledStates(state);
 
     expect(buttonDisabledStates.btnRestart).toBe(false);
@@ -94,11 +95,11 @@ describe('getLevelPreviewButtonDisabledStates()', () => {
     expect(buttonDisabledStates.btnUndo).toBe(true);
   });
 
-  it('Disables the undo and reset buttons if there is no game history to undo', () => {
+  it('Disables the undo and reset buttons if there is no move history to undo', () => {
     const buttonDisabledStates = getLevelPreviewButtonDisabledStates({
       ...state,
       levelPreview: {
-        gameHistory: [{}],
+        moveHistory: [],
       },
     });
 

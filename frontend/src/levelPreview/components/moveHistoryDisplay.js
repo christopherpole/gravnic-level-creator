@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import ArrowIcon from 'common/arrowIcon';
+import ArrowIcon from 'common/icons/arrowIcon';
 
 const Wrapper = styled.div`
   flex-grow: 1;

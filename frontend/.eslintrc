@@ -12,7 +12,7 @@
     "window": true
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": 1,
     "import/no-named-as-default": 0,
     "react/jsx-filename-extension": 0,
     "react/forbid-prop-types": 0,

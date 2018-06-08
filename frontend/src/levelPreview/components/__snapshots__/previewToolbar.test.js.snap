@@ -1,5 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<PreviewToolbar /> Fires the "setFastModeAction" action with the fast speed when the set game speed button is clicked 1`] = `
+<styled.div
+  id="editor-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-edit"
+        onClick={[Function]}
+      >
+        Edit
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-restart"
+        onClick={[Function]}
+      >
+        Restart
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-undo"
+        onClick={[Function]}
+      >
+        Undo
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-set-game-speed"
+        onClick={[Function]}
+      >
+        Speed: 
+        NORMAL
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
+exports[`<PreviewToolbar /> Fires the "setFastModeAction" action with the normal speed when the set game speed button is clicked again 1`] = `
+<styled.div
+  id="editor-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-edit"
+        onClick={[Function]}
+      >
+        Edit
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-restart"
+        onClick={[Function]}
+      >
+        Restart
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-undo"
+        onClick={[Function]}
+      >
+        Undo
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-set-game-speed"
+        onClick={[Function]}
+      >
+        Speed: 
+        FAST
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
 exports[`<PreviewToolbar /> Matches the current snapshot 1`] = `
 <styled.div
   id="editor-toolbar"
@@ -86,52 +178,6 @@ exports[`<PreviewToolbar /> Matches the current snapshot when buttons are disabl
       >
         Speed: 
         NORMAL
-      </Button>
-    </styled.li>
-  </styled.ul>
-</styled.div>
-`;
-
-exports[`<PreviewToolbar /> Matches the current snapshot when the game speed is fast 1`] = `
-<styled.div
-  id="editor-toolbar"
->
-  <styled.ul>
-    <styled.li>
-      <Button
-        disabled={false}
-        id="btn-edit"
-        onClick={[Function]}
-      >
-        Edit
-      </Button>
-    </styled.li>
-    <styled.li>
-      <Button
-        disabled={false}
-        id="btn-restart"
-        onClick={[Function]}
-      >
-        Restart
-      </Button>
-    </styled.li>
-    <styled.li>
-      <Button
-        disabled={false}
-        id="btn-undo"
-        onClick={[Function]}
-      >
-        Undo
-      </Button>
-    </styled.li>
-    <styled.li>
-      <Button
-        disabled={false}
-        id="btn-set-game-speed"
-        onClick={[Function]}
-      >
-        Speed: 
-        FAST
       </Button>
     </styled.li>
   </styled.ul>

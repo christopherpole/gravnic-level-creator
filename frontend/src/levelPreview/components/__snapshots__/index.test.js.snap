@@ -1,12 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LevelPreview /> Matches the current snapshot 1`] = `
+exports[`<LevelPreview /> Matches the current snapshot if the level is complete 1`] = `
 <styled.div
   id="level-preview"
 >
   <styled.div>
     <Connect(Component)
-      entityId="ENTITY_BLOCK"
+      color="#ff0000"
+      entityId="BLOCK"
+      id={123}
+      isMovableEntity={true}
+      key="1"
+      xPos={10}
+      yPos={10}
+    />
+  </styled.div>
+  <styled.div
+    id="level-complete-overlay"
+  >
+    <p>
+      Level Complete!
+    </p>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<LevelPreview /> Matches the current snapshot if the level isn't complete 1`] = `
+<styled.div
+  id="level-preview"
+>
+  <styled.div>
+    <Connect(Component)
+      color="#ff0000"
+      entityId="BLOCK"
+      id={123}
       isMovableEntity={true}
       key="1"
       xPos={10}

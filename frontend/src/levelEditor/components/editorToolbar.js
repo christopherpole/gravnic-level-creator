@@ -3,11 +3,15 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Button from 'common/button';
 import { previewLevel } from 'levelPreview/actions';
 import { resetGrid } from '../actions';
-import { getLevelEditorButtonDisabledStates } from '../selectors';
+import {
+  getLevelEditorButtonDisabledStates,
+  convertTileDataToGravnicGameStateString,
+} from '../selectors';
 
 export const Wrapper = styled.div`
   grid-column: 1 / 2;
@@ -29,43 +33,53 @@ export const ActionContainer = styled.li`
   }
 `;
 
-export const EditorToolbar = ({ resetGridAction, previewLevelAction, buttonDisabledStates }) => (
+export const EditorToolbar = ({
+  resetGridAction,
+  previewLevelAction,
+  buttonDisabledStates,
+  gameStateString,
+}) => (
   <Wrapper id="editor-toolbar">
     <Toolbar>
       <ActionContainer>
         <Button
           id="btn-preview"
-          onClick={() => {
-            previewLevelAction();
-          }}
+          onClick={previewLevelAction}
           disabled={buttonDisabledStates.btnPreview}
         >
           Preview
         </Button>
       </ActionContainer>
       <ActionContainer>
-        <Button
-          id="btn-reset"
-          onClick={() => {
-            resetGridAction();
-          }}
-          disabled={buttonDisabledStates.btnReset}
-        >
+        <Button id="btn-reset" onClick={resetGridAction} disabled={buttonDisabledStates.btnReset}>
           Reset
         </Button>
+      </ActionContainer>
+      <ActionContainer>
+        <CopyToClipboard text={gameStateString}>
+          <Button id="btn-export" disabled={buttonDisabledStates.btnExport}>
+            Export
+          </Button>
+        </CopyToClipboard>
       </ActionContainer>
     </Toolbar>
   </Wrapper>
 );
 
+EditorToolbar.defaultProps = {
+  gameStateString: null,
+};
+
 EditorToolbar.propTypes = {
   resetGridAction: PropTypes.func.isRequired,
   previewLevelAction: PropTypes.func.isRequired,
   buttonDisabledStates: PropTypes.object.isRequired,
+  gameStateString: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   buttonDisabledStates: getLevelEditorButtonDisabledStates(state),
+  gameStateString: convertTileDataToGravnicGameStateString(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -73,4 +87,7 @@ const mapDispatchToProps = dispatch => ({
   previewLevelAction: bindActionCreators(previewLevel, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditorToolbar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(EditorToolbar);

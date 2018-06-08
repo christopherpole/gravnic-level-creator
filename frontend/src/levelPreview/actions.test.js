@@ -1,7 +1,8 @@
 import { spy } from 'sinon';
-import { MOVE_LEFT } from 'gravnic-game';
+import { MOVE_LEFT, MOVE_RIGHT } from 'gravnic-game';
 import { convertEditorTilesToGameState } from 'utils';
 import testLevels from 'data/testLevels';
+import availableTiles from 'config/tiles';
 
 import {
   PREVIEW_LEVEL,
@@ -13,6 +14,7 @@ import {
   UNDO_MOVE,
   UNDO_MOVE_FINISHED,
   SET_GAME_SPEED,
+  SET_FAST_MODE,
   previewLevel,
   editLevel,
   restartLevel,
@@ -22,6 +24,7 @@ import {
   undoMove,
   undoMoveFinished,
   setGameSpeed,
+  setFastMode,
 } from './actions';
 
 describe('The level preview actions', () => {
@@ -32,6 +35,7 @@ describe('The level preview actions', () => {
       const getState = () => ({
         levelEditor: {
           tiles: testLevels[0].tiles,
+          availableTiles,
         },
       });
 
@@ -41,7 +45,7 @@ describe('The level preview actions', () => {
       expect(
         dispatchSpy.calledWith({
           type: PREVIEW_LEVEL,
-          gameState: convertEditorTilesToGameState(testLevels[0].tiles),
+          gameState: convertEditorTilesToGameState(testLevels[0].tiles, availableTiles),
         }),
       ).toBe(true);
     });
@@ -79,13 +83,68 @@ describe('The level preview actions', () => {
   });
 
   describe('makeMove()', () => {
-    it('Creates the correct action', () => {
-      const expectedAction = {
-        type: MAKE_MOVE,
-        direction: MOVE_LEFT,
-      };
+    it('Creates the correct action if the move if valid', () => {
+      const fn = makeMove(MOVE_LEFT);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelPreview: {
+          entitiesMoving: false,
+          gravityDirection: MOVE_RIGHT,
+        },
+      });
 
-      expect(makeMove(MOVE_LEFT)).toEqual(expectedAction);
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: MAKE_MOVE,
+          direction: MOVE_LEFT,
+        }),
+      ).toBe(true);
+    });
+
+    it("Doesn't create the action if entities are moving", () => {
+      const fn = makeMove(MOVE_LEFT);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelPreview: {
+          entitiesMoving: true,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
+    });
+
+    it("Doesn't create the action if current gravity direction equals the given direction", () => {
+      const fn = makeMove(MOVE_LEFT);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelPreview: {
+          entitiesMoving: false,
+          gravityDirection: MOVE_LEFT,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
+    });
+
+    it("Doesn't create the action if the level is complete", () => {
+      const fn = makeMove(MOVE_LEFT);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelPreview: {
+          levelComplete: true,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
     });
   });
 
@@ -94,9 +153,10 @@ describe('The level preview actions', () => {
       const expectedAction = {
         type: MAKE_MOVE_FINISHED,
         gameStates: [1, 2, 3],
+        levelComplete: true,
       };
 
-      expect(makeMoveFinished([1, 2, 3])).toEqual(expectedAction);
+      expect(makeMoveFinished([1, 2, 3], true)).toEqual(expectedAction);
     });
   });
 
@@ -128,6 +188,17 @@ describe('The level preview actions', () => {
       };
 
       expect(setGameSpeed(100)).toEqual(expectedAction);
+    });
+  });
+
+  describe('setFastMode()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: SET_FAST_MODE,
+        fastMode: true,
+      };
+
+      expect(setFastMode(true)).toEqual(expectedAction);
     });
   });
 });

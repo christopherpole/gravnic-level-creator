@@ -124,3 +124,103 @@ Array [
   },
 ]
 `;
+
+exports[`The level preview Should display a "level complete" overlay when the level is complete 1`] = `
+Array [
+  Object {
+    "left": "129.594px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "172.797px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "216px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "259.188px",
+    "top": "194.391px",
+  },
+]
+`;
+
+exports[`The level preview Should display a "level complete" overlay when the level is complete 2`] = `
+Array [
+  Object {
+    "left": "129.594px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "172.797px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "216px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "259.188px",
+    "top": "194.391px",
+  },
+]
+`;
+
+exports[`The level preview Should display a "level complete" overlay when the level is complete 3`] = `
+Array [
+  Object {
+    "left": "129.594px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "129.594px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "172.797px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "216px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "259.188px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "259.188px",
+    "top": "194.391px",
+  },
+]
+`;
+
+exports[`The level preview Should display a "level complete" overlay when the level is complete 4`] = `
+Array [
+  Object {
+    "left": "129.594px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "129.594px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "172.797px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "216px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "259.188px",
+    "top": "194.391px",
+  },
+  Object {
+    "left": "259.188px",
+    "top": "194.391px",
+  },
+]
+`;

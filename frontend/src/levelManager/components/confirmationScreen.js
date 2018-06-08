@@ -66,4 +66,7 @@ const mapDispatchToProps = dispatch => ({
   confirmConfirmationAction: bindActionCreators(confirmConfirmation, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ConfirmationScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ConfirmationScreen);

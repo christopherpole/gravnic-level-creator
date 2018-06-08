@@ -1,6 +1,7 @@
 import { ENTITIES } from 'gravnic-game';
 
 import { GRID_SIZE, MIN_MOVES } from 'config/settings';
+import availableTiles from 'config/tiles';
 import { createNewLevel, makeActionCreator, convertEditorTilesToGameState } from './index';
 
 describe('createNewLevel()', () => {
@@ -33,66 +34,71 @@ describe('makeActionCreator()', () => {
 
 describe('convertEditorTilesToGameState()', () => {
   let testTiles;
+  let tiles;
 
   beforeEach(() => {
-    testTiles = [...Array(GRID_SIZE * GRID_SIZE)].map((_, i) => ({
-      position: i,
-      selectedTileId: ENTITIES.NONE,
-    }));
+    testTiles = createNewLevel().tiles;
+    tiles = availableTiles;
   });
 
   it('Returns an empty array if there is no tile data', () => {
-    const gameState = convertEditorTilesToGameState([]);
+    const gameState = convertEditorTilesToGameState([], tiles);
 
     expect(gameState).toEqual([]);
   });
 
   it('Returns an empty array if all tiles are blank', () => {
-    const gameState = convertEditorTilesToGameState(testTiles);
+    const gameState = convertEditorTilesToGameState(testTiles, tiles);
 
     expect(gameState).toEqual([]);
   });
 
   it('Returns the current game state for a single block', () => {
-    const gameState = convertEditorTilesToGameState([
-      ...testTiles.slice(0, 45),
-      {
-        position: 46,
-        selectedTileId: ENTITIES.BLOCK,
-      },
-      ...testTiles.slice(46),
-    ]);
+    const gameState = convertEditorTilesToGameState(
+      [
+        ...testTiles.slice(0, 45),
+        {
+          position: 46,
+          selectedTileId: '4',
+        },
+        ...testTiles.slice(46),
+      ],
+      tiles,
+    );
 
     expect(gameState).toEqual([
       [
         {
-          movableEntity: { entityId: 'ENTITY_BLOCK', id: 1 },
-          staticEntity: { entityId: 'ENTITY_FLOOR', id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
         },
       ],
     ]);
   });
 
   it('Returns the current game state for a multiple blocks', () => {
-    const gameState = convertEditorTilesToGameState([
-      ...testTiles.slice(0, 12),
-      {
-        position: 12,
-        selectedTileId: ENTITIES.BLOCK,
-      },
-      ...testTiles.slice(13, 37),
-      {
-        position: 37,
-        selectedTileId: ENTITIES.FLOOR,
-      },
-      ...testTiles.slice(38),
-    ]);
+    const gameState = convertEditorTilesToGameState(
+      [
+        ...testTiles.slice(0, 12),
+        {
+          position: 12,
+          selectedTileId: '3',
+        },
+        ...testTiles.slice(13, 37),
+        {
+          position: 37,
+          selectedTileId: '2',
+        },
+        ...testTiles.slice(38),
+      ],
+      tiles,
+    );
 
     const expectedGameState = [
       [
         {
-          movableEntity: { entityId: 'ENTITY_BLOCK', id: 1 },
-          staticEntity: { entityId: 'ENTITY_FLOOR', id: 2 },
+          movableEntity: { entityId: ENTITIES.GLASS, id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
         },
         { movableEntity: null, staticEntity: null },
         { movableEntity: null, staticEntity: null },
@@ -116,7 +122,7 @@ describe('convertEditorTilesToGameState()', () => {
         { movableEntity: null, staticEntity: null },
         {
           movableEntity: null,
-          staticEntity: { entityId: 'ENTITY_FLOOR', id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR, id: 3 },
         },
       ],
     ];
