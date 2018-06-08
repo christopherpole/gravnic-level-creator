@@ -107,7 +107,11 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
       movableEntity = null;
 
       //  If the entity is a block then add it as the movable entity
-      if (entityData.entityId === ENTITIES.BLOCK || entityData.entityId === ENTITIES.GLASS) {
+      if (
+        entityData.entityId === ENTITIES.BLOCK ||
+        entityData.entityId === ENTITIES.RAINBOW_BLOCK ||
+        entityData.entityId === ENTITIES.GLASS
+      ) {
         movableEntity = {
           ...entityData,
           id: currentIdCount++,

@@ -1,4 +1,4 @@
-import { ENTITIES } from 'gravnic-game';
+import { ENTITIES, MOVE_UP } from 'gravnic-game';
 
 import { GRID_SIZE } from 'config/settings';
 import { getEntitiesData, getLevelPreviewButtonDisabledStates } from './selectors';
@@ -70,13 +70,13 @@ describe('getLevelPreviewButtonDisabledStates()', () => {
   beforeEach(() => {
     state = {
       levelPreview: {
-        gameHistory: [{}, {}],
+        moveHistory: [MOVE_UP],
         entitesMoving: false,
       },
     };
   });
 
-  it('Enables the undo and reset buttons if entities are not moving and there is a game history of at least size 2', () => {
+  it('Enables the undo and reset buttons if entities are not moving and there is a move history of at least size 2', () => {
     const buttonDisabledStates = getLevelPreviewButtonDisabledStates(state);
 
     expect(buttonDisabledStates.btnRestart).toBe(false);
@@ -95,11 +95,11 @@ describe('getLevelPreviewButtonDisabledStates()', () => {
     expect(buttonDisabledStates.btnUndo).toBe(true);
   });
 
-  it('Disables the undo and reset buttons if there is no game history to undo', () => {
+  it('Disables the undo and reset buttons if there is no move history to undo', () => {
     const buttonDisabledStates = getLevelPreviewButtonDisabledStates({
       ...state,
       levelPreview: {
-        gameHistory: [{}],
+        moveHistory: [],
       },
     });
 

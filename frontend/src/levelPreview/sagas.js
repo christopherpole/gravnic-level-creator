@@ -1,4 +1,4 @@
-import { changeGravityDirection, levelIsComplete } from 'gravnic-game';
+import { changeGravityDirection, levelIsComplete, MOVE_NONE } from 'gravnic-game';
 import { delay } from 'redux-saga';
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 
@@ -11,10 +11,13 @@ import {
 import {
   MAKE_MOVE,
   UNDO_MOVE,
+  RESTART_LEVEL,
+  PREVIEW_LEVEL,
   setGameState,
   makeMoveFinished,
   undoMoveFinished,
   setGameSpeed,
+  makeMove,
 } from './actions';
 
 //  @TODO: the solution for checking for fading elements isn't great. Should consider
@@ -82,7 +85,18 @@ export function* undoMoveSaga() {
   yield put(undoMoveFinished());
 }
 
+export function* setInitialStateSaga() {
+  const state = yield select();
+  const { gameSpeed } = state.levelPreview;
+
+  //  The delay is to ensure that the initial game state is rendered before we start
+  //  screwing with it so that the CSS transitions will work correctly
+  yield call(delay, gameSpeed);
+  yield put(makeMove(MOVE_NONE));
+}
+
 export default function* levelManagerSagas() {
   yield takeLatest(MAKE_MOVE, makeMoveSaga);
   yield takeLatest(UNDO_MOVE, undoMoveSaga);
+  yield takeLatest([RESTART_LEVEL, PREVIEW_LEVEL], setInitialStateSaga);
 }

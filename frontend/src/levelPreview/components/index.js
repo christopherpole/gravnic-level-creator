@@ -115,7 +115,4 @@ const mapDispatchToProps = dispatch => ({
   makeMoveAction: bindActionCreators(makeMove, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(LevelPreview);
+export default connect(mapStateToProps, mapDispatchToProps)(LevelPreview);

@@ -58,7 +58,7 @@ export const getLevelPreviewButtonDisabledStates = createSelector(
 
     //  Disable buttons if entities are moving or the game history length is
     //  greater than 1
-    if (levelPreview.entitiesMoving || levelPreview.gameHistory.length <= 1) {
+    if (levelPreview.entitiesMoving || !levelPreview.moveHistory.length) {
       buttonsDisabledStates.btnRestart = true;
       buttonsDisabledStates.btnUndo = true;
     }

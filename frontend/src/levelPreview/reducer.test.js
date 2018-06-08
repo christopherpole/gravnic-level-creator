@@ -1,4 +1,4 @@
-import { MOVE_LEFT, MOVE_RIGHT, ENTITIES } from 'gravnic-game';
+import { MOVE_LEFT, MOVE_RIGHT, MOVE_NONE, ENTITIES } from 'gravnic-game';
 
 import { FAST_GAME_MODIFIER } from 'config/settings';
 import reducer, { initialState } from './reducer';
@@ -120,7 +120,7 @@ describe('The level editor reducer', () => {
   });
 
   describe('MAKE_MOVE', () => {
-    it('Handles the action correctly', () => {
+    it('Handles the action correctly if moving in a direction', () => {
       expect(
         reducer(
           {
@@ -140,6 +140,26 @@ describe('The level editor reducer', () => {
         entitiesMoving: true,
         gameState: testGameState,
         moveHistory: [MOVE_RIGHT, MOVE_LEFT],
+      });
+    });
+
+    it('Handles the action correctly if making the initial move', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            gameState: testGameState,
+          },
+          {
+            type: MAKE_MOVE,
+            direction: MOVE_NONE,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        gravityDirection: MOVE_NONE,
+        entitiesMoving: true,
+        gameState: testGameState,
       });
     });
   });

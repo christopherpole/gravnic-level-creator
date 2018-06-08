@@ -1,4 +1,5 @@
 import { DEFAULT_GAME_SPEED, FAST_GAME_MODIFIER } from 'config/settings';
+import { MOVE_NONE } from 'gravnic-game';
 
 import {
   PREVIEW_LEVEL,
@@ -51,7 +52,10 @@ export default function levelPreviewReducer(state = initialState, action) {
         ...state,
         gravityDirection: action.direction,
         entitiesMoving: true,
-        moveHistory: [...state.moveHistory, action.direction],
+        moveHistory:
+          action.direction === MOVE_NONE
+            ? state.moveHistory
+            : [...state.moveHistory, action.direction],
       };
     }
 

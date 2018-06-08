@@ -234,6 +234,7 @@ describe('The level preview', () => {
 
     //  Click on the "reset" button
     await page.click('#btn-restart');
+    await sleep(moveSleepDuration);
 
     //  The "undo" and "restart" buttons should instantly be disbaled
     expect(!!await page.waitForSelector('#btn-restart:disabled')).toBe(true);
@@ -299,6 +300,7 @@ describe('The level preview', () => {
 
     //  All is white again after restarting the level
     await page.click('#btn-restart');
+    await sleep(moveSleepDuration);
     expect(await getNoOfActiveLabels()).toBe(3);
     expect(await getNoOfActiveStars()).toBe(6);
 
@@ -384,6 +386,7 @@ describe('The level preview', () => {
 
     //  It should return to the initial state when reset
     await page.click('#btn-restart');
+    await sleep(moveSleepDuration);
     expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
     expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
       'Moves made: 0',
@@ -437,10 +440,46 @@ describe('The level preview', () => {
     //  The overlay should disappear on clicking "reset"
     expect(await isDisplayed(page, '#level-complete-overlay')).toBe(true);
     await page.click('#btn-restart');
+    await sleep(moveSleepDuration);
     expect(await isDisplayed(page, '#level-complete-overlay')).toBe(false);
     expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
     await sleep(moveSleepDuration);
     expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
+
+    done();
+  });
+
+  it('Should display the "level complete" overlay stright away when previewing a level with no matchable entities', async done => {
+    //  Go back to the editor and reset it
+    await page.click('#btn-edit');
+    await page.click('#btn-reset');
+
+    //  Just two floor tiles
+    await page.click('#tile-selector .tile:nth-child(2)');
+    await page.click('#editor-grid .tile:nth-child(54)');
+    await page.click('#editor-grid .tile:nth-child(55)');
+
+    //  Open previewing the level, the "level complete" overlay should show after a short delay
+    await page.click('#btn-preview');
+    await sleep(moveSleepDuration);
+    expect(await isDisplayed(page, '#level-complete-overlay')).toBe(true);
+
+    done();
+  });
+
+  it('Should display the "level complete" overlay stright away when previewing a complete level', async done => {
+    //  Go back to the editor and reset it
+    await page.click('#btn-edit');
+
+    //  Just two floor tiles
+    await page.click('#tile-selector .tile:nth-child(4)');
+    await page.click('#editor-grid .tile:nth-child(54)');
+    await page.click('#editor-grid .tile:nth-child(55)');
+
+    //  Open previewing the level, the "level complete" overlay should show after a short delay
+    await page.click('#btn-preview');
+    await sleep(moveSleepDuration);
+    expect(await isDisplayed(page, '#level-complete-overlay')).toBe(true);
 
     done();
   });

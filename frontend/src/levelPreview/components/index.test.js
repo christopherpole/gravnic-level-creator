@@ -24,6 +24,7 @@ describe('<LevelPreview />', () => {
         },
       },
       makeMoveAction: () => {},
+      setInitialStateAction: () => {},
       entitiesMoving: false,
       levelComplete: false,
     };
