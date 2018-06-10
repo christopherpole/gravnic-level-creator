@@ -1,9 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LevelSolver /> Matches the current snapshot 1`] = `
-<styled.section>
-  <p>
-    Level Solver goes here
-  </p>
-</styled.section>
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.div>
+        <Component
+          tiles={
+            Array [
+              1,
+              2,
+              3,
+            ]
+          }
+        />
+      </styled.div>
+      <styled.div>
+        <p>
+          No solutions available
+        </p>
+      </styled.div>
+    </styled.div>
+  </styled.div>
+</styled.div>
 `;

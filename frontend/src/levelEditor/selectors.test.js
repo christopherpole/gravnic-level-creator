@@ -19,15 +19,16 @@ describe('getLevelEditorButtonDisabledStates()', () => {
     };
   });
 
-  it('Disables the clear and reset buttons if there are no changes to the grid', () => {
+  it('Disables buttons if there are no changes to the grid', () => {
     const buttonDisabledStates = getLevelEditorButtonDisabledStates(state);
 
     expect(buttonDisabledStates.btnReset).toBe(true);
     expect(buttonDisabledStates.btnPreview).toBe(true);
+    expect(buttonDisabledStates.btnSolve).toBe(true);
     expect(buttonDisabledStates.btnExport).toBe(true);
   });
 
-  it('Enables the clear and reset buttons if there are changes on the grid', () => {
+  it('Enables buttons if there are changes on the grid', () => {
     const buttonDisabledStates = getLevelEditorButtonDisabledStates({
       ...state,
       levelEditor: {
@@ -44,6 +45,7 @@ describe('getLevelEditorButtonDisabledStates()', () => {
 
     expect(buttonDisabledStates.btnReset).toBe(false);
     expect(buttonDisabledStates.btnPreview).toBe(false);
+    expect(buttonDisabledStates.btnSolve).toBe(false);
     expect(buttonDisabledStates.btnExport).toBe(false);
   });
 });

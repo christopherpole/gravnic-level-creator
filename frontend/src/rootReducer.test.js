@@ -3,6 +3,7 @@ import { createStore } from 'redux';
 import levelEditorReducer from 'levelEditor/reducer';
 import levelManagerReducer from 'levelManager/reducer';
 import levelPreviewReducer from 'levelPreview/reducer';
+import levelSolverReducer from 'levelSolver/reducer';
 import { UPDATE_TILE } from 'levelEditor/actions';
 import rootReducer from './rootReducer';
 
@@ -13,6 +14,7 @@ describe('The root reducer', () => {
     expect(store.getState().levelEditor).toEqual(levelEditorReducer(undefined, {}));
     expect(store.getState().levelManager).toEqual(levelManagerReducer(undefined, {}));
     expect(store.getState().levelPreview).toEqual(levelPreviewReducer(undefined, {}));
+    expect(store.getState().levelSolver).toEqual(levelSolverReducer(undefined, {}));
   });
 
   it('Allows the child reducers handle actions', () => {

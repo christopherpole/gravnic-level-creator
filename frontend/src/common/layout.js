@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 import LevelEditor from 'levelEditor/components';
 import LevelPreview from 'levelPreview/components';
 import LevelManager from 'levelManager/components';
+import LevelSolver from 'levelSolver/components';
 import EditorToolbar from 'levelEditor/components/editorToolbar';
+import SolverToolbar from 'levelSolver/components/solverToolbar';
 import StarsEditor from 'levelEditor/components/starsEditor';
 import TileSelector from 'levelEditor/components/tileSelector';
 import PreviewToolbar from 'levelPreview/components/previewToolbar';
@@ -63,30 +65,44 @@ export const PanesWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Layout = ({ previewing }) => (
-  <Wrapper id="level-creator">
-    <AppContainer>
-      <GridWrapper>
-        {previewing ? <LevelPreview /> : <LevelEditor />}
-        {previewing ? <PreviewToolbar /> : <EditorToolbar />}
-      </GridWrapper>
+export const Layout = ({ previewing, solving }) => {
+  let gridWrapperContent = <LevelEditor />;
+  let toolbar = <EditorToolbar />;
 
-      <PanesWrapper>
-        <StarsEditor />
-        {previewing ? <MoveHistoryDisplay /> : <TileSelector />}
-      </PanesWrapper>
+  if (previewing) {
+    gridWrapperContent = <LevelPreview />;
+    toolbar = <PreviewToolbar />;
+  } else if (solving) {
+    gridWrapperContent = <LevelSolver />;
+    toolbar = <SolverToolbar />;
+  }
 
-      <LevelManager />
-    </AppContainer>
-  </Wrapper>
-);
+  return (
+    <Wrapper id="level-creator">
+      <AppContainer>
+        <GridWrapper>
+          {gridWrapperContent}
+          {toolbar}
+        </GridWrapper>
+
+        <PanesWrapper>
+          <StarsEditor />
+          {previewing ? <MoveHistoryDisplay /> : <TileSelector />}
+        </PanesWrapper>
+        <LevelManager />
+      </AppContainer>
+    </Wrapper>
+  );
+};
 
 Layout.propTypes = {
   previewing: PropTypes.bool.isRequired,
+  solving: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   previewing: state.levelPreview.previewing,
+  solving: state.levelSolver.solving,
 });
 
 export default connect(mapStateToProps)(Layout);
