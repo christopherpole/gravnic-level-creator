@@ -100,6 +100,41 @@ jobs:
           paths:
             - backend
 
+  build_and_test_level_solver:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - run:
+          <<: *install_node
+      - run:
+          <<: *install_yarn
+      - restore_cache:
+          keys:
+            - gravnic-levelSolver-v4-{{ checksum "levelSolver/yarn.lock" }}
+            - gravnic-levelSolver-v4-
+      - run:
+          name: Install dependancies
+          command: cd levelSolver && yarn
+      - save_cache:
+          key: gravnic-levelSolver-v4-{{ checksum "levelSolver/yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: Run linter
+          command: cd levelSolver && yarn lint
+      - run:
+          name: Install MongoDB
+          command: |
+            sudo apt-get update
+            sudo apt-get install mongodb-server
+      - run:
+          name: Run tests
+          command: cd levelSolver && yarn test --forceExit
+      - persist_to_workspace:
+          root: ~/gravnic-level-creator
+          paths:
+            - levelSolver
+
   e2e_tests:
     <<: *job_defaults
     steps:
@@ -133,10 +168,12 @@ workflows:
     jobs:
       - build_and_test_frontend
       - build_and_test_backend
+      - build_and_test_level_solver
       - e2e_tests:
           requires:
             - build_and_test_frontend
             - build_and_test_backend
+            - build_and_test_level_solver
       - deploy:
           requires:
             - e2e_tests

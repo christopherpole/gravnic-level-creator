@@ -11,6 +11,8 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+      levelSolver:
+        condition: service_healthy
     environment:
       - REACT_APP_BACKEND_ENDPOINT=http://backend:4000
     env_file: ./frontend/.env
@@ -34,6 +36,20 @@ services:
       - DB_ADDRESS=database:27017
     healthcheck:
       test: "curl -f http://backend:4000/levels"
+      interval: 10s
+      timeout: 5s
+      retries: 15
+
+  levelSolver: 
+    build: ./levelSolver
+    working_dir: /levelSolver
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./levelSolver:/levelSolver
+    env_file: ./levelSolver/.env
+    healthcheck:
+      test: "curl -f http://levelSolver:4000/solveLevel"
       interval: 10s
       timeout: 5s
       retries: 15

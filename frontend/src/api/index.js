@@ -18,21 +18,4 @@ export const updateLevels = async levels =>
   axios.put(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels`, levels).then(res => res.data);
 
 export const findQuickestSolution = async () =>
-  new Promise(accept => {
-    setTimeout(() => {
-      const solved = Math.floor(Math.random() * 2) === 1;
-
-      if (solved) {
-        accept({
-          solved,
-          solution: ['MOVE_UP', 'MOVE_DOWN', 'MOVE_LEFT', 'MOVE_RIGHT'],
-          maxMoves: 10,
-        });
-      } else {
-        accept({
-          solved,
-          maxMoves: 10,
-        });
-      }
-    }, 1000);
-  });
+  axios.get(`${process.env.REACT_APP_LEVEL_SOLVER_ENDPOINT}/solveLevel`).then(res => res.data);
