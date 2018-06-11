@@ -1,3 +1,5 @@
+import { MOVE_DOWN, MOVE_LEFT } from 'gravnic-game';
+
 import { EDIT_LEVEL } from 'levelPreview/actions';
 import { FIND_QUICKEST_SOLUTION } from 'api/actions';
 import reducer, { initialState } from './reducer';
@@ -36,7 +38,7 @@ describe('FIND_QUICKEST_SOLUTION.PENDING', () => {
   it('Handles the action correctly', () => {
     expect(
       reducer(
-        { ...initialState, error: true },
+        { ...initialState, error: true, result: { solved: true } },
         {
           type: FIND_QUICKEST_SOLUTION.PENDING,
         },
@@ -60,12 +62,16 @@ describe('FIND_QUICKEST_SOLUTION.FULFILLED', () => {
         },
         {
           type: FIND_QUICKEST_SOLUTION.FULFILLED,
+          payload: {
+            result: { solved: true, solution: [MOVE_DOWN, MOVE_LEFT], maxMoves: 10 },
+          },
         },
       ),
     ).toEqual({
       ...initialState,
       loading: false,
       error: false,
+      result: { solved: true, solution: [MOVE_DOWN, MOVE_LEFT], maxMoves: 10 },
     });
   });
 });

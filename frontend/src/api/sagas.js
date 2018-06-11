@@ -82,12 +82,12 @@ export function* deleteLevelSaga(action) {
   }
 }
 
-export function* findQuickestSolutionSaga(action) {
+export function* findQuickestSolutionSaga() {
   yield put(findQuickestSolution.pending());
 
   try {
     const res = yield call(apiFindQuickestSolution);
-    yield put(findQuickestSolution.fulfilled({ solution: [] }));
+    yield put(findQuickestSolution.fulfilled({ result: res }));
   } catch (err) {
     yield put(findQuickestSolution.rejected({ error: err }));
   }

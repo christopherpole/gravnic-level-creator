@@ -1,4 +1,5 @@
 import React from 'react';
+import { MOVE_DOWN } from 'gravnic-game';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
@@ -32,6 +33,14 @@ describe('<LevelSolver />', () => {
 
   it('Matches the current snapshot when loading', () => {
     const levelSolver = shallow(<LevelSolver loading {...props} />);
+
+    expect(toJson(levelSolver)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot with results', () => {
+    const levelSolver = shallow(
+      <LevelSolver result={{ solved: true, soution: [MOVE_DOWN], maxMoves: 10 }} {...props} />,
+    );
 
     expect(toJson(levelSolver)).toMatchSnapshot();
   });

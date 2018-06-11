@@ -20,6 +20,19 @@ export const updateLevels = async levels =>
 export const findQuickestSolution = async () =>
   new Promise(accept => {
     setTimeout(() => {
-      accept();
+      const solved = Math.floor(Math.random() * 2) === 1;
+
+      if (solved) {
+        accept({
+          solved,
+          solution: ['MOVE_UP', 'MOVE_DOWN', 'MOVE_LEFT', 'MOVE_RIGHT'],
+          maxMoves: 10,
+        });
+      } else {
+        accept({
+          solved,
+          maxMoves: 10,
+        });
+      }
     }, 1000);
   });

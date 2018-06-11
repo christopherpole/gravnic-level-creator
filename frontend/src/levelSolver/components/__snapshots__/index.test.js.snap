@@ -21,6 +21,11 @@ exports[`<LevelSolver /> Matches the current snapshot 1`] = `
         </p>
       </styled.div>
     </styled.div>
+    <styled.div>
+      <p>
+        Solutions will appear here
+      </p>
+    </styled.div>
   </styled.div>
 </styled.div>
 `;
@@ -46,6 +51,11 @@ exports[`<LevelSolver /> Matches the current snapshot when an error has occured 
         </p>
       </styled.div>
     </styled.div>
+    <styled.div>
+      <p>
+        Solutions will appear here
+      </p>
+    </styled.div>
   </styled.div>
 </styled.div>
 `;
@@ -70,6 +80,39 @@ exports[`<LevelSolver /> Matches the current snapshot when loading 1`] = `
           No solutions available
         </p>
       </styled.div>
+    </styled.div>
+    <styled.div>
+      <p>
+        Solutions will appear here
+      </p>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<LevelSolver /> Matches the current snapshot with results 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.div>
+        <Component
+          tiles={
+            Array [
+              1,
+              2,
+              3,
+            ]
+          }
+        />
+      </styled.div>
+      <styled.div>
+        <Connect(Component) />
+      </styled.div>
+    </styled.div>
+    <styled.div>
+      <p>
+        Solutions will appear here
+      </p>
     </styled.div>
   </styled.div>
 </styled.div>

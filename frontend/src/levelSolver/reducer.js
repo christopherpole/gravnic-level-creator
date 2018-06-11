@@ -6,6 +6,7 @@ export const initialState = {
   solving: false,
   loading: false,
   error: false,
+  result: null,
 };
 
 export default function levelSolverReducer(state = initialState, action) {
@@ -29,6 +30,7 @@ export default function levelSolverReducer(state = initialState, action) {
         ...state,
         error: false,
         loading: true,
+        result: null,
       };
     }
 
@@ -37,6 +39,7 @@ export default function levelSolverReducer(state = initialState, action) {
         ...state,
         error: false,
         loading: false,
+        result: action.payload.result,
       };
     }
 

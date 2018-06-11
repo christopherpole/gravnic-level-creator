@@ -1,3 +1,4 @@
+import { MOVE_UP } from 'gravnic-game';
 import { put, call } from 'redux-saga/effects';
 import { cloneableGenerator } from 'redux-saga/utils';
 
@@ -255,9 +256,15 @@ describe('The API sagas', () => {
       const clonedGenerator = generator.clone();
 
       //  Fire the fulfilled action
-      step = generator.next(testLevels[1]);
+      step = generator.next({ solved: true, solution: [MOVE_UP], maxMoves: 10 });
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(put(findQuickestSolution.fulfilled({ solution: [] })));
+      expect(step.value).toEqual(
+        put(
+          findQuickestSolution.fulfilled({
+            result: { solved: true, solution: [MOVE_UP], maxMoves: 10 },
+          }),
+        ),
+      );
 
       //  Finish
       step = generator.next();
