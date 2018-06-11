@@ -24,3 +24,53 @@ exports[`<LevelSolver /> Matches the current snapshot 1`] = `
   </styled.div>
 </styled.div>
 `;
+
+exports[`<LevelSolver /> Matches the current snapshot when an error has occured 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.div>
+        <Component
+          tiles={
+            Array [
+              1,
+              2,
+              3,
+            ]
+          }
+        />
+      </styled.div>
+      <styled.div>
+        <p>
+          No solutions available
+        </p>
+      </styled.div>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<LevelSolver /> Matches the current snapshot when loading 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.div>
+        <Component
+          tiles={
+            Array [
+              1,
+              2,
+              3,
+            ]
+          }
+        />
+      </styled.div>
+      <styled.div>
+        <p>
+          No solutions available
+        </p>
+      </styled.div>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

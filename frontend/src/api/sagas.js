@@ -9,14 +9,23 @@ import {
   FINISH_RENAME_LEVEL,
   REORDER_LEVELS,
 } from 'levelManager/actions';
+import { FIND_QUICKEST_SOLUTION } from 'levelSolver/actions';
 import {
   fetchLevels as apiFetchLevels,
   createLevel as apiCreateLevel,
   deleteLevel as apiDeleteLevel,
   updateLevel as apiUpdateLevel,
   updateLevels as apiUpdateLevels,
+  findQuickestSolution as apiFindQuickestSolution,
 } from './index.js';
-import { retrieveLevels, createLevel, updateLevel, updateLevels, deleteLevel } from './actions';
+import {
+  retrieveLevels,
+  createLevel,
+  updateLevel,
+  updateLevels,
+  deleteLevel,
+  findQuickestSolution,
+} from './actions';
 
 export function* retrieveLevelsSaga() {
   yield put(retrieveLevels.pending());
@@ -73,10 +82,22 @@ export function* deleteLevelSaga(action) {
   }
 }
 
+export function* findQuickestSolutionSaga(action) {
+  yield put(findQuickestSolution.pending());
+
+  try {
+    const res = yield call(apiFindQuickestSolution);
+    yield put(findQuickestSolution.fulfilled({ solution: [] }));
+  } catch (err) {
+    yield put(findQuickestSolution.rejected({ error: err }));
+  }
+}
+
 export default function* levelManagerSagas() {
   yield takeLatest(RETRIEVE_LEVELS, retrieveLevelsSaga);
   yield takeLatest([CREATE_NEW_LEVEL, COPY_LEVEL], createLevelSaga);
   yield takeLatest(DELETE_SELECTED_LEVEL_CONFIRMED, deleteLevelSaga);
   yield takeLatest([SAVE_LEVEL, FINISH_RENAME_LEVEL], updateLevelSaga);
   yield takeLatest(REORDER_LEVELS, updateLevelsSaga);
+  yield takeLatest(FIND_QUICKEST_SOLUTION, findQuickestSolutionSaga);
 }

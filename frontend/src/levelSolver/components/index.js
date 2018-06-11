@@ -36,7 +36,7 @@ export const LevelInfoCopyContainer = styled.div`
   font-size: 1.2em;
 `;
 
-export const LevelSolver = ({ editorTiles }) => (
+export const LevelSolver = ({ editorTiles, loading, error }) => (
   <Wrapper>
     <WrapperInner>
       <LevelInfo>
@@ -44,7 +44,9 @@ export const LevelSolver = ({ editorTiles }) => (
           <LevelPreview tiles={editorTiles} />
         </LevelPreviewContainer>
         <LevelInfoCopyContainer>
-          <p>No solutions available</p>
+          {error && <p>There was a problem solving the level</p>}
+          {loading && <p>Searching for solutions...</p>}
+          {!loading && !error && <p>No solutions available</p>}
         </LevelInfoCopyContainer>
       </LevelInfo>
     </WrapperInner>
@@ -53,10 +55,14 @@ export const LevelSolver = ({ editorTiles }) => (
 
 LevelSolver.propTypes = {
   editorTiles: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   editorTiles: state.levelEditor.tiles,
+  loading: state.levelSolver.loading,
+  error: state.levelSolver.error,
 });
 
 export default connect(mapStateToProps)(LevelSolver);

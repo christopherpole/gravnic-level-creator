@@ -1,4 +1,4 @@
-import { SOLVE_LEVEL, solveLevel } from './actions';
+import { SOLVE_LEVEL, FIND_QUICKEST_SOLUTION, solveLevel, findQuickestSolution } from './actions';
 
 describe('solveLevel()', () => {
   it('Creates the correct action', () => {
@@ -7,5 +7,15 @@ describe('solveLevel()', () => {
     };
 
     expect(solveLevel()).toEqual(expectedAction);
+  });
+});
+
+describe('findQuickestSolution()', () => {
+  it('Creates the correct action', () => {
+    const expectedAction = {
+      type: FIND_QUICKEST_SOLUTION,
+    };
+
+    expect(findQuickestSolution()).toEqual(expectedAction);
   });
 });

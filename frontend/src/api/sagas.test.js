@@ -8,6 +8,7 @@ import {
   updateLevel as apiUpdateLevel,
   updateLevels as apiUpdateLevels,
   deleteLevel as apiDeleteLevel,
+  findQuickestSolution as apiFindQuickestSolution,
 } from 'api';
 import {
   retrieveLevelsSaga,
@@ -15,8 +16,16 @@ import {
   updateLevelSaga,
   updateLevelsSaga,
   deleteLevelSaga,
+  findQuickestSolutionSaga,
 } from './sagas';
-import { retrieveLevels, createLevel, updateLevel, updateLevels, deleteLevel } from './actions';
+import {
+  retrieveLevels,
+  createLevel,
+  updateLevel,
+  updateLevels,
+  deleteLevel,
+  findQuickestSolution,
+} from './actions';
 
 describe('The API sagas', () => {
   describe('retrieveLevelsSaga()', () => {
@@ -221,6 +230,44 @@ describe('The API sagas', () => {
       step = clonedGenerator.throw(testError);
       expect(step.done).toBe(false);
       expect(step.value).toEqual(put(deleteLevel.rejected({ error: testError })));
+
+      //  Finish
+      step = clonedGenerator.next();
+      expect(step.done).toBe(true);
+    });
+  });
+
+  describe('findQuickestSolution()', () => {
+    it('Finds the quickest solution for the given level from the server', () => {
+      const generator = cloneableGenerator(findQuickestSolutionSaga)();
+
+      //  Fire the pending action
+      let step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(findQuickestSolution.pending()));
+
+      //  Perform the API request
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(call(apiFindQuickestSolution));
+
+      //  Clone the generator before the pass/failure fork for later use
+      const clonedGenerator = generator.clone();
+
+      //  Fire the fulfilled action
+      step = generator.next(testLevels[1]);
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(findQuickestSolution.fulfilled({ solution: [] })));
+
+      //  Finish
+      step = generator.next();
+      expect(step.done).toBe(true);
+
+      //  Fire the rejected action
+      const testError = new Error('Test error');
+      step = clonedGenerator.throw(testError);
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(findQuickestSolution.rejected({ error: testError })));
 
       //  Finish
       step = clonedGenerator.next();

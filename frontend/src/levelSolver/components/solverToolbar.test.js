@@ -14,6 +14,8 @@ describe('<SolverToolbar />', () => {
   beforeEach(() => {
     props = {
       editLevelAction: () => {},
+      findQuickestSolutionAction: () => {},
+      loading: false,
     };
   });
 
@@ -29,6 +31,12 @@ describe('<SolverToolbar />', () => {
     expect(toJson(solverToolbar)).toMatchSnapshot();
   });
 
+  it('Matches the current snapshot when loading', () => {
+    const solverToolbar = shallow(<SolverToolbar loading {...props} />);
+
+    expect(toJson(solverToolbar)).toMatchSnapshot();
+  });
+
   it('Fires the "editLevel" action when the edit level button is clicked', () => {
     const editLevelSpy = spy();
     const solverToolbar = shallow(<SolverToolbar {...props} editLevelAction={editLevelSpy} />);
@@ -37,5 +45,17 @@ describe('<SolverToolbar />', () => {
     expect(editLevelSpy.calledOnce).toBe(false);
     btnEditLevel.simulate('click');
     expect(editLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the "findQuickSolution" action when the edit level button is clicked', () => {
+    const findQuickestSolutionSpy = spy();
+    const solverToolbar = shallow(
+      <SolverToolbar {...props} findQuickestSolutionAction={findQuickestSolutionSpy} />,
+    );
+    const btnfindQuickestSolution = solverToolbar.find('#btn-find-quickest-solution');
+
+    expect(findQuickestSolutionSpy.calledOnce).toBe(false);
+    btnfindQuickestSolution.simulate('click');
+    expect(findQuickestSolutionSpy.calledOnce).toBe(true);
   });
 });

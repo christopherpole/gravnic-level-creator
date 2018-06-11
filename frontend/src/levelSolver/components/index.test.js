@@ -13,6 +13,8 @@ describe('<LevelSolver />', () => {
   beforeEach(() => {
     props = {
       editorTiles: [1, 2, 3],
+      loading: false,
+      error: false,
     };
   });
 
@@ -24,6 +26,18 @@ describe('<LevelSolver />', () => {
 
   it('Matches the current snapshot', () => {
     const levelSolver = shallow(<LevelSolver {...props} />);
+
+    expect(toJson(levelSolver)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot when loading', () => {
+    const levelSolver = shallow(<LevelSolver loading {...props} />);
+
+    expect(toJson(levelSolver)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot when an error has occured', () => {
+    const levelSolver = shallow(<LevelSolver error {...props} />);
 
     expect(toJson(levelSolver)).toMatchSnapshot();
   });
