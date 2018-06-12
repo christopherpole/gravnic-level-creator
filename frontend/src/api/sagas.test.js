@@ -1,3 +1,4 @@
+import { MOVE_UP } from 'gravnic-game';
 import { put, call } from 'redux-saga/effects';
 import { cloneableGenerator } from 'redux-saga/utils';
 
@@ -8,6 +9,7 @@ import {
   updateLevel as apiUpdateLevel,
   updateLevels as apiUpdateLevels,
   deleteLevel as apiDeleteLevel,
+  findQuickestSolution as apiFindQuickestSolution,
 } from 'api';
 import {
   retrieveLevelsSaga,
@@ -15,8 +17,16 @@ import {
   updateLevelSaga,
   updateLevelsSaga,
   deleteLevelSaga,
+  findQuickestSolutionSaga,
 } from './sagas';
-import { retrieveLevels, createLevel, updateLevel, updateLevels, deleteLevel } from './actions';
+import {
+  retrieveLevels,
+  createLevel,
+  updateLevel,
+  updateLevels,
+  deleteLevel,
+  findQuickestSolution,
+} from './actions';
 
 describe('The API sagas', () => {
   describe('retrieveLevelsSaga()', () => {
@@ -221,6 +231,52 @@ describe('The API sagas', () => {
       step = clonedGenerator.throw(testError);
       expect(step.done).toBe(false);
       expect(step.value).toEqual(put(deleteLevel.rejected({ error: testError })));
+
+      //  Finish
+      step = clonedGenerator.next();
+      expect(step.done).toBe(true);
+    });
+  });
+
+  describe('findQuickestSolution()', () => {
+    it('Finds the quickest solution for the given level from the server', () => {
+      const generator = cloneableGenerator(findQuickestSolutionSaga)({
+        gameState: [1, 2, 3],
+      });
+
+      //  Fire the pending action
+      let step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(findQuickestSolution.pending()));
+
+      //  Perform the API request
+      step = generator.next();
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(call(apiFindQuickestSolution, [1, 2, 3]));
+
+      //  Clone the generator before the pass/failure fork for later use
+      const clonedGenerator = generator.clone();
+
+      //  Fire the fulfilled action
+      step = generator.next({ solved: true, solution: [MOVE_UP], maxMoves: 10 });
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(
+        put(
+          findQuickestSolution.fulfilled({
+            result: { solved: true, solution: [MOVE_UP], maxMoves: 10 },
+          }),
+        ),
+      );
+
+      //  Finish
+      step = generator.next();
+      expect(step.done).toBe(true);
+
+      //  Fire the rejected action
+      const testError = new Error('Test error');
+      step = clonedGenerator.throw(testError);
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(findQuickestSolution.rejected({ error: testError })));
 
       //  Finish
       step = clonedGenerator.next();

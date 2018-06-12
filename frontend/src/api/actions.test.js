@@ -8,11 +8,13 @@ import {
   UPDATE_LEVEL,
   UPDATE_LEVELS,
   DELETE_LEVEL,
+  FIND_QUICKEST_SOLUTION,
   retrieveLevels,
   createLevel,
   updateLevel,
   updateLevels,
   deleteLevel,
+  findQuickestSolution,
 } from './actions';
 
 describe('The API actions', () => {
@@ -239,6 +241,43 @@ describe('The API actions', () => {
       };
 
       expect(deleteLevel.rejected({ error: testError })).toEqual(expectedAction);
+    });
+  });
+
+  describe('findQuickestSolution.pending()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: FIND_QUICKEST_SOLUTION.PENDING,
+      };
+
+      expect(findQuickestSolution.pending()).toEqual(expectedAction);
+    });
+  });
+
+  describe('findQuickestSolution.fulfilled()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: FIND_QUICKEST_SOLUTION.FULFILLED,
+        payload: {
+          solution: ['UP'],
+        },
+      };
+
+      expect(findQuickestSolution.fulfilled({ solution: ['UP'] })).toEqual(expectedAction);
+    });
+  });
+
+  describe('findQuickestSolution.rejected()', () => {
+    it('Creates the correct action', () => {
+      const testError = new Error('Test error');
+      const expectedAction = {
+        type: FIND_QUICKEST_SOLUTION.REJECTED,
+        payload: {
+          error: testError,
+        },
+      };
+
+      expect(findQuickestSolution.rejected({ error: testError })).toEqual(expectedAction);
     });
   });
 });

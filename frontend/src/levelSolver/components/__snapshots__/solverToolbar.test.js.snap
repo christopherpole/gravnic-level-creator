@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SolverToolbar /> Matches the current snapshot 1`] = `
+<styled.div
+  id="solver-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-edit"
+        onClick={[Function]}
+      >
+        Edit
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-find-quickest-solution"
+        onClick={[Function]}
+      >
+        Find Quickest Solution
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
+exports[`<SolverToolbar /> Matches the current snapshot when loading 1`] = `
+<styled.div
+  id="solver-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-edit"
+        onClick={[Function]}
+      >
+        Edit
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-find-quickest-solution"
+        onClick={[Function]}
+      >
+        Find Quickest Solution
+      </Button>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;

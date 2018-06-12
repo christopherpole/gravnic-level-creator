@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import { SortableElement } from 'react-sortable-hoc';
 
 import StarIcon from 'common/icons/starIcon';
+import LevelPreview from 'common/levelPreview';
 import { selectLevel, loadLevel, changeRenameLevel, finishRenameLevel } from '../actions';
-import LevelPreview from './levelPreview';
 
 export const Wrapper = styled.li`
   border: 2px solid #999;
@@ -224,9 +224,4 @@ const mapDispatchToProps = dispatch => ({
   finishRenameLevelAction: bindActionCreators(finishRenameLevel, dispatch),
 });
 
-export default SortableElement(
-  connect(
-    null,
-    mapDispatchToProps,
-  )(Level),
-);
+export default SortableElement(connect(null, mapDispatchToProps)(Level));
