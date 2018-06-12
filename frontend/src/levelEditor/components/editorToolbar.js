@@ -7,6 +7,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Button from 'common/button';
 import { previewLevel } from 'levelPreview/actions';
+import { solveLevel } from 'levelSolver/actions';
 import { resetGrid } from '../actions';
 import {
   getLevelEditorButtonDisabledStates,
@@ -36,6 +37,7 @@ export const ActionContainer = styled.li`
 export const EditorToolbar = ({
   resetGridAction,
   previewLevelAction,
+  solveLevelAction,
   buttonDisabledStates,
   gameStateString,
 }) => (
@@ -56,6 +58,11 @@ export const EditorToolbar = ({
         </Button>
       </ActionContainer>
       <ActionContainer>
+        <Button id="btn-solve" onClick={solveLevelAction} disabled={buttonDisabledStates.btnSolve}>
+          Solve
+        </Button>
+      </ActionContainer>
+      <ActionContainer>
         <CopyToClipboard text={gameStateString}>
           <Button id="btn-export" disabled={buttonDisabledStates.btnExport}>
             Export
@@ -73,6 +80,7 @@ EditorToolbar.defaultProps = {
 EditorToolbar.propTypes = {
   resetGridAction: PropTypes.func.isRequired,
   previewLevelAction: PropTypes.func.isRequired,
+  solveLevelAction: PropTypes.func.isRequired,
   buttonDisabledStates: PropTypes.object.isRequired,
   gameStateString: PropTypes.string,
 };
@@ -85,9 +93,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   resetGridAction: bindActionCreators(resetGrid, dispatch),
   previewLevelAction: bindActionCreators(previewLevel, dispatch),
+  solveLevelAction: bindActionCreators(solveLevel, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(EditorToolbar);
+export default connect(mapStateToProps, mapDispatchToProps)(EditorToolbar);

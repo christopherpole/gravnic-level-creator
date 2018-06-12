@@ -13,6 +13,7 @@ describe('<Layout />', () => {
   beforeAll(() => {
     props = {
       previewing: false,
+      solving: false,
     };
   });
 
@@ -30,6 +31,12 @@ describe('<Layout />', () => {
 
   it('Matches the current snapshot when previewing', () => {
     const layout = shallow(<Layout {...props} previewing />);
+
+    expect(toJson(layout)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot when solving', () => {
+    const layout = shallow(<Layout {...props} solving />);
 
     expect(toJson(layout)).toMatchSnapshot();
   });

@@ -16,12 +16,13 @@ export const getLevelEditorButtonDisabledStates = createSelector(
     const buttonsDisabledStates = {
       btnReset: false,
       btnPreview: false,
+      btnSolve: false,
       btnExport: false,
     };
 
     //  Enable the buttons if there's been a change on the editor
     if (deepEqual(levelEditor.tiles, levelEditorInitialState.tiles)) {
-      ['btnReset', 'btnPreview', 'btnExport'].forEach(key => {
+      ['btnReset', 'btnPreview', 'btnSolve', 'btnExport'].forEach(key => {
         buttonsDisabledStates[key] = true;
       });
     }

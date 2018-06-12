@@ -4,7 +4,6 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
-import Button from 'common/button';
 import { EditorToolbar } from './editorToolbar';
 
 configure({ adapter: new Adapter() });
@@ -17,6 +16,7 @@ describe('<EditorToolbar />', () => {
       gameStateString: 'test',
       resetGridAction: () => {},
       previewLevelAction: () => {},
+      solveLevelAction: () => {},
       buttonDisabledStates: {
         btnReset: true,
         btnPreview: true,
@@ -53,7 +53,7 @@ describe('<EditorToolbar />', () => {
     const editorToolbar = shallow(
       <EditorToolbar {...props} previewLevelAction={previewLevelSpy} />,
     );
-    const btnPreviewLevel = editorToolbar.find(Button).at(0);
+    const btnPreviewLevel = editorToolbar.find('#btn-preview');
 
     expect(previewLevelSpy.calledOnce).toBe(false);
     btnPreviewLevel.simulate('click');
@@ -63,11 +63,21 @@ describe('<EditorToolbar />', () => {
   it('Fires the "resetGrid" action when the reset grid button is clicked', () => {
     const resetGridSpy = spy();
     const editorToolbar = shallow(<EditorToolbar {...props} resetGridAction={resetGridSpy} />);
-    const btnResetGrid = editorToolbar.find(Button).at(1);
+    const btnResetGrid = editorToolbar.find('#btn-reset');
 
     expect(resetGridSpy.calledOnce).toBe(false);
     btnResetGrid.simulate('click');
     expect(resetGridSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the "solveLevel" action when the solve button is clicked', () => {
+    const solveLevelSpy = spy();
+    const editorToolbar = shallow(<EditorToolbar {...props} solveLevelAction={solveLevelSpy} />);
+    const btnSolveLevel = editorToolbar.find('#btn-solve');
+
+    expect(solveLevelSpy.calledOnce).toBe(false);
+    btnSolveLevel.simulate('click');
+    expect(solveLevelSpy.calledOnce).toBe(true);
   });
 
   it('Copies the game state to the clipboard after clicking the "export" button');
