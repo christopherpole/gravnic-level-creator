@@ -161,6 +161,8 @@ jobs:
             docker push registry.heroku.com/$HEROKU_FRONTEND_APP_NAME/web:latest
             docker build --rm=false -t registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web backend/
             docker push registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web:latest
+            docker build --rm=false -t registry.heroku.com/$HEROKU_LEVEL_SOLVER_APP_NAME/web levelSolver/
+            docker push registry.heroku.com/$HEROKU_LEVEL_SOLVER_APP_NAME/web:latest
 
 workflows:
   version: 2
