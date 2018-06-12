@@ -240,7 +240,9 @@ describe('The API sagas', () => {
 
   describe('findQuickestSolution()', () => {
     it('Finds the quickest solution for the given level from the server', () => {
-      const generator = cloneableGenerator(findQuickestSolutionSaga)();
+      const generator = cloneableGenerator(findQuickestSolutionSaga)({
+        gameState: [1, 2, 3],
+      });
 
       //  Fire the pending action
       let step = generator.next();
@@ -250,7 +252,7 @@ describe('The API sagas', () => {
       //  Perform the API request
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(call(apiFindQuickestSolution));
+      expect(step.value).toEqual(call(apiFindQuickestSolution, [1, 2, 3]));
 
       //  Clone the generator before the pass/failure fork for later use
       const clonedGenerator = generator.clone();

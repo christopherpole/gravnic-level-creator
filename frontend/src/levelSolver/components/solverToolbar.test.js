@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
 
-import { SolverToolbar } from './SolverToolbar';
+import { SolverToolbar } from './solverToolbar';
 
 configure({ adapter: new Adapter() });
 

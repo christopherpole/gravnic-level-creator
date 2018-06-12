@@ -25,18 +25,28 @@ export const SolutionStep = styled.li`
   }
 `;
 
-export const SolutionSummary = ({ solution }) => (
-  <Wrapper>
-    <StatusText>Quickest solution:</StatusText>
-    <Solution>
-      {solution.map((move, index) => (
-        <SolutionStep key={index}>
-          <ArrowIcon direction={move} />
-        </SolutionStep>
-      ))}
-    </Solution>
-  </Wrapper>
-);
+export const SolutionSummary = ({ solution }) => {
+  if (!solution.length) {
+    return (
+      <Wrapper>
+        <StatusText>This level is solved by default</StatusText>
+      </Wrapper>
+    );
+  }
+
+  return (
+    <Wrapper>
+      <StatusText>Quickest solution:</StatusText>
+      <Solution>
+        {solution.map((move, index) => (
+          <SolutionStep key={index}>
+            <ArrowIcon direction={move} />
+          </SolutionStep>
+        ))}
+      </Solution>
+    </Wrapper>
+  );
+};
 
 SolutionSummary.propTypes = {
   solution: PropTypes.array.isRequired,

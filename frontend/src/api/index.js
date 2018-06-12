@@ -17,5 +17,11 @@ export const updateLevel = async level =>
 export const updateLevels = async levels =>
   axios.put(`${process.env.REACT_APP_BACKEND_ENDPOINT}/levels`, levels).then(res => res.data);
 
-export const findQuickestSolution = async () =>
-  axios.get(`${process.env.REACT_APP_LEVEL_SOLVER_ENDPOINT}/solveLevel`).then(res => res.data);
+export const findQuickestSolution = async gameState =>
+  axios
+    .get(
+      `${process.env.REACT_APP_LEVEL_SOLVER_ENDPOINT}/solveLevel/${encodeURIComponent(
+        JSON.stringify(gameState),
+      )}`,
+    )
+    .then(res => res.data);

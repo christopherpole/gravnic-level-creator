@@ -28,4 +28,10 @@ describe('<SolutionSummary />', () => {
 
     expect(toJson(solutionSummary)).toMatchSnapshot();
   });
+
+  it('Matches the current snapshot when the level is solved by default', () => {
+    const solutionSummary = shallow(<SolutionSummary solution={[]} {...props} />);
+
+    expect(toJson(solutionSummary)).toMatchSnapshot();
+  });
 });

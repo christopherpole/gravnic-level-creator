@@ -1,14 +1,22 @@
-const express = require('express');
-const gravnic = require('gravnic-game');
+import express from 'express';
+import { findQuickestSolution } from '../solver';
 
 const router = express.Router();
 
-router.get('/', (req, res) =>
-  res.status(200).send({
-    solved: true,
-    solution: [gravnic.MOVE_DOWN, gravnic.MOVE_DOWN, gravnic.MOVE_LEFT, gravnic.MOVE_RIGHT],
-    maxMoves: 10,
-  }),
-);
+router.get('/:gameState', (req, res) => {
+  const solution = findQuickestSolution(JSON.parse(req.params.gameState));
+
+  const obj = {
+    solved: solution !== false,
+  };
+
+  if (solution) {
+    obj.solution = solution;
+  } else {
+    obj.maxMoves = process.env.MAX_MOVES;
+  }
+
+  return res.status(200).send(obj);
+});
 
 module.exports = router;
