@@ -11,6 +11,7 @@ import LevelSolver from 'levelSolver/components';
 import EditorToolbar from 'levelEditor/components/editorToolbar';
 import SolverToolbar from 'levelSolver/components/solverToolbar';
 import StarsEditor from 'levelEditor/components/starsEditor';
+import SolutionDisplay from 'levelEditor/components/solutionDisplay';
 import TileSelector from 'levelEditor/components/tileSelector';
 import PreviewToolbar from 'levelPreview/components/previewToolbar';
 import MoveHistoryDisplay from 'levelPreview/components/moveHistoryDisplay';
@@ -87,6 +88,7 @@ export const Layout = ({ previewing, solving }) => {
 
         <PanesWrapper>
           <StarsEditor />
+          <SolutionDisplay />
           {previewing ? <MoveHistoryDisplay /> : <TileSelector />}
         </PanesWrapper>
         <LevelManager />

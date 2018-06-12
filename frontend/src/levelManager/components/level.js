@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { SortableElement } from 'react-sortable-hoc';
 
 import StarIcon from 'common/icons/starIcon';
+import TickIcon from 'common/icons/tickIcon';
+import CrossIcon from 'common/icons/crossIcon';
 import LevelPreview from 'common/levelPreview';
 import { selectLevel, loadLevel, changeRenameLevel, finishRenameLevel } from '../actions';
 
@@ -62,6 +64,7 @@ export const Input = styled.input`
 
 export const StarsList = styled.ul`
   display: flex;
+  margin-bottom: 0.2em;
 `;
 
 export const StarListItem = styled.li`
@@ -76,6 +79,15 @@ export const Star = styled(StarIcon)``;
 export const StarsLabel = styled.span`
   margin-left: 0.3em;
   user-select: none;
+`;
+
+export const SolutionStatusWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const SolutionStatus = styled.p`
+  margin-left: 0.4em;
 `;
 
 export class Level extends Component {
@@ -135,6 +147,7 @@ export class Level extends Component {
       name,
       tiles,
       stars,
+      solution,
       isSelected,
       isCurrent,
       renamingValue,
@@ -191,6 +204,20 @@ export class Level extends Component {
               <StarsLabel>{stars[2]}</StarsLabel>
             </StarListItem>
           </StarsList>
+
+          {!solution && (
+            <SolutionStatusWrapper>
+              <CrossIcon />
+              <SolutionStatus>Not yet solved</SolutionStatus>
+            </SolutionStatusWrapper>
+          )}
+
+          {solution && (
+            <SolutionStatusWrapper>
+              <TickIcon />
+              <SolutionStatus>Solved!</SolutionStatus>
+            </SolutionStatusWrapper>
+          )}
         </div>
       </Wrapper>
     );
@@ -201,6 +228,7 @@ Level.defaultProps = {
   isSelected: false,
   isCurrent: false,
   renamingValue: null,
+  solution: null,
 };
 
 Level.propTypes = {
@@ -208,6 +236,7 @@ Level.propTypes = {
   name: PropTypes.string.isRequired,
   tiles: PropTypes.array.isRequired,
   stars: PropTypes.array.isRequired,
+  solution: PropTypes.array,
   isSelected: PropTypes.bool,
   isCurrent: PropTypes.bool,
   renamingValue: PropTypes.string,

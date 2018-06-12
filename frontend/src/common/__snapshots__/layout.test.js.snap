@@ -12,6 +12,7 @@ exports[`<Layout /> Matches the current snapshot 1`] = `
     <styled.div>
       <Connect(Component) />
       <Connect(Component) />
+      <Connect(Component) />
     </styled.div>
     <Connect(LevelManager) />
   </styled.div>
@@ -30,6 +31,7 @@ exports[`<Layout /> Matches the current snapshot when previewing 1`] = `
     <styled.div>
       <Connect(Component) />
       <Connect(Component) />
+      <Connect(Component) />
     </styled.div>
     <Connect(LevelManager) />
   </styled.div>
@@ -46,6 +48,7 @@ exports[`<Layout /> Matches the current snapshot when solving 1`] = `
       <Connect(Component) />
     </styled.div>
     <styled.div>
+      <Connect(Component) />
       <Connect(Component) />
       <Connect(Component) />
     </styled.div>

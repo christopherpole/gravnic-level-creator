@@ -13,6 +13,7 @@ const testLevels = [
     })),
     stars: [1, 2, 3],
     position: 1,
+    solution: ['UP', 'DOWN'],
   },
   {
     name: 'Test Level 2',
@@ -56,6 +57,7 @@ describe('/levels', () => {
           expect(res.body.tiles.length).toBe(100);
           expect(res.body.stars).toEqual(testLevels[0].stars);
           expect(res.body.position).toEqual(testLevels[0].position);
+          expect(res.body.solution).toEqual(['UP', 'DOWN']);
         });
 
       await request(server)
@@ -68,6 +70,7 @@ describe('/levels', () => {
           expect(res.body.tiles.length).toBe(100);
           expect(res.body.stars).toEqual(testLevels[1].stars);
           expect(res.body.position).toEqual(testLevels[1].position);
+          expect(res.body.solution).toBeUndefined();
         });
 
       done();
@@ -86,6 +89,7 @@ describe('/levels', () => {
           expect(res.body[0].tiles.length).toBe(100);
           expect(res.body[0].stars).toEqual(testLevels[0].stars);
           expect(res.body[0].position).toEqual(testLevels[0].position);
+          expect(res.body[0].solution).toEqual(['UP', 'DOWN']);
           expect(res.body[1].name).toBe(testLevels[1].name);
           expect(res.body[1].tiles.length).toBe(100);
           expect(res.body[1].stars).toEqual(testLevels[1].stars);
@@ -117,6 +121,7 @@ describe('/levels', () => {
         .put(`/levels/${recordIds[1]}`)
         .send({
           name: 'Updated level name',
+          solution: ['LEFT'],
         })
         .then(res => {
           expect(res.statusCode).toBe(200);
@@ -124,6 +129,7 @@ describe('/levels', () => {
           expect(res.body.tiles.length).toBe(100);
           expect(res.body.stars).toEqual(testLevels[1].stars);
           expect(res.body.position).toEqual(testLevels[1].position);
+          expect(res.body.solution).toEqual(['LEFT']);
         }));
 
     it('Can update multiple levels', () =>
@@ -133,6 +139,7 @@ describe('/levels', () => {
           {
             id: recordIds[0],
             name: 'Updated level name 1',
+            solution: ['DOWN'],
           },
           {
             id: recordIds[1],
@@ -145,6 +152,7 @@ describe('/levels', () => {
           expect(res.body[0].tiles.length).toBe(100);
           expect(res.body[0].stars).toEqual(testLevels[0].stars);
           expect(res.body[0].position).toEqual(testLevels[0].position);
+          expect(res.body[0].solution).toEqual(['DOWN']);
           expect(res.body[1].name).toBe('Updated level name 2');
           expect(res.body[1].tiles.length).toBe(100);
           expect(res.body[1].stars).toEqual(testLevels[1].stars);

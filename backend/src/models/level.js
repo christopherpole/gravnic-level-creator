@@ -34,6 +34,10 @@ const LevelSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  solution: {
+    type: [String],
+    default: undefined,
+  },
 });
 
 LevelSchema.post('save', level => {

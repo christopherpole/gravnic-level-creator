@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SolutionDisplay /> Matches the current snapshot 1`] = `
+<styled.div
+  id="solution-display"
+>
+  <styled.div>
+    <CrossIcon
+      fillColor="red"
+      size={15}
+    />
+    <styled.p>
+      Not yet solved
+    </styled.p>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<SolutionDisplay /> Matches the current snapshot when a solution is present 1`] = `
+<styled.div
+  id="solution-display"
+>
+  <styled.div>
+    <TickIcon
+      fillColor="green"
+      size={15}
+    />
+    <styled.p>
+      Solved!
+    </styled.p>
+  </styled.div>
+</styled.div>
+`;
