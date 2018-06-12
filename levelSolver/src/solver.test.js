@@ -1,4 +1,4 @@
-import { ENTITIES, MOVE_UP, MOVE_RIGHT, MOVE_DOWN, MOVE_LEFT } from 'gravnic-game';
+import { ENTITIES, MOVE_UP, MOVE_RIGHT } from 'gravnic-game';
 import { findQuickestSolution, searchGameTree } from './solver';
 
 describe('findQuickestSolution()', () => {
