@@ -4,7 +4,7 @@ import { findQuickestSolution } from '../solver';
 const router = express.Router();
 
 router.get('/:gameState', (req, res) => {
-  const solution = findQuickestSolution(JSON.parse(req.params.gameState));
+  const solution = findQuickestSolution(JSON.parse(req.params.gameState), 12);
 
   const obj = {
     solved: solution !== false,
