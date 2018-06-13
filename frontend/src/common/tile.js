@@ -13,6 +13,20 @@ export const Wrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: ${props => (props.fading ? 0 : 1)};
+  transition: all ${props => props.moveSpeed}ms linear;
+
+  ${props =>
+    props.shrinking &&
+    css`
+      opacity: 0;
+    `}
+
+  ${props =>
+    props.moveSpeed &&
+    css`
+      transition: opacity ${props.moveSpeed}ms linear;
+    `}
 
   ${props =>
     props.entityId === ENTITIES.NONE &&
@@ -43,14 +57,55 @@ export const Wrapper = styled.div`
     css`
       background: linear-gradient(to bottom right, red, orange, yellow, green, cyan, blue, violet);
     `}
+
+  ${props =>
+    props.entityId === ENTITIES.BLACK_HOLE &&
+    css`
+      background: white;
+
+      &:before {
+        transition: all 0.2s linear;
+        height: 50%;
+        width: 50%;
+        background: black;
+        border-radius: 100%;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -25%;
+        margin-left: -25%;
+      }
+
+      ${props.shrinking &&
+        css`
+          opacity: 1;
+
+          &:before {
+            height: 0%;
+            width: 0%;
+            margin-top: 0;
+            margin-left: 0;
+          }
+        `};
+    `}
 `;
 
-export const Tile = ({ entity }) => <Wrapper entityId={entity.entityId} color={entity.color} />;
+export const Tile = ({ entity }) => (
+  <Wrapper
+    entityId={entity.entityId}
+    color={entity.color}
+    fading={entity.fading}
+    shrinking={entity.shrinking}
+  />
+);
 
 Tile.propTypes = {
   entity: PropTypes.shape({
     entityId: PropTypes.string.isRequired,
     color: PropTypes.string,
+    fading: PropTypes.bool,
+    shrinking: PropTypes.bool,
   }).isRequired,
 };
 

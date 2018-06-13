@@ -13,11 +13,19 @@ export const Wrapper = styled.div`
   left: ${props => props.xPos}%;
   top: ${props => props.yPos}%;
   transition: all ${props => props.moveSpeed}ms linear;
-  opacity: ${props => (props.fading ? 0 : 1)};
   z-index: ${props => (props.isMovableEntity ? 1 : 0)};
 `;
 
-export const Entity = ({ entityId, color, xPos, yPos, fading, gameSpeed, isMovableEntity }) => (
+export const Entity = ({
+  entityId,
+  color,
+  shrinking,
+  xPos,
+  yPos,
+  fading,
+  gameSpeed,
+  isMovableEntity,
+}) => (
   <Wrapper
     xPos={xPos}
     yPos={yPos}
@@ -26,13 +34,21 @@ export const Entity = ({ entityId, color, xPos, yPos, fading, gameSpeed, isMovab
     moveSpeed={gameSpeed}
     fading={fading}
     isMovableEntity={isMovableEntity}
+    entityId={entityId}
   >
-    <EntityWrapper entityId={entityId} color={color} />
+    <EntityWrapper
+      moveSpeed={gameSpeed}
+      entityId={entityId}
+      color={color}
+      fading={fading}
+      shrinking={shrinking}
+    />
   </Wrapper>
 );
 
 Entity.defaultProps = {
   fading: false,
+  shrinking: null,
   color: null,
 };
 
@@ -43,6 +59,7 @@ Entity.propTypes = {
   fading: PropTypes.bool,
   color: PropTypes.string,
   gameSpeed: PropTypes.number.isRequired,
+  shrinking: PropTypes.bool,
   isMovableEntity: PropTypes.bool.isRequired,
 };
 

@@ -93,4 +93,11 @@ export default [
     },
     name: 'Rainbow block',
   },
+  {
+    id: '13',
+    entity: {
+      entityId: ENTITIES.BLACK_HOLE,
+    },
+    name: 'Black hole',
+  },
 ];
