@@ -20,6 +20,7 @@ export const Entity = ({
   entityId,
   color,
   shrinking,
+  stuck,
   xPos,
   yPos,
   fading,
@@ -42,14 +43,16 @@ export const Entity = ({
       color={color}
       fading={fading}
       shrinking={shrinking}
+      stuck={stuck}
     />
   </Wrapper>
 );
 
 Entity.defaultProps = {
   fading: false,
-  shrinking: null,
+  shrinking: false,
   color: null,
+  stuck: false,
 };
 
 Entity.propTypes = {
@@ -57,6 +60,7 @@ Entity.propTypes = {
   xPos: PropTypes.number.isRequired,
   yPos: PropTypes.number.isRequired,
   fading: PropTypes.bool,
+  stuck: PropTypes.bool,
   color: PropTypes.string,
   gameSpeed: PropTypes.number.isRequired,
   shrinking: PropTypes.bool,

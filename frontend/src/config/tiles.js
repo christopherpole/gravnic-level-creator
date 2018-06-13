@@ -100,4 +100,11 @@ export default [
     },
     name: 'Black hole',
   },
+  {
+    id: '14',
+    entity: {
+      entityId: ENTITIES.STICKY_SPOT,
+    },
+    name: 'Sticky spot',
+  },
 ];

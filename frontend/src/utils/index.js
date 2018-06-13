@@ -1,5 +1,5 @@
 import shortid from 'shortid';
-import { ENTITIES } from 'gravnic-game';
+import { ENTITIES, isStaticEntity } from 'gravnic-game';
 
 import { GRID_SIZE, MIN_MOVES } from 'config/settings';
 
@@ -109,21 +109,13 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
       movableEntity = null;
       staticEntityId = null;
 
-      //  If the entity is a block then add it as the movable entity
-      if (
-        entityData.entityId === ENTITIES.BLOCK ||
-        entityData.entityId === ENTITIES.RAINBOW_BLOCK ||
-        entityData.entityId === ENTITIES.GLASS
-      ) {
+      if (isStaticEntity(entityData.entityId)) {
+        staticEntityId = entityData.entityId;
+      } else if (entityData.entityId !== ENTITIES.NONE) {
         movableEntity = {
           ...entityData,
           id: currentIdCount++,
         };
-      } else if (
-        entityData.entityId === ENTITIES.FLOOR ||
-        entityData.entityId === ENTITIES.BLACK_HOLE
-      ) {
-        staticEntityId = entityData.entityId;
       }
 
       //  If this is a movable entity on this tile then we'll need to add a floor too

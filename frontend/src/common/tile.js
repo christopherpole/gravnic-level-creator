@@ -23,6 +23,23 @@ export const Wrapper = styled.div`
     `}
 
   ${props =>
+    props.stuck &&
+    css`
+      &:before {
+        height: 50%;
+        width: 50%;
+        background: #00f500;
+        border-radius: 100%;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -25%;
+        margin-left: -25%;
+      }
+    `}
+
+  ${props =>
     props.moveSpeed &&
     css`
       transition: opacity ${props.moveSpeed}ms linear;
@@ -89,16 +106,24 @@ export const Wrapper = styled.div`
           }
         `};
     `}
+
+  ${props =>
+    props.entityId === ENTITIES.STICKY_SPOT &&
+    css`
+      background: linear-gradient(
+        to bottom left,
+        #f95de6,
+        #ffa4ff,
+        #f95de6,
+        #ffa4ff,
+        #f95de6,
+        #ffa4ff,
+        #f95de6
+      );
+    `}
 `;
 
-export const Tile = ({ entity }) => (
-  <Wrapper
-    entityId={entity.entityId}
-    color={entity.color}
-    fading={entity.fading}
-    shrinking={entity.shrinking}
-  />
-);
+export const Tile = ({ entity }) => <Wrapper {...entity} />;
 
 Tile.propTypes = {
   entity: PropTypes.shape({
@@ -106,6 +131,7 @@ Tile.propTypes = {
     color: PropTypes.string,
     fading: PropTypes.bool,
     shrinking: PropTypes.bool,
+    stuck: PropTypes.bool,
   }).isRequired,
 };
 

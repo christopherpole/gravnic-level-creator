@@ -16,7 +16,8 @@ exports[`<Entity /> Matches the current snapshot 1`] = `
     entityId="BLOCK"
     fading={false}
     moveSpeed={100}
-    shrinking={null}
+    shrinking={false}
+    stuck={false}
   />
 </styled.div>
 `;
