@@ -114,4 +114,11 @@ export default [
     },
     name: 'Lava',
   },
+  {
+    id: '16',
+    entity: {
+      entityId: ENTITIES.SMART_BOMB,
+    },
+    name: 'Smart bomb',
+  },
 ];
