@@ -107,4 +107,11 @@ export default [
     },
     name: 'Sticky spot',
   },
+  {
+    id: '15',
+    entity: {
+      entityId: ENTITIES.LAVA,
+    },
+    name: 'Lava',
+  },
 ];

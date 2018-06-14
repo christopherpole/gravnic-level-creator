@@ -48,8 +48,6 @@ SolutionDisplay.propTypes = {
   solution: PropTypes.array,
 };
 
-const mapStateToProps = state => ({
-  solution: state.levelEditor.solution,
-});
+const mapStateToProps = state => ({});
 
 export default connect(mapStateToProps)(SolutionDisplay);
