@@ -446,9 +446,15 @@ exports[`<Level /> Matches the current snapshot 1`] = `
       </styled.li>
     </styled.ul>
     <Component
+      error={null}
       loading={false}
       maxMoves={null}
-      solution={null}
+      solution={
+        Array [
+          "MOVE_DOWN",
+          "MOVE_UP",
+        ]
+      }
     />
   </div>
 </styled.li>
@@ -900,9 +906,15 @@ exports[`<Level /> Matches the current snapshot if current 1`] = `
       </styled.li>
     </styled.ul>
     <Component
+      error={null}
       loading={false}
       maxMoves={null}
-      solution={null}
+      solution={
+        Array [
+          "MOVE_DOWN",
+          "MOVE_UP",
+        ]
+      }
     />
   </div>
 </styled.li>
@@ -1354,6 +1366,7 @@ exports[`<Level /> Matches the current snapshot if level is solved 1`] = `
       </styled.li>
     </styled.ul>
     <Component
+      error={null}
       loading={false}
       maxMoves={null}
       solution={
@@ -1815,9 +1828,15 @@ exports[`<Level /> Matches the current snapshot if renaming 1`] = `
       </styled.li>
     </styled.ul>
     <Component
+      error={null}
       loading={false}
       maxMoves={null}
-      solution={null}
+      solution={
+        Array [
+          "MOVE_DOWN",
+          "MOVE_UP",
+        ]
+      }
     />
   </div>
 </styled.li>
@@ -2269,9 +2288,15 @@ exports[`<Level /> Matches the current snapshot if selected 1`] = `
       </styled.li>
     </styled.ul>
     <Component
+      error={null}
       loading={false}
       maxMoves={null}
-      solution={null}
+      solution={
+        Array [
+          "MOVE_DOWN",
+          "MOVE_UP",
+        ]
+      }
     />
   </div>
 </styled.li>

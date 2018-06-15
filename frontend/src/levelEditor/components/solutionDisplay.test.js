@@ -11,6 +11,7 @@ const props = {
   solved: false,
   maxMoves: 10,
   loading: false,
+  error: false,
 };
 
 describe('<SolutionDisplay />', () => {

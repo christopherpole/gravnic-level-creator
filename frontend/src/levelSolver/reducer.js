@@ -1,4 +1,6 @@
 import { EDIT_LEVEL } from 'levelPreview/actions';
+import { UPDATE_TILE, RESET_GRID } from 'levelEditor/actions';
+import { LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { FIND_QUICKEST_SOLUTION } from 'api/actions';
 import { SOLVE_LEVEL } from './actions';
 
@@ -52,6 +54,19 @@ export default function levelSolverReducer(state = initialState, action) {
         error: true,
         loading: false,
       };
+    }
+
+    case LOAD_LEVEL_CONFIRMED: {
+      return {
+        ...state,
+        solution: action.level.solution,
+        maxMoves: action.level.maxMoves,
+      };
+    }
+
+    case RESET_GRID:
+    case UPDATE_TILE: {
+      return initialState;
     }
 
     default: {

@@ -1,4 +1,5 @@
 import { spy } from 'sinon';
+import { MOVE_UP } from 'gravnic-game';
 
 import testLevels from 'data/testLevels';
 import { createNewLevel as utilsCreateNewLevel } from 'utils';
@@ -159,6 +160,10 @@ describe('The level manager actions', () => {
           tiles: [1, 2, 3],
           stars: [4, 5, 6],
         },
+        levelSolver: {
+          solution: [MOVE_UP],
+          maxMoves: 3,
+        },
       });
 
       expect(typeof fn).toBe('function');
@@ -167,7 +172,13 @@ describe('The level manager actions', () => {
       expect(
         dispatchSpy.calledWith({
           type: SAVE_LEVEL,
-          level: { ...testLevels[1], tiles: [1, 2, 3], stars: [4, 5, 6] },
+          level: {
+            ...testLevels[1],
+            tiles: [1, 2, 3],
+            stars: [4, 5, 6],
+            solution: [MOVE_UP],
+            maxMoves: 3,
+          },
         }),
       ).toBe(true);
     });

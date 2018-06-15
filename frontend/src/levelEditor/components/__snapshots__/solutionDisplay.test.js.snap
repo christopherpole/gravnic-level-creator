@@ -5,6 +5,7 @@ exports[`<SolutionDisplay /> Matches the current snapshot 1`] = `
   id="solution-display"
 >
   <Component
+    error={null}
     loading={false}
     maxMoves={10}
     solution={null}
@@ -17,6 +18,7 @@ exports[`<SolutionDisplay /> Matches the current snapshot when a solution is pre
   id="solution-display"
 >
   <Component
+    error={null}
     loading={false}
     maxMoves={null}
     solution={

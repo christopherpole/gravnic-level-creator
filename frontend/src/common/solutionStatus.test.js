@@ -15,6 +15,7 @@ describe('<SolutionStatus />', () => {
     props = {
       solution: null,
       loading: false,
+      error: false,
     };
   });
 
@@ -56,6 +57,12 @@ describe('<SolutionStatus />', () => {
 
   it('Matches the current snapshot when loading', () => {
     const level = shallow(<SolutionStatus {...props} loading />);
+
+    expect(toJson(level)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot when there is an error', () => {
+    const level = shallow(<SolutionStatus {...props} error />);
 
     expect(toJson(level)).toMatchSnapshot();
   });

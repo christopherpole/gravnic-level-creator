@@ -138,6 +138,7 @@ export class Level extends Component {
       tiles,
       stars,
       solution,
+      maxMoves,
       isSelected,
       isCurrent,
       renamingValue,
@@ -195,7 +196,7 @@ export class Level extends Component {
             </StarListItem>
           </StarsList>
 
-          <SolutionStatus solution={solution} />
+          <SolutionStatus maxMoves={maxMoves} solution={solution} />
         </div>
       </Wrapper>
     );
@@ -207,6 +208,7 @@ Level.defaultProps = {
   isCurrent: false,
   renamingValue: null,
   solution: null,
+  maxMoves: null,
 };
 
 Level.propTypes = {
@@ -214,7 +216,8 @@ Level.propTypes = {
   name: PropTypes.string.isRequired,
   tiles: PropTypes.array.isRequired,
   stars: PropTypes.array.isRequired,
-  solution: PropTypes.array,
+  solution: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  maxMoves: PropTypes.number,
   isSelected: PropTypes.bool,
   isCurrent: PropTypes.bool,
   renamingValue: PropTypes.string,

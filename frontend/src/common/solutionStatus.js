@@ -18,12 +18,21 @@ export const SolutionStatusText = styled.p`
   margin-left: calc(${props => props.theme.structureSpacing} / 2);
 `;
 
-export const SolutionStatus = ({ loading, solution, maxMoves }) => {
+export const SolutionStatus = ({ loading, error, solution, maxMoves }) => {
   if (loading) {
     return (
       <Wrapper>
-        <LoadingIcon size={20} />
+        <LoadingIcon size={15} />
         <SolutionStatusText>Solving</SolutionStatusText>
+      </Wrapper>
+    );
+  }
+
+  if (error) {
+    return (
+      <Wrapper>
+        <CrossIcon size={15} />
+        <SolutionStatusText>An error has occured</SolutionStatusText>
       </Wrapper>
     );
   }
@@ -71,12 +80,14 @@ SolutionStatus.defaultProps = {
   loading: false,
   solution: null,
   maxMoves: null,
+  error: null,
 };
 
 SolutionStatus.propTypes = {
   loading: PropTypes.bool,
   solution: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.bool]),
   maxMoves: PropTypes.number,
+  error: PropTypes.bool,
 };
 
 export default SolutionStatus;

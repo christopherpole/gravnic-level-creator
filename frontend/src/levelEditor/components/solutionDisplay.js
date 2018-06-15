@@ -13,9 +13,9 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 
-export const SolutionDisplay = ({ loading, solution, maxMoves }) => (
+export const SolutionDisplay = ({ loading, solution, maxMoves, error }) => (
   <Wrapper id="solution-display">
-    <SolutionStatus solution={solution} loading={loading} maxMoves={maxMoves} />
+    <SolutionStatus solution={solution} loading={loading} maxMoves={maxMoves} error={error} />
   </Wrapper>
 );
 
@@ -28,12 +28,14 @@ SolutionDisplay.propTypes = {
   solution: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.bool]),
   maxMoves: PropTypes.number,
   loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   solution: state.levelSolver.solution,
   maxMoves: state.levelSolver.maxMoves,
   loading: state.levelSolver.loading,
+  error: state.levelSolver.error,
 });
 
 export default connect(mapStateToProps)(SolutionDisplay);
