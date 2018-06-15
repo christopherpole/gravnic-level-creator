@@ -5,8 +5,10 @@ import { SOLVE_LEVEL } from './actions';
 export const initialState = {
   solving: false,
   loading: false,
+  loaded: false,
+  solution: null,
+  maxMoves: null,
   error: false,
-  result: null,
 };
 
 export default function levelSolverReducer(state = initialState, action) {
@@ -27,10 +29,9 @@ export default function levelSolverReducer(state = initialState, action) {
 
     case FIND_QUICKEST_SOLUTION.PENDING: {
       return {
-        ...state,
-        error: false,
+        ...initialState,
+        solving: state.solving,
         loading: true,
-        result: null,
       };
     }
 
@@ -39,7 +40,9 @@ export default function levelSolverReducer(state = initialState, action) {
         ...state,
         error: false,
         loading: false,
-        result: action.payload.result,
+        loaded: true,
+        solution: action.payload.solution,
+        maxMoves: action.payload.maxMoves,
       };
     }
 

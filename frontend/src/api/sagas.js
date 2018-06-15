@@ -87,7 +87,7 @@ export function* findQuickestSolutionSaga(action) {
 
   try {
     const res = yield call(apiFindQuickestSolution, action.gameState);
-    yield put(findQuickestSolution.fulfilled({ result: res }));
+    yield put(findQuickestSolution.fulfilled({ ...res }));
   } catch (err) {
     yield put(findQuickestSolution.rejected({ error: err }));
   }

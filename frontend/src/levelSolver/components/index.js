@@ -46,7 +46,7 @@ export const SolutionsContainer = styled.div`
   justify-content: center;
 `;
 
-export const LevelSolver = ({ editorTiles, loading, error, result }) => (
+export const LevelSolver = ({ editorTiles, loading, loaded, error, solution, maxMoves }) => (
   <Wrapper>
     <WrapperInner>
       <LevelInfo>
@@ -56,34 +56,39 @@ export const LevelSolver = ({ editorTiles, loading, error, result }) => (
         <LevelInfoCopyContainer>
           {error && <p>There was a problem solving the level</p>}
           {loading && <p>Searching for solutions...</p>}
-          {!loading && !error && !result && <p>No solutions available</p>}
-          {result && result.solved && <SolutionSummary />}
-          {result && !result.solved && <p>Could not solve in {result.maxMoves} moves</p>}
+          {!loaded && !loading && <p>No solutions available</p>}
+          {solution && <SolutionSummary solution={solution} />}
+          {loaded && solution === false && <p>Could not solve in {maxMoves} moves</p>}
         </LevelInfoCopyContainer>
       </LevelInfo>
       <SolutionsContainer>
-        <p>Solutions will appear here</p>
+        <p>Full solutions will appear here</p>
       </SolutionsContainer>
     </WrapperInner>
   </Wrapper>
 );
 
 LevelSolver.defaultProps = {
-  result: null,
+  solution: null,
+  maxMoves: null,
 };
 
 LevelSolver.propTypes = {
   editorTiles: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
+  loaded: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
-  result: PropTypes.object,
+  solution: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  maxMoves: PropTypes.number,
 };
 
 const mapStateToProps = state => ({
   editorTiles: state.levelEditor.tiles,
   loading: state.levelSolver.loading,
+  loaded: state.levelSolver.loaded,
   error: state.levelSolver.error,
-  result: state.levelSolver.result,
+  solution: state.levelSolver.solution,
+  maxMoves: state.levelSolver.maxMoves,
 });
 
 export default connect(mapStateToProps)(LevelSolver);

@@ -5,9 +5,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SortableElement } from 'react-sortable-hoc';
 
+import SolutionStatus from 'common/solutionStatus';
 import StarIcon from 'common/icons/starIcon';
-import TickIcon from 'common/icons/tickIcon';
-import CrossIcon from 'common/icons/crossIcon';
 import LevelPreview from 'common/levelPreview';
 import { selectLevel, loadLevel, changeRenameLevel, finishRenameLevel } from '../actions';
 
@@ -79,15 +78,6 @@ export const Star = styled(StarIcon)``;
 export const StarsLabel = styled.span`
   margin-left: 0.3em;
   user-select: none;
-`;
-
-export const SolutionStatusWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const SolutionStatus = styled.p`
-  margin-left: 0.4em;
 `;
 
 export class Level extends Component {
@@ -205,19 +195,7 @@ export class Level extends Component {
             </StarListItem>
           </StarsList>
 
-          {!solution && (
-            <SolutionStatusWrapper>
-              <CrossIcon />
-              <SolutionStatus>Not yet solved</SolutionStatus>
-            </SolutionStatusWrapper>
-          )}
-
-          {solution && (
-            <SolutionStatusWrapper>
-              <TickIcon />
-              <SolutionStatus>Solved!</SolutionStatus>
-            </SolutionStatusWrapper>
-          )}
+          <SolutionStatus solution={solution} />
         </div>
       </Wrapper>
     );

@@ -15,6 +15,7 @@ describe('<LevelSolver />', () => {
     props = {
       editorTiles: [1, 2, 3],
       loading: false,
+      loaded: false,
       error: false,
     };
   });
@@ -31,16 +32,26 @@ describe('<LevelSolver />', () => {
     expect(toJson(levelSolver)).toMatchSnapshot();
   });
 
+  it('Matches the current snapshot when there is an error', () => {
+    const levelSolver = shallow(<LevelSolver error {...props} />);
+
+    expect(toJson(levelSolver)).toMatchSnapshot();
+  });
+
   it('Matches the current snapshot when loading', () => {
     const levelSolver = shallow(<LevelSolver loading {...props} />);
 
     expect(toJson(levelSolver)).toMatchSnapshot();
   });
 
-  it('Matches the current snapshot with results', () => {
-    const levelSolver = shallow(
-      <LevelSolver result={{ solved: true, soution: [MOVE_DOWN], maxMoves: 10 }} {...props} />,
-    );
+  it('Matches the current snapshot when loaded with a solution present', () => {
+    const levelSolver = shallow(<LevelSolver loaded solution={[MOVE_DOWN]} {...props} />);
+
+    expect(toJson(levelSolver)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot with loaded with no solution', () => {
+    const levelSolver = shallow(<LevelSolver loaded solution={false} {...props} />);
 
     expect(toJson(levelSolver)).toMatchSnapshot();
   });

@@ -38,7 +38,7 @@ describe('FIND_QUICKEST_SOLUTION.PENDING', () => {
   it('Handles the action correctly', () => {
     expect(
       reducer(
-        { ...initialState, error: true, result: { solved: true } },
+        { ...initialState, error: true, solved: true, solution: [] },
         {
           type: FIND_QUICKEST_SOLUTION.PENDING,
         },
@@ -63,7 +63,9 @@ describe('FIND_QUICKEST_SOLUTION.FULFILLED', () => {
         {
           type: FIND_QUICKEST_SOLUTION.FULFILLED,
           payload: {
-            result: { solved: true, solution: [MOVE_DOWN, MOVE_LEFT], maxMoves: 10 },
+            solved: true,
+            solution: [MOVE_DOWN, MOVE_LEFT],
+            maxMoves: 10,
           },
         },
       ),
@@ -71,7 +73,9 @@ describe('FIND_QUICKEST_SOLUTION.FULFILLED', () => {
       ...initialState,
       loading: false,
       error: false,
-      result: { solved: true, solution: [MOVE_DOWN, MOVE_LEFT], maxMoves: 10 },
+      loaded: true,
+      solution: [MOVE_DOWN, MOVE_LEFT],
+      maxMoves: 10,
     });
   });
 });

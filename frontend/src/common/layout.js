@@ -48,7 +48,7 @@ export const AppContainer = styled.div`
   font-family: ${props => props.theme.fontFamily};
   color: ${props => props.theme.foregroundColor};
   display: grid;
-  grid-template-columns: 1.8fr 1fr 1.2fr;
+  grid-template-columns: 1.8fr 1.1fr 1.2fr;
   min-width: ${props => props.theme.containerWidth};
   max-width: ${props => props.theme.containerWidth};
 `;

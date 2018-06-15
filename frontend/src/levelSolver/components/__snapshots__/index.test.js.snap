@@ -23,7 +23,7 @@ exports[`<LevelSolver /> Matches the current snapshot 1`] = `
     </styled.div>
     <styled.div>
       <p>
-        Solutions will appear here
+        Full solutions will appear here
       </p>
     </styled.div>
   </styled.div>
@@ -53,7 +53,44 @@ exports[`<LevelSolver /> Matches the current snapshot when an error has occured 
     </styled.div>
     <styled.div>
       <p>
-        Solutions will appear here
+        Full solutions will appear here
+      </p>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<LevelSolver /> Matches the current snapshot when loaded with a solution present 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.div>
+        <Component
+          tiles={
+            Array [
+              1,
+              2,
+              3,
+            ]
+          }
+        />
+      </styled.div>
+      <styled.div>
+        <p>
+          No solutions available
+        </p>
+        <Connect(Component)
+          solution={
+            Array [
+              "MOVE_DOWN",
+            ]
+          }
+        />
+      </styled.div>
+    </styled.div>
+    <styled.div>
+      <p>
+        Full solutions will appear here
       </p>
     </styled.div>
   </styled.div>
@@ -83,14 +120,14 @@ exports[`<LevelSolver /> Matches the current snapshot when loading 1`] = `
     </styled.div>
     <styled.div>
       <p>
-        Solutions will appear here
+        Full solutions will appear here
       </p>
     </styled.div>
   </styled.div>
 </styled.div>
 `;
 
-exports[`<LevelSolver /> Matches the current snapshot with results 1`] = `
+exports[`<LevelSolver /> Matches the current snapshot when there is an error 1`] = `
 <styled.div>
   <styled.div>
     <styled.div>
@@ -106,12 +143,44 @@ exports[`<LevelSolver /> Matches the current snapshot with results 1`] = `
         />
       </styled.div>
       <styled.div>
-        <Connect(Component) />
+        <p>
+          No solutions available
+        </p>
       </styled.div>
     </styled.div>
     <styled.div>
       <p>
-        Solutions will appear here
+        Full solutions will appear here
+      </p>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<LevelSolver /> Matches the current snapshot with loaded with no solution 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.div>
+        <Component
+          tiles={
+            Array [
+              1,
+              2,
+              3,
+            ]
+          }
+        />
+      </styled.div>
+      <styled.div>
+        <p>
+          No solutions available
+        </p>
+      </styled.div>
+    </styled.div>
+    <styled.div>
+      <p>
+        Full solutions will appear here
       </p>
     </styled.div>
   </styled.div>

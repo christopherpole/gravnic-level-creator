@@ -53,7 +53,7 @@ SolutionSummary.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  solution: state.levelSolver.result.solution,
+  solution: state.levelSolver.solution,
 });
 
 export default connect(mapStateToProps)(SolutionSummary);

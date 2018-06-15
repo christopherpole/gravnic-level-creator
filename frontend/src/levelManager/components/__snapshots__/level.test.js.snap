@@ -445,15 +445,11 @@ exports[`<Level /> Matches the current snapshot 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
-    <styled.div>
-      <CrossIcon
-        fillColor="red"
-        size={15}
-      />
-      <styled.p>
-        Not yet solved
-      </styled.p>
-    </styled.div>
+    <Component
+      loading={false}
+      maxMoves={null}
+      solution={null}
+    />
   </div>
 </styled.li>
 `;
@@ -903,15 +899,11 @@ exports[`<Level /> Matches the current snapshot if current 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
-    <styled.div>
-      <CrossIcon
-        fillColor="red"
-        size={15}
-      />
-      <styled.p>
-        Not yet solved
-      </styled.p>
-    </styled.div>
+    <Component
+      loading={false}
+      maxMoves={null}
+      solution={null}
+    />
   </div>
 </styled.li>
 `;
@@ -1361,15 +1353,16 @@ exports[`<Level /> Matches the current snapshot if level is solved 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
-    <styled.div>
-      <TickIcon
-        fillColor="green"
-        size={15}
-      />
-      <styled.p>
-        Solved!
-      </styled.p>
-    </styled.div>
+    <Component
+      loading={false}
+      maxMoves={null}
+      solution={
+        Array [
+          "UP",
+          "DOWN",
+        ]
+      }
+    />
   </div>
 </styled.li>
 `;
@@ -1821,15 +1814,11 @@ exports[`<Level /> Matches the current snapshot if renaming 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
-    <styled.div>
-      <CrossIcon
-        fillColor="red"
-        size={15}
-      />
-      <styled.p>
-        Not yet solved
-      </styled.p>
-    </styled.div>
+    <Component
+      loading={false}
+      maxMoves={null}
+      solution={null}
+    />
   </div>
 </styled.li>
 `;
@@ -2279,15 +2268,11 @@ exports[`<Level /> Matches the current snapshot if selected 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
-    <styled.div>
-      <CrossIcon
-        fillColor="red"
-        size={15}
-      />
-      <styled.p>
-        Not yet solved
-      </styled.p>
-    </styled.div>
+    <Component
+      loading={false}
+      maxMoves={null}
+      solution={null}
+    />
   </div>
 </styled.li>
 `;

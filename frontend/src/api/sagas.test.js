@@ -263,7 +263,9 @@ describe('The API sagas', () => {
       expect(step.value).toEqual(
         put(
           findQuickestSolution.fulfilled({
-            result: { solved: true, solution: [MOVE_UP], maxMoves: 10 },
+            solved: true,
+            solution: [MOVE_UP],
+            maxMoves: 10,
           }),
         ),
       );

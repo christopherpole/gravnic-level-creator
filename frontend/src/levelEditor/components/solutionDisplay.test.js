@@ -7,7 +7,11 @@ import { SolutionDisplay } from './solutionDisplay';
 
 configure({ adapter: new Adapter() });
 
-const props = {};
+const props = {
+  solved: false,
+  maxMoves: 10,
+  loading: false,
+};
 
 describe('<SolutionDisplay />', () => {
   it('Renders without exploding', () => {
@@ -23,7 +27,9 @@ describe('<SolutionDisplay />', () => {
   });
 
   it('Matches the current snapshot when a solution is present', () => {
-    const solutionDisplay = shallow(<SolutionDisplay {...props} solution={['UP', 'DOWN']} />);
+    const solutionDisplay = shallow(
+      <SolutionDisplay {...props} solved solution={['UP', 'DOWN']} maxMoves={null} />,
+    );
 
     expect(toJson(solutionDisplay)).toMatchSnapshot();
   });

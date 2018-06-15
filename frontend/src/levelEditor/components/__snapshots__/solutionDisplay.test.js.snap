@@ -4,15 +4,11 @@ exports[`<SolutionDisplay /> Matches the current snapshot 1`] = `
 <styled.div
   id="solution-display"
 >
-  <styled.div>
-    <CrossIcon
-      fillColor="red"
-      size={15}
-    />
-    <styled.p>
-      Not yet solved
-    </styled.p>
-  </styled.div>
+  <Component
+    loading={false}
+    maxMoves={10}
+    solution={null}
+  />
 </styled.div>
 `;
 
@@ -20,14 +16,15 @@ exports[`<SolutionDisplay /> Matches the current snapshot when a solution is pre
 <styled.div
   id="solution-display"
 >
-  <styled.div>
-    <TickIcon
-      fillColor="green"
-      size={15}
-    />
-    <styled.p>
-      Solved!
-    </styled.p>
-  </styled.div>
+  <Component
+    loading={false}
+    maxMoves={null}
+    solution={
+      Array [
+        "UP",
+        "DOWN",
+      ]
+    }
+  />
 </styled.div>
 `;

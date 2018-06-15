@@ -3,53 +3,37 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import TickIcon from 'common/icons/tickIcon';
-import CrossIcon from 'common/icons/crossIcon';
+import SolutionStatus from 'common/solutionStatus';
 
 export const Wrapper = styled.div`
   border: 1px solid ${props => props.theme.foregroundColor};
   margin-bottom: ${props => props.theme.structureSpacing};
   padding: ${props => props.theme.structureSpacing};
-`;
-
-export const SolutionStatusWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
 `;
 
-export const SolutionStatus = styled.p`
-  margin-left: 0.4em;
-`;
-
-export const SolutionDisplay = ({ solution }) => (
+export const SolutionDisplay = ({ loading, solution, maxMoves }) => (
   <Wrapper id="solution-display">
-    {!solution && (
-      <SolutionStatusWrapper>
-        <CrossIcon />
-        <SolutionStatus>Not yet solved</SolutionStatus>
-      </SolutionStatusWrapper>
-    )}
-
-    {solution && (
-      <SolutionStatusWrapper>
-        <TickIcon />
-        <SolutionStatus>Solved!</SolutionStatus>
-      </SolutionStatusWrapper>
-    )}
+    <SolutionStatus solution={solution} loading={loading} maxMoves={maxMoves} />
   </Wrapper>
 );
 
 SolutionDisplay.defaultProps = {
   solution: null,
+  maxMoves: null,
 };
 
 SolutionDisplay.propTypes = {
-  solution: PropTypes.array,
+  solution: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.bool]),
+  maxMoves: PropTypes.number,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
-  solution: state.levelEditor.solution,
+  solution: state.levelSolver.solution,
+  maxMoves: state.levelSolver.maxMoves,
+  loading: state.levelSolver.loading,
 });
 
 export default connect(mapStateToProps)(SolutionDisplay);
