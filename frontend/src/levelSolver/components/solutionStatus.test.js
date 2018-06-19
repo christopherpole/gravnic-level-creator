@@ -4,7 +4,7 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
-import SolutionStatus from './solutionStatus';
+import { SolutionStatus } from './solutionStatus';
 
 configure({ adapter: new Adapter() });
 

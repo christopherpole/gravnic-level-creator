@@ -3,21 +3,11 @@ import { convertEditorTilesToGameState } from 'utils';
 
 import testLevels from 'data/testLevels';
 import availableTiles from 'config/tiles';
-import { SOLVE_LEVEL, FIND_QUICKEST_SOLUTION, solveLevel, findQuickestSolution } from './actions';
+import { SOLVE_LEVEL, solveLevel } from './actions';
 
 describe('solveLevel()', () => {
   it('Creates the correct action', () => {
-    const expectedAction = {
-      type: SOLVE_LEVEL,
-    };
-
-    expect(solveLevel()).toEqual(expectedAction);
-  });
-});
-
-describe('findQuickestSolution()', () => {
-  it('Creates the correct action', () => {
-    const fn = findQuickestSolution();
+    const fn = solveLevel();
     const dispatchSpy = spy();
     const getState = () => ({
       levelEditor: {
@@ -31,7 +21,7 @@ describe('findQuickestSolution()', () => {
     expect(dispatchSpy.calledOnce).toBe(true);
     expect(
       dispatchSpy.calledWith({
-        type: FIND_QUICKEST_SOLUTION,
+        type: SOLVE_LEVEL,
         gameState: convertEditorTilesToGameState(testLevels[0].tiles, availableTiles),
       }),
     ).toBe(true);

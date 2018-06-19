@@ -7,11 +7,9 @@ import { connect } from 'react-redux';
 import LevelEditor from 'levelEditor/components';
 import LevelPreview from 'levelPreview/components';
 import LevelManager from 'levelManager/components';
-import LevelSolver from 'levelSolver/components';
 import EditorToolbar from 'levelEditor/components/editorToolbar';
-import SolverToolbar from 'levelSolver/components/solverToolbar';
 import StarsEditor from 'levelEditor/components/starsEditor';
-import SolutionDisplay from 'levelEditor/components/solutionDisplay';
+import SolutionDisplay from 'levelSolver/components';
 import TileSelector from 'levelEditor/components/tileSelector';
 import PreviewToolbar from 'levelPreview/components/previewToolbar';
 import MoveHistoryDisplay from 'levelPreview/components/moveHistoryDisplay';
@@ -48,7 +46,7 @@ export const AppContainer = styled.div`
   font-family: ${props => props.theme.fontFamily};
   color: ${props => props.theme.foregroundColor};
   display: grid;
-  grid-template-columns: 1.8fr 1.1fr 1.2fr;
+  grid-template-columns: 1.8fr 1.1fr 1.3fr;
   min-width: ${props => props.theme.containerWidth};
   max-width: ${props => props.theme.containerWidth};
 `;
@@ -66,45 +64,32 @@ export const PanesWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Layout = ({ previewing, solving }) => {
-  let gridWrapperContent = <LevelEditor />;
-  let toolbar = <EditorToolbar />;
+export const Layout = ({ previewing }) => (
+  <Wrapper id="level-creator">
+    <AppContainer>
+      <GridWrapper>
+        {!previewing && <LevelEditor />}
+        {previewing && <LevelPreview />}
+        {!previewing && <EditorToolbar />}
+        {previewing && <PreviewToolbar />}
+      </GridWrapper>
 
-  if (previewing) {
-    gridWrapperContent = <LevelPreview />;
-    toolbar = <PreviewToolbar />;
-  } else if (solving) {
-    gridWrapperContent = <LevelSolver />;
-    toolbar = <SolverToolbar />;
-  }
-
-  return (
-    <Wrapper id="level-creator">
-      <AppContainer>
-        <GridWrapper>
-          {gridWrapperContent}
-          {toolbar}
-        </GridWrapper>
-
-        <PanesWrapper>
-          <StarsEditor />
-          <SolutionDisplay />
-          {previewing ? <MoveHistoryDisplay /> : <TileSelector />}
-        </PanesWrapper>
-        <LevelManager />
-      </AppContainer>
-    </Wrapper>
-  );
-};
+      <PanesWrapper>
+        <StarsEditor />
+        <SolutionDisplay />
+        {previewing ? <MoveHistoryDisplay /> : <TileSelector />}
+      </PanesWrapper>
+      <LevelManager />
+    </AppContainer>
+  </Wrapper>
+);
 
 Layout.propTypes = {
   previewing: PropTypes.bool.isRequired,
-  solving: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   previewing: state.levelPreview.previewing,
-  solving: state.levelSolver.solving,
 });
 
 export default connect(mapStateToProps)(Layout);

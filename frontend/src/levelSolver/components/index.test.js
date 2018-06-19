@@ -1,5 +1,4 @@
 import React from 'react';
-import { MOVE_DOWN } from 'gravnic-game';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
@@ -8,18 +7,9 @@ import { LevelSolver } from './index';
 
 configure({ adapter: new Adapter() });
 
+const props = {};
+
 describe('<LevelSolver />', () => {
-  let props;
-
-  beforeEach(() => {
-    props = {
-      editorTiles: [1, 2, 3],
-      loading: false,
-      loaded: false,
-      error: false,
-    };
-  });
-
   it('Renders without exploding', () => {
     const levelSolver = shallow(<LevelSolver {...props} />);
 
@@ -32,32 +22,8 @@ describe('<LevelSolver />', () => {
     expect(toJson(levelSolver)).toMatchSnapshot();
   });
 
-  it('Matches the current snapshot when there is an error', () => {
-    const levelSolver = shallow(<LevelSolver error {...props} />);
-
-    expect(toJson(levelSolver)).toMatchSnapshot();
-  });
-
-  it('Matches the current snapshot when loading', () => {
-    const levelSolver = shallow(<LevelSolver loading {...props} />);
-
-    expect(toJson(levelSolver)).toMatchSnapshot();
-  });
-
-  it('Matches the current snapshot when loaded with a solution present', () => {
-    const levelSolver = shallow(<LevelSolver loaded solution={[MOVE_DOWN]} {...props} />);
-
-    expect(toJson(levelSolver)).toMatchSnapshot();
-  });
-
-  it('Matches the current snapshot with loaded with no solution', () => {
-    const levelSolver = shallow(<LevelSolver loaded solution={false} {...props} />);
-
-    expect(toJson(levelSolver)).toMatchSnapshot();
-  });
-
-  it('Matches the current snapshot when an error has occured', () => {
-    const levelSolver = shallow(<LevelSolver error {...props} />);
+  it('Matches the current snapshot when a solution is present', () => {
+    const levelSolver = shallow(<LevelSolver {...props} solution={['UP', 'DOWN']} />);
 
     expect(toJson(levelSolver)).toMatchSnapshot();
   });

@@ -9,7 +9,7 @@ import {
   FINISH_RENAME_LEVEL,
   REORDER_LEVELS,
 } from 'levelManager/actions';
-import { FIND_QUICKEST_SOLUTION } from 'levelSolver/actions';
+import { SOLVE_LEVEL } from 'levelSolver/actions';
 import {
   fetchLevels as apiFetchLevels,
   createLevel as apiCreateLevel,
@@ -99,5 +99,5 @@ export default function* levelManagerSagas() {
   yield takeLatest(DELETE_SELECTED_LEVEL_CONFIRMED, deleteLevelSaga);
   yield takeLatest([SAVE_LEVEL, FINISH_RENAME_LEVEL], updateLevelSaga);
   yield takeLatest(REORDER_LEVELS, updateLevelsSaga);
-  yield takeLatest(FIND_QUICKEST_SOLUTION, findQuickestSolutionSaga);
+  yield takeLatest(SOLVE_LEVEL, findQuickestSolutionSaga);
 }

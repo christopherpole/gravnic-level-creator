@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SortableElement } from 'react-sortable-hoc';
 
-import SolutionStatus from 'common/solutionStatus';
+import { SolutionStatus } from 'levelSolver/components/solutionStatus';
 import StarIcon from 'common/icons/starIcon';
 import LevelPreview from 'common/levelPreview';
 import { selectLevel, loadLevel, changeRenameLevel, finishRenameLevel } from '../actions';

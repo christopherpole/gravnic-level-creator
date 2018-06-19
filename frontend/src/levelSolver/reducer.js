@@ -1,11 +1,8 @@
-import { EDIT_LEVEL } from 'levelPreview/actions';
 import { UPDATE_TILE, RESET_GRID } from 'levelEditor/actions';
 import { LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { FIND_QUICKEST_SOLUTION } from 'api/actions';
-import { SOLVE_LEVEL } from './actions';
 
 export const initialState = {
-  solving: false,
   loading: false,
   loaded: false,
   solution: null,
@@ -15,24 +12,9 @@ export const initialState = {
 
 export default function levelSolverReducer(state = initialState, action) {
   switch (action.type) {
-    case SOLVE_LEVEL: {
-      return {
-        ...state,
-        solving: true,
-      };
-    }
-
-    case EDIT_LEVEL: {
-      return {
-        ...state,
-        solving: false,
-      };
-    }
-
     case FIND_QUICKEST_SOLUTION.PENDING: {
       return {
         ...initialState,
-        solving: state.solving,
         loading: true,
       };
     }

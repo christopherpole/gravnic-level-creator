@@ -1,40 +1,9 @@
 import { MOVE_DOWN, MOVE_LEFT } from 'gravnic-game';
 
-import { EDIT_LEVEL } from 'levelPreview/actions';
 import { UPDATE_TILE, RESET_GRID } from 'levelEditor/actions';
 import { LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { FIND_QUICKEST_SOLUTION } from 'api/actions';
 import reducer, { initialState } from './reducer';
-import { SOLVE_LEVEL } from './actions';
-
-describe('SOLVE_LEVEL', () => {
-  it('Handles the action correctly', () => {
-    expect(
-      reducer(undefined, {
-        type: SOLVE_LEVEL,
-      }),
-    ).toEqual({
-      ...initialState,
-      solving: true,
-    });
-  });
-});
-
-describe('EDIT_LEVEL', () => {
-  it('Handles the action correctly', () => {
-    expect(
-      reducer(
-        { ...initialState, solving: true },
-        {
-          type: EDIT_LEVEL,
-        },
-      ),
-    ).toEqual({
-      ...initialState,
-      solving: false,
-    });
-  });
-});
 
 describe('UPDATE_TILE', () => {
   it('Handles the action correctly', () => {

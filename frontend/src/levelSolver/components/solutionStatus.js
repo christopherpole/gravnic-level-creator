@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import TickIcon from 'common/icons/tickIcon';
 import CrossIcon from 'common/icons/crossIcon';
@@ -16,6 +17,7 @@ export const Wrapper = styled.div`
 export const SolutionStatusText = styled.p`
   white-space: nowrap;
   margin-left: calc(${props => props.theme.structureSpacing} / 2);
+  font-size: 0.9em;
 `;
 
 export const SolutionStatus = ({ loading, error, solution, maxMoves }) => {
@@ -90,4 +92,11 @@ SolutionStatus.propTypes = {
   error: PropTypes.bool,
 };
 
-export default SolutionStatus;
+const mapStateToProps = state => ({
+  solution: state.levelSolver.solution,
+  loading: state.levelSolver.loading,
+  maxMoves: state.levelSolver.maxMoves,
+  error: state.levelSolver.error,
+});
+
+export default connect(mapStateToProps)(SolutionStatus);
