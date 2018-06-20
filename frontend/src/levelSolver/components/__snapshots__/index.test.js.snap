@@ -13,5 +13,17 @@ exports[`<LevelSolver /> Matches the current snapshot when a solution is present
   id="level-solver"
 >
   <Connect(Component) />
+  <styled.div>
+    <ArrowsDisplay
+      arrows={
+        Array [
+          "UP",
+          "DOWN",
+        ]
+      }
+      justifyContent="center"
+      maxArrowWidth="10%"
+    />
+  </styled.div>
 </styled.div>
 `;

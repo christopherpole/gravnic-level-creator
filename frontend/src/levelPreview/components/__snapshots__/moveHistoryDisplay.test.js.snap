@@ -6,34 +6,18 @@ exports[`<MoveHistoryDisplay /> Matches the current snapshot 1`] = `
 >
   <styled.div>
     <styled.div>
-      <styled.div
-        id="move-icons-container"
-      >
-        <ArrowIcon
-          direction="MOVE_UP"
-          fillColor="white"
-          key="0"
-          size="100%"
-        />
-        <ArrowIcon
-          direction="MOVE_RIGHT"
-          fillColor="white"
-          key="1"
-          size="100%"
-        />
-        <ArrowIcon
-          direction="MOVE_DOWN"
-          fillColor="white"
-          key="2"
-          size="100%"
-        />
-        <ArrowIcon
-          direction="MOVE_LEFT"
-          fillColor="white"
-          key="3"
-          size="100%"
-        />
-      </styled.div>
+      <ArrowsDisplay
+        arrows={
+          Array [
+            "MOVE_UP",
+            "MOVE_RIGHT",
+            "MOVE_DOWN",
+            "MOVE_LEFT",
+          ]
+        }
+        justifyContent="left"
+        maxArrowWidth="25%"
+      />
     </styled.div>
   </styled.div>
   <styled.p
