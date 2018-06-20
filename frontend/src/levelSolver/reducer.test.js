@@ -3,6 +3,7 @@ import { MOVE_DOWN, MOVE_LEFT } from 'gravnic-game';
 import { UPDATE_TILE, RESET_GRID } from 'levelEditor/actions';
 import { LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { FIND_QUICKEST_SOLUTION } from 'api/actions';
+import { SOLVE_LEVEL_CANCELED } from './actions';
 import reducer, { initialState } from './reducer';
 
 describe('UPDATE_TILE', () => {
@@ -60,6 +61,21 @@ describe('FIND_QUICKEST_SOLUTION.PENDING', () => {
       ...initialState,
       loading: true,
       error: false,
+    });
+  });
+});
+
+describe('SOLVE_LEVEL_CANCELED', () => {
+  it('Handles the action correctly', () => {
+    expect(
+      reducer(
+        { ...initialState, loading: true },
+        {
+          type: SOLVE_LEVEL_CANCELED,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
     });
   });
 });

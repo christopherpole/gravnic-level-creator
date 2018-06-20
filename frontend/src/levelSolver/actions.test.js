@@ -3,7 +3,14 @@ import { convertEditorTilesToGameState } from 'utils';
 
 import testLevels from 'data/testLevels';
 import availableTiles from 'config/tiles';
-import { SOLVE_LEVEL, solveLevel } from './actions';
+import {
+  SOLVE_LEVEL,
+  CANCEL_SOLVE_LEVEL,
+  SOLVE_LEVEL_CANCELED,
+  solveLevel,
+  cancelSolveLevel,
+  solveLevelCanceled,
+} from './actions';
 
 describe('solveLevel()', () => {
   it('Creates the correct action', () => {
@@ -25,5 +32,25 @@ describe('solveLevel()', () => {
         gameState: convertEditorTilesToGameState(testLevels[0].tiles, availableTiles),
       }),
     ).toBe(true);
+  });
+});
+
+describe('cancelSolveLevel()', () => {
+  it('Creates the correct action', () => {
+    const expectedAction = {
+      type: CANCEL_SOLVE_LEVEL,
+    };
+
+    expect(cancelSolveLevel()).toEqual(expectedAction);
+  });
+});
+
+describe('solveLevelCanceled()', () => {
+  it('Creates the correct action', () => {
+    const expectedAction = {
+      type: SOLVE_LEVEL_CANCELED,
+    };
+
+    expect(solveLevelCanceled()).toEqual(expectedAction);
   });
 });

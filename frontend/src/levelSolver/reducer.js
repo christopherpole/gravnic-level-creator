@@ -1,6 +1,7 @@
 import { UPDATE_TILE, RESET_GRID } from 'levelEditor/actions';
 import { LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { FIND_QUICKEST_SOLUTION } from 'api/actions';
+import { SOLVE_LEVEL_CANCELED } from './actions';
 
 export const initialState = {
   loading: false,
@@ -34,6 +35,13 @@ export default function levelSolverReducer(state = initialState, action) {
       return {
         ...state,
         error: true,
+        loading: false,
+      };
+    }
+
+    case SOLVE_LEVEL_CANCELED: {
+      return {
+        ...state,
         loading: false,
       };
     }

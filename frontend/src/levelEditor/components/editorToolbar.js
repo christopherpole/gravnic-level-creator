@@ -7,7 +7,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Button from 'common/button';
 import { previewLevel } from 'levelPreview/actions';
-import { solveLevel } from 'levelSolver/actions';
+import { solveLevel, cancelSolveLevel } from 'levelSolver/actions';
 import { resetGrid } from '../actions';
 import {
   getLevelEditorButtonDisabledStates,
@@ -38,8 +38,10 @@ export const EditorToolbar = ({
   resetGridAction,
   previewLevelAction,
   solveLevelAction,
+  cancelSolveLevelAction,
   buttonDisabledStates,
   gameStateString,
+  solving,
 }) => (
   <Wrapper id="editor-toolbar">
     <Toolbar>
@@ -57,11 +59,24 @@ export const EditorToolbar = ({
           Reset
         </Button>
       </ActionContainer>
-      <ActionContainer>
-        <Button id="btn-solve" onClick={solveLevelAction} disabled={buttonDisabledStates.btnSolve}>
-          Solve
-        </Button>
-      </ActionContainer>
+      {!solving && (
+        <ActionContainer>
+          <Button
+            id="btn-solve"
+            onClick={solveLevelAction}
+            disabled={buttonDisabledStates.btnSolve}
+          >
+            Solve
+          </Button>
+        </ActionContainer>
+      )}
+      {solving && (
+        <ActionContainer>
+          <Button id="btn-cancel-solve" onClick={cancelSolveLevelAction}>
+            Cancel
+          </Button>
+        </ActionContainer>
+      )}
       <ActionContainer>
         <CopyToClipboard text={gameStateString}>
           <Button id="btn-export" disabled={buttonDisabledStates.btnExport}>
@@ -81,19 +96,23 @@ EditorToolbar.propTypes = {
   resetGridAction: PropTypes.func.isRequired,
   previewLevelAction: PropTypes.func.isRequired,
   solveLevelAction: PropTypes.func.isRequired,
+  cancelSolveLevelAction: PropTypes.func.isRequired,
   buttonDisabledStates: PropTypes.object.isRequired,
   gameStateString: PropTypes.string,
+  solving: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   buttonDisabledStates: getLevelEditorButtonDisabledStates(state),
   gameStateString: convertTileDataToGravnicGameStateString(state),
+  solving: state.levelSolver.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
   resetGridAction: bindActionCreators(resetGrid, dispatch),
   previewLevelAction: bindActionCreators(previewLevel, dispatch),
   solveLevelAction: bindActionCreators(solveLevel, dispatch),
+  cancelSolveLevelAction: bindActionCreators(cancelSolveLevel, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditorToolbar);
