@@ -48,6 +48,54 @@ exports[`<EditorToolbar /> Matches the current snapshot 1`] = `
 </styled.div>
 `;
 
+exports[`<EditorToolbar /> Matches the current when solving 1`] = `
+<styled.div
+  id="editor-toolbar"
+>
+  <styled.ul>
+    <styled.li>
+      <Button
+        disabled={true}
+        id="btn-preview"
+        onClick={[Function]}
+      >
+        Preview
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={true}
+        id="btn-reset"
+        onClick={[Function]}
+      >
+        Reset
+      </Button>
+    </styled.li>
+    <styled.li>
+      <Button
+        disabled={false}
+        id="btn-cancel-solve"
+        onClick={[Function]}
+      >
+        Cancel
+      </Button>
+    </styled.li>
+    <styled.li>
+      <CopyToClipboard
+        text="test"
+      >
+        <Button
+          disabled={true}
+          id="btn-export"
+        >
+          Export
+        </Button>
+      </CopyToClipboard>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
+
 exports[`<EditorToolbar /> Matches the current when the buttons are enabled 1`] = `
 <styled.div
   id="editor-toolbar"

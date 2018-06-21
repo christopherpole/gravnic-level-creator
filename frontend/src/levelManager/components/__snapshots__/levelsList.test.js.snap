@@ -29,6 +29,12 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
         name="Test level 1"
         position={1}
         renamingValue="New name"
+        solution={
+          Array [
+            "MOVE_DOWN",
+            "MOVE_UP",
+          ]
+        }
         stars={
           Array [
             1,
@@ -453,6 +459,11 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
         name="Test level 2"
         position={2}
         renamingValue={null}
+        solution={
+          Array [
+            "MOVE_UP",
+          ]
+        }
         stars={
           Array [
             1,
@@ -877,6 +888,7 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
         name="Test level 3"
         position={3}
         renamingValue={null}
+        solution={Array []}
         stars={
           Array [
             1,
@@ -1325,6 +1337,12 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
         name="Test level 1"
         position={1}
         renamingValue={null}
+        solution={
+          Array [
+            "MOVE_DOWN",
+            "MOVE_UP",
+          ]
+        }
         stars={
           Array [
             1,
@@ -1749,6 +1767,11 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
         name="Test level 2"
         position={2}
         renamingValue={null}
+        solution={
+          Array [
+            "MOVE_UP",
+          ]
+        }
         stars={
           Array [
             1,
@@ -2173,6 +2196,7 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
         name="Test level 3"
         position={3}
         renamingValue={null}
+        solution={Array []}
         stars={
           Array [
             1,
@@ -2621,6 +2645,12 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
         name="Test level 1"
         position={1}
         renamingValue={null}
+        solution={
+          Array [
+            "MOVE_DOWN",
+            "MOVE_UP",
+          ]
+        }
         stars={
           Array [
             1,
@@ -3045,6 +3075,11 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
         name="Test level 2"
         position={2}
         renamingValue={null}
+        solution={
+          Array [
+            "MOVE_UP",
+          ]
+        }
         stars={
           Array [
             1,
@@ -3469,6 +3504,7 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
         name="Test level 3"
         position={3}
         renamingValue={null}
+        solution={Array []}
         stars={
           Array [
             1,
@@ -3941,6 +3977,12 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
         name="Test level 1"
         position={1}
         renamingValue={null}
+        solution={
+          Array [
+            "MOVE_DOWN",
+            "MOVE_UP",
+          ]
+        }
         stars={
           Array [
             1,
@@ -4365,6 +4407,11 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
         name="Test level 2"
         position={2}
         renamingValue={null}
+        solution={
+          Array [
+            "MOVE_UP",
+          ]
+        }
         stars={
           Array [
             1,
@@ -4789,6 +4836,7 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
         name="Test level 3"
         position={3}
         renamingValue={null}
+        solution={Array []}
         stars={
           Array [
             1,

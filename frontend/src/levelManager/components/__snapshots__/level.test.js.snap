@@ -445,6 +445,17 @@ exports[`<Level /> Matches the current snapshot 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
+    <Component
+      error={null}
+      loading={false}
+      maxMoves={null}
+      solution={
+        Array [
+          "MOVE_DOWN",
+          "MOVE_UP",
+        ]
+      }
+    />
   </div>
 </styled.li>
 `;
@@ -894,6 +905,477 @@ exports[`<Level /> Matches the current snapshot if current 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
+    <Component
+      error={null}
+      loading={false}
+      maxMoves={null}
+      solution={
+        Array [
+          "MOVE_DOWN",
+          "MOVE_UP",
+        ]
+      }
+    />
+  </div>
+</styled.li>
+`;
+
+exports[`<Level /> Matches the current snapshot if level is solved 1`] = `
+<styled.li
+  className="level"
+  isCurrent={false}
+  isSelected={false}
+  onClick={[Function]}
+  onDoubleClick={[Function]}
+>
+  <Component
+    tiles={
+      Array [
+        Object {
+          "position": 0,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 1,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 2,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 3,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 4,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 5,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 6,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 7,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 8,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 9,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 10,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 11,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 12,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 13,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 14,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 15,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 16,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 17,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 18,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 19,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 20,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 21,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 22,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 23,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 24,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 25,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 26,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 27,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 28,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 29,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 30,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 31,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 32,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 33,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 34,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 35,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 36,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 37,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 38,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 39,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 40,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 41,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 42,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 43,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 44,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 45,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 46,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 47,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 48,
+          "selectedTileId": "4",
+        },
+        Object {
+          "position": 49,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 50,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 51,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 52,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 53,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 54,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 55,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 56,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 57,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 58,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 59,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 60,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 61,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 62,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 63,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 64,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 65,
+          "selectedTileId": "2",
+        },
+        Object {
+          "position": 66,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 67,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 68,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 69,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 70,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 71,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 72,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 73,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 74,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 75,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 76,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 77,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 78,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 79,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 80,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 81,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 82,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 83,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 84,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 85,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 86,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 87,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 88,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 89,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 90,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 91,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 92,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 93,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 94,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 95,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 96,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 97,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 98,
+          "selectedTileId": "1",
+        },
+        Object {
+          "position": 99,
+          "selectedTileId": "1",
+        },
+      ]
+    }
+  />
+  <div>
+    <styled.div>
+      <styled.p>
+        Test level 1
+      </styled.p>
+    </styled.div>
+    <styled.ul
+      className="stars-list"
+    >
+      <styled.li>
+        <Styled(StarIcon) />
+        <Styled(StarIcon) />
+        <Styled(StarIcon) />
+        <styled.span>
+          1
+        </styled.span>
+      </styled.li>
+      <styled.li>
+        <Styled(StarIcon) />
+        <Styled(StarIcon) />
+        <styled.span>
+          2
+        </styled.span>
+      </styled.li>
+      <styled.li>
+        <Styled(StarIcon) />
+        <styled.span>
+          3
+        </styled.span>
+      </styled.li>
+    </styled.ul>
+    <Component
+      error={null}
+      loading={false}
+      maxMoves={null}
+      solution={
+        Array [
+          "UP",
+          "DOWN",
+        ]
+      }
+    />
   </div>
 </styled.li>
 `;
@@ -1345,6 +1827,17 @@ exports[`<Level /> Matches the current snapshot if renaming 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
+    <Component
+      error={null}
+      loading={false}
+      maxMoves={null}
+      solution={
+        Array [
+          "MOVE_DOWN",
+          "MOVE_UP",
+        ]
+      }
+    />
   </div>
 </styled.li>
 `;
@@ -1794,6 +2287,17 @@ exports[`<Level /> Matches the current snapshot if selected 1`] = `
         </styled.span>
       </styled.li>
     </styled.ul>
+    <Component
+      error={null}
+      loading={false}
+      maxMoves={null}
+      solution={
+        Array [
+          "MOVE_DOWN",
+          "MOVE_UP",
+        ]
+      }
+    />
   </div>
 </styled.li>
 `;

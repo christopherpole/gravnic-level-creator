@@ -2,6 +2,7 @@
 
 exports[`<Entity /> Matches the current snapshot 1`] = `
 <styled.div
+  entityId="BLOCK"
   fading={false}
   heightPercentage={10}
   isMovableEntity={false}
@@ -13,6 +14,10 @@ exports[`<Entity /> Matches the current snapshot 1`] = `
   <styled.div
     color={null}
     entityId="BLOCK"
+    fading={false}
+    moveSpeed={100}
+    shrinking={false}
+    stuck={false}
   />
 </styled.div>
 `;

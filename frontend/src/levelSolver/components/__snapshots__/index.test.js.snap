@@ -1,119 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LevelSolver /> Matches the current snapshot 1`] = `
-<styled.div>
-  <styled.div>
-    <styled.div>
-      <styled.div>
-        <Component
-          tiles={
-            Array [
-              1,
-              2,
-              3,
-            ]
-          }
-        />
-      </styled.div>
-      <styled.div>
-        <p>
-          No solutions available
-        </p>
-      </styled.div>
-    </styled.div>
-    <styled.div>
-      <p>
-        Solutions will appear here
-      </p>
-    </styled.div>
-  </styled.div>
+<styled.div
+  id="level-solver"
+>
+  <Connect(Component) />
 </styled.div>
 `;
 
-exports[`<LevelSolver /> Matches the current snapshot when an error has occured 1`] = `
-<styled.div>
+exports[`<LevelSolver /> Matches the current snapshot when a solution is present 1`] = `
+<styled.div
+  id="level-solver"
+>
+  <Connect(Component) />
   <styled.div>
-    <styled.div>
-      <styled.div>
-        <Component
-          tiles={
-            Array [
-              1,
-              2,
-              3,
-            ]
-          }
-        />
-      </styled.div>
-      <styled.div>
-        <p>
-          No solutions available
-        </p>
-      </styled.div>
-    </styled.div>
-    <styled.div>
-      <p>
-        Solutions will appear here
-      </p>
-    </styled.div>
-  </styled.div>
-</styled.div>
-`;
-
-exports[`<LevelSolver /> Matches the current snapshot when loading 1`] = `
-<styled.div>
-  <styled.div>
-    <styled.div>
-      <styled.div>
-        <Component
-          tiles={
-            Array [
-              1,
-              2,
-              3,
-            ]
-          }
-        />
-      </styled.div>
-      <styled.div>
-        <p>
-          No solutions available
-        </p>
-      </styled.div>
-    </styled.div>
-    <styled.div>
-      <p>
-        Solutions will appear here
-      </p>
-    </styled.div>
-  </styled.div>
-</styled.div>
-`;
-
-exports[`<LevelSolver /> Matches the current snapshot with results 1`] = `
-<styled.div>
-  <styled.div>
-    <styled.div>
-      <styled.div>
-        <Component
-          tiles={
-            Array [
-              1,
-              2,
-              3,
-            ]
-          }
-        />
-      </styled.div>
-      <styled.div>
-        <Connect(Component) />
-      </styled.div>
-    </styled.div>
-    <styled.div>
-      <p>
-        Solutions will appear here
-      </p>
-    </styled.div>
+    <ArrowsDisplay
+      arrows={
+        Array [
+          "UP",
+          "DOWN",
+        ]
+      }
+      justifyContent="center"
+      maxArrowWidth="10%"
+    />
   </styled.div>
 </styled.div>
 `;

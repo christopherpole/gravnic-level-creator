@@ -17,11 +17,13 @@ describe('<EditorToolbar />', () => {
       resetGridAction: () => {},
       previewLevelAction: () => {},
       solveLevelAction: () => {},
+      cancelSolveLevelAction: () => {},
       buttonDisabledStates: {
         btnReset: true,
         btnPreview: true,
         btnExport: true,
       },
+      solving: false,
     };
   });
 
@@ -44,6 +46,12 @@ describe('<EditorToolbar />', () => {
         buttonDisabledStates={{ btnReset: false, btnPreview: false, btnExport: false }}
       />,
     );
+
+    expect(toJson(editorToolbar)).toMatchSnapshot();
+  });
+
+  it('Matches the current when solving', () => {
+    const editorToolbar = shallow(<EditorToolbar {...props} solving />);
 
     expect(toJson(editorToolbar)).toMatchSnapshot();
   });
@@ -78,6 +86,18 @@ describe('<EditorToolbar />', () => {
     expect(solveLevelSpy.calledOnce).toBe(false);
     btnSolveLevel.simulate('click');
     expect(solveLevelSpy.calledOnce).toBe(true);
+  });
+
+  it('Fires the "cancelSolveLevel" action when the cancel button is clicked', () => {
+    const cancelSolveLevelSpy = spy();
+    const editorToolbar = shallow(
+      <EditorToolbar {...props} solving cancelSolveLevelAction={cancelSolveLevelSpy} />,
+    );
+    const btnCancelSolveLevel = editorToolbar.find('#btn-cancel-solve');
+
+    expect(cancelSolveLevelSpy.calledOnce).toBe(false);
+    btnCancelSolveLevel.simulate('click');
+    expect(cancelSolveLevelSpy.calledOnce).toBe(true);
   });
 
   it('Copies the game state to the clipboard after clicking the "export" button');

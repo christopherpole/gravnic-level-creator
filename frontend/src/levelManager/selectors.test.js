@@ -1,3 +1,5 @@
+import { MOVE_DOWN } from 'gravnic-game';
+
 import testLevels from 'data/testLevels';
 import {
   getLevelManagerButtonDisabledStates,
@@ -13,6 +15,9 @@ describe('getLevelManagerButtonDisabledStates()', () => {
       levelEditor: {},
       levelManager: {
         levels: [],
+      },
+      levelSolver: {
+        solution: null,
       },
     };
   });
@@ -47,6 +52,9 @@ describe('getLevelManagerButtonDisabledStates()', () => {
         ...state.levelManager,
         selectedLevelId: testLevels[1].id,
       },
+      levelSolver: {
+        solution: testLevels[1].solution,
+      },
     });
 
     expect(buttonDisabledStates.btnNew).toBe(false);
@@ -70,28 +78,8 @@ describe('getLevelManagerButtonDisabledStates()', () => {
         selectedLevelId: testLevels[1].id,
         levels: testLevels,
       },
-    });
-
-    expect(buttonDisabledStates.btnNew).toBe(false);
-    expect(buttonDisabledStates.btnLoad).toBe(true);
-    expect(buttonDisabledStates.btnSave).toBe(true);
-    expect(buttonDisabledStates.btnDelete).toBe(false);
-    expect(buttonDisabledStates.btnCopy).toBe(false);
-    expect(buttonDisabledStates.btnRename).toBe(false);
-  });
-
-  it('Will disable the save/load buttons if there are no changes between the editor and the currently selected level', () => {
-    const buttonDisabledStates = getLevelManagerButtonDisabledStates({
-      ...state,
-      levelEditor: {
-        ...state.levelEditor,
-        tiles: testLevels[1].tiles,
-        stars: testLevels[1].stars,
-      },
-      levelManager: {
-        ...state.levelManager,
-        selectedLevelId: testLevels[1].id,
-        levels: testLevels,
+      levelSolver: {
+        solution: testLevels[1].solution,
       },
     });
 
@@ -116,6 +104,9 @@ describe('getLevelManagerButtonDisabledStates()', () => {
         selectedLevelId: testLevels[1].id,
         levels: testLevels,
       },
+      levelSolver: {
+        solution: testLevels[1].solution,
+      },
     });
 
     expect(buttonDisabledStates.btnNew).toBe(false);
@@ -138,6 +129,36 @@ describe('getLevelManagerButtonDisabledStates()', () => {
         ...state.levelManager,
         selectedLevelId: testLevels[1].id,
         levels: testLevels,
+      },
+      levelSolver: {
+        solution: testLevels[1].solution,
+      },
+    });
+
+    expect(buttonDisabledStates.btnNew).toBe(false);
+    expect(buttonDisabledStates.btnLoad).toBe(false);
+    expect(buttonDisabledStates.btnSave).toBe(false);
+    expect(buttonDisabledStates.btnDelete).toBe(false);
+    expect(buttonDisabledStates.btnCopy).toBe(false);
+    expect(buttonDisabledStates.btnRename).toBe(false);
+  });
+
+  it("Will enable the save/load buttons if the solution is different to the currently selected level's", () => {
+    const buttonDisabledStates = getLevelManagerButtonDisabledStates({
+      ...state,
+      levelEditor: {
+        ...state.levelEditor,
+        tiles: testLevels[2].tiles,
+        stars: testLevels[2].stars,
+        solution: testLevels[2].solution,
+      },
+      levelManager: {
+        ...state.levelManager,
+        selectedLevelId: testLevels[2].id,
+        levels: testLevels,
+      },
+      levelSolver: {
+        solution: [...testLevels[2].solution, MOVE_DOWN],
       },
     });
 

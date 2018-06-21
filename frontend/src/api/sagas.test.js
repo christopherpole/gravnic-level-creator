@@ -1,8 +1,11 @@
 import { MOVE_UP } from 'gravnic-game';
-import { put, call } from 'redux-saga/effects';
+import { put, call, race, take } from 'redux-saga/effects';
 import { cloneableGenerator } from 'redux-saga/utils';
 
 import testLevels from 'data/testLevels';
+import { CANCEL_SOLVE_LEVEL, solveLevelCanceled } from 'levelSolver/actions';
+import { UPDATE_TILE, RESET_GRID } from 'levelEditor/actions';
+import { LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import {
   fetchLevels as apiFetchLevels,
   createLevel as apiCreateLevel,
@@ -249,21 +252,31 @@ describe('The API sagas', () => {
       expect(step.done).toBe(false);
       expect(step.value).toEqual(put(findQuickestSolution.pending()));
 
-      //  Perform the API request
+      //  Next step is the race for the API request
       step = generator.next();
       expect(step.done).toBe(false);
-      expect(step.value).toEqual(call(apiFindQuickestSolution, [1, 2, 3]));
+      expect(step.value).toEqual(
+        race({
+          res: call(apiFindQuickestSolution, [1, 2, 3]),
+          cancel: take([CANCEL_SOLVE_LEVEL, UPDATE_TILE, RESET_GRID, LOAD_LEVEL_CONFIRMED]),
+        }),
+      );
+
+      //  Clone the generator before the API success/canceled fork for later use
+      const apiRequestCanceledGenerator = generator.clone();
 
       //  Clone the generator before the pass/failure fork for later use
-      const clonedGenerator = generator.clone();
+      const apiRequestFailedGenerator = generator.clone();
 
       //  Fire the fulfilled action
-      step = generator.next({ solved: true, solution: [MOVE_UP], maxMoves: 10 });
+      step = generator.next({ res: { solved: true, solution: [MOVE_UP], maxMoves: 10 } });
       expect(step.done).toBe(false);
       expect(step.value).toEqual(
         put(
           findQuickestSolution.fulfilled({
-            result: { solved: true, solution: [MOVE_UP], maxMoves: 10 },
+            solved: true,
+            solution: [MOVE_UP],
+            maxMoves: 10,
           }),
         ),
       );
@@ -272,14 +285,23 @@ describe('The API sagas', () => {
       step = generator.next();
       expect(step.done).toBe(true);
 
+      //  Fire the canceled action
+      step = apiRequestCanceledGenerator.next({ cancel: true });
+      expect(step.done).toBe(false);
+      expect(step.value).toEqual(put(solveLevelCanceled()));
+
+      //  Finish
+      step = apiRequestCanceledGenerator.next();
+      expect(step.done).toBe(true);
+
       //  Fire the rejected action
       const testError = new Error('Test error');
-      step = clonedGenerator.throw(testError);
+      step = apiRequestFailedGenerator.throw(testError);
       expect(step.done).toBe(false);
       expect(step.value).toEqual(put(findQuickestSolution.rejected({ error: testError })));
 
       //  Finish
-      step = clonedGenerator.next();
+      step = apiRequestFailedGenerator.next();
       expect(step.done).toBe(true);
     });
   });

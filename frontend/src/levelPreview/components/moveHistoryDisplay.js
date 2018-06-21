@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import ArrowIcon from 'common/icons/arrowIcon';
+import ArrowsDisplay from 'common/arrowsDisplay';
 
 const Wrapper = styled.div`
   flex-grow: 1;
@@ -17,12 +17,6 @@ const MovesContainerWrapper = styled.div`
   flex-grow: 1;
   position: relative;
   margin-bottom: ${props => props.theme.structureSpacing};
-`;
-
-const MovesContainerInner = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: calc(${props => props.theme.structureSpacing} / 2);
 `;
 
 const MovesContainer = styled.div`
@@ -44,9 +38,7 @@ export const MoveHistoryDisplay = ({ moveHistory }) => (
   <Wrapper id="moves-container">
     <MovesContainerWrapper>
       <MovesContainer>
-        <MovesContainerInner id="move-icons-container">
-          {moveHistory.map((direction, i) => <ArrowIcon key={i} direction={direction} />)}
-        </MovesContainerInner>
+        <ArrowsDisplay maxArrowWidth="25%" arrows={moveHistory} />
       </MovesContainer>
     </MovesContainerWrapper>
     <MovesMade id="moves-made-label">Moves made: {moveHistory.length}</MovesMade>

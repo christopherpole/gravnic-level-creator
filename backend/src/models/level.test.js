@@ -12,6 +12,8 @@ describe('Level()', () => {
       })),
       stars: [1, 2, 3],
       position: 11,
+      solution: ['UP'],
+      maxMoves: 5,
     });
   });
 
@@ -47,5 +49,7 @@ describe('Level()', () => {
     expect(testLevelJson.position).toEqual(11);
     expect(testLevelJson._id).toBe(undefined);
     expect(testLevelJson.__v).toBe(undefined);
+    expect(testLevelJson.solution).toEqual(['UP']);
+    expect(testLevelJson.maxMoves).toEqual(5);
   });
 });

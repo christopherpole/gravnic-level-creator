@@ -55,6 +55,12 @@ describe('<Level />', () => {
     expect(toJson(level)).toMatchSnapshot();
   });
 
+  it('Matches the current snapshot if level is solved', () => {
+    const level = shallow(<Level {...props} solution={['UP', 'DOWN']} />);
+
+    expect(toJson(level)).toMatchSnapshot();
+  });
+
   it('Fires the select level action when clicking on a level', () => {
     const selectLevelSpy = spy();
     const level = shallow(<Level {...props} selectLevelAction={selectLevelSpy} />);

@@ -8,8 +8,8 @@ import deepEqual from 'deep-equal';
  * @returns {Object} An object of booleans for each of the buttons
  */
 export const getLevelManagerButtonDisabledStates = createSelector(
-  [state => state.levelEditor, state => state.levelManager],
-  (levelEditor, levelManager) => {
+  [state => state.levelEditor, state => state.levelManager, state => state.levelSolver],
+  (levelEditor, levelManager, levelSolver) => {
     //  If no level is selected, only the "new" button is enabled by default
     const buttonsDisabledStates = {
       btnNew: false,
@@ -33,6 +33,7 @@ export const getLevelManagerButtonDisabledStates = createSelector(
 
       if (
         selectedLevel &&
+        deepEqual(levelSolver.solution, selectedLevel.solution) &&
         deepEqual(levelEditor.tiles, selectedLevel.tiles) &&
         deepEqual(levelEditor.stars, selectedLevel.stars)
       ) {

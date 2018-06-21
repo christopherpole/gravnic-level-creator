@@ -1,4 +1,9 @@
-import { changeGravityDirection, levelIsComplete, MOVE_NONE } from 'gravnic-game';
+import {
+  changeGravityDirection,
+  levelIsComplete,
+  entitiesAreFading,
+  MOVE_NONE,
+} from 'gravnic-game';
 import { delay } from 'redux-saga';
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 
@@ -34,15 +39,7 @@ export function* makeMoveSaga(action) {
 
   for (let i = 0; i < gameStates.length; i++) {
     //  Check the gamestate for fading entities
-    fading = false;
-    for (let j = 0; j < gameStates[i].length; j++) {
-      for (let k = 0; k < gameStates[i][j].length; k++) {
-        //  If we find a fading entity then take note
-        if (gameStates[i][j][k].movableEntity && gameStates[i][j][k].movableEntity.fading) {
-          fading = true;
-        }
-      }
-    }
+    fading = entitiesAreFading(gameStates[i]);
 
     //  If entities wern't fading but now they are, slow the game speed down
     if (fading && !fadingSpeed) {

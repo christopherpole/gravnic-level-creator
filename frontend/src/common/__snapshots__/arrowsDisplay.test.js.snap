@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ArrowsDisplay /> Matches the current snapshot 1`] = `
+<styled.ul
+  justifyContent="left"
+>
+  <styled.li
+    key="0"
+    maxArrowWidth="auto"
+  >
+    <ArrowIcon
+      direction="MOVE_UP"
+      fillColor="white"
+      size="100%"
+    />
+  </styled.li>
+  <styled.li
+    key="1"
+    maxArrowWidth="auto"
+  >
+    <ArrowIcon
+      direction="MOVE_DOWN"
+      fillColor="white"
+      size="100%"
+    />
+  </styled.li>
+  <styled.li
+    key="2"
+    maxArrowWidth="auto"
+  >
+    <ArrowIcon
+      direction="MOVE_LEFT"
+      fillColor="white"
+      size="100%"
+    />
+  </styled.li>
+  <styled.li
+    key="3"
+    maxArrowWidth="auto"
+  >
+    <ArrowIcon
+      direction="MOVE_RIGHT"
+      fillColor="white"
+      size="100%"
+    />
+  </styled.li>
+</styled.ul>
+`;

@@ -1,5 +1,5 @@
 import shortid from 'shortid';
-import { ENTITIES } from 'gravnic-game';
+import { ENTITIES, isStaticEntity } from 'gravnic-game';
 
 import { GRID_SIZE, MIN_MOVES } from 'config/settings';
 
@@ -49,6 +49,7 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
   let currentIdCount = 1;
   let entityRow;
   let entityData;
+  let staticEntityId;
   let staticEntity;
   let movableEntity;
   let i;
@@ -103,27 +104,29 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
     //  For each of the non-blank columns...
     for (j = firstColumnIndexWithEntity; j <= lastColumnIndexWithEntity; j++) {
       entityData = getEntityDataForTileId(tileData[i * gridSize + j].selectedTileId);
+
       staticEntity = null;
       movableEntity = null;
+      staticEntityId = null;
 
-      //  If the entity is a block then add it as the movable entity
-      if (
-        entityData.entityId === ENTITIES.BLOCK ||
-        entityData.entityId === ENTITIES.RAINBOW_BLOCK ||
-        entityData.entityId === ENTITIES.GLASS
-      ) {
+      if (isStaticEntity(entityData.entityId)) {
+        staticEntityId = entityData.entityId;
+      } else if (entityData.entityId !== ENTITIES.NONE) {
         movableEntity = {
           ...entityData,
           id: currentIdCount++,
         };
       }
 
-      //  If the entity is a floor then add it as the static entity, and if
-      //  there is a movable entity on this tile then we'll need to add a floor too
-      if (entityData.entityId === ENTITIES.FLOOR || movableEntity) {
+      //  If this is a movable entity on this tile then we'll need to add a floor too
+      if (movableEntity) {
+        staticEntityId = ENTITIES.FLOOR;
+      }
+
+      if (staticEntityId) {
         staticEntity = {
           id: currentIdCount++,
-          entityId: ENTITIES.FLOOR,
+          entityId: staticEntityId,
         };
       }
 

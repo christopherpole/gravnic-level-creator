@@ -3,7 +3,7 @@
 exports[`<LoadingScreen /> Matches the current snapshot 1`] = `
 <styled.div>
   <LoadingIcon
-    fillColor="white"
+    color="white"
     size={40}
     speed={1}
   />

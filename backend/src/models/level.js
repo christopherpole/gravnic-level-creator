@@ -34,6 +34,14 @@ const LevelSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  solution: {
+    type: mongoose.Schema.Types.Mixed,
+    default: undefined,
+  },
+  maxMoves: {
+    type: Number,
+    default: undefined,
+  },
 });
 
 LevelSchema.post('save', level => {

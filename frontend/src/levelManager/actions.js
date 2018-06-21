@@ -65,10 +65,11 @@ export const saveLevel = () => (dispatch, getState) => {
     level => level.id === getState().levelManager.selectedLevelId,
   );
   const { tiles, stars } = getState().levelEditor;
+  const { solution, maxMoves } = getState().levelSolver;
 
   dispatch({
     type: SAVE_LEVEL,
-    level: { ...selectedLevel, tiles, stars },
+    level: { ...selectedLevel, tiles, stars, solution, maxMoves },
   });
 };
 

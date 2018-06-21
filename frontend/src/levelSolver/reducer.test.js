@@ -1,36 +1,50 @@
 import { MOVE_DOWN, MOVE_LEFT } from 'gravnic-game';
 
-import { EDIT_LEVEL } from 'levelPreview/actions';
+import { UPDATE_TILE, RESET_GRID } from 'levelEditor/actions';
+import { LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { FIND_QUICKEST_SOLUTION } from 'api/actions';
+import { SOLVE_LEVEL_CANCELED } from './actions';
 import reducer, { initialState } from './reducer';
-import { SOLVE_LEVEL } from './actions';
 
-describe('SOLVE_LEVEL', () => {
-  it('Handles the action correctly', () => {
-    expect(
-      reducer(undefined, {
-        type: SOLVE_LEVEL,
-      }),
-    ).toEqual({
-      ...initialState,
-      solving: true,
-    });
-  });
-});
-
-describe('EDIT_LEVEL', () => {
+describe('UPDATE_TILE', () => {
   it('Handles the action correctly', () => {
     expect(
       reducer(
-        { ...initialState, solving: true },
         {
-          type: EDIT_LEVEL,
+          ...initialState,
+          solving: true,
+          loading: true,
+          loaded: true,
+          solution: [],
+          maxMoves: 10,
+          error: true,
+        },
+        {
+          type: UPDATE_TILE,
         },
       ),
-    ).toEqual({
-      ...initialState,
-      solving: false,
-    });
+    ).toEqual(initialState);
+  });
+});
+
+describe('RESET_GRID', () => {
+  it('Handles the action correctly', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+          solving: true,
+          loading: true,
+          loaded: true,
+          solution: [],
+          maxMoves: 10,
+          error: true,
+        },
+        {
+          type: RESET_GRID,
+        },
+      ),
+    ).toEqual(initialState);
   });
 });
 
@@ -38,7 +52,7 @@ describe('FIND_QUICKEST_SOLUTION.PENDING', () => {
   it('Handles the action correctly', () => {
     expect(
       reducer(
-        { ...initialState, error: true, result: { solved: true } },
+        { ...initialState, error: true, solved: true, solution: [] },
         {
           type: FIND_QUICKEST_SOLUTION.PENDING,
         },
@@ -47,6 +61,21 @@ describe('FIND_QUICKEST_SOLUTION.PENDING', () => {
       ...initialState,
       loading: true,
       error: false,
+    });
+  });
+});
+
+describe('SOLVE_LEVEL_CANCELED', () => {
+  it('Handles the action correctly', () => {
+    expect(
+      reducer(
+        { ...initialState, loading: true },
+        {
+          type: SOLVE_LEVEL_CANCELED,
+        },
+      ),
+    ).toEqual({
+      ...initialState,
     });
   });
 });
@@ -63,7 +92,9 @@ describe('FIND_QUICKEST_SOLUTION.FULFILLED', () => {
         {
           type: FIND_QUICKEST_SOLUTION.FULFILLED,
           payload: {
-            result: { solved: true, solution: [MOVE_DOWN, MOVE_LEFT], maxMoves: 10 },
+            solved: true,
+            solution: [MOVE_DOWN, MOVE_LEFT],
+            maxMoves: 10,
           },
         },
       ),
@@ -71,7 +102,9 @@ describe('FIND_QUICKEST_SOLUTION.FULFILLED', () => {
       ...initialState,
       loading: false,
       error: false,
-      result: { solved: true, solution: [MOVE_DOWN, MOVE_LEFT], maxMoves: 10 },
+      loaded: true,
+      solution: [MOVE_DOWN, MOVE_LEFT],
+      maxMoves: 10,
     });
   });
 });
@@ -92,6 +125,29 @@ describe('FIND_QUICKEST_SOLUTION.REJECTED', () => {
       ...initialState,
       loading: false,
       error: true,
+    });
+  });
+});
+
+describe('LOAD_LEVEL_CONFIRMED', () => {
+  it('Handles the action correctly', () => {
+    expect(
+      reducer(
+        {
+          ...initialState,
+        },
+        {
+          type: LOAD_LEVEL_CONFIRMED,
+          level: {
+            solution: [MOVE_LEFT],
+            maxMoves: 4,
+          },
+        },
+      ),
+    ).toEqual({
+      ...initialState,
+      solution: [MOVE_LEFT],
+      maxMoves: 4,
     });
   });
 });

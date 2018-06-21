@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SolutionStatus /> Matches the current snapshot 1`] = `
+<styled.div>
+  <WarningIcon
+    color="yellow"
+    size={15}
+  />
+  <styled.p>
+    Not yet solved
+  </styled.p>
+</styled.div>
+`;
+
+exports[`<SolutionStatus /> Matches the current snapshot when a level is unsolvable 1`] = `
+<styled.div>
+  <CrossIcon
+    fillColor="red"
+    size={15}
+  />
+  <styled.p>
+    Unsolvable in 
+    5
+     move
+    s
+    !
+  </styled.p>
+</styled.div>
+`;
+
+exports[`<SolutionStatus /> Matches the current snapshot when a solution is present 1`] = `
+<styled.div>
+  <TickIcon
+    fillColor="green"
+    size={15}
+  />
+  <styled.p>
+    Solvable in 
+    2
+     move
+    s
+    !
+  </styled.p>
+</styled.div>
+`;
+
+exports[`<SolutionStatus /> Matches the current snapshot when a solution of length 0 is present 1`] = `
+<styled.div>
+  <WarningIcon
+    color="yellow"
+    size={15}
+  />
+  <styled.p>
+    Solved by default
+  </styled.p>
+</styled.div>
+`;
+
+exports[`<SolutionStatus /> Matches the current snapshot when loading 1`] = `
+<styled.div>
+  <LoadingIcon
+    color="white"
+    size={15}
+    speed={1}
+  />
+  <styled.p>
+    Solving
+  </styled.p>
+</styled.div>
+`;
+
+exports[`<SolutionStatus /> Matches the current snapshot when loading 2`] = `
+<styled.div>
+  <LoadingIcon
+    color="white"
+    size={15}
+    speed={1}
+  />
+  <styled.p>
+    Solving
+  </styled.p>
+</styled.div>
+`;
+
+exports[`<SolutionStatus /> Matches the current snapshot when there is an error 1`] = `
+<styled.div>
+  <CrossIcon
+    fillColor="red"
+    size={15}
+  />
+  <styled.p>
+    An error has occured
+  </styled.p>
+</styled.div>
+`;

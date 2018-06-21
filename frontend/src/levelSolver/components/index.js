@@ -1,89 +1,46 @@
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import LevelPreview from 'common/levelPreview';
-import SolutionSummary from './solutionSummary';
+import ArrowsDisplay from 'common/arrowsDisplay';
+import SolutionStatus from './solutionStatus';
 
 export const Wrapper = styled.div`
-  height: 0;
-  padding-bottom: 100%;
-  position: relative;
-`;
-
-export const WrapperInner = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const LevelInfo = styled.div`
-  display: flex;
-  width: 100%;
+  border: 1px solid ${props => props.theme.foregroundColor};
   margin-bottom: ${props => props.theme.structureSpacing};
+  padding: ${props => props.theme.structureSpacing};
+  text-align: center;
 `;
 
-export const LevelPreviewContainer = styled.div`
-  width: 30%;
-  border: 1px solid ${props => props.theme.foregroundColor};
-  margin-right: ${props => props.theme.structureSpacing};
+export const ArrowsDisplayWrapper = styled.div`
+  margin: calc(${props => props.theme.structureSpacing} / 4) auto
+    calc(-${props => props.theme.structureSpacing} / 2);
+  text-align: center;
 `;
 
-export const LevelInfoCopyContainer = styled.div`
-  font-size: 1.2em;
-`;
-
-export const SolutionsContainer = styled.div`
-  border: 1px solid ${props => props.theme.foregroundColor};
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const LevelSolver = ({ editorTiles, loading, error, result }) => (
-  <Wrapper>
-    <WrapperInner>
-      <LevelInfo>
-        <LevelPreviewContainer>
-          <LevelPreview tiles={editorTiles} />
-        </LevelPreviewContainer>
-        <LevelInfoCopyContainer>
-          {error && <p>There was a problem solving the level</p>}
-          {loading && <p>Searching for solutions...</p>}
-          {!loading && !error && !result && <p>No solutions available</p>}
-          {result && result.solved && <SolutionSummary />}
-          {result && !result.solved && <p>Could not solve in {result.maxMoves} moves</p>}
-        </LevelInfoCopyContainer>
-      </LevelInfo>
-      <SolutionsContainer>
-        <p>Solutions will appear here</p>
-      </SolutionsContainer>
-    </WrapperInner>
+export const LevelSolver = ({ solution }) => (
+  <Wrapper id="level-solver">
+    <SolutionStatus />
+    {solution &&
+      solution.length > 0 && (
+        <ArrowsDisplayWrapper>
+          <ArrowsDisplay justifyContent="center" maxArrowWidth="10%" arrows={solution} />
+        </ArrowsDisplayWrapper>
+      )}
   </Wrapper>
 );
 
 LevelSolver.defaultProps = {
-  result: null,
+  solution: null,
 };
 
 LevelSolver.propTypes = {
-  editorTiles: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
-  result: PropTypes.object,
+  solution: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.bool]),
 };
 
 const mapStateToProps = state => ({
-  editorTiles: state.levelEditor.tiles,
-  loading: state.levelSolver.loading,
-  error: state.levelSolver.error,
-  result: state.levelSolver.result,
+  solution: state.levelSolver.solution,
 });
 
 export default connect(mapStateToProps)(LevelSolver);

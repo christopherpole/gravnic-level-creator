@@ -5,8 +5,8 @@ exports[`<ErrorScreen /> Matches the current snapshot 1`] = `
   id="error-screen"
 >
   <WarningIcon
-    fillColor="white"
-    size={30}
+    color="white"
+    size={50}
   />
   <styled.p>
     There was a problem communicating with the server

@@ -13,6 +13,7 @@ const testLevels = [
     })),
     stars: [1, 2, 3],
     position: 1,
+    solution: ['UP', 'DOWN'],
   },
   {
     name: 'Test Level 2',
@@ -22,6 +23,8 @@ const testLevels = [
     })),
     stars: [4, 5, 6],
     position: 2,
+    solution: false,
+    maxMoves: 3,
   },
 ];
 
@@ -56,6 +59,7 @@ describe('/levels', () => {
           expect(res.body.tiles.length).toBe(100);
           expect(res.body.stars).toEqual(testLevels[0].stars);
           expect(res.body.position).toEqual(testLevels[0].position);
+          expect(res.body.solution).toEqual(['UP', 'DOWN']);
         });
 
       await request(server)
@@ -86,6 +90,7 @@ describe('/levels', () => {
           expect(res.body[0].tiles.length).toBe(100);
           expect(res.body[0].stars).toEqual(testLevels[0].stars);
           expect(res.body[0].position).toEqual(testLevels[0].position);
+          expect(res.body[0].solution).toEqual(['UP', 'DOWN']);
           expect(res.body[1].name).toBe(testLevels[1].name);
           expect(res.body[1].tiles.length).toBe(100);
           expect(res.body[1].stars).toEqual(testLevels[1].stars);
@@ -101,6 +106,8 @@ describe('/levels', () => {
           expect(res.body.tiles.length).toBe(100);
           expect(res.body.stars).toEqual(testLevels[1].stars);
           expect(res.body.position).toEqual(testLevels[1].position);
+          expect(res.body.solution).toBe(false);
+          expect(res.body.maxMoves).toBe(3);
         }));
 
     it('Returns a 404 error if the record is not found', () =>
@@ -117,6 +124,7 @@ describe('/levels', () => {
         .put(`/levels/${recordIds[1]}`)
         .send({
           name: 'Updated level name',
+          solution: ['LEFT'],
         })
         .then(res => {
           expect(res.statusCode).toBe(200);
@@ -124,6 +132,7 @@ describe('/levels', () => {
           expect(res.body.tiles.length).toBe(100);
           expect(res.body.stars).toEqual(testLevels[1].stars);
           expect(res.body.position).toEqual(testLevels[1].position);
+          expect(res.body.solution).toEqual(['LEFT']);
         }));
 
     it('Can update multiple levels', () =>
@@ -133,10 +142,13 @@ describe('/levels', () => {
           {
             id: recordIds[0],
             name: 'Updated level name 1',
+            solution: false,
+            maxMoves: 4,
           },
           {
             id: recordIds[1],
             name: 'Updated level name 2',
+            solution: ['DOWN'],
           },
         ])
         .then(res => {
@@ -145,10 +157,13 @@ describe('/levels', () => {
           expect(res.body[0].tiles.length).toBe(100);
           expect(res.body[0].stars).toEqual(testLevels[0].stars);
           expect(res.body[0].position).toEqual(testLevels[0].position);
+          expect(res.body[0].solution).toEqual(false);
+          expect(res.body[0].maxMoves).toEqual(4);
           expect(res.body[1].name).toBe('Updated level name 2');
           expect(res.body[1].tiles.length).toBe(100);
           expect(res.body[1].stars).toEqual(testLevels[1].stars);
           expect(res.body[1].position).toEqual(testLevels[1].position);
+          expect(res.body[1].solution).toEqual(['DOWN']);
         }));
 
     it('Returns a 404 error if the record is not found', () =>

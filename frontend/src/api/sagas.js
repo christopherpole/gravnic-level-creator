@@ -1,4 +1,4 @@
-import { takeLatest, put, call } from 'redux-saga/effects';
+import { takeLatest, take, put, call, race } from 'redux-saga/effects';
 
 import {
   RETRIEVE_LEVELS,
@@ -8,8 +8,10 @@ import {
   SAVE_LEVEL,
   FINISH_RENAME_LEVEL,
   REORDER_LEVELS,
+  LOAD_LEVEL_CONFIRMED,
 } from 'levelManager/actions';
-import { FIND_QUICKEST_SOLUTION } from 'levelSolver/actions';
+import { UPDATE_TILE, RESET_GRID } from 'levelEditor/actions';
+import { solveLevelCanceled, SOLVE_LEVEL, CANCEL_SOLVE_LEVEL } from 'levelSolver/actions';
 import {
   fetchLevels as apiFetchLevels,
   createLevel as apiCreateLevel,
@@ -86,8 +88,18 @@ export function* findQuickestSolutionSaga(action) {
   yield put(findQuickestSolution.pending());
 
   try {
-    const res = yield call(apiFindQuickestSolution, action.gameState);
-    yield put(findQuickestSolution.fulfilled({ result: res }));
+    const { res, cancel } = yield race({
+      res: call(apiFindQuickestSolution, action.gameState),
+      cancel: take([CANCEL_SOLVE_LEVEL, UPDATE_TILE, RESET_GRID, LOAD_LEVEL_CONFIRMED]),
+    });
+
+    if (res) {
+      yield put(findQuickestSolution.fulfilled({ ...res }));
+    }
+
+    if (cancel) {
+      yield put(solveLevelCanceled());
+    }
   } catch (err) {
     yield put(findQuickestSolution.rejected({ error: err }));
   }
@@ -99,5 +111,5 @@ export default function* levelManagerSagas() {
   yield takeLatest(DELETE_SELECTED_LEVEL_CONFIRMED, deleteLevelSaga);
   yield takeLatest([SAVE_LEVEL, FINISH_RENAME_LEVEL], updateLevelSaga);
   yield takeLatest(REORDER_LEVELS, updateLevelsSaga);
-  yield takeLatest(FIND_QUICKEST_SOLUTION, findQuickestSolutionSaga);
+  yield takeLatest(SOLVE_LEVEL, findQuickestSolutionSaga);
 }

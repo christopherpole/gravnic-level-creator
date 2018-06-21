@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SortableElement } from 'react-sortable-hoc';
 
+import { SolutionStatus } from 'levelSolver/components/solutionStatus';
 import StarIcon from 'common/icons/starIcon';
 import LevelPreview from 'common/levelPreview';
 import { selectLevel, loadLevel, changeRenameLevel, finishRenameLevel } from '../actions';
@@ -62,6 +63,7 @@ export const Input = styled.input`
 
 export const StarsList = styled.ul`
   display: flex;
+  margin-bottom: 0.2em;
 `;
 
 export const StarListItem = styled.li`
@@ -135,6 +137,8 @@ export class Level extends Component {
       name,
       tiles,
       stars,
+      solution,
+      maxMoves,
       isSelected,
       isCurrent,
       renamingValue,
@@ -191,6 +195,8 @@ export class Level extends Component {
               <StarsLabel>{stars[2]}</StarsLabel>
             </StarListItem>
           </StarsList>
+
+          <SolutionStatus maxMoves={maxMoves} solution={solution} />
         </div>
       </Wrapper>
     );
@@ -201,6 +207,8 @@ Level.defaultProps = {
   isSelected: false,
   isCurrent: false,
   renamingValue: null,
+  solution: null,
+  maxMoves: null,
 };
 
 Level.propTypes = {
@@ -208,6 +216,8 @@ Level.propTypes = {
   name: PropTypes.string.isRequired,
   tiles: PropTypes.array.isRequired,
   stars: PropTypes.array.isRequired,
+  solution: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  maxMoves: PropTypes.number,
   isSelected: PropTypes.bool,
   isCurrent: PropTypes.bool,
   renamingValue: PropTypes.string,

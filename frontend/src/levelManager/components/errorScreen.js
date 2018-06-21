@@ -24,13 +24,13 @@ export const Wrapper = styled.div`
 export const ReloadButton = styled(Button)``;
 
 export const ErrorMessage = styled.p`
-  margin: calc(${props => props.theme.structureSpacing} / 2) 0
+  margin: calc(${props => props.theme.structureSpacing} / 1) 0
     ${props => props.theme.structureSpacing};
 `;
 
 export const ErrorScreen = ({ retrieveLevelsAction }) => (
   <Wrapper id="error-screen">
-    <WarningIcon />
+    <WarningIcon size={50} />
     <ErrorMessage>There was a problem communicating with the server</ErrorMessage>
     <ReloadButton id="btn-reload" onClick={retrieveLevelsAction}>
       Reload
@@ -50,7 +50,4 @@ const mapDispatchToProps = dispatch => ({
   retrieveLevelsAction: bindActionCreators(retrieveLevels, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ErrorScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(ErrorScreen);

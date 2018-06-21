@@ -1,7 +1,10 @@
+import { MOVE_DOWN, MOVE_UP } from 'gravnic-game';
+
 export default [
   {
     id: '1',
     name: 'Test level 1',
+    solution: [MOVE_DOWN, MOVE_UP],
     tiles: [
       {
         position: 0,
@@ -410,6 +413,7 @@ export default [
   {
     id: '2',
     name: 'Test level 2',
+    solution: [MOVE_UP],
     tiles: [
       {
         position: 0,
@@ -818,6 +822,7 @@ export default [
   {
     id: '3',
     name: 'Test level 3',
+    solution: [],
     tiles: [
       {
         position: 0,
