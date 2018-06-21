@@ -1,4 +1,4 @@
-import { ENTITIES } from 'gravnic-game';
+import { ENTITIES, MOVE_RIGHT } from 'gravnic-game';
 import path from 'path';
 import dotenv from 'dotenv';
 import request from 'supertest';
@@ -32,8 +32,8 @@ describe('/solveLevel', () => {
         .then(res => {
           expect(res.statusCode).toBe(200);
           expect(res.body).toEqual({
-            solved: false,
-            maxMoves: process.env.MAX_MOVES,
+            solution: false,
+            maxMoves: parseInt(process.env.MAX_MOVES, 10),
           });
         });
 
@@ -45,7 +45,12 @@ describe('/solveLevel', () => {
         [
           {
             staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-            movableEntity: { entityId: ENTITIES.GLASS, id: 1 },
+            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+          },
+          { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+          {
+            staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
+            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
           },
         ],
       ];
@@ -56,8 +61,8 @@ describe('/solveLevel', () => {
         .then(res => {
           expect(res.statusCode).toBe(200);
           expect(res.body).toEqual({
-            solved: true,
-            solution: [],
+            solution: [MOVE_RIGHT],
+            maxMoves: parseInt(process.env.MAX_MOVES, 10),
           });
         });
 
