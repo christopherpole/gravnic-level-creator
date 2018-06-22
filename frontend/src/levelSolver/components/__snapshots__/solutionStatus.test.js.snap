@@ -6,7 +6,9 @@ exports[`<SolutionStatus /> Matches the current snapshot 1`] = `
     color="yellow"
     size={15}
   />
-  <styled.p>
+  <styled.p
+    className="solution-status finished"
+  >
     Not yet solved
   </styled.p>
 </styled.div>
@@ -18,7 +20,9 @@ exports[`<SolutionStatus /> Matches the current snapshot when a level is unsolva
     fillColor="red"
     size={15}
   />
-  <styled.p>
+  <styled.p
+    className="solution-status finished"
+  >
     Unsolvable in 
     5
      move
@@ -34,7 +38,9 @@ exports[`<SolutionStatus /> Matches the current snapshot when a solution is pres
     fillColor="green"
     size={15}
   />
-  <styled.p>
+  <styled.p
+    className="solution-status finished"
+  >
     Solvable in 
     2
      move
@@ -50,7 +56,9 @@ exports[`<SolutionStatus /> Matches the current snapshot when a solution of leng
     color="yellow"
     size={15}
   />
-  <styled.p>
+  <styled.p
+    className="solution-status finished"
+  >
     Solved by default
   </styled.p>
 </styled.div>
@@ -63,7 +71,9 @@ exports[`<SolutionStatus /> Matches the current snapshot when loading 1`] = `
     size={15}
     speed={1}
   />
-  <styled.p>
+  <styled.p
+    className="solution-status loading"
+  >
     Solving
   </styled.p>
 </styled.div>
@@ -76,7 +86,9 @@ exports[`<SolutionStatus /> Matches the current snapshot when loading 2`] = `
     size={15}
     speed={1}
   />
-  <styled.p>
+  <styled.p
+    className="solution-status loading"
+  >
     Solving
   </styled.p>
 </styled.div>
@@ -88,7 +100,9 @@ exports[`<SolutionStatus /> Matches the current snapshot when there is an error 
     fillColor="red"
     size={15}
   />
-  <styled.p>
+  <styled.p
+    className="solution-status finished"
+  >
     An error has occured
   </styled.p>
 </styled.div>

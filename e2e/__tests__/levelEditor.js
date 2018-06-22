@@ -126,8 +126,9 @@ describe('The level editor', () => {
     );
     expect(coloredTilesCount).toBe(0);
 
-    //  Reset and preview buttons should not be enabled
+    //  Reset, solve and preview buttons should not be enabled
     expect(await isDisplayed(page, '#btn-reset:disabled')).toBe(true);
+    expect(await isDisplayed(page, '#btn-solve:disabled')).toBe(true);
     expect(await isDisplayed(page, '#btn-preview:disabled')).toBe(true);
 
     done();

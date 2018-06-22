@@ -2,6 +2,7 @@
 
 exports[`<ArrowsDisplay /> Matches the current snapshot 1`] = `
 <styled.ul
+  className="arrows"
   justifyContent="left"
 >
   <styled.li
