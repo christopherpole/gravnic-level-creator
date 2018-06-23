@@ -13,7 +13,10 @@ describe('<Entity />', () => {
 
   beforeEach(() => {
     props = {
-      entityId: ENTITIES.BLOCK,
+      entity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#ff0000',
+      },
       xPos: 10,
       yPos: 20,
       gameSpeed: 100,

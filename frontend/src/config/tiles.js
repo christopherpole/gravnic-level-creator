@@ -121,4 +121,102 @@ export default [
     },
     name: 'Smart bomb',
   },
+  {
+    id: '17',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#ff0000',
+      },
+    },
+    name: 'Color changer (red block)',
+  },
+  {
+    id: '18',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#FF8C00',
+      },
+    },
+    name: 'Color changer (orange block)',
+  },
+  {
+    id: '19',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#FFFF00',
+      },
+    },
+    name: 'Color changer (yellow block)',
+  },
+  {
+    id: '20',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#008000',
+      },
+    },
+    name: 'Color changer (green block)',
+  },
+  {
+    id: '21',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#0000FF',
+      },
+    },
+    name: 'Color changer (blue block)',
+  },
+  {
+    id: '22',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#800080',
+      },
+    },
+    name: 'Color changer (purple block)',
+  },
+  {
+    id: '23',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#8B4513',
+      },
+    },
+    name: 'Color changer (brown block)',
+  },
+  {
+    id: '24',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.BLOCK,
+        color: '#FFE4E1',
+      },
+    },
+    name: 'Color changer (pink block)',
+  },
+  {
+    id: '25',
+    entity: {
+      entityId: ENTITIES.COLOR_CHANGER,
+      targetEntity: {
+        entityId: ENTITIES.RAINBOW_BLOCK,
+      },
+    },
+    name: 'Color changer (rainbow block)',
+  },
 ];
