@@ -40,12 +40,6 @@ export const Wrapper = styled.div`
     `}
 
   ${props =>
-    props.moveSpeed &&
-    css`
-      transition: opacity ${props.moveSpeed}ms linear;
-    `}
-
-  ${props =>
     props.entityId === ENTITIES.NONE &&
     css`
       background: ${props.theme.backgroundColor};
