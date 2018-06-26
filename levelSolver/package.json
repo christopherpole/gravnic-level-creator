@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node ./src/server.js",
+    "dev": "nodemon --exec yarn start --",
     "test": "jest",
-    "babel-node": "babel-node ./src/server.js",
-    "start": "nodemon --exec yarn babel-node --",
     "lint": "eslint --ext js src"
   },
   "author": "",
