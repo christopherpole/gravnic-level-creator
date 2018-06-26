@@ -1,5 +1,5 @@
 import shortid from 'shortid';
-import { ENTITIES, isStaticEntity } from 'gravnic-game';
+import { ENTITIES, isStaticEntity as utilIsStaticEntity } from 'gravnic-game';
 
 import { GRID_SIZE, MIN_MOVES } from 'config/settings';
 
@@ -49,9 +49,9 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
   let currentIdCount = 1;
   let entityRow;
   let entityData;
-  let staticEntityId;
   let staticEntity;
   let movableEntity;
+  let isStaticEntity;
   let i;
   let j;
   const blankTileId = availableTiles.find(tile => tile.entity.entityId === ENTITIES.NONE).id;
@@ -107,27 +107,29 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
 
       staticEntity = null;
       movableEntity = null;
-      staticEntityId = null;
+      isStaticEntity = utilIsStaticEntity(entityData.entityId);
 
-      if (isStaticEntity(entityData.entityId)) {
-        staticEntityId = entityData.entityId;
-      } else if (entityData.entityId !== ENTITIES.NONE) {
-        movableEntity = {
-          ...entityData,
-          id: currentIdCount++,
-        };
-      }
+      //  Skip blank tiles
+      if (entityData.entityId !== ENTITIES.NONE) {
+        //  Add our static entity if we have one
+        if (isStaticEntity) {
+          staticEntity = {
+            ...entityData,
+            id: currentIdCount++,
+          };
+        } else {
+          //  Add our movable entity if we have one
+          movableEntity = {
+            ...entityData,
+            id: currentIdCount++,
+          };
 
-      //  If this is a movable entity on this tile then we'll need to add a floor too
-      if (movableEntity) {
-        staticEntityId = ENTITIES.FLOOR;
-      }
-
-      if (staticEntityId) {
-        staticEntity = {
-          id: currentIdCount++,
-          entityId: staticEntityId,
-        };
+          //  If this is a movable entity on this tile then we'll need to add a floor too
+          staticEntity = {
+            entityId: ENTITIES.FLOOR,
+            id: currentIdCount++,
+          };
+        }
       }
 
       entityRow.push({

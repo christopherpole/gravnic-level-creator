@@ -3,7 +3,9 @@ const winston = require('winston');
 
 //  Connect to the DB
 mongoose
-  .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`, { useMongoClient: true })
+  .connect(`mongodb://${process.env.DB_ADDRESS}/${process.env.DB_NAME}`, {
+    useMongoClient: true,
+  })
   .then(() => winston.info('MongoDB connection succesful'))
   .catch(err => winston.error(err));
 

@@ -16,55 +16,31 @@ export const Wrapper = styled.div`
   z-index: ${props => (props.isMovableEntity ? 1 : 0)};
 `;
 
-export const Entity = ({
-  entityId,
-  color,
-  shrinking,
-  stuck,
-  xPos,
-  yPos,
-  fading,
-  gameSpeed,
-  isMovableEntity,
-}) => (
+export const Entity = ({ entity, xPos, yPos, gameSpeed, isMovableEntity }) => (
   <Wrapper
     xPos={xPos}
     yPos={yPos}
     heightPercentage={100 / GRID_SIZE}
     widthPercentage={100 / GRID_SIZE}
     moveSpeed={gameSpeed}
-    fading={fading}
     isMovableEntity={isMovableEntity}
-    entityId={entityId}
   >
-    <EntityWrapper
-      moveSpeed={gameSpeed}
-      entityId={entityId}
-      color={color}
-      fading={fading}
-      shrinking={shrinking}
-      stuck={stuck}
-    />
+    <EntityWrapper {...entity} moveSpeed={gameSpeed} />
   </Wrapper>
 );
 
-Entity.defaultProps = {
-  fading: false,
-  shrinking: false,
-  color: null,
-  stuck: false,
-};
-
 Entity.propTypes = {
-  entityId: PropTypes.string.isRequired,
   xPos: PropTypes.number.isRequired,
   yPos: PropTypes.number.isRequired,
-  fading: PropTypes.bool,
-  stuck: PropTypes.bool,
-  color: PropTypes.string,
   gameSpeed: PropTypes.number.isRequired,
-  shrinking: PropTypes.bool,
   isMovableEntity: PropTypes.bool.isRequired,
+  entity: PropTypes.shape({
+    entityId: PropTypes.string.isRequired,
+    fading: PropTypes.bool,
+    color: PropTypes.string,
+    targetEntity: PropTypes.object,
+    shrinking: PropTypes.bool,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

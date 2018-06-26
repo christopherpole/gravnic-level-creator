@@ -9,7 +9,9 @@ import rootSaga from './rootSaga';
 const sagaMiddleware = createSagaMiddleware();
 
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || composeWithDevTools;
+const composeEnhancers =
+  (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  composeWithDevTools;
 /* eslint-enable no-underscore-dangle */
 
 const middleware = applyMiddleware(thunk, sagaMiddleware);

@@ -40,12 +40,6 @@ export const Wrapper = styled.div`
     `}
 
   ${props =>
-    props.moveSpeed &&
-    css`
-      transition: opacity ${props.moveSpeed}ms linear;
-    `}
-
-  ${props =>
     props.entityId === ENTITIES.NONE &&
     css`
       background: ${props.theme.backgroundColor};
@@ -157,6 +151,42 @@ export const Wrapper = styled.div`
         content: '!';
         font-weight: bold;
         font-size: 20px;
+      }
+    `}
+
+  ${props =>
+    props.entityId === ENTITIES.COLOR_CHANGER &&
+    css`
+      background: white;
+
+      &:before {
+        height: 40%;
+        width: 40%;
+        top: 50%;
+        left: 50%;
+        margin-top: -20%;
+        margin-left: -20%;
+        content: '';
+        position: absolute;
+
+        ${props.targetEntity.entityId === ENTITIES.BLOCK &&
+          css`
+            background: ${props.targetEntity.color};
+          `};
+
+        ${props.targetEntity.entityId === ENTITIES.RAINBOW_BLOCK &&
+          css`
+            background: linear-gradient(
+              to bottom right,
+              red,
+              orange,
+              yellow,
+              green,
+              cyan,
+              blue,
+              violet
+            );
+          `};
       }
     `}
 `;

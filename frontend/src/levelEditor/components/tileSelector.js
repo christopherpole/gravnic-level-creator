@@ -15,8 +15,9 @@ export const Wrapper = styled.div`
 export const WrapperInner = styled.div`
   border: 1px solid ${props => props.theme.foregroundColor};
   padding: ${props => props.theme.structureSpacing};
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: calc(${props => props.theme.structureSpacing} / 4);
   overflow-y: scroll;
   align-content: flex-start;
   position: absolute;
@@ -27,9 +28,9 @@ export const WrapperInner = styled.div`
 `;
 
 export const TileWrapper = styled.div`
-  width: 25%;
+  width: 100%;
   height: 0;
-  padding-bottom: 25%;
+  padding-bottom: 100%;
   position: relative;
   cursor: pointer;
 
@@ -87,7 +88,4 @@ const mapDispatchToProps = dispatch => ({
   selectTileAction: bindActionCreators(selectTile, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(TileSelector);
+export default connect(mapStateToProps, mapDispatchToProps)(TileSelector);

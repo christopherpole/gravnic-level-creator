@@ -25,7 +25,7 @@ export const SolutionStatus = ({ loading, error, solution, maxMoves }) => {
     return (
       <Wrapper>
         <LoadingIcon size={15} />
-        <SolutionStatusText>Solving</SolutionStatusText>
+        <SolutionStatusText className="solution-status loading">Solving</SolutionStatusText>
       </Wrapper>
     );
   }
@@ -34,7 +34,9 @@ export const SolutionStatus = ({ loading, error, solution, maxMoves }) => {
     return (
       <Wrapper>
         <CrossIcon size={15} />
-        <SolutionStatusText>An error has occured</SolutionStatusText>
+        <SolutionStatusText className="solution-status finished">
+          An error has occured
+        </SolutionStatusText>
       </Wrapper>
     );
   }
@@ -43,7 +45,9 @@ export const SolutionStatus = ({ loading, error, solution, maxMoves }) => {
     return (
       <Wrapper>
         <WarningIcon color="yellow" />
-        <SolutionStatusText>Solved by default</SolutionStatusText>
+        <SolutionStatusText className="solution-status finished">
+          Solved by default
+        </SolutionStatusText>
       </Wrapper>
     );
   }
@@ -52,7 +56,7 @@ export const SolutionStatus = ({ loading, error, solution, maxMoves }) => {
     return (
       <Wrapper>
         <TickIcon />
-        <SolutionStatusText>
+        <SolutionStatusText className="solution-status finished">
           Solvable in {solution.length} move{solution.length !== 1 && 's'}!
         </SolutionStatusText>
       </Wrapper>
@@ -63,7 +67,7 @@ export const SolutionStatus = ({ loading, error, solution, maxMoves }) => {
     return (
       <Wrapper>
         <CrossIcon />
-        <SolutionStatusText>
+        <SolutionStatusText className="solution-status finished">
           Unsolvable in {maxMoves} move{solution.length !== 1 && 's'}!
         </SolutionStatusText>
       </Wrapper>
@@ -73,7 +77,7 @@ export const SolutionStatus = ({ loading, error, solution, maxMoves }) => {
   return (
     <Wrapper>
       <WarningIcon size={15} color="yellow" />
-      <SolutionStatusText>Not yet solved</SolutionStatusText>
+      <SolutionStatusText className="solution-status finished">Not yet solved</SolutionStatusText>
     </Wrapper>
   );
 };

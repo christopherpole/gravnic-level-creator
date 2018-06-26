@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.test.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --runInBand",
     "lint": "eslint --ext js __tests__"
   },
   "author": "",

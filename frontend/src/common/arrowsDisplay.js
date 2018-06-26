@@ -18,7 +18,7 @@ export const ArrowIconWrapper = styled.li`
 `;
 
 const ArrowsDisplay = ({ arrows, maxArrowWidth, justifyContent }) => (
-  <Wrapper justifyContent={justifyContent}>
+  <Wrapper justifyContent={justifyContent} className="arrows">
     {arrows.map((direction, i) => (
       <ArrowIconWrapper maxArrowWidth={maxArrowWidth} key={i}>
         <ArrowIcon direction={direction} />

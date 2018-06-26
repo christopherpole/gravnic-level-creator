@@ -1,3 +1,4 @@
+import { spy } from 'sinon';
 import { ENTITIES } from 'gravnic-game';
 import {
   UPDATE_TILE,
@@ -27,13 +28,55 @@ describe('The level editor actions', () => {
   });
 
   describe('updateTile()', () => {
-    it('Creates the correct action', () => {
-      const expectedAction = {
-        type: UPDATE_TILE,
+    const levelEditorTiles = [
+      {
         position: 1,
-      };
+        selectedTileId: '1',
+      },
+      {
+        position: 2,
+        selectedTileId: '2',
+      },
+      {
+        position: 3,
+        selectedTileId: '1',
+      },
+    ];
 
-      expect(updateTile(1)).toEqual(expectedAction);
+    it("Doesn't create an action when the tile doesn't update", () => {
+      const fn = updateTile(2);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          selectedTileId: '2',
+          tiles: levelEditorTiles,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
+    });
+
+    it('Creates the action when the tile tile updates', () => {
+      const fn = updateTile(3);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          selectedTileId: '2',
+          tiles: levelEditorTiles,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: UPDATE_TILE,
+          position: 3,
+        }),
+      ).toBe(true);
     });
   });
 
