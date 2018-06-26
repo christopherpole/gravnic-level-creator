@@ -60,6 +60,9 @@ jobs:
       - run:
           name: Run tests
           command: cd frontend && yarn test
+      - run:
+          name: Build frontend
+          command: cd frontend && yarn build
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
