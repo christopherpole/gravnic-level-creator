@@ -162,7 +162,7 @@ export class Level extends Component {
         <LevelPreview tiles={tiles} />
 
         <div>
-          <NameWrapper>
+          <NameWrapper className="name-wrapper">
             {renamingValue !== null ? (
               <Input
                 innerRef={input => {

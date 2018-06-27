@@ -88,8 +88,8 @@ describe('The level manager', () => {
     expect(await getNoOfElements(page, '.level')).toBe(1);
 
     //  Level should be titled "New level"
-    expect(await isDisplayed(page, '.level p')).toBe(false);
-    const levelName = await page.$eval('.level input', input => input.value);
+    expect(await isDisplayed(page, '.level .name-wrapper p')).toBe(false);
+    const levelName = await page.$eval('.level .name-wrapper input', input => input.value);
     expect(levelName).toBe('New level');
 
     //  New level should have the selected styling
@@ -104,7 +104,7 @@ describe('The level manager', () => {
   it('Should allow the new level to be renamed', async done => {
     //  Level name should be editable and selected
     await page.keyboard.type('Level 1');
-    let levelName = await page.$eval('.level input', input => input.value);
+    let levelName = await page.$eval('.level .name-wrapper input', input => input.value);
     expect(levelName).toBe('Level 1');
 
     //  All buttons except for the "done" button should be disabled
@@ -118,9 +118,9 @@ describe('The level manager', () => {
 
     //  Upon pressing the "enter" key, the level should no longer be editable
     await page.keyboard.type(String.fromCharCode(13));
-    expect(await isDisplayed(page, '.level input')).toBe(false);
-    expect(await isDisplayed(page, '.level p')).toBe(true);
-    levelName = await page.$eval('.level p', name => name.innerText);
+    expect(await isDisplayed(page, '.level .name-wrapper input')).toBe(false);
+    expect(await isDisplayed(page, '.level .name-wrapper p')).toBe(true);
+    levelName = await page.$eval('.level .name-wrapper p', name => name.innerText);
     expect(levelName).toBe('Level 1');
 
     //  All buttons except save and load should be enabled
@@ -196,22 +196,22 @@ describe('The level manager', () => {
     await page.click('#btn-rename');
 
     //  Check renaming mode is active
-    expect(await isDisplayed(page, '.level p')).toBe(false);
-    let levelName = await page.$eval('.level input', input => input.value);
+    expect(await isDisplayed(page, '.level .name-wrapper p')).toBe(false);
+    let levelName = await page.$eval('.level .name-wrapper input', input => input.value);
     expect(levelName).toBe('Level 1');
 
     //  Type in the new level name
     await page.keyboard.type('New level 1');
-    levelName = await page.$eval('.level input', input => input.value);
+    levelName = await page.$eval('.level .name-wrapper input', input => input.value);
     expect(levelName).toBe('New level 1');
 
     //  Press the "done" button instead of using the keyboard this time
     await page.click('#btn-done');
 
     //  Ensure that the level name is updated and no longer editable
-    expect(await isDisplayed(page, '.level input')).toBe(false);
-    expect(await isDisplayed(page, '.level p')).toBe(true);
-    levelName = await page.$eval('.level p', name => name.innerText);
+    expect(await isDisplayed(page, '.level .name-wrapper input')).toBe(false);
+    expect(await isDisplayed(page, '.level .name-wrapper p')).toBe(true);
+    levelName = await page.$eval('.level .name-wrapper p', name => name.innerText);
     expect(levelName).toBe('New level 1');
 
     done();
@@ -225,8 +225,11 @@ describe('The level manager', () => {
     expect(await getNoOfElements(page, '.level')).toBe(2);
 
     //  Level should be titled "Level 1"
-    expect(await isDisplayed(page, '.level:nth-child(2) p')).toBe(false);
-    let levelName = await page.$eval('.level:nth-child(2) input', input => input.value);
+    expect(await isDisplayed(page, '.level:nth-child(2) .name-wrapper p')).toBe(false);
+    let levelName = await page.$eval(
+      '.level:nth-child(2) .name-wrapper input',
+      input => input.value,
+    );
     expect(levelName).toBe('New level 1');
 
     //  New level should have the selected styling
@@ -236,12 +239,12 @@ describe('The level manager', () => {
 
     //  Type in the new level name
     await page.keyboard.type('New level 2');
-    levelName = await page.$eval('.level:nth-child(2) input', input => input.value);
+    levelName = await page.$eval('.level:nth-child(2) .name-wrapper input', input => input.value);
     expect(levelName).toBe('New level 2');
 
     //  Upon pressing the "enter" key, the level name should be updated
     await page.keyboard.type(String.fromCharCode(13));
-    levelName = await page.$eval('.level:nth-child(2) p', name => name.innerText);
+    levelName = await page.$eval('.level:nth-child(2) .name-wrapper p', name => name.innerText);
     expect(levelName).toBe('New level 2');
 
     //  New level's tiles preview should match that of the old level
@@ -351,9 +354,9 @@ describe('The level manager', () => {
     await mouse.up();
 
     //  Check that the levels have been reordered
-    let levelName = await page.$eval('.level:nth-child(1) p', name => name.innerText);
+    let levelName = await page.$eval('.level:nth-child(1) .name-wrapper p', name => name.innerText);
     expect(levelName).toBe('New level 2');
-    levelName = await page.$eval('.level:nth-child(2) p', name => name.innerText);
+    levelName = await page.$eval('.level:nth-child(2) .name-wrapper p', name => name.innerText);
     expect(levelName).toBe('New level 1');
 
     done();
@@ -380,7 +383,7 @@ describe('The level manager', () => {
     expect(await getNoOfElements(page, '.level')).toBe(1);
 
     //  Remaining level name should be the first level's
-    const levelName = await page.$eval('.level p', name => name.innerText);
+    const levelName = await page.$eval('.level .name-wrapper p', name => name.innerText);
     expect(levelName).toBe('New level 1');
 
     done();

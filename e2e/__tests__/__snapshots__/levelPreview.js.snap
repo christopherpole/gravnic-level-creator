@@ -3,24 +3,24 @@
 exports[`The level preview Allows the user to make moves 1`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
@@ -28,24 +28,24 @@ Array [
 exports[`The level preview Allows the user to make moves 2`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
@@ -53,24 +53,24 @@ Array [
 exports[`The level preview Allows the user to make moves 3`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
@@ -78,24 +78,24 @@ Array [
 exports[`The level preview Allows the user to reset the game 1`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
@@ -103,24 +103,24 @@ Array [
 exports[`The level preview Allows the user to reset the game 2`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
@@ -128,20 +128,20 @@ Array [
 exports[`The level preview Should display a "level complete" overlay when the level is complete 1`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
@@ -149,20 +149,20 @@ Array [
 exports[`The level preview Should display a "level complete" overlay when the level is complete 2`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
@@ -170,28 +170,28 @@ Array [
 exports[`The level preview Should display a "level complete" overlay when the level is complete 3`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
@@ -199,28 +199,28 @@ Array [
 exports[`The level preview Should display a "level complete" overlay when the level is complete 4`] = `
 Array [
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "129.594px",
-    "top": "194.391px",
+    "left": "123.156px",
+    "top": "184.75px",
   },
   Object {
-    "left": "172.797px",
-    "top": "194.391px",
+    "left": "164.219px",
+    "top": "184.75px",
   },
   Object {
-    "left": "216px",
-    "top": "194.391px",
+    "left": "205.281px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
   Object {
-    "left": "259.188px",
-    "top": "194.391px",
+    "left": "246.328px",
+    "top": "184.75px",
   },
 ]
 `;
