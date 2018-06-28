@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { ENTITIES } from 'gravnic-game';
+import { ENTITIES, MOVE_NONE, MOVE_UP, MOVE_RIGHT, MOVE_DOWN, MOVE_LEFT } from 'gravnic-game';
 import { connect } from 'react-redux';
 
 import { getEntityForTileId } from 'levelEditor/selectors';
@@ -188,6 +188,61 @@ export const Wrapper = styled.div`
             );
           `};
       }
+    `}
+
+  ${props =>
+    props.entityId === ENTITIES.GRAVITY_CHANGER &&
+    css`
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 10px;
+        border-style: solid;
+        border-color: #000;
+      }
+
+      ${props.direction === MOVE_UP &&
+        css`
+          &:before {
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-top: none;
+          }
+        `};
+
+      ${props.direction === MOVE_RIGHT &&
+        css`
+          &:before {
+            border-bottom-color: transparent;
+            border-top-color: transparent;
+            border-right: none;
+          }
+        `};
+
+      ${props.direction === MOVE_DOWN &&
+        css`
+          &:before {
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom: none;
+          }
+        `};
+
+      ${props.direction === MOVE_LEFT &&
+        css`
+          &:before {
+            border-bottom-color: transparent;
+            border-top-color: transparent;
+            border-left: none;
+          }
+        `};
     `}
 `;
 

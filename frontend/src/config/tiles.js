@@ -1,4 +1,4 @@
-import { ENTITIES } from 'gravnic-game';
+import { ENTITIES, MOVE_NONE, MOVE_UP, MOVE_RIGHT, MOVE_DOWN, MOVE_LEFT } from 'gravnic-game';
 
 export default [
   {
@@ -218,5 +218,45 @@ export default [
       },
     },
     name: 'Color changer (rainbow block)',
+  },
+  {
+    id: '26',
+    entity: {
+      entityId: ENTITIES.GRAVITY_CHANGER,
+      direction: MOVE_NONE,
+    },
+    name: 'Gravity changer (static)',
+  },
+  {
+    id: '27',
+    entity: {
+      entityId: ENTITIES.GRAVITY_CHANGER,
+      direction: MOVE_UP,
+    },
+    name: 'Gravity changer (up)',
+  },
+  {
+    id: '28',
+    entity: {
+      entityId: ENTITIES.GRAVITY_CHANGER,
+      direction: MOVE_RIGHT,
+    },
+    name: 'Gravity changer (right)',
+  },
+  {
+    id: '29',
+    entity: {
+      entityId: ENTITIES.GRAVITY_CHANGER,
+      direction: MOVE_DOWN,
+    },
+    name: 'Gravity changer (down)',
+  },
+  {
+    id: '30',
+    entity: {
+      entityId: ENTITIES.GRAVITY_CHANGER,
+      direction: MOVE_LEFT,
+    },
+    name: 'Gravity changer (left)',
   },
 ];
