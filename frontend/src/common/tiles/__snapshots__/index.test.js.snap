@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tile /> Matches the current snapshot 1`] = `
+<styled.div
+  fading={false}
+  moveSpeed={0}
+  shrinking={false}
+  stuck={false}
+>
+  <FloorTile
+    entityId="FLOOR"
+    fading={false}
+    moveSpeed={0}
+    shrinking={false}
+    stuck={false}
+  />
+</styled.div>
+`;
+
+exports[`<Tile /> Matches the current snapshot with a missing tile 1`] = `
+<styled.div
+  fading={false}
+  moveSpeed={0}
+  shrinking={false}
+  stuck={false}
+>
+  <MissingTile
+    entityId="notanactualid"
+    fading={false}
+    moveSpeed={0}
+    shrinking={false}
+    stuck={false}
+  />
+</styled.div>
+`;

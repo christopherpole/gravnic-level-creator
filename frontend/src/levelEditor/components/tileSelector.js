@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
-import Tile from 'common/tile';
+import Tile from 'common/tiles';
 import { selectTile } from '../actions';
 
 export const Wrapper = styled.div`

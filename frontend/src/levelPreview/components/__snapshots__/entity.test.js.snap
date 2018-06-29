@@ -9,9 +9,13 @@ exports[`<Entity /> Matches the current snapshot 1`] = `
   xPos={10}
   yPos={20}
 >
-  <styled.div
-    color="#ff0000"
-    entityId="BLOCK"
+  <Component
+    entity={
+      Object {
+        "color": "#ff0000",
+        "entityId": "BLOCK",
+      }
+    }
     moveSpeed={100}
   />
 </styled.div>

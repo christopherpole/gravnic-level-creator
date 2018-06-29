@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Tile /> Matches the current snapshot 1`] = `
+exports[`<ColorChangerTile /> Matches the current snapshot 1`] = `
 <styled.div
   color="#ff0000"
   entityId="BLOCK"

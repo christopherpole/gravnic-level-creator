@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BlackHoleTile /> Matches the current snapshot 1`] = `
+<styled.div
+  shrinking={false}
+/>
+`;

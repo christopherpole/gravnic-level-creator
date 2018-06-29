@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BlockTile /> Matches the current snapshot 1`] = `
+<styled.div
+  color="#ff0000"
+  moveSpeed={0}
+  shrinking={false}
+/>
+`;
