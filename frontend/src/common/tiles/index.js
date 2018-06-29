@@ -17,6 +17,7 @@ import LavaTile from './lava';
 import SmartBombTile from './smartBomb';
 import ColorChangerTile from './colorChanger';
 import GravityChangerTile from './gravityChanger';
+import CrateTile from './crate';
 
 export const Wrapper = styled.div`
   background: ${props => props.theme.backgroundColor};
@@ -85,6 +86,9 @@ export const Tile = ({ entity, moveSpeed }) => {
       break;
     case ENTITIES.GRAVITY_CHANGER:
       DisplayTile = GravityChangerTile;
+      break;
+    case ENTITIES.CRATE:
+      DisplayTile = CrateTile;
       break;
     default:
       DisplayTile = MissingTile;

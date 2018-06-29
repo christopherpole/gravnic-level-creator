@@ -259,4 +259,11 @@ export default [
     },
     name: 'Gravity changer (left)',
   },
+  {
+    id: '31',
+    entity: {
+      entityId: ENTITIES.CRATE,
+    },
+    name: 'Crate',
+  },
 ];
