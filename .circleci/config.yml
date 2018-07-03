@@ -148,7 +148,7 @@ jobs:
           at: ~/gravnic-level-creator
       - run:
           name: End to end tests
-          command: docker-compose up e2e
+          command: docker-compose run e2e
 
   deploy: 
     <<: *job_defaults

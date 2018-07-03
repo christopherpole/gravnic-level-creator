@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Tile from 'common/tile';
+import Tile from 'common/tiles';
 
 export const Wrapper = styled.div`
   position: relative;

@@ -89,7 +89,7 @@ describe('The level editor', () => {
     let backgroundColor = await getComputedStyleProperty(
       page,
       'backgroundColor',
-      '#editor-grid .tile:nth-child(54) > div',
+      '#editor-grid .tile:nth-child(54) > div > div',
     );
     expect(backgroundColor).toBe('rgb(51, 51, 51)');
 
@@ -99,7 +99,7 @@ describe('The level editor', () => {
     backgroundColor = await getComputedStyleProperty(
       page,
       'backgroundColor',
-      '#editor-grid .tile:nth-child(54) > div',
+      '#editor-grid .tile:nth-child(54) > div > div',
     );
     expect(backgroundColor).toBe('rgb(255, 0, 0)');
 
@@ -110,7 +110,7 @@ describe('The level editor', () => {
     //  One of the tiles should be colored
     let coloredTilesCount = await getNoOfElementsWithStyle(
       page,
-      '#editor-grid .tile > div',
+      '#editor-grid .tile > div > div',
       'backgroundColor',
       'rgb(255, 0, 0)',
     );
@@ -120,7 +120,7 @@ describe('The level editor', () => {
     await page.click('#btn-reset');
     coloredTilesCount = await getNoOfElementsWithStyle(
       page,
-      '#editor-grid .tile > div',
+      '#editor-grid .tile > div > div',
       'backgroundColor',
       'rgb(255, 0, 0)',
     );
@@ -154,7 +154,7 @@ describe('The level editor', () => {
     //  Count the number of colored tiles and make sure that it's 5
     const coloredTilesCount = await getNoOfElementsWithStyle(
       page,
-      '#editor-grid .tile > div',
+      '#editor-grid .tile > div > div',
       'backgroundColor',
       'rgb(255, 0, 0)',
     );

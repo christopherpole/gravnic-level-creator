@@ -5,6 +5,7 @@ import path from 'path';
 import fs from 'fs';
 import dotenv from 'dotenv';
 import winston from 'winston';
+import proxy from 'http-proxy-middleware';
 
 import App from '../src/app';
 
@@ -15,7 +16,14 @@ const port = process.env.PORT || 3000;
 const app = express();
 const router = express.Router();
 
-router.get('^/$', (req, res) => {
+//  Proxies for other services
+app.use('/levels', proxy({ target: process.env.SERVER_BACKEND_ENDPOINT, changeOrigin: true }));
+app.use(
+  '/solveLevel',
+  proxy({ target: process.env.SERVER_LEVEL_SOLVER_ENDPOINT, changeOrigin: true }),
+);
+
+router.get('/', (req, res) => {
   const filePath = path.resolve(__dirname, '..', 'build', 'index.html');
 
   fs.readFile(filePath, 'utf8', (err, htmlData) => {

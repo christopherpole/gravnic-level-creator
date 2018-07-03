@@ -255,6 +255,66 @@ exports[`<TileSelector /> Matches the current snapshot 1`] = `
         tileId="25"
       />
     </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="26"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="26"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="27"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="27"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="28"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="28"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="29"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="29"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="30"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="30"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="31"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="31"
+      />
+    </styled.div>
   </styled.div>
 </styled.div>
 `;
@@ -512,6 +572,66 @@ exports[`<TileSelector /> Matches the current snapshot if a tile is selected 1`]
     >
       <Connect(Component)
         tileId="25"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="26"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="26"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="27"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="27"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="28"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="28"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="29"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="29"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="30"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="30"
+      />
+    </styled.div>
+    <styled.div
+      className="tile"
+      isSelected={false}
+      key="31"
+      onClick={[Function]}
+    >
+      <Connect(Component)
+        tileId="31"
       />
     </styled.div>
   </styled.div>

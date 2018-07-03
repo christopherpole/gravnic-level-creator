@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LavaTile /> Matches the current snapshot 1`] = `<styled.div />`;

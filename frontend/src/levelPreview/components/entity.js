@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { GRID_SIZE } from 'config/settings';
-import { Wrapper as EntityWrapper } from 'common/tile';
+import { Tile } from 'common/tiles';
 
 export const Wrapper = styled.div`
   height: ${props => props.heightPercentage}%;
@@ -25,7 +25,7 @@ export const Entity = ({ entity, xPos, yPos, gameSpeed, isMovableEntity }) => (
     moveSpeed={gameSpeed}
     isMovableEntity={isMovableEntity}
   >
-    <EntityWrapper {...entity} moveSpeed={gameSpeed} />
+    <Tile entity={entity} moveSpeed={gameSpeed} />
   </Wrapper>
 );
 

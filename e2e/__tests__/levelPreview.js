@@ -309,7 +309,7 @@ describe('The level preview', () => {
 
   it('Shows the correct moves on the move history display', async done => {
     //  The move history display should be in its initial state
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(0);
     expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
       'Moves made: 0',
     );
@@ -317,7 +317,7 @@ describe('The level preview', () => {
     //  The move history displays correctly after moving up
     await page.keyboard.down('ArrowUp');
     await sleep(moveSleepDuration);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(1);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(1);
     expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
       'Moves made: 1',
     );
@@ -325,14 +325,14 @@ describe('The level preview', () => {
       await getComputedStyleProperty(
         page,
         'transform',
-        '#move-icons-container > svg:nth-child(1) path',
+        '#moves-container .arrows > li:nth-child(1) path',
       ),
     ).toBe('matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)');
 
     //  The move history displays correctly after moving left
     await page.keyboard.down('ArrowLeft');
     await sleep(moveSleepDuration);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(2);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(2);
     expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
       'Moves made: 2',
     );
@@ -340,14 +340,14 @@ describe('The level preview', () => {
       await getComputedStyleProperty(
         page,
         'transform',
-        '#move-icons-container > svg:nth-child(2) path',
+        '#moves-container .arrows > li:nth-child(2) path',
       ),
     ).toBe('matrix(6.12323e-17, 1, -1, 6.12323e-17, 0, 0)');
 
     //  The move history displays correctly after moving right
     await page.keyboard.down('ArrowRight');
     await sleep(moveSleepDuration);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(3);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(3);
     expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
       'Moves made: 3',
     );
@@ -355,14 +355,14 @@ describe('The level preview', () => {
       await getComputedStyleProperty(
         page,
         'transform',
-        '#move-icons-container > svg:nth-child(3) path',
+        '#moves-container .arrows > li:nth-child(3) path',
       ),
     ).toBe('matrix(-1.83697e-16, -1, 1, -1.83697e-16, 0, 0)');
 
     //  The move history displays correctly after moving down
     await page.keyboard.down('ArrowDown');
     await sleep(moveSleepDuration);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(4);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(4);
     expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
       'Moves made: 4',
     );
@@ -370,7 +370,7 @@ describe('The level preview', () => {
       await getComputedStyleProperty(
         page,
         'transform',
-        '#move-icons-container > svg:nth-child(4) path',
+        '#moves-container .arrows > li:nth-child(4) path',
       ),
     ).toBe('matrix(1, 0, 0, 1, 0, 0)');
 
@@ -379,7 +379,7 @@ describe('The level preview', () => {
     await sleep(moveSleepDuration);
     await page.click('#btn-undo');
     await sleep(moveSleepDuration);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(2);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(2);
     expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
       'Moves made: 2',
     );
@@ -387,17 +387,17 @@ describe('The level preview', () => {
     //  It should return to the initial state when reset
     await page.click('#btn-restart');
     await sleep(moveSleepDuration);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(0);
     expect(await page.evaluate(() => document.querySelector('#moves-made-label').textContent)).toBe(
       'Moves made: 0',
     );
 
     //  It should reset when entering the level preview
     await page.keyboard.down('ArrowDown');
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(1);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(1);
     await page.click('#btn-edit');
     await page.click('#btn-preview');
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(0);
 
     done();
   });
@@ -419,17 +419,17 @@ describe('The level preview', () => {
     expect(await isDisplayed(page, '#level-complete-overlay')).toBe(true);
 
     //  No moves should be able to be made when the overlay is showing
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(1);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(1);
     await page.keyboard.down('ArrowLeft');
     await sleep(moveSleepDuration);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(1);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(1);
     expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
 
     //  The overlay should disappear on clicking "undo"
     expect(await isDisplayed(page, '#level-complete-overlay')).toBe(true);
     await page.click('#btn-undo');
     expect(await isDisplayed(page, '#level-complete-overlay')).toBe(false);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(0);
     await sleep(moveSleepDuration);
     expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
 
@@ -442,7 +442,7 @@ describe('The level preview', () => {
     await page.click('#btn-restart');
     await sleep(moveSleepDuration);
     expect(await isDisplayed(page, '#level-complete-overlay')).toBe(false);
-    expect(await getNoOfElements(page, '#move-icons-container > svg')).toBe(0);
+    expect(await getNoOfElements(page, '#moves-container .arrows > li')).toBe(0);
     await sleep(moveSleepDuration);
     expect(await getPreviewEntityPositions(page)).toMatchSnapshot();
 

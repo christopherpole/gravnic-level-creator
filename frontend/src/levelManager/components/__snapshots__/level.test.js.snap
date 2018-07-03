@@ -415,7 +415,9 @@ exports[`<Level /> Matches the current snapshot 1`] = `
     }
   />
   <div>
-    <styled.div>
+    <styled.div
+      className="name-wrapper"
+    >
       <styled.p>
         Test level 1
       </styled.p>
@@ -875,7 +877,9 @@ exports[`<Level /> Matches the current snapshot if current 1`] = `
     }
   />
   <div>
-    <styled.div>
+    <styled.div
+      className="name-wrapper"
+    >
       <styled.p>
         Test level 1
       </styled.p>
@@ -1335,7 +1339,9 @@ exports[`<Level /> Matches the current snapshot if level is solved 1`] = `
     }
   />
   <div>
-    <styled.div>
+    <styled.div
+      className="name-wrapper"
+    >
       <styled.p>
         Test level 1
       </styled.p>
@@ -1795,7 +1801,9 @@ exports[`<Level /> Matches the current snapshot if renaming 1`] = `
     }
   />
   <div>
-    <styled.div>
+    <styled.div
+      className="name-wrapper"
+    >
       <styled.input
         innerRef={[Function]}
         onChange={[Function]}
@@ -2257,7 +2265,9 @@ exports[`<Level /> Matches the current snapshot if selected 1`] = `
     }
   />
   <div>
-    <styled.div>
+    <styled.div
+      className="name-wrapper"
+    >
       <styled.p>
         Test level 1
       </styled.p>

@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer';
 import dovenv from 'dotenv';
 import mongoose from 'mongoose';
 import bluebird from 'bluebird';
-import { isDisplayed } from '../testUtils';
+import { isDisplayed, sleep } from '../testUtils';
 
 mongoose.Promise = bluebird;
 
@@ -30,7 +30,7 @@ describe('The level solver', () => {
     browser = await puppeteer.launch({
       headless: !debugMode,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: debugMode ? 200 : 20,
+      slowMo: debugMode ? 200 : 40,
     });
 
     page = await browser.newPage();
@@ -220,6 +220,7 @@ describe('The level solver', () => {
 
     //  Create and save a new level
     await page.click('#btn-new');
+    await sleep(100);
     await page.keyboard.type(String.fromCharCode(13));
     await page.click('#btn-save');
 
@@ -234,6 +235,7 @@ describe('The level solver', () => {
     await page.click('#btn-solve');
 
     //  The save button should be enabled
+    // await page.waitForSelector('#level-solver .solution-status.finished');
     expect(await isDisplayed(page, '#btn-save:not(:disabled)')).toBe(true);
 
     //  Save the solved level

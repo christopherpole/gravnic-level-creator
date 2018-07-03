@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
-import Tile from 'common/tile';
+import Tile from 'common/tiles';
 import { updateTile, startDrag, stopDrag } from '../actions';
 
 export const Wrapper = styled.div`
@@ -104,7 +104,4 @@ const mapDispatchToProps = dispatch => ({
   stopDragAction: bindActionCreators(stopDrag, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(LevelEditor);
+export default connect(mapStateToProps, mapDispatchToProps)(LevelEditor);
