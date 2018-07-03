@@ -1,7 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GravityChangerTile /> Matches the current snapshot 1`] = `
-<styled.div
-  direction="MOVE_DOWN"
-/>
+<styled.svg
+  height="100%"
+  rotation={180}
+  version="1.1"
+  viewBox="0 0 100 100"
+  width="100%"
+>
+  <defs />
+  <g
+    fill="none"
+    fillRule="evenodd"
+    stroke="none"
+    strokeWidth="0"
+  >
+    <g>
+      <rect
+        fill="#FFFFFF"
+        height="100"
+        width="100"
+        x="0"
+        y="0"
+      />
+      <polygon
+        fill="#D8D8D8"
+        points="50 25 75 75 25 75"
+        stroke="#979797"
+        strokeWidth="2"
+      />
+    </g>
+  </g>
+</styled.svg>
 `;
