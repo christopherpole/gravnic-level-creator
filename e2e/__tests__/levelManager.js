@@ -36,7 +36,7 @@ describe('The level manager', () => {
     browser = await puppeteer.launch({
       headless: !debugMode,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: debugMode ? 200 : 20,
+      slowMo: debugMode ? 200 : 40,
     });
 
     page = await browser.newPage();
@@ -250,9 +250,10 @@ describe('The level manager', () => {
     //  New level's tiles preview should match that of the old level
     const allTilesMatch = await page.evaluate(
       () =>
-        document.querySelector('.level:nth-child(1) .level-preview .preview-tile > div')
+        document.querySelector('.level:nth-child(1) .level-preview .preview-tile > div > div')
           .innerHTML ===
-        document.querySelector('.level:nth-child(2) .level-preview .preview-tile > div').innerHTML,
+        document.querySelector('.level:nth-child(2) .level-preview .preview-tile > div > div')
+          .innerHTML,
     );
 
     expect(allTilesMatch).toBe(true);
@@ -298,7 +299,7 @@ describe('The level manager', () => {
       await getComputedStyleProperty(
         page,
         'backgroundColor',
-        '#editor-grid .tile:nth-child(40) > div',
+        '#editor-grid .tile:nth-child(40) > div > div',
       ),
     ).toBe('rgb(255, 0, 0)');
 

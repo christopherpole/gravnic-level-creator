@@ -7,5 +7,7 @@ A React/Redux web app that lets you create, manage, preview and automatically so
 * Use the Web Animation API to animate the level preview entities instead of CSS animations & sagas in order to simplify and improve the performance of the level preview tool
 * Performance optimisations to the level solver
 * Have the level solver find all possible solutions for a level instead of just finding the quickest solution each time
+* Have the level solver able to solve problems concurrently instead of getting blocked by each request
 * Add missing tests
-* Write some (proper) documentation on usage
+* Write some (proper) documentation
+* Use the frontend server for development instead of CRA's dev server

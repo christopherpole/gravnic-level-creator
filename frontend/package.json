@@ -13,6 +13,7 @@
     "express": "^4.16.3",
     "global": "^4.3.2",
     "gravnic-game": "git+ssh://git@github.com:christopherpole/gravnic-game#master",
+    "http-proxy-middleware": "^0.18.0",
     "ignore-styles": "^5.0.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.5",

@@ -14,8 +14,10 @@ services:
       levelsolver:
         condition: service_healthy
     environment:
-      - REACT_APP_BACKEND_ENDPOINT=http://backend:4000
-      - REACT_APP_LEVEL_SOLVER_ENDPOINT=http://levelsolver:5000
+      - REACT_APP_BACKEND_ENDPOINT=http://frontend:3000
+      - REACT_APP_LEVEL_SOLVER_ENDPOINT=http://frontend:3000
+      - SERVER_BACKEND_ENDPOINT=http://backend:4000
+      - SERVER_LEVEL_SOLVER_ENDPOINT=http://levelsolver:5000
     env_file: ./frontend/.env
     healthcheck:
       test: "curl -f http://frontend:3000"
