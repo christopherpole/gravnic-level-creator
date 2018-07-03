@@ -5,11 +5,18 @@ import deepEqual from 'deep-equal';
  * Determines which of the level manager buttons should be disabled
  * @param {Object} levelEditor - The state of the level editor
  * @param {Object} levelManager - The state of the level manager
+ * @param {Object} levelSolver - The state of the level solver
+ * @param {Object} levelPreview - The state of the level preview
  * @returns {Object} An object of booleans for each of the buttons
  */
 export const getLevelManagerButtonDisabledStates = createSelector(
-  [state => state.levelEditor, state => state.levelManager, state => state.levelSolver],
-  (levelEditor, levelManager, levelSolver) => {
+  [
+    state => state.levelEditor,
+    state => state.levelManager,
+    state => state.levelSolver,
+    state => state.levelPreview,
+  ],
+  (levelEditor, levelManager, levelSolver, levelPreview) => {
     //  If no level is selected, only the "new" button is enabled by default
     const buttonsDisabledStates = {
       btnNew: false,
@@ -40,6 +47,12 @@ export const getLevelManagerButtonDisabledStates = createSelector(
         buttonsDisabledStates.btnSave = true;
         buttonsDisabledStates.btnLoad = true;
       }
+    }
+
+    //  Disable the "save" and "load" buttons if a level is being previewed
+    if (levelPreview.previewing) {
+      buttonsDisabledStates.btnSave = true;
+      buttonsDisabledStates.btnLoad = true;
     }
 
     //  Disable every button except for the rename button if the level is being renamed

@@ -363,6 +363,31 @@ describe('The level manager', () => {
     done();
   });
 
+  it('Should disable the "save" and "load" buttons if previewing a level', async done => {
+    //  Get the editor out of sync with the currently selected level
+    await page.click('#editor-grid .tile:nth-child(99)');
+
+    //  Check that the "save" and "load" buttons are enabled
+    expect(await isDisplayed(page, '#btn-save:not(:disabled)')).toBe(true);
+    expect(await isDisplayed(page, '#btn-load:not(:disabled)')).toBe(true);
+
+    //  Preview the level
+    await page.click('#btn-preview');
+
+    //  Check that the "save" and "load" buttons are disabled
+    expect(await isDisplayed(page, '#btn-save:disabled')).toBe(true);
+    expect(await isDisplayed(page, '#btn-load:disabled')).toBe(true);
+
+    //  Edit the level again
+    await page.click('#btn-edit');
+
+    //  Check that the "save" and "load" buttons are enabled
+    expect(await isDisplayed(page, '#btn-save:not(:disabled)')).toBe(true);
+    expect(await isDisplayed(page, '#btn-load:not(:disabled)')).toBe(true);
+
+    done();
+  });
+
   it('Should let the user delete the selected level', async done => {
     //  Select the first level in the list ("New level 2")
     await page.click('.level:first-child');
