@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer';
 import dovenv from 'dotenv';
 import mongoose from 'mongoose';
 import bluebird from 'bluebird';
-import { isDisplayed, sleep } from '../testUtils';
+import { isDisplayed, sleep, getComputedStyleProperty } from '../testUtils';
 
 mongoose.Promise = bluebird;
 
@@ -11,7 +11,7 @@ dovenv.config();
 const debugMode = false;
 
 //  Set the timeout. Good for when using slowMo for debugging
-jest.setTimeout(debugMode ? 10000 : 5000);
+jest.setTimeout(debugMode ? 15000 : 7500);
 
 const clearDatabase = () => {
   mongoose
@@ -129,9 +129,11 @@ describe('The level solver', () => {
       ),
     ).toBe('Solvable in 1 move!');
 
-    expect(
-      await page.evaluate(() => document.querySelector('#level-solver .arrows').innerHTML),
-    ).toMatchSnapshot();
+    //  There should be single arrow icon in the level solver display
+    expect(await page.$$eval('#level-solver .arrows li', els => els.length)).toBe(1);
+    expect(await getComputedStyleProperty(page, 'transform', '#level-solver .arrows li path')).toBe(
+      'matrix(-1.83697e-16, -1, 1, -1.83697e-16, 0, 0)',
+    );
 
     done();
   });
@@ -157,9 +159,29 @@ describe('The level solver', () => {
       ),
     ).toBe('Solvable in 3 moves!');
 
+    //  There should be 3 arrows icon in the level solver display
+    expect(await page.$$eval('#level-solver .arrows li', els => els.length)).toBe(3);
     expect(
-      await page.evaluate(() => document.querySelector('#level-solver .arrows').innerHTML),
-    ).toMatchSnapshot();
+      await getComputedStyleProperty(
+        page,
+        'transform',
+        '#level-solver .arrows li:nth-child(1) path',
+      ),
+    ).toBe('matrix(-1.83697e-16, -1, 1, -1.83697e-16, 0, 0)');
+    expect(
+      await getComputedStyleProperty(
+        page,
+        'transform',
+        '#level-solver .arrows li:nth-child(2) path',
+      ),
+    ).toBe('matrix(-1, 1.22465e-16, -1.22465e-16, -1, 0, 0)');
+    expect(
+      await getComputedStyleProperty(
+        page,
+        'transform',
+        '#level-solver .arrows li:nth-child(3) path',
+      ),
+    ).toBe('matrix(6.12323e-17, 1, -1, 6.12323e-17, 0, 0)');
 
     done();
   });

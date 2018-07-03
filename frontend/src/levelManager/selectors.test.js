@@ -19,6 +19,9 @@ describe('getLevelManagerButtonDisabledStates()', () => {
       levelSolver: {
         solution: null,
       },
+      levelPreview: {
+        previewing: false,
+      },
     };
   });
 
@@ -186,6 +189,27 @@ describe('getLevelManagerButtonDisabledStates()', () => {
     expect(buttonDisabledStates.btnSave).toBe(true);
     expect(buttonDisabledStates.btnDelete).toBe(true);
     expect(buttonDisabledStates.btnCopy).toBe(true);
+    expect(buttonDisabledStates.btnRename).toBe(false);
+  });
+
+  it('Computes the correct disabled state of the level manager buttons if a level is being previewed', () => {
+    const buttonDisabledStates = getLevelManagerButtonDisabledStates({
+      ...state,
+      levelManager: {
+        ...state.levelManager,
+        selectedLevelId: testLevels[1].id,
+      },
+      levelPreview: {
+        ...state.levelPreview,
+        previewing: true,
+      },
+    });
+
+    expect(buttonDisabledStates.btnNew).toBe(false);
+    expect(buttonDisabledStates.btnLoad).toBe(true);
+    expect(buttonDisabledStates.btnSave).toBe(true);
+    expect(buttonDisabledStates.btnDelete).toBe(false);
+    expect(buttonDisabledStates.btnCopy).toBe(false);
     expect(buttonDisabledStates.btnRename).toBe(false);
   });
 });
