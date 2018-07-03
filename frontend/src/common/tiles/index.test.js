@@ -34,8 +34,13 @@ describe('<Tile />', () => {
     expect(toJson(tile)).toMatchSnapshot();
   });
 
-  it('Matches the current snapshot with a missing tile', () => {
+  it('Matches the current snapshot with a mismatching tile id', () => {
     const tile = shallow(<Tile entity={{ ...props.entity, entityId: 'notanactualid' }} />);
+    expect(toJson(tile)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot with an undefined file', () => {
+    const tile = shallow(<Tile entity={{ ...props.entity, entityId: undefined }} />);
     expect(toJson(tile)).toMatchSnapshot();
   });
 });

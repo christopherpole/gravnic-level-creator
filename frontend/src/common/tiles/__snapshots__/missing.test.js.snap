@@ -1,3 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MissingTile /> Matches the current snapshot 1`] = `<styled.div />`;
+exports[`<MissingTile /> Matches the current snapshot 1`] = `
+<svg
+  height="100%"
+  version="1.1"
+  viewBox="0 0 100 100"
+  width="100%"
+>
+  <g
+    fill="none"
+    fillRule="evenodd"
+    stroke="none"
+    strokeWidth="1"
+  >
+    <rect
+      fill="#f0a1fc"
+      fillRule="evenodd"
+      height="100"
+      width="100"
+      x="0"
+      y="0"
+    />
+    <text
+      fill="#fff"
+      fontFamily="Helvetica"
+      fontSize="64"
+      fontWeight="normal"
+      id="?"
+      letterSpacing="0.2490235"
+    >
+      <tspan
+        x="32"
+        y="73"
+      >
+        ?
+      </tspan>
+    </text>
+  </g>
+</svg>
+`;

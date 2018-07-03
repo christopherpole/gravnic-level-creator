@@ -54,6 +54,9 @@ export const Tile = ({ entity, moveSpeed }) => {
   let DisplayTile;
 
   switch (entity.entityId) {
+    case undefined:
+      DisplayTile = MissingTile;
+      break;
     case ENTITIES.NONE:
       DisplayTile = BlankTile;
       break;

@@ -17,7 +17,7 @@ exports[`<Tile /> Matches the current snapshot 1`] = `
 </styled.div>
 `;
 
-exports[`<Tile /> Matches the current snapshot with a missing tile 1`] = `
+exports[`<Tile /> Matches the current snapshot with a mismatching tile id 1`] = `
 <styled.div
   fading={false}
   moveSpeed={0}
@@ -26,6 +26,22 @@ exports[`<Tile /> Matches the current snapshot with a missing tile 1`] = `
 >
   <MissingTile
     entityId="notanactualid"
+    fading={false}
+    moveSpeed={0}
+    shrinking={false}
+    stuck={false}
+  />
+</styled.div>
+`;
+
+exports[`<Tile /> Matches the current snapshot with an undefined file 1`] = `
+<styled.div
+  fading={false}
+  moveSpeed={0}
+  shrinking={false}
+  stuck={false}
+>
+  <MissingTile
     fading={false}
     moveSpeed={0}
     shrinking={false}
