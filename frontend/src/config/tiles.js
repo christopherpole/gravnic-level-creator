@@ -426,4 +426,11 @@ export default [
     },
     name: 'Barrier (pink, unpowered)',
   },
+  {
+    id: '50',
+    entity: {
+      entityId: ENTITIES.BOMB,
+    },
+    name: 'Bomb',
+  },
 ];
