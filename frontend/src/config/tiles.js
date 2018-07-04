@@ -270,6 +270,7 @@ export default [
     id: '32',
     entity: {
       entityId: ENTITIES.BARRIER,
+      powered: true,
     },
     name: 'Barrier',
   },
@@ -278,6 +279,7 @@ export default [
     entity: {
       entityId: ENTITIES.BARRIER,
       color: '#ff0000',
+      powered: true,
     },
     name: 'Barrier (red)',
   },
@@ -286,6 +288,7 @@ export default [
     entity: {
       entityId: ENTITIES.BARRIER,
       color: '#FF8C00',
+      powered: true,
     },
     name: 'Barrier (orange)',
   },
@@ -294,6 +297,7 @@ export default [
     entity: {
       entityId: ENTITIES.BARRIER,
       color: '#FFFF00',
+      powered: true,
     },
     name: 'Barrier (yellow)',
   },
@@ -302,6 +306,7 @@ export default [
     entity: {
       entityId: ENTITIES.BARRIER,
       color: '#008000',
+      powered: true,
     },
     name: 'Barrier (green)',
   },
@@ -310,6 +315,7 @@ export default [
     entity: {
       entityId: ENTITIES.BARRIER,
       color: '#0000FF',
+      powered: true,
     },
     name: 'Barrier (blue)',
   },
@@ -318,6 +324,7 @@ export default [
     entity: {
       entityId: ENTITIES.BARRIER,
       color: '#800080',
+      powered: true,
     },
     name: 'Barrier (purple)',
   },
@@ -326,6 +333,7 @@ export default [
     entity: {
       entityId: ENTITIES.BARRIER,
       color: '#8B4513',
+      powered: true,
     },
     name: 'Barrier (brown)',
   },
@@ -334,7 +342,88 @@ export default [
     entity: {
       entityId: ENTITIES.BARRIER,
       color: '#FFE4E1',
+      powered: true,
     },
     name: 'Barrier (pink)',
+  },
+  {
+    id: '41',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      powered: false,
+    },
+    name: 'Barrier (unpowered)',
+  },
+  {
+    id: '42',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#ff0000',
+      powered: false,
+    },
+    name: 'Barrier (red, unpowered)',
+  },
+  {
+    id: '43',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#FF8C00',
+      powered: false,
+    },
+    name: 'Barrier (orange, unpowered)',
+  },
+  {
+    id: '44',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#FFFF00',
+      powered: false,
+    },
+    name: 'Barrier (yellow, unpowered)',
+  },
+  {
+    id: '45',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#008000',
+      powered: false,
+    },
+    name: 'Barrier (green, unpowered)',
+  },
+  {
+    id: '46',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#0000FF',
+      powered: false,
+    },
+    name: 'Barrier (blue, unpowered)',
+  },
+  {
+    id: '47',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#800080',
+      powered: false,
+    },
+    name: 'Barrier (purple, unpowered)',
+  },
+  {
+    id: '48',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#8B4513',
+      powered: false,
+    },
+    name: 'Barrier (brown, unpowered)',
+  },
+  {
+    id: '49',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#FFE4E1',
+      powered: false,
+    },
+    name: 'Barrier (pink, unpowered)',
   },
 ];
