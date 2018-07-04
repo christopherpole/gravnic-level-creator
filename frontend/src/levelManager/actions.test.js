@@ -86,6 +86,27 @@ describe('The level manager actions', () => {
   });
 
   describe('loadLevel()', () => {
+    it('Does not create the action is a level is being previewed', () => {
+      const fn = loadLevel();
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          editedSinceLastSave: true,
+        },
+        levelManager: {
+          selectedLevelId: testLevels[1].id,
+          levels: testLevels,
+        },
+        levelPreview: {
+          previewing: true,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
+    });
+
     it('Creates the correct action if changes have been made since the last save', () => {
       const fn = loadLevel();
       const dispatchSpy = spy();
@@ -96,6 +117,9 @@ describe('The level manager actions', () => {
         levelManager: {
           selectedLevelId: testLevels[1].id,
           levels: testLevels,
+        },
+        levelPreview: {
+          previewing: false,
         },
       });
 
@@ -121,6 +145,9 @@ describe('The level manager actions', () => {
         levelManager: {
           selectedLevelId: testLevels[1].id,
           levels: testLevels,
+        },
+        levelPreview: {
+          previewing: false,
         },
       });
 
