@@ -266,4 +266,75 @@ export default [
     },
     name: 'Crate',
   },
+  {
+    id: '32',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+    },
+    name: 'Barrier',
+  },
+  {
+    id: '33',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#ff0000',
+    },
+    name: 'Barrier (red)',
+  },
+  {
+    id: '34',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#FF8C00',
+    },
+    name: 'Barrier (orange)',
+  },
+  {
+    id: '35',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#FFFF00',
+    },
+    name: 'Barrier (yellow)',
+  },
+  {
+    id: '36',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#008000',
+    },
+    name: 'Barrier (green)',
+  },
+  {
+    id: '37',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#0000FF',
+    },
+    name: 'Barrier (blue)',
+  },
+  {
+    id: '38',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#800080',
+    },
+    name: 'Barrier (purple)',
+  },
+  {
+    id: '39',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#8B4513',
+    },
+    name: 'Barrier (brown)',
+  },
+  {
+    id: '40',
+    entity: {
+      entityId: ENTITIES.BARRIER,
+      color: '#FFE4E1',
+    },
+    name: 'Barrier (pink)',
+  },
 ];
