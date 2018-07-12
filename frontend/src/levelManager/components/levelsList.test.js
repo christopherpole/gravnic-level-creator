@@ -2,9 +2,10 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import sinon from 'sinon';
 
 import testLevels from 'data/testLevels';
-import { LevelsList } from './levelsList';
+import { LevelsList, ListWrapper } from './levelsList';
 
 configure({ adapter: new Adapter() });
 
@@ -82,5 +83,15 @@ describe('<LevelsList />', () => {
     expect(toJson(levelsList)).toMatchSnapshot();
   });
 
-  it('Fires the reorderLevels action when sorting the levels');
+  it('Fires the reorderLevels action when sorting the levels', () => {
+    const reorderLevelsActionSpy = sinon.spy();
+
+    const levelsList = shallow(
+      <LevelsList {...props} reorderLevelsAction={reorderLevelsActionSpy} />,
+    );
+
+    expect(reorderLevelsActionSpy.calledOnce).toBe(false);
+    levelsList.find(ListWrapper).simulate('sortEnd', { oldIndex: 0, newIndex: 1 });
+    expect(reorderLevelsActionSpy.calledOnce).toBe(true);
+  });
 });

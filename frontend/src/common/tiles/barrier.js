@@ -16,11 +16,12 @@ const BarrierTile = ({ color, powered }) => (
 
 BarrierTile.defaultProps = {
   color: 'black',
+  powered: true,
 };
 
 BarrierTile.propTypes = {
   color: PropTypes.string,
-  powered: PropTypes.bool.isRequired,
+  powered: PropTypes.bool,
 };
 
 export default BarrierTile;

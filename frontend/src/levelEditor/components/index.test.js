@@ -46,16 +46,28 @@ describe('<LevelEditor />', () => {
     expect(tileClickSpy.calledWith(44)).toBe(true);
   });
 
-  it('Fires start dragging action when the user begins to drag on the grid', () => {
+  it('Fires start and stop dragging actions when the user begins and finishes dragging on the grid', () => {
     const startDragActionSpy = spy();
-    const grid = shallow(<LevelEditor {...props} startDragAction={startDragActionSpy} />);
+    const stopDragActionSpy = spy();
+    const grid = shallow(
+      <LevelEditor
+        {...props}
+        stopDragAction={stopDragActionSpy}
+        startDragAction={startDragActionSpy}
+      />,
+    );
     const tilesWrapper = grid.find(TilesWrapper);
+
+    //  Start dragging
+    expect(startDragActionSpy.calledOnce).toBe(false);
     tilesWrapper.simulate('mouseDown');
-
     expect(startDragActionSpy.calledOnce).toBe(true);
-  });
 
-  it('Fires stop dragging action when the stops dragging anywhere on the document');
+    //  Stop dragging
+    expect(stopDragActionSpy.calledOnce).toBe(false);
+    document.dispatchEvent(new MouseEvent('mouseUp', {}));
+    expect(stopDragActionSpy.calledOnce).toBe(true);
+  });
 
   it(
     'Fires the update tile action if dragging over a tile that is not the same as the selectedtile',
