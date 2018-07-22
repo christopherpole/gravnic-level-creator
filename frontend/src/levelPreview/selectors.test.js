@@ -10,16 +10,16 @@ describe('getEntitiesData()', () => {
     state = {
       levelPreview: {
         gameState: [
-          [{}, { staticEntity: { id: 1, entityId: ENTITIES.FLOOR } }, {}],
+          [{}, { staticEntity: { id: 1, entityId: ENTITIES.FLOOR.id } }, {}],
           [
-            { staticEntity: { id: 2, entityId: ENTITIES.FLOOR } },
+            { staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id } },
             {
-              staticEntity: { id: 3, entityId: ENTITIES.FLOOR },
-              movableEntity: { id: 4, entityId: ENTITIES.BLOCK, color: '#ff0000', fading: true },
+              staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id },
+              movableEntity: { id: 4, entityId: ENTITIES.BLOCK.id, color: '#ff0000', fading: true },
             },
-            { staticEntity: { id: 5, entityId: ENTITIES.FLOOR } },
+            { staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id } },
           ],
-          [{}, { id: 6, entityId: ENTITIES.FLOOR }, {}],
+          [{}, { id: 6, entityId: ENTITIES.FLOOR.id }, {}],
         ],
       },
     };
@@ -31,7 +31,7 @@ describe('getEntitiesData()', () => {
     expect(entitiesData).toEqual({
       '1': {
         entity: {
-          entityId: ENTITIES.FLOOR,
+          entityId: ENTITIES.FLOOR.id,
           id: 1,
         },
         xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 1) * GRID_SIZE,
@@ -40,7 +40,7 @@ describe('getEntitiesData()', () => {
       },
       '2': {
         entity: {
-          entityId: ENTITIES.FLOOR,
+          entityId: ENTITIES.FLOOR.id,
           id: 2,
         },
         xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 0) * GRID_SIZE,
@@ -49,7 +49,7 @@ describe('getEntitiesData()', () => {
       },
       '3': {
         entity: {
-          entityId: ENTITIES.FLOOR,
+          entityId: ENTITIES.FLOOR.id,
           id: 3,
         },
         xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 1) * GRID_SIZE,
@@ -58,7 +58,7 @@ describe('getEntitiesData()', () => {
       },
       '4': {
         entity: {
-          entityId: ENTITIES.BLOCK,
+          entityId: ENTITIES.BLOCK.id,
           color: '#ff0000',
           fading: true,
           id: 4,
@@ -69,7 +69,7 @@ describe('getEntitiesData()', () => {
       },
       '5': {
         entity: {
-          entityId: ENTITIES.FLOOR,
+          entityId: ENTITIES.FLOOR.id,
           id: 5,
         },
         xPos: ((GRID_SIZE - state.levelPreview.gameState[0].length) / 2 + 2) * GRID_SIZE,

@@ -22,17 +22,17 @@ describe('The change gravity direction saga', () => {
     const gameState = [
       [
         {
-          staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 1, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 1, entityId: ENTITIES.BLOCK.id },
         },
-        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+        { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
         {
-          staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 4, entityId: ENTITIES.BLOCK },
+          staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 4, entityId: ENTITIES.BLOCK.id },
         },
         {
-          staticEntity: { id: 7, entityId: ENTITIES.FLOOR },
-          movableEntity: { id: 6, entityId: ENTITIES.GLASS },
+          staticEntity: { id: 7, entityId: ENTITIES.FLOOR.id },
+          movableEntity: { id: 6, entityId: ENTITIES.GLASS.id },
         },
       ],
     ];

@@ -14,7 +14,7 @@ describe('<Tile />', () => {
   beforeEach(() => {
     props = {
       entity: {
-        entityId: ENTITIES.FLOOR,
+        entityId: ENTITIES.FLOOR.id,
         stuck: false,
         shrinking: false,
         fading: false,

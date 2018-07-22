@@ -23,34 +23,34 @@ describe('The level editor reducer', () => {
     testGameHistory = [
       [
         [
-          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK.id } }, {}],
           [{}, {}, {}],
           [{}, {}, {}],
         ],
         [
           [{}, {}, {}],
-          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK.id } }, {}],
           [{}, {}, {}],
         ],
         [
           [{}, {}, {}],
           [{}, {}, {}],
-          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK.id } }, {}],
         ],
       ],
       [
         [
           [{}, {}, {}],
           [{}, {}, {}],
-          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK.id } }, {}],
         ],
         [
           [{}, {}, {}],
-          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK.id } }, {}],
           [{}, {}, {}],
         ],
         [
-          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK } }, {}],
+          [{}, { staticEntity: { id: 111, entityId: ENTITIES.BLOCK.id } }, {}],
           [{}, {}, {}],
           [{}, {}, {}],
         ],
@@ -59,7 +59,7 @@ describe('The level editor reducer', () => {
 
     testGameState = [
       [{}, {}, {}],
-      [{}, { staticEntity: { id: 222, entityId: ENTITIES.BLOCK } }, {}],
+      [{}, { staticEntity: { id: 222, entityId: ENTITIES.BLOCK.id } }, {}],
       [{}, {}, {}],
     ];
   });

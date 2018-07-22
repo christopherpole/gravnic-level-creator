@@ -30,7 +30,7 @@ describe('<TileSelector />', () => {
   });
 
   it('Matches the current snapshot if a tile is selected', () => {
-    const tileSelector = shallow(<TileSelector {...props} selectedTileId={ENTITIES.BLOCK} />);
+    const tileSelector = shallow(<TileSelector {...props} selectedTileId={ENTITIES.BLOCK.id} />);
 
     expect(toJson(tileSelector)).toMatchSnapshot();
   });

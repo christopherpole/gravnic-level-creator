@@ -16,11 +16,11 @@ describe('The level editor reducer', () => {
       expect(
         reducer(undefined, {
           type: SELECT_TILE,
-          selectedTileId: ENTITIES.BLOCK,
+          selectedTileId: ENTITIES.BLOCK.id,
         }),
       ).toEqual({
         ...initialState,
-        selectedTileId: ENTITIES.BLOCK,
+        selectedTileId: ENTITIES.BLOCK.id,
       });
     });
   });
@@ -30,14 +30,14 @@ describe('The level editor reducer', () => {
       const newTiles = initialState.tiles.slice();
       newTiles[44] = {
         ...initialState.tiles[44],
-        selectedTileId: ENTITIES.BLOCK,
+        selectedTileId: ENTITIES.BLOCK.id,
       };
 
       expect(
         reducer(
           {
             ...initialState,
-            selectedTileId: ENTITIES.BLOCK,
+            selectedTileId: ENTITIES.BLOCK.id,
           },
           {
             type: UPDATE_TILE,
@@ -46,7 +46,7 @@ describe('The level editor reducer', () => {
         ),
       ).toEqual({
         ...initialState,
-        selectedTileId: ENTITIES.BLOCK,
+        selectedTileId: ENTITIES.BLOCK.id,
         tiles: newTiles,
         editedSinceLastSave: true,
       });
@@ -58,7 +58,7 @@ describe('The level editor reducer', () => {
       const newTiles = initialState.tiles.slice();
       newTiles[44] = {
         ...initialState.tiles[44],
-        selectedTileId: ENTITIES.BLOCK,
+        selectedTileId: ENTITIES.BLOCK.id,
       };
 
       expect(
@@ -66,7 +66,7 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             tiles: newTiles,
-            selectedTileId: ENTITIES.BLOCK,
+            selectedTileId: ENTITIES.BLOCK.id,
             editedSinceLastSave: true,
           },
           {
@@ -75,7 +75,7 @@ describe('The level editor reducer', () => {
         ),
       ).toEqual({
         ...initialState,
-        selectedTileId: ENTITIES.BLOCK,
+        selectedTileId: ENTITIES.BLOCK.id,
         tiles: initialState.tiles,
         editedSinceLastSave: false,
       });
