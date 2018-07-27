@@ -1,5 +1,5 @@
 import shortid from 'shortid';
-import { ENTITIES, isStaticEntity as utilIsStaticEntity } from 'gravnic-game';
+import { ENTITIES } from 'gravnic-game';
 
 import { GRID_SIZE, MIN_MOVES } from 'config/settings';
 
@@ -54,7 +54,7 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
   let isStaticEntity;
   let i;
   let j;
-  const blankTileId = availableTiles.find(tile => tile.entity.entityId === ENTITIES.NONE).id;
+  const blankTileId = availableTiles.find(tile => tile.entity.entityId === ENTITIES.NONE.id).id;
 
   //  Get first row index with an entity
   let firstRowIndexWithEntity = -1;
@@ -107,10 +107,10 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
 
       staticEntity = null;
       movableEntity = null;
-      isStaticEntity = utilIsStaticEntity(entityData.entityId);
+      isStaticEntity = ENTITIES[entityData.entityId].static;
 
       //  Skip blank tiles
-      if (entityData.entityId !== ENTITIES.NONE) {
+      if (entityData.entityId !== ENTITIES.NONE.id) {
         //  Add our static entity if we have one
         if (isStaticEntity) {
           staticEntity = {
@@ -126,7 +126,7 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
 
           //  If this is a movable entity on this tile then we'll need to add a floor too
           staticEntity = {
-            entityId: ENTITIES.FLOOR,
+            entityId: ENTITIES.FLOOR.id,
             id: currentIdCount++,
           };
         }

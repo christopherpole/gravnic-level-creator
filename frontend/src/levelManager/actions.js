@@ -44,11 +44,16 @@ export const createNewLevel = () => (dispatch, getState) => {
 };
 
 export const loadLevel = () => (dispatch, getState) => {
+  const { previewing } = getState().levelPreview;
   const { editedSinceLastSave } = getState().levelEditor;
   const currentLevel = getState().levelManager.levels.find(
     level => level.id === getState().levelManager.selectedLevelId,
   );
 
+  //  Don't fire the event if a level is being previewed, ever
+  if (previewing) return;
+
+  //  If we've edited the level and not saved it, display a confirmation modal
   if (editedSinceLastSave) {
     dispatch({
       type: LOAD_LEVEL,

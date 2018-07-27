@@ -13,10 +13,10 @@ import {
 dovenv.config();
 
 const debugMode = false;
-const moveSleepDuration = debugMode ? 1500 : 1000;
+const moveSleepDuration = debugMode ? 2000 : 2000;
 
 //  Set the timeout. Good for when using slowMo for debugging
-jest.setTimeout(debugMode ? 15000 : 10000);
+jest.setTimeout(debugMode ? 20000 : 20000);
 
 describe('The level preview', () => {
   let browser;
@@ -26,7 +26,7 @@ describe('The level preview', () => {
     browser = await puppeteer.launch({
       headless: !debugMode,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: debugMode ? 20 : 20,
+      slowMo: debugMode ? 40 : 40,
     });
 
     page = await browser.newPage();
@@ -409,6 +409,7 @@ describe('The level preview', () => {
 
     //  Go to the level preview and complete the level
     await page.click('#btn-preview');
+    await sleep(moveSleepDuration);
     await page.keyboard.down('ArrowLeft');
     await sleep(moveSleepDuration);
 

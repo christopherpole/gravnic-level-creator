@@ -20,8 +20,8 @@ describe('/solveLevel', () => {
       const gameState = [
         [
           {
-            staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#008000', id: 1 },
+            staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#008000', id: 1 },
           },
         ],
       ];
@@ -44,13 +44,13 @@ describe('/solveLevel', () => {
       const gameState = [
         [
           {
-            staticEntity: { id: 2, entityId: ENTITIES.FLOOR },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
+            staticEntity: { id: 2, entityId: ENTITIES.FLOOR.id },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
           },
-          { staticEntity: { id: 3, entityId: ENTITIES.FLOOR }, movableEntity: null },
+          { staticEntity: { id: 3, entityId: ENTITIES.FLOOR.id }, movableEntity: null },
           {
-            staticEntity: { id: 5, entityId: ENTITIES.FLOOR },
-            movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 4 },
+            staticEntity: { id: 5, entityId: ENTITIES.FLOOR.id },
+            movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 4 },
           },
         ],
       ];

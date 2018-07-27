@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BarrierTile /> Matches the current snapshot 1`] = `
+<svg
+  height="100%"
+  version="1.1"
+  viewBox="0 0 100 100"
+  width="100%"
+>
+  <defs />
+  <g
+    fill="none"
+    fillRule="evenodd"
+    stroke="none"
+    strokeWidth="1"
+  >
+    <g
+      id="aaa"
+    >
+      <rect
+        fill="#fff"
+        fillRule="evenodd"
+        height="100"
+        width="100"
+        x="0"
+        y="0"
+      />
+      <rect
+        fill="black"
+        fillRule="evenodd"
+        height="50"
+        width="50"
+        x="25"
+        y="25"
+      />
+      <rect
+        height="74"
+        stroke="black"
+        strokeWidth="2"
+        width="74"
+        x="13.5"
+        y="13.5"
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`<BarrierTile /> Matches the current snapshot when unpowered 1`] = `
+<svg
+  height="100%"
+  version="1.1"
+  viewBox="0 0 100 100"
+  width="100%"
+>
+  <defs />
+  <g
+    fill="none"
+    fillRule="evenodd"
+    stroke="none"
+    strokeWidth="1"
+  >
+    <g
+      id="aaa"
+    >
+      <rect
+        fill="#fff"
+        fillRule="evenodd"
+        height="100"
+        width="100"
+        x="0"
+        y="0"
+      />
+      <rect
+        height="74"
+        stroke="black"
+        strokeWidth="2"
+        width="74"
+        x="13.5"
+        y="13.5"
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`<BarrierTile /> Matches the current snapshot with a color 1`] = `
+<svg
+  height="100%"
+  version="1.1"
+  viewBox="0 0 100 100"
+  width="100%"
+>
+  <defs />
+  <g
+    fill="none"
+    fillRule="evenodd"
+    stroke="none"
+    strokeWidth="1"
+  >
+    <g
+      id="aaa"
+    >
+      <rect
+        fill="#fff"
+        fillRule="evenodd"
+        height="100"
+        width="100"
+        x="0"
+        y="0"
+      />
+      <rect
+        fill="#ff00000"
+        fillRule="evenodd"
+        height="50"
+        width="50"
+        x="25"
+        y="25"
+      />
+      <rect
+        height="74"
+        stroke="#ff00000"
+        strokeWidth="2"
+        width="74"
+        x="13.5"
+        y="13.5"
+      />
+    </g>
+  </g>
+</svg>
+`;

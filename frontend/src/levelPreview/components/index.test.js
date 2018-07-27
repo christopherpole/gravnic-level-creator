@@ -19,7 +19,7 @@ describe('<LevelPreview />', () => {
           yPos: 10,
           id: 123,
           color: '#ff0000',
-          entityId: ENTITIES.BLOCK,
+          entityId: ENTITIES.BLOCK.id,
           isMovableEntity: true,
         },
       },

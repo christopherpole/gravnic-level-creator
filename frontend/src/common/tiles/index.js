@@ -18,6 +18,8 @@ import SmartBombTile from './smartBomb';
 import ColorChangerTile from './colorChanger';
 import GravityChangerTile from './gravityChanger';
 import CrateTile from './crate';
+import BarrierTile from './barrier';
+import BombTile from './bomb';
 
 export const Wrapper = styled.div`
   background: ${props => props.theme.backgroundColor};
@@ -57,41 +59,47 @@ export const Tile = ({ entity, moveSpeed }) => {
     case undefined:
       DisplayTile = MissingTile;
       break;
-    case ENTITIES.NONE:
+    case ENTITIES.NONE.id:
       DisplayTile = BlankTile;
       break;
-    case ENTITIES.FLOOR:
+    case ENTITIES.FLOOR.id:
       DisplayTile = FloorTile;
       break;
-    case ENTITIES.GLASS:
+    case ENTITIES.GLASS.id:
       DisplayTile = GlassTile;
       break;
-    case ENTITIES.BLOCK:
+    case ENTITIES.BLOCK.id:
       DisplayTile = BlockTile;
       break;
-    case ENTITIES.RAINBOW_BLOCK:
+    case ENTITIES.RAINBOW_BLOCK.id:
       DisplayTile = RainbowBlockTile;
       break;
-    case ENTITIES.BLACK_HOLE:
+    case ENTITIES.BLACK_HOLE.id:
       DisplayTile = BlackHoleTile;
       break;
-    case ENTITIES.STICKY_SPOT:
+    case ENTITIES.STICKY_SPOT.id:
       DisplayTile = StickySpotTile;
       break;
-    case ENTITIES.LAVA:
+    case ENTITIES.LAVA.id:
       DisplayTile = LavaTile;
       break;
-    case ENTITIES.SMART_BOMB:
+    case ENTITIES.SMART_BOMB.id:
       DisplayTile = SmartBombTile;
       break;
-    case ENTITIES.COLOR_CHANGER:
+    case ENTITIES.COLOR_CHANGER.id:
       DisplayTile = ColorChangerTile;
       break;
-    case ENTITIES.GRAVITY_CHANGER:
+    case ENTITIES.GRAVITY_CHANGER.id:
       DisplayTile = GravityChangerTile;
       break;
-    case ENTITIES.CRATE:
+    case ENTITIES.CRATE.id:
       DisplayTile = CrateTile;
+      break;
+    case ENTITIES.BARRIER.id:
+      DisplayTile = BarrierTile;
+      break;
+    case ENTITIES.BOMB.id:
+      DisplayTile = BombTile;
       break;
     default:
       DisplayTile = MissingTile;

@@ -1,6 +1,14 @@
 version: '2.1'
 
 services:
+  frontend_build:
+    image: node:9.11.1-alpine
+    working_dir: /frontend
+    command: yarn build
+    volumes:
+      - ./frontend:/frontend
+    env_file: ./frontend/.env
+
   frontend:
     build: ./frontend
     working_dir: /frontend
@@ -68,5 +76,5 @@ services:
       frontend:
         condition: service_healthy
 
-  database: 
+  database:
     image: mongo 

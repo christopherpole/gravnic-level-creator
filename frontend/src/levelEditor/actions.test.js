@@ -20,10 +20,10 @@ describe('The level editor actions', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
         type: SELECT_TILE,
-        selectedTileId: ENTITIES.BLOCK,
+        selectedTileId: ENTITIES.BLOCK.id,
       };
 
-      expect(selectTile(ENTITIES.BLOCK)).toEqual(expectedAction);
+      expect(selectTile(ENTITIES.BLOCK.id)).toEqual(expectedAction);
     });
   });
 

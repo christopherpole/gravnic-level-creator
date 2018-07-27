@@ -14,7 +14,7 @@ describe('<ColorChangerTile />', () => {
   beforeEach(() => {
     props = {
       targetEntity: {
-        entityId: ENTITIES.BLOCK,
+        entityId: ENTITIES.BLOCK.id,
         color: '#ff0000',
       },
     };

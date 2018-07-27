@@ -69,8 +69,8 @@ describe('convertEditorTilesToGameState()', () => {
     expect(gameState).toEqual([
       [
         {
-          movableEntity: { entityId: ENTITIES.BLOCK, color: '#ff0000', id: 1 },
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
+          movableEntity: { entityId: ENTITIES.BLOCK.id, color: '#ff0000', id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
         },
       ],
     ]);
@@ -97,8 +97,8 @@ describe('convertEditorTilesToGameState()', () => {
     const expectedGameState = [
       [
         {
-          movableEntity: { entityId: ENTITIES.GLASS, id: 1 },
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 2 },
+          movableEntity: { entityId: ENTITIES.GLASS.id, id: 1 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 2 },
         },
         { movableEntity: null, staticEntity: null },
         { movableEntity: null, staticEntity: null },
@@ -122,7 +122,7 @@ describe('convertEditorTilesToGameState()', () => {
         { movableEntity: null, staticEntity: null },
         {
           movableEntity: null,
-          staticEntity: { entityId: ENTITIES.FLOOR, id: 3 },
+          staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 },
         },
       ],
     ];

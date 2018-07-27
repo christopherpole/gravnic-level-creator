@@ -19,12 +19,12 @@ const Wrapper = styled.div`
     position: absolute;
 
     ${props => css`
-      ${props.entityId === ENTITIES.BLOCK &&
+      ${props.entityId === ENTITIES.BLOCK.id &&
         css`
           background: ${props.color};
         `};
 
-      ${props.entityId === ENTITIES.RAINBOW_BLOCK &&
+      ${props.entityId === ENTITIES.RAINBOW_BLOCK.id &&
         css`
           background: linear-gradient(
             to bottom right,
