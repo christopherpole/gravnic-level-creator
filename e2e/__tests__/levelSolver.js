@@ -11,7 +11,7 @@ dovenv.config();
 const debugMode = false;
 
 //  Set the timeout. Good for when using slowMo for debugging
-jest.setTimeout(debugMode ? 15000 : 7500);
+jest.setTimeout(debugMode ? 15000 : 15000);
 
 const clearDatabase = () => {
   mongoose
@@ -30,7 +30,7 @@ describe('The level solver', () => {
     browser = await puppeteer.launch({
       headless: !debugMode,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: debugMode ? 200 : 40,
+      slowMo: debugMode ? 200 : 50,
     });
 
     page = await browser.newPage();

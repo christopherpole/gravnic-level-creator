@@ -22,7 +22,7 @@ describe('The level editor', () => {
     browser = await puppeteer.launch({
       headless: !debugMode,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      slowMo: debugMode ? 200 : 20,
+      slowMo: debugMode ? 200 : 40,
     });
 
     page = await browser.newPage();

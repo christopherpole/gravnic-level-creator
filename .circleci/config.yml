@@ -35,7 +35,7 @@ install_yarn: &install_yarn
   command: npm install --global yarn
 
 jobs:
-  build_and_test_frontend:
+  setup_and_test_frontend:
     <<: *job_defaults
     steps:
       - checkout
@@ -60,15 +60,28 @@ jobs:
       - run:
           name: Run tests
           command: cd frontend && yarn test
-      - run:
-          name: Build frontend
-          command: cd frontend && yarn build
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
             - frontend
 
-  build_and_test_backend:
+  build_frontend:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/gravnic-level-creator
+      - run:
+          <<: *install_docker_compose
+      - run:
+          name: Frontend build
+          command: docker-compose run frontend_build
+      - persist_to_workspace:
+          root: ~/gravnic-level-creator
+          paths:
+            - frontend
+
+  setup_and_test_backend:
     <<: *job_defaults
     steps:
       - checkout
@@ -103,7 +116,7 @@ jobs:
           paths:
             - backend
 
-  build_and_test_level_solver:
+  setup_and_test_level_solver:
     <<: *job_defaults
     steps:
       - checkout
@@ -169,16 +182,19 @@ jobs:
 
 workflows:
   version: 2
-  build_test_deploy:
+  setup_test_build_deploy:
     jobs:
-      - build_and_test_frontend
-      - build_and_test_backend
-      - build_and_test_level_solver
+      - setup_and_test_frontend
+      - setup_and_test_backend
+      - setup_and_test_level_solver
+      - build_frontend:
+          requires:
+            - setup_and_test_frontend
       - e2e_tests:
           requires:
-            - build_and_test_frontend
-            - build_and_test_backend
-            - build_and_test_level_solver
+            - build_frontend
+            - setup_and_test_backend
+            - setup_and_test_level_solver
       - deploy:
           requires:
             - e2e_tests
