@@ -128,10 +128,12 @@ describe('The level editor reducer', () => {
       expect(
         reducer(initialState, {
           type: START_DRAG,
+          linkFromTilePos: 4,
         }),
       ).toEqual({
         ...initialState,
         dragging: true,
+        linkFromTilePos: 4,
       });
     });
   });
@@ -143,15 +145,13 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             dragging: true,
+            linkFromTilePos: 2,
           },
           {
             type: STOP_DRAG,
           },
         ),
-      ).toEqual({
-        ...initialState,
-        dragging: false,
-      });
+      ).toEqual(initialState);
     });
   });
 

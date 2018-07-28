@@ -6,7 +6,7 @@ import { spy } from 'sinon';
 import { ENTITIES } from 'gravnic-game';
 
 import { initialState } from '../reducer';
-import { LevelEditor, TilesWrapper, TileWrapper } from './index';
+import { LevelEditor, TileWrapper } from './index';
 
 configure({ adapter: new Adapter() });
 
@@ -15,8 +15,6 @@ describe('<LevelEditor />', () => {
 
   beforeEach(() => {
     props = {
-      selectedTileId: ENTITIES.FLOOR.id,
-      dragging: false,
       tiles: initialState.tiles,
       updateTileAction: () => {},
       startDragAction: () => {},
@@ -46,7 +44,7 @@ describe('<LevelEditor />', () => {
     expect(tileClickSpy.calledWith(44)).toBe(true);
   });
 
-  it('Fires start and stop dragging actions when the user begins and finishes dragging on the grid', () => {
+  it('Fires start dragging action when the user begins and finishes dragging on a non-linked tile', () => {
     const startDragActionSpy = spy();
     const stopDragActionSpy = spy();
     const grid = shallow(
@@ -56,15 +54,13 @@ describe('<LevelEditor />', () => {
         startDragAction={startDragActionSpy}
       />,
     );
-    const tilesWrapper = grid.find(TilesWrapper);
+    const tilesWrapper = grid.find(TileWrapper).at(2);
 
     //  Start dragging
     expect(startDragActionSpy.calledOnce).toBe(false);
     tilesWrapper.simulate('mouseDown');
     expect(startDragActionSpy.calledOnce).toBe(true);
-
-    //  Stop dragging
-    //  @TODO
+    expect(startDragActionSpy.calledWith(2)).toBe(true);
   });
 
   it(

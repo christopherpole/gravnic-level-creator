@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import Tile from 'common/tiles';
+import LinkDisplay from './linkDisplay';
 import { updateTile, startDrag, stopDrag } from '../actions';
 
 export const Wrapper = styled.div`
@@ -32,47 +33,38 @@ export const TileWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const LevelEditor = ({
-  tiles,
-  selectedTileId,
-  updateTileAction,
-  startDragAction,
-  stopDragAction,
-  dragging,
-}) => {
+export const LevelEditor = ({ tiles, updateTileAction, startDragAction, stopDragAction }) => {
   const handleMouseUp = () => {
     stopDragAction();
     document.removeEventListener('mouseup', handleMouseUp);
   };
 
-  const handleMouseDown = () => {
-    startDragAction();
+  const handleMouseDown = pos => {
+    startDragAction(pos);
     document.addEventListener('mouseup', handleMouseUp);
-  };
-
-  const handleMouseMove = tile => {
-    if (dragging && selectedTileId !== tile.selectedTileId) {
-      updateTileAction(tile.position);
-    }
   };
 
   return (
     <Wrapper id="editor-grid">
-      <TilesWrapper onMouseDown={handleMouseDown}>
+      <TilesWrapper>
         {tiles.map(editorTile => (
           <TileWrapper
+            onMouseDown={() => {
+              handleMouseDown(editorTile.position);
+            }}
             onClick={() => {
-              updateTileAction(editorTile.position);
+              updateTileAction(editorTile.position, true);
             }}
             key={editorTile.position}
             onMouseMove={() => {
-              handleMouseMove(editorTile);
+              updateTileAction(editorTile.position);
             }}
             className="tile"
           >
             <Tile tileId={editorTile.selectedTileId} />
           </TileWrapper>
         ))}
+        <LinkDisplay />
       </TilesWrapper>
     </Wrapper>
   );
@@ -88,14 +80,10 @@ LevelEditor.propTypes = {
       position: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-  dragging: PropTypes.bool.isRequired,
-  selectedTileId: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   tiles: state.levelEditor.tiles,
-  selectedTileId: state.levelEditor.selectedTileId,
-  dragging: state.levelEditor.dragging,
 });
 
 const mapDispatchToProps = dispatch => ({

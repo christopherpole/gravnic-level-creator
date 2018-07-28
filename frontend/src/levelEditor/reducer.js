@@ -9,6 +9,8 @@ const newLevel = createNewLevel();
 export const initialState = {
   previewing: false,
   dragging: false,
+  linkFromTilePos: null,
+  linkToTilePos: null,
   selectedTileId: '1',
   availableTiles,
   tiles: newLevel.tiles,
@@ -67,6 +69,7 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         dragging: true,
+        linkFromTilePos: action.linkFromTilePos,
       };
     }
 
@@ -74,6 +77,7 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         dragging: false,
+        linkFromTilePos: null,
       };
     }
 

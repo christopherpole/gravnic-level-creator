@@ -14,6 +14,7 @@ import {
   stopDrag,
   setStars,
 } from './actions';
+import availableTiles from '../config/tiles';
 
 describe('The level editor actions', () => {
   describe('selectTile()', () => {
@@ -31,15 +32,15 @@ describe('The level editor actions', () => {
     const levelEditorTiles = [
       {
         position: 1,
-        selectedTileId: '1',
+        selectedTileId: availableTiles[0].id,
       },
       {
         position: 2,
-        selectedTileId: '2',
+        selectedTileId: availableTiles[1].id,
       },
       {
         position: 3,
-        selectedTileId: '1',
+        selectedTileId: availableTiles[0].id,
       },
     ];
 
@@ -48,8 +49,9 @@ describe('The level editor actions', () => {
       const dispatchSpy = spy();
       const getState = () => ({
         levelEditor: {
-          selectedTileId: '2',
+          selectedTileId: availableTiles[1].id,
           tiles: levelEditorTiles,
+          linkFromTilePos: null,
         },
       });
 
@@ -58,13 +60,14 @@ describe('The level editor actions', () => {
       expect(dispatchSpy.called).toBe(false);
     });
 
-    it('Creates the action when the tile tile updates', () => {
-      const fn = updateTile(3);
+    it('Creates the action when the tile updates after being clicked', () => {
+      const fn = updateTile(3, true);
       const dispatchSpy = spy();
       const getState = () => ({
         levelEditor: {
-          selectedTileId: '2',
+          selectedTileId: availableTiles[1].id,
           tiles: levelEditorTiles,
+          linkFromTilePos: null,
         },
       });
 
@@ -77,6 +80,62 @@ describe('The level editor actions', () => {
           position: 3,
         }),
       ).toBe(true);
+    });
+
+    it("Doesn't create an action if the tile should be updated but we're just hovering over it", () => {
+      const fn = updateTile(3);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          selectedTileId: availableTiles[1].id,
+          tiles: levelEditorTiles,
+          linkFromTilePos: null,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(false);
+    });
+
+    it("Creates an action if the tile should be updated and we're dragging over it", () => {
+      const fn = updateTile(3);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          selectedTileId: availableTiles[1].id,
+          tiles: levelEditorTiles,
+          linkFromTilePos: null,
+          dragging: true,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: UPDATE_TILE,
+          position: 3,
+        }),
+      ).toBe(true);
+    });
+
+    it("Doesn't create an action when the tile updates but we're creating a link", () => {
+      const fn = updateTile(2);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          selectedTileId: availableTiles[1].id,
+          tiles: levelEditorTiles,
+          dragging: true,
+          linkFromTilePos: 3,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.called).toBe(false);
     });
   });
 
@@ -91,16 +150,73 @@ describe('The level editor actions', () => {
   });
 
   describe('startDrag()', () => {
-    it('Creates the correct action', () => {
-      const expectedAction = {
-        type: START_DRAG,
-      };
+    const levelEditorTiles = [
+      {
+        position: 1,
+        selectedTileId: availableTiles[0].id,
+      },
+      {
+        position: 2,
+        selectedTileId: availableTiles[1].id,
+      },
+      {
+        position: 3,
+        selectedTileId: availableTiles[0].id,
+      },
+    ];
 
-      expect(startDrag()).toEqual(expectedAction);
+    it('Creates the correct action when dragging on a non-linkable tile entity', () => {
+      const fn = startDrag(2);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          tiles: levelEditorTiles,
+          availableTiles,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: START_DRAG,
+          linkFromTilePos: null,
+        }),
+      ).toBe(true);
+    });
+
+    it('Creates the correct action when dragging on a linkable tile entity', () => {
+      const fn = startDrag(2);
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          tiles: [
+            levelEditorTiles[0],
+            {
+              ...levelEditorTiles[1],
+              selectedTileId: availableTiles.find(availableTile => availableTile.entity.linkable)
+                .id,
+            },
+            levelEditorTiles[2],
+          ],
+          availableTiles,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: START_DRAG,
+          linkFromTilePos: 2,
+        }),
+      ).toBe(true);
     });
   });
 
-  describe('startDrag()', () => {
+  describe('stopDrag()', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
         type: STOP_DRAG,

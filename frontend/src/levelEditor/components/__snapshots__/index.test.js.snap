@@ -4,13 +4,12 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
 <styled.div
   id="editor-grid"
 >
-  <styled.div
-    onMouseDown={[Function]}
-  >
+  <styled.div>
     <styled.div
       className="tile"
       key="0"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -21,6 +20,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="1"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -31,6 +31,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="2"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -41,6 +42,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="3"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -51,6 +53,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="4"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -61,6 +64,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="5"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -71,6 +75,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="6"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -81,6 +86,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="7"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -91,6 +97,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="8"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -101,6 +108,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="9"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -111,6 +119,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="10"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -121,6 +130,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="11"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -131,6 +141,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="12"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -141,6 +152,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="13"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -151,6 +163,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="14"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -161,6 +174,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="15"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -171,6 +185,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="16"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -181,6 +196,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="17"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -191,6 +207,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="18"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -201,6 +218,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="19"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -211,6 +229,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="20"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -221,6 +240,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="21"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -231,6 +251,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="22"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -241,6 +262,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="23"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -251,6 +273,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="24"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -261,6 +284,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="25"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -271,6 +295,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="26"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -281,6 +306,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="27"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -291,6 +317,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="28"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -301,6 +328,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="29"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -311,6 +339,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="30"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -321,6 +350,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="31"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -331,6 +361,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="32"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -341,6 +372,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="33"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -351,6 +383,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="34"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -361,6 +394,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="35"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -371,6 +405,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="36"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -381,6 +416,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="37"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -391,6 +427,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="38"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -401,6 +438,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="39"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -411,6 +449,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="40"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -421,6 +460,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="41"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -431,6 +471,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="42"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -441,6 +482,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="43"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -451,6 +493,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="44"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -461,6 +504,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="45"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -471,6 +515,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="46"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -481,6 +526,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="47"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -491,6 +537,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="48"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -501,6 +548,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="49"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -511,6 +559,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="50"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -521,6 +570,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="51"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -531,6 +581,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="52"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -541,6 +592,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="53"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -551,6 +603,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="54"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -561,6 +614,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="55"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -571,6 +625,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="56"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -581,6 +636,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="57"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -591,6 +647,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="58"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -601,6 +658,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="59"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -611,6 +669,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="60"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -621,6 +680,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="61"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -631,6 +691,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="62"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -641,6 +702,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="63"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -651,6 +713,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="64"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -661,6 +724,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="65"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -671,6 +735,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="66"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -681,6 +746,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="67"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -691,6 +757,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="68"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -701,6 +768,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="69"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -711,6 +779,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="70"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -721,6 +790,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="71"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -731,6 +801,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="72"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -741,6 +812,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="73"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -751,6 +823,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="74"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -761,6 +834,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="75"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -771,6 +845,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="76"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -781,6 +856,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="77"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -791,6 +867,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="78"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -801,6 +878,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="79"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -811,6 +889,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="80"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -821,6 +900,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="81"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -831,6 +911,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="82"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -841,6 +922,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="83"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -851,6 +933,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="84"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -861,6 +944,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="85"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -871,6 +955,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="86"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -881,6 +966,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="87"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -891,6 +977,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="88"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -901,6 +988,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="89"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -911,6 +999,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="90"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -921,6 +1010,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="91"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -931,6 +1021,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="92"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -941,6 +1032,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="93"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -951,6 +1043,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="94"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -961,6 +1054,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="95"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -971,6 +1065,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="96"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -981,6 +1076,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="97"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -991,6 +1087,7 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="98"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
@@ -1001,12 +1098,14 @@ exports[`<LevelEditor /> Matches the current snapshot 1`] = `
       className="tile"
       key="99"
       onClick={[Function]}
+      onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <Connect(Component)
         tileId="1"
       />
     </styled.div>
+    <Connect(Component) />
   </styled.div>
 </styled.div>
 `;

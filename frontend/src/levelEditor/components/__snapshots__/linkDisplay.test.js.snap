@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LinkDisplay /> Matches the current snapshot 1`] = `
+<styled.div
+  id="link-display"
+  linkFromTilePos={null}
+>
+  <styled.svg>
+    <styled.line
+      x1="0"
+      x2="200"
+      y1="0"
+      y2="200"
+    />
+  </styled.svg>
+</styled.div>
+`;
+
+exports[`<LinkDisplay /> Matches the current snapshot when linking from a tile 1`] = `
+<styled.div
+  id="link-display"
+  linkFromTilePos={2}
+>
+  <styled.svg>
+    <styled.line
+      x1="0"
+      x2="200"
+      y1="0"
+      y2="200"
+    />
+  </styled.svg>
+</styled.div>
+`;
