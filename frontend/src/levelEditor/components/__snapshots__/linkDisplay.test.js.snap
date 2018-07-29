@@ -3,31 +3,53 @@
 exports[`<LinkDisplay /> Matches the current snapshot 1`] = `
 <styled.div
   id="link-display"
-  linkFromTilePos={null}
 >
   <styled.svg>
     <styled.line
-      x1="5%"
-      x2="5%"
-      y1="5%"
-      y2="5%"
+      key="0"
+      x1="10%"
+      x2="20%"
+      y1="10%"
+      y2="20%"
+    />
+    <styled.line
+      key="1"
+      x1="20%"
+      x2="40%"
+      y1="30%"
+      y2="50%"
     />
   </styled.svg>
 </styled.div>
 `;
 
-exports[`<LinkDisplay /> Matches the current snapshot when linking from a tile 1`] = `
+exports[`<LinkDisplay /> Matches the current snapshot when linking 1`] = `
 <styled.div
   id="link-display"
-  linkFromTilePos={2}
 >
   <styled.svg>
     <styled.line
-      x1="25%"
-      x2="35%"
-      y1="5%"
-      y2="5%"
+      key="0"
+      x1="10%"
+      x2="20%"
+      y1="10%"
+      y2="20%"
+    />
+    <styled.line
+      key="1"
+      x1="20%"
+      x2="40%"
+      y1="30%"
+      y2="50%"
     />
   </styled.svg>
+</styled.div>
+`;
+
+exports[`<LinkDisplay /> Matches the current snapshot without links 1`] = `
+<styled.div
+  id="link-display"
+>
+  <styled.svg />
 </styled.div>
 `;

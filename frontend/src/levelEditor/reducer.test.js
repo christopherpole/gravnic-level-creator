@@ -11,6 +11,7 @@ import {
   STOP_DRAG,
   SET_STARS,
   SET_LINK_TO_TILE_POS,
+  CREATE_LINK,
 } from './actions';
 import reducer, { initialState } from './reducer';
 
@@ -147,19 +148,58 @@ describe('The level editor reducer', () => {
   });
 
   describe('STOP_DRAG', () => {
-    it('Handles the action correctly', () => {
+    it('Handles the action correctly if not linking', () => {
       expect(
         reducer(
           {
             ...initialState,
             dragging: true,
-            linkFromTilePos: 2,
           },
           {
             type: STOP_DRAG,
           },
         ),
       ).toEqual(initialState);
+    });
+
+    it('Handles the action correctly if linking', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            dragging: true,
+            linkFromTilePos: 2,
+            linkToTilePos: 4,
+            links: [{ from: 1, to: 2 }],
+          },
+          {
+            type: STOP_DRAG,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        links: [{ from: 1, to: 2 }, { from: 2, to: 4 }],
+      });
+    });
+
+    it('Handles the action correctly if adding a duplicate link', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            dragging: true,
+            linkFromTilePos: 2,
+            linkToTilePos: 4,
+            links: [{ from: 2, to: 4 }],
+          },
+          {
+            type: STOP_DRAG,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        links: [{ from: 2, to: 4 }],
+      });
     });
   });
 
@@ -275,6 +315,21 @@ describe('The level editor reducer', () => {
       ).toEqual({
         ...initialState,
         linkToTilePos: 4,
+      });
+    });
+  });
+
+  describe('CREATE_LINK', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(initialState, {
+          type: CREATE_LINK,
+          linkFromTilePos: 2,
+          linkToTilePos: 3,
+        }),
+      ).toEqual({
+        ...initialState,
+        links: [{ from: 2, to: 3 }],
       });
     });
   });

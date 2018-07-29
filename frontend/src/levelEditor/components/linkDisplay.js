@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { getLinkCoords } from '../selectors';
+
 export const Wrapper = styled.div`
-  background: ${props => (props.linkFromTilePos ? 'rgba(0,0,0,.2)' : 'transparent')};
+  background: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 0;
@@ -25,32 +27,28 @@ export const Line = styled.line`
   pointer-events: none;
 `;
 
-export const LinkDisplay = ({ linkFromTilePos, linkToTilePos }) => (
-  <Wrapper linkFromTilePos={linkFromTilePos} id="link-display">
+export const LinkDisplay = ({ formattedLinks }) => (
+  <Wrapper id="link-display">
     <LinesWrapper>
-      <Line
-        x1={(linkFromTilePos % 10) * 10 + 5 + '%'}
-        y1={Math.floor(linkFromTilePos / 10) * 10 + 5 + '%'}
-        x2={(linkToTilePos % 10) * 10 + 5 + '%'}
-        y2={Math.floor(linkToTilePos / 10) * 10 + 5 + '%'}
-      />
+      {formattedLinks.map((formattedLink, index) => (
+        <Line
+          key={index}
+          x1={formattedLink.x1}
+          y1={formattedLink.y1}
+          x2={formattedLink.x2}
+          y2={formattedLink.y2}
+        />
+      ))}
     </LinesWrapper>
   </Wrapper>
 );
 
-LinkDisplay.defaultProps = {
-  linkFromTilePos: null,
-  linkToTilePos: null,
-};
-
 LinkDisplay.propTypes = {
-  linkFromTilePos: PropTypes.number,
-  linkToTilePos: PropTypes.number,
+  formattedLinks: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
-  linkFromTilePos: state.levelEditor.linkFromTilePos,
-  linkToTilePos: state.levelEditor.linkToTilePos,
+  formattedLinks: getLinkCoords(state),
 });
 
 export default connect(mapStateToProps)(LinkDisplay);

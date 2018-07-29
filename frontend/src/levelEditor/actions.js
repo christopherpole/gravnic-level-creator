@@ -7,11 +7,13 @@ export const START_DRAG = 'START_DRAG';
 export const STOP_DRAG = 'STOP_DRAG';
 export const SET_STARS = 'SET_STARS';
 export const SET_LINK_TO_TILE_POS = 'SET_LINK_TO_TILE_POS';
+export const CREATE_LINK = 'CREATE_LINK';
 
 export const selectTile = makeActionCreator(SELECT_TILE, 'selectedTileId');
 export const resetGrid = makeActionCreator(RESET_GRID);
 export const stopDrag = makeActionCreator(STOP_DRAG);
 export const setStars = makeActionCreator(SET_STARS, 'starsIndex', 'stars');
+export const createLink = makeActionCreator(CREATE_LINK, 'linkFromTilePos', 'linkToTilePos');
 
 export const startDrag = position => (dispatch, getState) => {
   const { tiles, availableTiles } = getState().levelEditor;

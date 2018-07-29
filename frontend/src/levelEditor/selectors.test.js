@@ -5,6 +5,7 @@ import {
   getLevelEditorButtonDisabledStates,
   convertTileDataToGravnicGameStateString,
   getEntityForTileId,
+  getLinkCoords,
 } from './selectors';
 
 describe('getLevelEditorButtonDisabledStates()', () => {
@@ -107,5 +108,40 @@ describe('getEntityForTileId()', () => {
     const entity = getEntityForTileId(state, state.levelEditor.availableTiles[1].id);
 
     expect(entity).toBe(state.levelEditor.availableTiles[1].entity);
+  });
+});
+
+describe('getLinkPositions()', () => {
+  let state;
+
+  beforeEach(() => {
+    state = {
+      levelEditor: {
+        links: [{ from: 1, to: 2 }, { from: 3, to: 4 }, { from: 3, to: 5 }],
+        linkFromTilePos: 2,
+        linkToTilePos: 5,
+      },
+    };
+  });
+
+  it('Formats the links correctly when there are no links and no tiles are being linked', () => {
+    const linkPositions = getLinkCoords({
+      ...state,
+      levelEditor: { ...state.levelEditor, links: [], linkFromTilePos: null, linkToTilePos: null },
+    });
+
+    expect(linkPositions).toEqual([]);
+  });
+
+  it('Formats the links correctly', () => {
+    const expectedLinkPositions = [
+      { x1: '15%', x2: '25%', y1: '5%', y2: '5%' },
+      { x1: '35%', x2: '45%', y1: '5%', y2: '5%' },
+      { x1: '35%', x2: '55%', y1: '5%', y2: '5%' },
+      { x1: '25%', x2: '55%', y1: '5%', y2: '5%' },
+    ];
+    const linkPositions = getLinkCoords(state);
+
+    expect(linkPositions).toEqual(expectedLinkPositions);
   });
 });

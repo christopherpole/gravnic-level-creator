@@ -11,7 +11,12 @@ describe('<LinkDisplay />', () => {
   let props;
 
   beforeEach(() => {
-    props = {};
+    props = {
+      formattedLinks: [
+        { x1: '10%', y1: '10%', x2: '20%', y2: '20%' },
+        { x1: '20%', y1: '30%', x2: '40%', y2: '50%' },
+      ],
+    };
   });
 
   it('Renders without exploding', () => {
@@ -26,8 +31,14 @@ describe('<LinkDisplay />', () => {
     expect(toJson(linkDisplay)).toMatchSnapshot();
   });
 
-  it('Matches the current snapshot when linking from a tile', () => {
-    const linkDisplay = shallow(<LinkDisplay {...props} linkFromTilePos={2} linkToTilePos={3} />);
+  it('Matches the current snapshot without links', () => {
+    const linkDisplay = shallow(<LinkDisplay {...props} formattedLinks={[]} />);
+
+    expect(toJson(linkDisplay)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot when linking', () => {
+    const linkDisplay = shallow(<LinkDisplay {...props} />);
 
     expect(toJson(linkDisplay)).toMatchSnapshot();
   });

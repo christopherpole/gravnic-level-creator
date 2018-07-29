@@ -8,6 +8,7 @@ import {
   STOP_DRAG,
   SET_STARS,
   SET_LINK_TO_TILE_POS,
+  CREATE_LINK,
   updateTile,
   selectTile,
   resetGrid,
@@ -15,6 +16,7 @@ import {
   stopDrag,
   setStars,
   mouseoverTile,
+  createLink,
 } from './actions';
 import availableTiles from '../config/tiles';
 
@@ -181,6 +183,18 @@ describe('The level editor actions', () => {
       };
 
       expect(setStars(1, 3)).toEqual(expectedAction);
+    });
+  });
+
+  describe('createLink()', () => {
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: CREATE_LINK,
+        linkFromTilePos: 1,
+        linkToTilePos: 2,
+      };
+
+      expect(createLink(1, 2)).toEqual(expectedAction);
     });
   });
 

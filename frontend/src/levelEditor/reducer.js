@@ -10,6 +10,7 @@ import {
   STOP_DRAG,
   SET_STARS,
   SET_LINK_TO_TILE_POS,
+  CREATE_LINK,
 } from './actions';
 
 const newLevel = createNewLevel();
@@ -24,6 +25,7 @@ export const initialState = {
   tiles: newLevel.tiles,
   stars: newLevel.stars,
   editedSinceLastSave: false,
+  links: [],
 };
 
 export default function levelEditorReducer(state = initialState, action) {
@@ -82,10 +84,27 @@ export default function levelEditorReducer(state = initialState, action) {
     }
 
     case STOP_DRAG: {
+      const links = [...state.links];
+
+      //  If we're linking...
+      if (state.linkFromTilePos && state.linkFromTilePos) {
+        //  Check to see that the link does not already exist
+        const linkExists = links.find(
+          link => link.from === state.linkFromTilePos && link.to && state.linkToTilePos,
+        );
+
+        //  If link does not exist then push to the links
+        if (!linkExists) {
+          links.push({ from: state.linkFromTilePos, to: state.linkToTilePos });
+        }
+      }
+
       return {
         ...state,
         dragging: false,
         linkFromTilePos: null,
+        linkToTilePos: null,
+        links,
       };
     }
 
@@ -94,6 +113,15 @@ export default function levelEditorReducer(state = initialState, action) {
         ...state,
         dragging: false,
         linkToTilePos: action.position,
+      };
+    }
+
+    case CREATE_LINK: {
+      return {
+        ...state,
+        linkFromTilePos: initialState.linkFromTilePos,
+        linkToTilePos: initialState.linkToTilePos,
+        links: [...state.links, { from: action.linkFromTilePos, to: action.linkToTilePos }],
       };
     }
 

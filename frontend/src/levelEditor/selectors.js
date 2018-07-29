@@ -53,3 +53,31 @@ export const getEntityForTileId = createSelector(
   (state, tileId) => tileId,
   (levelEditor, tileId) => levelEditor.availableTiles.find(tile => tile.id === tileId).entity,
 );
+
+/**
+ * Formats the positions of links to percentages for the links display
+ * @param {Object} levelEditor - The state of the level editor
+ * @returns {Array} An array of percentages to be used for the links
+ */
+export const getLinkCoords = createSelector(
+  state => state.levelEditor,
+  levelEditor => {
+    const arr = levelEditor.links.map(link => ({
+      x1: `${(link.from % 10) * 10 + 5}%`,
+      y1: `${Math.floor(link.from / 10) * 10 + 5}%`,
+      x2: `${(link.to % 10) * 10 + 5}%`,
+      y2: `${Math.floor(link.to / 10) * 10 + 5}%`,
+    }));
+
+    if (levelEditor.linkFromTilePos && levelEditor.linkToTilePos) {
+      arr.push({
+        x1: `${(levelEditor.linkFromTilePos % 10) * 10 + 5}%`,
+        y1: `${Math.floor(levelEditor.linkFromTilePos / 10) * 10 + 5}%`,
+        x2: `${(levelEditor.linkToTilePos % 10) * 10 + 5}%`,
+        y2: `${Math.floor(levelEditor.linkToTilePos / 10) * 10 + 5}%`,
+      });
+    }
+
+    return arr;
+  },
+);
