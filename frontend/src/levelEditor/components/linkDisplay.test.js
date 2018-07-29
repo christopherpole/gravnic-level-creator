@@ -27,7 +27,7 @@ describe('<LinkDisplay />', () => {
   });
 
   it('Matches the current snapshot when linking from a tile', () => {
-    const linkDisplay = shallow(<LinkDisplay {...props} linkFromTilePos={2} />);
+    const linkDisplay = shallow(<LinkDisplay {...props} linkFromTilePos={2} linkToTilePos={3} />);
 
     expect(toJson(linkDisplay)).toMatchSnapshot();
   });

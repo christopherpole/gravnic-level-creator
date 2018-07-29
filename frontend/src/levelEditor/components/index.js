@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import Tile from 'common/tiles';
 import LinkDisplay from './linkDisplay';
-import { updateTile, startDrag, stopDrag } from '../actions';
+import { updateTile, startDrag, stopDrag, mouseoverTile } from '../actions';
 
 export const Wrapper = styled.div`
   height: 0;
@@ -33,7 +33,13 @@ export const TileWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const LevelEditor = ({ tiles, updateTileAction, startDragAction, stopDragAction }) => {
+export const LevelEditor = ({
+  tiles,
+  updateTileAction,
+  startDragAction,
+  stopDragAction,
+  mouseoverTileAction,
+}) => {
   const handleMouseUp = () => {
     stopDragAction();
     document.removeEventListener('mouseup', handleMouseUp);
@@ -57,7 +63,7 @@ export const LevelEditor = ({ tiles, updateTileAction, startDragAction, stopDrag
             }}
             key={editorTile.position}
             onMouseMove={() => {
-              updateTileAction(editorTile.position);
+              mouseoverTileAction(editorTile.position);
             }}
             className="tile"
           >
@@ -74,6 +80,7 @@ LevelEditor.propTypes = {
   startDragAction: PropTypes.func.isRequired,
   stopDragAction: PropTypes.func.isRequired,
   updateTileAction: PropTypes.func.isRequired,
+  mouseoverTileAction: PropTypes.func.isRequired,
   tiles: PropTypes.arrayOf(
     PropTypes.shape({
       selectedTileId: PropTypes.string.isRequired,
@@ -90,6 +97,7 @@ const mapDispatchToProps = dispatch => ({
   updateTileAction: bindActionCreators(updateTile, dispatch),
   startDragAction: bindActionCreators(startDrag, dispatch),
   stopDragAction: bindActionCreators(stopDrag, dispatch),
+  mouseoverTileAction: bindActionCreators(mouseoverTile, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LevelEditor);

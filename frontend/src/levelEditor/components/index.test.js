@@ -3,7 +3,6 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
-import { ENTITIES } from 'gravnic-game';
 
 import { initialState } from '../reducer';
 import { LevelEditor, TileWrapper } from './index';
@@ -19,6 +18,7 @@ describe('<LevelEditor />', () => {
       updateTileAction: () => {},
       startDragAction: () => {},
       stopDragAction: () => {},
+      mouseoverTileAction: () => {},
     };
   });
 
@@ -44,6 +44,16 @@ describe('<LevelEditor />', () => {
     expect(tileClickSpy.calledWith(44)).toBe(true);
   });
 
+  it('Fires the mouseover tile action when mousing over a tile', () => {
+    const mouseoverTileSpy = spy();
+    const grid = shallow(<LevelEditor {...props} mouseoverTileAction={mouseoverTileSpy} />);
+    const tile = grid.find(TileWrapper).at(44);
+    tile.simulate('mousemove');
+
+    expect(mouseoverTileSpy.calledOnce).toBe(true);
+    expect(mouseoverTileSpy.calledWith(44)).toBe(true);
+  });
+
   it('Fires start dragging action when the user begins and finishes dragging on a non-linked tile', () => {
     const startDragActionSpy = spy();
     const stopDragActionSpy = spy();
@@ -62,12 +72,4 @@ describe('<LevelEditor />', () => {
     expect(startDragActionSpy.calledOnce).toBe(true);
     expect(startDragActionSpy.calledWith(2)).toBe(true);
   });
-
-  it(
-    'Fires the update tile action if dragging over a tile that is not the same as the selectedtile',
-  );
-
-  it(
-    'Does not fires the update tile action if dragging over a tile that is the same as the selectedtile',
-  );
 });

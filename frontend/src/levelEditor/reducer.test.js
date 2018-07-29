@@ -3,7 +3,15 @@ import { ENTITIES } from 'gravnic-game';
 import { SAVE_LEVEL, LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import testLevels from 'data/testLevels';
 import { MIN_MOVES, MAX_MOVES } from 'config/settings';
-import { SELECT_TILE, UPDATE_TILE, RESET_GRID, START_DRAG, STOP_DRAG, SET_STARS } from './actions';
+import {
+  SELECT_TILE,
+  UPDATE_TILE,
+  RESET_GRID,
+  START_DRAG,
+  STOP_DRAG,
+  SET_STARS,
+  SET_LINK_TO_TILE_POS,
+} from './actions';
 import reducer, { initialState } from './reducer';
 
 describe('The level editor reducer', () => {
@@ -253,6 +261,20 @@ describe('The level editor reducer', () => {
         ...initialState,
         stars: [1, MAX_MOVES, MAX_MOVES],
         editedSinceLastSave: true,
+      });
+    });
+  });
+
+  describe('SET_LINK_TO_TILE_POS', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(initialState, {
+          type: SET_LINK_TO_TILE_POS,
+          position: 4,
+        }),
+      ).toEqual({
+        ...initialState,
+        linkToTilePos: 4,
       });
     });
   });

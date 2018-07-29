@@ -2,7 +2,15 @@ import availableTiles from 'config/tiles';
 import { SAVE_LEVEL, LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { createNewLevel } from 'utils';
 import { MIN_MOVES, MAX_MOVES } from 'config/settings';
-import { UPDATE_TILE, SELECT_TILE, RESET_GRID, START_DRAG, STOP_DRAG, SET_STARS } from './actions';
+import {
+  UPDATE_TILE,
+  SELECT_TILE,
+  RESET_GRID,
+  START_DRAG,
+  STOP_DRAG,
+  SET_STARS,
+  SET_LINK_TO_TILE_POS,
+} from './actions';
 
 const newLevel = createNewLevel();
 
@@ -11,7 +19,7 @@ export const initialState = {
   dragging: false,
   linkFromTilePos: null,
   linkToTilePos: null,
-  selectedTileId: '1',
+  selectedTileId: availableTiles[0].id,
   availableTiles,
   tiles: newLevel.tiles,
   stars: newLevel.stars,
@@ -78,6 +86,14 @@ export default function levelEditorReducer(state = initialState, action) {
         ...state,
         dragging: false,
         linkFromTilePos: null,
+      };
+    }
+
+    case SET_LINK_TO_TILE_POS: {
+      return {
+        ...state,
+        dragging: false,
+        linkToTilePos: action.position,
       };
     }
 

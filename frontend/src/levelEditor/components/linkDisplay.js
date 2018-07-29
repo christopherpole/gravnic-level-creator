@@ -25,14 +25,14 @@ export const Line = styled.line`
   pointer-events: none;
 `;
 
-export const LinkDisplay = ({ linkFromTilePos }) => (
+export const LinkDisplay = ({ linkFromTilePos, linkToTilePos }) => (
   <Wrapper linkFromTilePos={linkFromTilePos} id="link-display">
     <LinesWrapper>
       <Line
         x1={(linkFromTilePos % 10) * 10 + 5 + '%'}
         y1={Math.floor(linkFromTilePos / 10) * 10 + 5 + '%'}
-        x2="20%"
-        y2="20%"
+        x2={(linkToTilePos % 10) * 10 + 5 + '%'}
+        y2={Math.floor(linkToTilePos / 10) * 10 + 5 + '%'}
       />
     </LinesWrapper>
   </Wrapper>
@@ -40,14 +40,17 @@ export const LinkDisplay = ({ linkFromTilePos }) => (
 
 LinkDisplay.defaultProps = {
   linkFromTilePos: null,
+  linkToTilePos: null,
 };
 
 LinkDisplay.propTypes = {
   linkFromTilePos: PropTypes.number,
+  linkToTilePos: PropTypes.number,
 };
 
 const mapStateToProps = state => ({
   linkFromTilePos: state.levelEditor.linkFromTilePos,
+  linkToTilePos: state.levelEditor.linkToTilePos,
 });
 
 export default connect(mapStateToProps)(LinkDisplay);
