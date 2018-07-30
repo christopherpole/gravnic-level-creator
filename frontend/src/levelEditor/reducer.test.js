@@ -77,6 +77,7 @@ describe('The level editor reducer', () => {
             tiles: newTiles,
             selectedTileId: ENTITIES.BLOCK.id,
             editedSinceLastSave: true,
+            links: [{ to: 3, from: 2 }],
           },
           {
             type: RESET_GRID,
@@ -128,6 +129,7 @@ describe('The level editor reducer', () => {
         tiles: testLevels[1].tiles,
         stars: testLevels[1].stars,
         editedSinceLastSave: false,
+        links: testLevels[1].links,
       });
     });
   });

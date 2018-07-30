@@ -186,6 +186,7 @@ describe('The level manager actions', () => {
         levelEditor: {
           tiles: [1, 2, 3],
           stars: [4, 5, 6],
+          links: [{ from: 2, to: 4 }],
         },
         levelSolver: {
           solution: [MOVE_UP],
@@ -205,6 +206,7 @@ describe('The level manager actions', () => {
             stars: [4, 5, 6],
             solution: [MOVE_UP],
             maxMoves: 3,
+            links: [{ from: 2, to: 4 }],
           },
         }),
       ).toBe(true);

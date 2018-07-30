@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
@@ -31,6 +31,21 @@ export const TilesWrapper = styled.div`
 export const TileWrapper = styled.div`
   position: relative;
   cursor: pointer;
+
+  ${props =>
+    props.darkened &&
+    css`
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: black;
+        opacity: 0.5;
+      }
+    `};
 `;
 
 export const LevelEditor = ({
@@ -39,6 +54,8 @@ export const LevelEditor = ({
   startDragAction,
   stopDragAction,
   mouseoverTileAction,
+  linkFromTilePos,
+  availableTiles,
 }) => {
   const handleMouseUp = () => {
     stopDragAction();
@@ -55,6 +72,14 @@ export const LevelEditor = ({
       <TilesWrapper>
         {tiles.map(editorTile => (
           <TileWrapper
+            //  Add this bit to a selector?
+            darkened={
+              !!(
+                linkFromTilePos &&
+                (availableTiles[editorTile.selectedTileId] &&
+                  !availableTiles[editorTile.selectedTileId].entity.linkable)
+              )
+            }
             onMouseDown={() => {
               handleMouseDown(editorTile.position);
             }}
@@ -76,11 +101,17 @@ export const LevelEditor = ({
   );
 };
 
+LevelEditor.defaultProps = {
+  linkFromTilePos: null,
+};
+
 LevelEditor.propTypes = {
   startDragAction: PropTypes.func.isRequired,
   stopDragAction: PropTypes.func.isRequired,
   updateTileAction: PropTypes.func.isRequired,
   mouseoverTileAction: PropTypes.func.isRequired,
+  linkFromTilePos: PropTypes.number,
+  availableTiles: PropTypes.array.isRequired,
   tiles: PropTypes.arrayOf(
     PropTypes.shape({
       selectedTileId: PropTypes.string.isRequired,
@@ -91,6 +122,8 @@ LevelEditor.propTypes = {
 
 const mapStateToProps = state => ({
   tiles: state.levelEditor.tiles,
+  linkFromTilePos: state.levelEditor.linkFromTilePos,
+  availableTiles: state.levelEditor.availableTiles,
 });
 
 const mapDispatchToProps = dispatch => ({

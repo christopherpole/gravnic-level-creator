@@ -3,6 +3,7 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
+import availableTiles from 'config/tiles';
 
 import { initialState } from '../reducer';
 import { LevelEditor, TileWrapper } from './index';
@@ -19,6 +20,8 @@ describe('<LevelEditor />', () => {
       startDragAction: () => {},
       stopDragAction: () => {},
       mouseoverTileAction: () => {},
+      linkFromTilePos: null,
+      availableTiles,
     };
   });
 
@@ -30,6 +33,12 @@ describe('<LevelEditor />', () => {
 
   it('Matches the current snapshot', () => {
     const grid = shallow(<LevelEditor {...props} />);
+
+    expect(toJson(grid)).toMatchSnapshot();
+  });
+
+  it('Matches the current snapshot when linking tiles', () => {
+    const grid = shallow(<LevelEditor {...props} linkFromTilePos={2} />);
 
     expect(toJson(grid)).toMatchSnapshot();
   });

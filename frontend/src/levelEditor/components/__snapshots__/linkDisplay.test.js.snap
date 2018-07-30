@@ -2,6 +2,7 @@
 
 exports[`<LinkDisplay /> Matches the current snapshot 1`] = `
 <styled.div
+  faded={true}
   id="link-display"
 >
   <styled.svg>
@@ -25,6 +26,7 @@ exports[`<LinkDisplay /> Matches the current snapshot 1`] = `
 
 exports[`<LinkDisplay /> Matches the current snapshot when linking 1`] = `
 <styled.div
+  faded={false}
   id="link-display"
 >
   <styled.svg>
@@ -48,6 +50,7 @@ exports[`<LinkDisplay /> Matches the current snapshot when linking 1`] = `
 
 exports[`<LinkDisplay /> Matches the current snapshot without links 1`] = `
 <styled.div
+  faded={true}
   id="link-display"
 >
   <styled.svg />

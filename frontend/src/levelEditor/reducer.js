@@ -56,6 +56,7 @@ export default function levelEditorReducer(state = initialState, action) {
         ...state,
         tiles: initialState.tiles,
         editedSinceLastSave: false,
+        links: initialState.links,
       };
     }
 
@@ -72,6 +73,7 @@ export default function levelEditorReducer(state = initialState, action) {
         tiles: action.level.tiles,
         stars: action.level.stars,
         editedSinceLastSave: false,
+        links: action.level.links,
       };
     }
 

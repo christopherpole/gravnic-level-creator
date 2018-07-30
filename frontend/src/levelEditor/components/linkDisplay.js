@@ -1,18 +1,23 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getLinkCoords } from '../selectors';
 
 export const Wrapper = styled.div`
-  background: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   pointer-events: none;
+
+  ${props =>
+    props.faded &&
+    css`
+      opacity: 0.4;
+    `};
 `;
 
 export const LinesWrapper = styled.svg`
@@ -27,8 +32,8 @@ export const Line = styled.line`
   pointer-events: none;
 `;
 
-export const LinkDisplay = ({ formattedLinks }) => (
-  <Wrapper id="link-display">
+export const LinkDisplay = ({ formattedLinks, linkFromTilePos }) => (
+  <Wrapper faded={!linkFromTilePos} id="link-display">
     <LinesWrapper>
       {formattedLinks.map((formattedLink, index) => (
         <Line
@@ -43,12 +48,18 @@ export const LinkDisplay = ({ formattedLinks }) => (
   </Wrapper>
 );
 
+LinkDisplay.defaultProps = {
+  linkFromTilePos: null,
+};
+
 LinkDisplay.propTypes = {
   formattedLinks: PropTypes.array.isRequired,
+  linkFromTilePos: PropTypes.number,
 };
 
 const mapStateToProps = state => ({
   formattedLinks: getLinkCoords(state),
+  linkFromTilePos: state.levelEditor.linkFromTilePos,
 });
 
 export default connect(mapStateToProps)(LinkDisplay);
