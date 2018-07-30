@@ -11,9 +11,8 @@ export const CREATE_LINK = 'CREATE_LINK';
 
 export const selectTile = makeActionCreator(SELECT_TILE, 'selectedTileId');
 export const resetGrid = makeActionCreator(RESET_GRID);
-export const stopDrag = makeActionCreator(STOP_DRAG);
 export const setStars = makeActionCreator(SET_STARS, 'starsIndex', 'stars');
-export const createLink = makeActionCreator(CREATE_LINK, 'linkFromTilePos', 'linkToTilePos');
+export const createLink = makeActionCreator(CREATE_LINK);
 
 export const startDrag = position => (dispatch, getState) => {
   const { tiles, availableTiles } = getState().levelEditor;
@@ -32,6 +31,34 @@ export const startDrag = position => (dispatch, getState) => {
   dispatch({
     type: START_DRAG,
     linkFromTilePos,
+  });
+};
+
+export const stopDrag = () => (dispatch, getState) => {
+  const { tiles, links, availableTiles, linkFromTilePos, linkToTilePos } = getState().levelEditor;
+
+  //  Create an action for creating a link if linking different tiles...
+  if (linkFromTilePos && linkToTilePos && linkFromTilePos !== linkToTilePos) {
+    //  Check that the link doesn't already exist
+    const linkExists = links.find(
+      link => link.from === linkFromTilePos && link.to === linkToTilePos,
+    );
+
+    const linkTargetTileId = tiles.find(tile => tile.position === linkToTilePos).selectedTileId;
+    const linkTargetIsLinkable = availableTiles.find(
+      availableTile => availableTile.id === linkTargetTileId,
+    ).entity.linkable;
+
+    if (!linkExists && linkTargetIsLinkable) {
+      dispatch({
+        type: CREATE_LINK,
+      });
+    }
+  }
+
+  //  ALways dispatch the action to stop dragging
+  dispatch({
+    type: STOP_DRAG,
   });
 };
 

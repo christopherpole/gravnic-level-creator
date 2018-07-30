@@ -165,12 +165,172 @@ describe('The level editor actions', () => {
   });
 
   describe('stopDrag()', () => {
-    it('Creates the correct action', () => {
-      const expectedAction = {
-        type: STOP_DRAG,
-      };
+    let levelEditorTiles;
 
-      expect(stopDrag()).toEqual(expectedAction);
+    const unlinkableTileId = availableTiles.find(availableTile => !availableTile.entity.linkable)
+      .id;
+    const linkableTileId = availableTiles.find(availableTile => availableTile.entity.linkable).id;
+
+    beforeEach(() => {
+      levelEditorTiles = [
+        {
+          position: 1,
+          selectedTileId: unlinkableTileId,
+        },
+        {
+          position: 2,
+          selectedTileId: unlinkableTileId,
+        },
+        {
+          position: 3,
+          selectedTileId: unlinkableTileId,
+        },
+        {
+          position: 4,
+          selectedTileId: linkableTileId,
+        },
+      ];
+    });
+
+    it('Creates the STOP_DRAG action', () => {
+      const fn = stopDrag();
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          availableTiles,
+          tiles: levelEditorTiles,
+          links: [{ form: 1, to: 2 }],
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: STOP_DRAG,
+        }),
+      ).toBe(true);
+    });
+
+    it('Creates the STOP_DRAG action and the CREATE_LINK actions when creating a new valid link', () => {
+      const fn = stopDrag();
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          availableTiles,
+          tiles: levelEditorTiles,
+          links: [{ from: 2, to: 3 }],
+          linkFromTilePos: 1,
+          linkToTilePos: 4,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledTwice).toBe(true);
+      expect(
+        dispatchSpy.getCall(0).calledWith({
+          type: CREATE_LINK,
+        }),
+      ).toBe(true);
+      expect(
+        dispatchSpy.getCall(1).calledWith({
+          type: STOP_DRAG,
+        }),
+      ).toBe(true);
+    });
+
+    it('Creates the STOP_DRAG action but not the CREATE_LINK action when creating duplicated link', () => {
+      const fn = stopDrag();
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          availableTiles,
+          tiles: levelEditorTiles,
+          links: [{ from: 2, to: 4 }],
+          linkFromTilePos: 2,
+          linkToTilePos: 4,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: STOP_DRAG,
+        }),
+      ).toBe(true);
+    });
+
+    it('Creates the STOP_DRAG action but not the CREATE_LINK action when creating duplicated link (reversed)', () => {
+      const fn = stopDrag();
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          availableTiles,
+          tiles: levelEditorTiles,
+          links: [{ from: 2, to: 4 }],
+          linkFromTilePos: 4,
+          linkToTilePos: 2,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: STOP_DRAG,
+        }),
+      ).toBe(true);
+    });
+
+    it('Creates the STOP_DRAG action but not the CREATE_LINK action when linking a tile to itself', () => {
+      const fn = stopDrag();
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          availableTiles,
+          tiles: levelEditorTiles,
+          links: [{ from: 4, to: 4 }],
+          linkFromTilePos: 4,
+          linkToTilePos: 4,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: STOP_DRAG,
+        }),
+      ).toBe(true);
+    });
+
+    it('Creates the STOP_DRAG action but not the CREATE_LINK action when linking to a non-linkable tile', () => {
+      const fn = stopDrag();
+      const dispatchSpy = spy();
+      const getState = () => ({
+        levelEditor: {
+          availableTiles,
+          tiles: levelEditorTiles,
+          links: [{ from: 2, to: 4 }],
+          linkFromTilePos: 2,
+          linkToTilePos: 3,
+        },
+      });
+
+      expect(typeof fn).toBe('function');
+      fn(dispatchSpy, getState);
+      expect(dispatchSpy.calledOnce).toBe(true);
+      expect(
+        dispatchSpy.calledWith({
+          type: STOP_DRAG,
+        }),
+      ).toBe(true);
     });
   });
 
@@ -190,11 +350,9 @@ describe('The level editor actions', () => {
     it('Creates the correct action', () => {
       const expectedAction = {
         type: CREATE_LINK,
-        linkFromTilePos: 1,
-        linkToTilePos: 2,
       };
 
-      expect(createLink(1, 2)).toEqual(expectedAction);
+      expect(createLink()).toEqual(expectedAction);
     });
   });
 

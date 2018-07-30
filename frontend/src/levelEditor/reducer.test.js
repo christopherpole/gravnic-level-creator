@@ -150,58 +150,20 @@ describe('The level editor reducer', () => {
   });
 
   describe('STOP_DRAG', () => {
-    it('Handles the action correctly if not linking', () => {
+    it('Handles the action correctly', () => {
       expect(
         reducer(
           {
             ...initialState,
             dragging: true,
+            linkFromTilePos: 2,
+            linkToTilePos: 4,
           },
           {
             type: STOP_DRAG,
           },
         ),
       ).toEqual(initialState);
-    });
-
-    it('Handles the action correctly if linking', () => {
-      expect(
-        reducer(
-          {
-            ...initialState,
-            dragging: true,
-            linkFromTilePos: 2,
-            linkToTilePos: 4,
-            links: [{ from: 1, to: 2 }],
-          },
-          {
-            type: STOP_DRAG,
-          },
-        ),
-      ).toEqual({
-        ...initialState,
-        links: [{ from: 1, to: 2 }, { from: 2, to: 4 }],
-      });
-    });
-
-    it('Handles the action correctly if adding a duplicate link', () => {
-      expect(
-        reducer(
-          {
-            ...initialState,
-            dragging: true,
-            linkFromTilePos: 2,
-            linkToTilePos: 4,
-            links: [{ from: 2, to: 4 }],
-          },
-          {
-            type: STOP_DRAG,
-          },
-        ),
-      ).toEqual({
-        ...initialState,
-        links: [{ from: 2, to: 4 }],
-      });
     });
   });
 
@@ -324,13 +286,20 @@ describe('The level editor reducer', () => {
   describe('CREATE_LINK', () => {
     it('Handles the action correctly', () => {
       expect(
-        reducer(initialState, {
-          type: CREATE_LINK,
-          linkFromTilePos: 2,
-          linkToTilePos: 3,
-        }),
+        reducer(
+          {
+            ...initialState,
+            linkFromTilePos: 2,
+            linkToTilePos: 3,
+          },
+          {
+            type: CREATE_LINK,
+          },
+        ),
       ).toEqual({
         ...initialState,
+        linkFromTilePos: 2,
+        linkToTilePos: 3,
         links: [{ from: 2, to: 3 }],
       });
     });

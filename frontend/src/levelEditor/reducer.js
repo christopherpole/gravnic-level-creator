@@ -88,19 +88,6 @@ export default function levelEditorReducer(state = initialState, action) {
     case STOP_DRAG: {
       const links = [...state.links];
 
-      //  If we're linking...
-      if (state.linkFromTilePos && state.linkFromTilePos) {
-        //  Check to see that the link does not already exist
-        const linkExists = links.find(
-          link => link.from === state.linkFromTilePos && link.to && state.linkToTilePos,
-        );
-
-        //  If link does not exist then push to the links
-        if (!linkExists) {
-          links.push({ from: state.linkFromTilePos, to: state.linkToTilePos });
-        }
-      }
-
       return {
         ...state,
         dragging: false,
@@ -121,9 +108,9 @@ export default function levelEditorReducer(state = initialState, action) {
     case CREATE_LINK: {
       return {
         ...state,
-        linkFromTilePos: initialState.linkFromTilePos,
-        linkToTilePos: initialState.linkToTilePos,
-        links: [...state.links, { from: action.linkFromTilePos, to: action.linkToTilePos }],
+        linkFromTilePos: state.linkFromTilePos,
+        linkToTilePos: state.linkToTilePos,
+        links: [...state.links, { from: state.linkFromTilePos, to: state.linkToTilePos }],
       };
     }
 
