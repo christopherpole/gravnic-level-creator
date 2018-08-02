@@ -39,7 +39,13 @@ export const getLevelEditorButtonDisabledStates = createSelector(
 export const convertTileDataToGravnicGameStateString = createSelector(
   state => state.levelEditor,
   levelEditor =>
-    JSON.stringify(convertEditorTilesToGameState(levelEditor.tiles, levelEditor.availableTiles)),
+    JSON.stringify(
+      convertEditorTilesToGameState(
+        levelEditor.tiles,
+        levelEditor.availableTiles,
+        levelEditor.links,
+      ),
+    ),
 );
 
 /**

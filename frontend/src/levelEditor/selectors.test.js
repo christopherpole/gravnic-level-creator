@@ -61,6 +61,7 @@ describe('convertTileDataToGravnicGameStateString()', () => {
       levelEditor: {
         tiles: testLevels[0],
         availableTiles: levelEditorInitialState.availableTiles,
+        links: [],
       },
     };
   });
@@ -70,7 +71,11 @@ describe('convertTileDataToGravnicGameStateString()', () => {
 
     expect(gameStateString).toBe(
       JSON.stringify(
-        convertEditorTilesToGameState(state.levelEditor.tiles, state.levelEditor.availableTiles),
+        convertEditorTilesToGameState(
+          state.levelEditor.tiles,
+          state.levelEditor.availableTiles,
+          state.levelEditor.links,
+        ),
       ),
     );
   });

@@ -27,7 +27,7 @@ export const LinesWrapper = styled.svg`
 `;
 
 export const Line = styled.line`
-  stroke: white;
+  stroke: yellow;
   stroke-width: 4;
   pointer-events: none;
 `;
