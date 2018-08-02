@@ -13,6 +13,7 @@ export const selectTile = makeActionCreator(SELECT_TILE, 'selectedTileId');
 export const resetGrid = makeActionCreator(RESET_GRID);
 export const setStars = makeActionCreator(SET_STARS, 'starsIndex', 'stars');
 export const createLink = makeActionCreator(CREATE_LINK);
+export const updateTile = makeActionCreator(UPDATE_TILE, 'position');
 
 export const startDrag = position => (dispatch, getState) => {
   const { tiles, availableTiles } = getState().levelEditor;
@@ -74,18 +75,6 @@ export const mouseoverTile = position => (dispatch, getState) => {
       position,
     });
   } else if (dragging && selectedTile.selectedTileId !== selectedTileId) {
-    dispatch({
-      type: UPDATE_TILE,
-      position,
-    });
-  }
-};
-
-export const updateTile = position => (dispatch, getState) => {
-  const { selectedTileId, tiles } = getState().levelEditor;
-  const selectedTile = tiles.find(tile => tile.position === position);
-
-  if (selectedTile.selectedTileId !== selectedTileId) {
     dispatch({
       type: UPDATE_TILE,
       position,

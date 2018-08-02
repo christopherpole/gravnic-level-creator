@@ -44,10 +44,15 @@ export default function levelEditorReducer(state = initialState, action) {
         selectedTileId: state.selectedTileId,
       };
 
+      const newLinks = state.links.filter(
+        link => link.from !== action.position && link.to !== action.position,
+      );
+
       return {
         ...state,
         tiles: newTiles,
         editedSinceLastSave: true,
+        links: newLinks,
       };
     }
 

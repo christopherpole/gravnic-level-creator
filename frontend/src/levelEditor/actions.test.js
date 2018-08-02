@@ -33,57 +33,13 @@ describe('The level editor actions', () => {
   });
 
   describe('updateTile()', () => {
-    const levelEditorTiles = [
-      {
-        position: 1,
-        selectedTileId: availableTiles[0].id,
-      },
-      {
-        position: 2,
-        selectedTileId: availableTiles[1].id,
-      },
-      {
-        position: 3,
-        selectedTileId: availableTiles[0].id,
-      },
-    ];
+    it('Creates the correct action', () => {
+      const expectedAction = {
+        type: UPDATE_TILE,
+        position: 4,
+      };
 
-    it("Doesn't create an action when the tile doesn't update", () => {
-      const fn = updateTile(2);
-      const dispatchSpy = spy();
-      const getState = () => ({
-        levelEditor: {
-          selectedTileId: availableTiles[1].id,
-          tiles: levelEditorTiles,
-          linkFromTilePos: null,
-        },
-      });
-
-      expect(typeof fn).toBe('function');
-      fn(dispatchSpy, getState);
-      expect(dispatchSpy.called).toBe(false);
-    });
-
-    it('Creates an action when the tile updates', () => {
-      const fn = updateTile(3);
-      const dispatchSpy = spy();
-      const getState = () => ({
-        levelEditor: {
-          selectedTileId: availableTiles[1].id,
-          tiles: levelEditorTiles,
-          linkFromTilePos: null,
-        },
-      });
-
-      expect(typeof fn).toBe('function');
-      fn(dispatchSpy, getState);
-      expect(dispatchSpy.calledOnce).toBe(true);
-      expect(
-        dispatchSpy.calledWith({
-          type: UPDATE_TILE,
-          position: 3,
-        }),
-      ).toBe(true);
+      expect(updateTile(4)).toEqual(expectedAction);
     });
   });
 

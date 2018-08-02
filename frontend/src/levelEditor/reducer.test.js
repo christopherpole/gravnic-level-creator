@@ -35,7 +35,7 @@ describe('The level editor reducer', () => {
   });
 
   describe('UPDATE_TILE', () => {
-    it('Handles the action correctly', () => {
+    it('Updates the tile correctly', () => {
       const newTiles = initialState.tiles.slice();
       newTiles[44] = {
         ...initialState.tiles[44],
@@ -58,6 +58,39 @@ describe('The level editor reducer', () => {
         selectedTileId: ENTITIES.BLOCK.id,
         tiles: newTiles,
         editedSinceLastSave: true,
+      });
+    });
+
+    it('Updates the tile correctly and removes any links that the tile had', () => {
+      const newTiles = initialState.tiles.slice();
+      newTiles[44] = {
+        ...initialState.tiles[44],
+        selectedTileId: ENTITIES.BLOCK.id,
+      };
+
+      expect(
+        reducer(
+          {
+            ...initialState,
+            selectedTileId: ENTITIES.BLOCK.id,
+            links: [
+              { from: 1, to: 2 },
+              { from: 44, to: 33 },
+              { from: 3, to: 44 },
+              { from: 3, to: 21 },
+            ],
+          },
+          {
+            type: UPDATE_TILE,
+            position: 44,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        selectedTileId: ENTITIES.BLOCK.id,
+        tiles: newTiles,
+        editedSinceLastSave: true,
+        links: [{ from: 1, to: 2 }, { from: 3, to: 21 }],
       });
     });
   });
