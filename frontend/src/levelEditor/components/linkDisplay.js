@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getLinkCoords } from '../selectors';
+import { getLinkCoords, isLinkingMode } from '../selectors';
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   ${props =>
     props.faded &&
     css`
-      opacity: 0.4;
+      opacity: 0.5;
     `};
 `;
 
@@ -32,8 +32,8 @@ export const Line = styled.line`
   pointer-events: none;
 `;
 
-export const LinkDisplay = ({ formattedLinks, linkFromTilePos }) => (
-  <Wrapper faded={!linkFromTilePos} id="link-display">
+export const LinkDisplay = ({ formattedLinks, linkingMode }) => (
+  <Wrapper faded={!linkingMode} id="link-display">
     <LinesWrapper>
       {formattedLinks.map((formattedLink, index) => (
         <Line
@@ -48,18 +48,14 @@ export const LinkDisplay = ({ formattedLinks, linkFromTilePos }) => (
   </Wrapper>
 );
 
-LinkDisplay.defaultProps = {
-  linkFromTilePos: null,
-};
-
 LinkDisplay.propTypes = {
   formattedLinks: PropTypes.array.isRequired,
-  linkFromTilePos: PropTypes.number,
+  linkingMode: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   formattedLinks: getLinkCoords(state),
-  linkFromTilePos: state.levelEditor.linkFromTilePos,
+  linkingMode: isLinkingMode(state),
 });
 
 export default connect(mapStateToProps)(LinkDisplay);

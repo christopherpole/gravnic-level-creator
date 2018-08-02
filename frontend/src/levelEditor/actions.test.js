@@ -166,28 +166,45 @@ describe('The level editor actions', () => {
 
   describe('stopDrag()', () => {
     let levelEditorTiles;
-
-    const unlinkableTileId = availableTiles.find(availableTile => !availableTile.entity.linkable)
-      .id;
-    const linkableTileId = availableTiles.find(availableTile => availableTile.entity.linkable).id;
+    let fakeAvailableTiles;
 
     beforeEach(() => {
+      fakeAvailableTiles = [
+        {
+          id: '1',
+          entity: {
+            entityId: 'FLOOR',
+          },
+        },
+        {
+          id: '2',
+          entity: {
+            entityId: 'TELEPORTER',
+            linkable: true,
+          },
+        },
+      ];
+
       levelEditorTiles = [
         {
           position: 1,
-          selectedTileId: unlinkableTileId,
+          selectedTileId: '2',
         },
         {
           position: 2,
-          selectedTileId: unlinkableTileId,
+          selectedTileId: '1',
         },
         {
           position: 3,
-          selectedTileId: unlinkableTileId,
+          selectedTileId: '1',
         },
         {
           position: 4,
-          selectedTileId: linkableTileId,
+          selectedTileId: '2',
+        },
+        {
+          position: 5,
+          selectedTileId: '2',
         },
       ];
     });
@@ -197,9 +214,9 @@ describe('The level editor actions', () => {
       const dispatchSpy = spy();
       const getState = () => ({
         levelEditor: {
-          availableTiles,
+          availableTiles: fakeAvailableTiles,
           tiles: levelEditorTiles,
-          links: [{ form: 1, to: 2 }],
+          links: [{ form: 1, to: 5 }],
         },
       });
 
@@ -218,9 +235,9 @@ describe('The level editor actions', () => {
       const dispatchSpy = spy();
       const getState = () => ({
         levelEditor: {
-          availableTiles,
+          availableTiles: fakeAvailableTiles,
           tiles: levelEditorTiles,
-          links: [{ from: 2, to: 3 }],
+          links: [{ from: 1, to: 5 }],
           linkFromTilePos: 1,
           linkToTilePos: 4,
         },
@@ -246,11 +263,11 @@ describe('The level editor actions', () => {
       const dispatchSpy = spy();
       const getState = () => ({
         levelEditor: {
-          availableTiles,
+          availableTiles: fakeAvailableTiles,
           tiles: levelEditorTiles,
-          links: [{ from: 2, to: 4 }],
-          linkFromTilePos: 2,
-          linkToTilePos: 4,
+          links: [{ from: 1, to: 5 }],
+          linkFromTilePos: 1,
+          linkToTilePos: 5,
         },
       });
 
@@ -269,11 +286,11 @@ describe('The level editor actions', () => {
       const dispatchSpy = spy();
       const getState = () => ({
         levelEditor: {
-          availableTiles,
+          availableTiles: fakeAvailableTiles,
           tiles: levelEditorTiles,
-          links: [{ from: 2, to: 4 }],
-          linkFromTilePos: 4,
-          linkToTilePos: 2,
+          links: [{ from: 1, to: 5 }],
+          linkFromTilePos: 5,
+          linkToTilePos: 1,
         },
       });
 
@@ -292,9 +309,9 @@ describe('The level editor actions', () => {
       const dispatchSpy = spy();
       const getState = () => ({
         levelEditor: {
-          availableTiles,
+          availableTiles: fakeAvailableTiles,
           tiles: levelEditorTiles,
-          links: [{ from: 4, to: 4 }],
+          links: [{ from: 1, to: 5 }],
           linkFromTilePos: 4,
           linkToTilePos: 4,
         },
@@ -315,11 +332,11 @@ describe('The level editor actions', () => {
       const dispatchSpy = spy();
       const getState = () => ({
         levelEditor: {
-          availableTiles,
+          availableTiles: fakeAvailableTiles,
           tiles: levelEditorTiles,
-          links: [{ from: 2, to: 4 }],
-          linkFromTilePos: 2,
-          linkToTilePos: 3,
+          links: [{ from: 1, to: 5 }],
+          linkFromTilePos: 1,
+          linkToTilePos: 2,
         },
       });
 

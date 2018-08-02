@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import Tile from 'common/tiles';
 import LinkDisplay from './linkDisplay';
 import { updateTile, startDrag, stopDrag, mouseoverTile } from '../actions';
+import { getTilesWithDarkenedStates } from '../selectors';
 
 export const Wrapper = styled.div`
   height: 0;
@@ -31,6 +32,8 @@ export const TilesWrapper = styled.div`
 export const TileWrapper = styled.div`
   position: relative;
   cursor: pointer;
+  user-drag: none;
+  user-select: none;
 
   ${props =>
     props.darkened &&
@@ -49,13 +52,11 @@ export const TileWrapper = styled.div`
 `;
 
 export const LevelEditor = ({
-  tiles,
+  tilesWithDarkenedStates,
   updateTileAction,
   startDragAction,
   stopDragAction,
   mouseoverTileAction,
-  linkFromTilePos,
-  availableTiles,
 }) => {
   const handleMouseUp = () => {
     stopDragAction();
@@ -70,29 +71,23 @@ export const LevelEditor = ({
   return (
     <Wrapper id="editor-grid">
       <TilesWrapper>
-        {tiles.map(editorTile => (
+        {tilesWithDarkenedStates.map(tile => (
           <TileWrapper
             //  Add this bit to a selector?
-            darkened={
-              !!(
-                linkFromTilePos &&
-                (availableTiles[editorTile.selectedTileId] &&
-                  !availableTiles[editorTile.selectedTileId].entity.linkable)
-              )
-            }
+            darkened={tile.darkened}
             onMouseDown={() => {
-              handleMouseDown(editorTile.position);
+              handleMouseDown(tile.position);
             }}
             onClick={() => {
-              updateTileAction(editorTile.position, true);
+              updateTileAction(tile.position);
             }}
-            key={editorTile.position}
+            key={tile.position}
             onMouseMove={() => {
-              mouseoverTileAction(editorTile.position);
+              mouseoverTileAction(tile.position);
             }}
             className="tile"
           >
-            <Tile tileId={editorTile.selectedTileId} />
+            <Tile tileId={tile.selectedTileId} />
           </TileWrapper>
         ))}
         <LinkDisplay />
@@ -101,29 +96,22 @@ export const LevelEditor = ({
   );
 };
 
-LevelEditor.defaultProps = {
-  linkFromTilePos: null,
-};
-
 LevelEditor.propTypes = {
   startDragAction: PropTypes.func.isRequired,
   stopDragAction: PropTypes.func.isRequired,
   updateTileAction: PropTypes.func.isRequired,
   mouseoverTileAction: PropTypes.func.isRequired,
-  linkFromTilePos: PropTypes.number,
-  availableTiles: PropTypes.array.isRequired,
-  tiles: PropTypes.arrayOf(
+  tilesWithDarkenedStates: PropTypes.arrayOf(
     PropTypes.shape({
       selectedTileId: PropTypes.string.isRequired,
       position: PropTypes.number.isRequired,
+      darkened: PropTypes.bool.isRequired,
     }).isRequired,
   ).isRequired,
 };
 
 const mapStateToProps = state => ({
-  tiles: state.levelEditor.tiles,
-  linkFromTilePos: state.levelEditor.linkFromTilePos,
-  availableTiles: state.levelEditor.availableTiles,
+  tilesWithDarkenedStates: getTilesWithDarkenedStates(state),
 });
 
 const mapDispatchToProps = dispatch => ({

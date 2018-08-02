@@ -81,3 +81,48 @@ export const getLinkCoords = createSelector(
     return arr;
   },
 );
+
+/**
+ * Gets the level editor's tiles and extends them with whether or not they should be darkened or not
+ * @param {Object} levelEditor - The state of the level editor
+ * @returns {Array} An array of the editor's tiles with the darkened state
+ */
+export const getTilesWithDarkenedStates = createSelector(
+  state => state.levelEditor,
+  levelEditor => {
+    const { availableTiles } = levelEditor;
+    let newTiles = levelEditor.tiles;
+
+    const linking = !!(
+      levelEditor.linkFromTilePos !== null &&
+      levelEditor.linkToTilePos !== null &&
+      levelEditor.linkFromTilePos !== levelEditor.linkToTilePos
+    );
+
+    newTiles = newTiles.map(newTile => ({
+      ...newTile,
+      darkened:
+        linking &&
+        !availableTiles.find(
+          availableTile =>
+            availableTile.id === newTile.selectedTileId && availableTile.entity.linkable,
+        ),
+    }));
+
+    return newTiles;
+  },
+);
+
+/**
+ * Returns true if in linking mode
+ * @param {Object} levelEditor - The state of the level editor
+ * @returns {Boolean} True if linking and false otherwise
+ */
+export const isLinkingMode = createSelector(
+  state => state.levelEditor,
+  levelEditor => {
+    const { linkFromTilePos, linkToTilePos } = levelEditor;
+
+    return linkFromTilePos !== null && linkToTilePos !== null && linkFromTilePos !== linkToTilePos;
+  },
+);

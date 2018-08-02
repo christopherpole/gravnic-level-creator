@@ -41,7 +41,9 @@ export const stopDrag = () => (dispatch, getState) => {
   if (linkFromTilePos && linkToTilePos && linkFromTilePos !== linkToTilePos) {
     //  Check that the link doesn't already exist
     const linkExists = links.find(
-      link => link.from === linkFromTilePos && link.to === linkToTilePos,
+      link =>
+        (link.from === linkFromTilePos && link.to === linkToTilePos) ||
+        (link.from === linkToTilePos && link.to === linkFromTilePos),
     );
 
     const linkTargetTileId = tiles.find(tile => tile.position === linkToTilePos).selectedTileId;
