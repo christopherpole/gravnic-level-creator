@@ -43,10 +43,10 @@ export function makeActionCreator(type, ...argNames) {
  * @param {Object[]} availableTiles - An array of available tiles to match the tile IDs against
  * @returns {Object[]} The computed Gravnic game state
  */
-export function convertEditorTilesToGameState(tileData, availableTiles) {
+export function convertEditorTilesToGameState(tileData, availableTiles, links = []) {
   const gridSize = Math.round(Math.sqrt(tileData.length));
   const gameState = [];
-  let currentIdCount = 1;
+  let currentIdCount = 0;
   let entityRow;
   let entityData;
   let staticEntity;
@@ -55,6 +55,7 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
   let i;
   let j;
   const blankTileId = availableTiles.find(tile => tile.entity.entityId === ENTITIES.NONE.id).id;
+  const linkableEntityPositionsToIds = {};
 
   //  Get first row index with an entity
   let firstRowIndexWithEntity = -1;
@@ -115,19 +116,26 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
         if (isStaticEntity) {
           staticEntity = {
             ...entityData,
-            id: currentIdCount++,
+            id: ++currentIdCount,
           };
+
+          //  Keep a track of this entity's position in the original level editor data
+          //  if it's a linkable entity
+          if (entityData.linkable) {
+            linkableEntityPositionsToIds[tileData[i * gridSize + j].position] = currentIdCount;
+            delete staticEntity.linkable;
+          }
         } else {
           //  Add our movable entity if we have one
           movableEntity = {
             ...entityData,
-            id: currentIdCount++,
+            id: ++currentIdCount,
           };
 
           //  If this is a movable entity on this tile then we'll need to add a floor too
           staticEntity = {
             entityId: ENTITIES.FLOOR.id,
-            id: currentIdCount++,
+            id: ++currentIdCount,
           };
         }
       }
@@ -140,6 +148,26 @@ export function convertEditorTilesToGameState(tileData, availableTiles) {
 
     gameState.push(entityRow);
   }
+
+  const getStaticEntityById = id => {
+    for (i = 0; i < gameState.length; i++) {
+      for (j = 0; j < gameState[0].length; j++) {
+        if (gameState[i][j].staticEntity && gameState[i][j].staticEntity.id === id) {
+          return gameState[i][j].staticEntity;
+        }
+      }
+    }
+
+    return null;
+  };
+
+  //  Add the data for the links in
+  links.forEach(link => {
+    getStaticEntityById(linkableEntityPositionsToIds[link.from]).linkedEntityId =
+      linkableEntityPositionsToIds[link.to];
+    getStaticEntityById(linkableEntityPositionsToIds[link.to]).linkedEntityId =
+      linkableEntityPositionsToIds[link.from];
+  });
 
   return gameState;
 }

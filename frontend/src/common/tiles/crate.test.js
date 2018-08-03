@@ -19,4 +19,10 @@ describe('<CrateTile />', () => {
 
     expect(toJson(crateTile)).toMatchSnapshot();
   });
+
+  it('Matches the current snapshot whe the create has been moved', () => {
+    const crateTile = shallow(<CrateTile moved />);
+
+    expect(toJson(crateTile)).toMatchSnapshot();
+  });
 });

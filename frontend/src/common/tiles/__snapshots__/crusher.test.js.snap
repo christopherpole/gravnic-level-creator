@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CrusherTile /> Matches the current snapshot 1`] = `<styled.div />`;
+
+exports[`<CrusherTile /> Matches the current snapshot when exploding 1`] = `<styled.div />`;

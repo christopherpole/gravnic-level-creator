@@ -1,3 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CrateTile /> Matches the current snapshot 1`] = `<styled.div />`;
+exports[`<CrateTile /> Matches the current snapshot 1`] = `
+<styled.div
+  moveSpeed={0}
+  moved={false}
+/>
+`;
+
+exports[`<CrateTile /> Matches the current snapshot whe the create has been moved 1`] = `
+<styled.div
+  moveSpeed={0}
+  moved={true}
+/>
+`;

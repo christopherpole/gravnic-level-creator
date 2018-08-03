@@ -3,10 +3,8 @@ import { configure, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { spy } from 'sinon';
-import { ENTITIES } from 'gravnic-game';
 
-import { initialState } from '../reducer';
-import { LevelEditor, TilesWrapper, TileWrapper } from './index';
+import { LevelEditor, TileWrapper } from './index';
 
 configure({ adapter: new Adapter() });
 
@@ -15,12 +13,15 @@ describe('<LevelEditor />', () => {
 
   beforeEach(() => {
     props = {
-      selectedTileId: ENTITIES.FLOOR.id,
-      dragging: false,
-      tiles: initialState.tiles,
+      tilesWithDarkenedStates: [
+        { selectedTileId: '1', position: 0, darkened: false },
+        { selectedTileId: '1', position: 1, darkened: false },
+        { selectedTileId: '2', position: 2, darkened: false },
+      ],
       updateTileAction: () => {},
       startDragAction: () => {},
       stopDragAction: () => {},
+      mouseoverTileAction: () => {},
     };
   });
 
@@ -36,17 +37,41 @@ describe('<LevelEditor />', () => {
     expect(toJson(grid)).toMatchSnapshot();
   });
 
+  it('Matches the current snapshot with darkened tiles', () => {
+    const grid = shallow(
+      <LevelEditor
+        {...props}
+        tilesWithDarkenedStates={[
+          ...props.tilesWithDarkenedStates,
+          { selectedTileId: '4', position: 3, darkened: true },
+        ]}
+      />,
+    );
+
+    expect(toJson(grid)).toMatchSnapshot();
+  });
+
   it('Fires the update tile action when clicking on a tile', () => {
     const tileClickSpy = spy();
     const grid = shallow(<LevelEditor {...props} updateTileAction={tileClickSpy} />);
-    const tile = grid.find(TileWrapper).at(44);
+    const tile = grid.find(TileWrapper).at(2);
     tile.simulate('click');
 
     expect(tileClickSpy.calledOnce).toBe(true);
-    expect(tileClickSpy.calledWith(44)).toBe(true);
+    expect(tileClickSpy.calledWith(2)).toBe(true);
   });
 
-  it('Fires start and stop dragging actions when the user begins and finishes dragging on the grid', () => {
+  it('Fires the mouseover tile action when mousing over a tile', () => {
+    const mouseoverTileSpy = spy();
+    const grid = shallow(<LevelEditor {...props} mouseoverTileAction={mouseoverTileSpy} />);
+    const tile = grid.find(TileWrapper).at(2);
+    tile.simulate('mousemove');
+
+    expect(mouseoverTileSpy.calledOnce).toBe(true);
+    expect(mouseoverTileSpy.calledWith(2)).toBe(true);
+  });
+
+  it('Fires start dragging action when the user begins and finishes dragging on a non-linked tile', () => {
     const startDragActionSpy = spy();
     const stopDragActionSpy = spy();
     const grid = shallow(
@@ -56,22 +81,12 @@ describe('<LevelEditor />', () => {
         startDragAction={startDragActionSpy}
       />,
     );
-    const tilesWrapper = grid.find(TilesWrapper);
+    const tilesWrapper = grid.find(TileWrapper).at(2);
 
     //  Start dragging
     expect(startDragActionSpy.calledOnce).toBe(false);
     tilesWrapper.simulate('mouseDown');
     expect(startDragActionSpy.calledOnce).toBe(true);
-
-    //  Stop dragging
-    //  @TODO
+    expect(startDragActionSpy.calledWith(2)).toBe(true);
   });
-
-  it(
-    'Fires the update tile action if dragging over a tile that is not the same as the selectedtile',
-  );
-
-  it(
-    'Does not fires the update tile action if dragging over a tile that is the same as the selectedtile',
-  );
 });

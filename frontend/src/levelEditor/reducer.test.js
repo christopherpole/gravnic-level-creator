@@ -3,7 +3,16 @@ import { ENTITIES } from 'gravnic-game';
 import { SAVE_LEVEL, LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import testLevels from 'data/testLevels';
 import { MIN_MOVES, MAX_MOVES } from 'config/settings';
-import { SELECT_TILE, UPDATE_TILE, RESET_GRID, START_DRAG, STOP_DRAG, SET_STARS } from './actions';
+import {
+  SELECT_TILE,
+  UPDATE_TILE,
+  RESET_GRID,
+  START_DRAG,
+  STOP_DRAG,
+  SET_STARS,
+  SET_LINK_TO_TILE_POS,
+  CREATE_LINK,
+} from './actions';
 import reducer, { initialState } from './reducer';
 
 describe('The level editor reducer', () => {
@@ -26,7 +35,7 @@ describe('The level editor reducer', () => {
   });
 
   describe('UPDATE_TILE', () => {
-    it('Handles the action correctly', () => {
+    it('Updates the tile correctly', () => {
       const newTiles = initialState.tiles.slice();
       newTiles[44] = {
         ...initialState.tiles[44],
@@ -51,6 +60,39 @@ describe('The level editor reducer', () => {
         editedSinceLastSave: true,
       });
     });
+
+    it('Updates the tile correctly and removes any links that the tile had', () => {
+      const newTiles = initialState.tiles.slice();
+      newTiles[44] = {
+        ...initialState.tiles[44],
+        selectedTileId: ENTITIES.BLOCK.id,
+      };
+
+      expect(
+        reducer(
+          {
+            ...initialState,
+            selectedTileId: ENTITIES.BLOCK.id,
+            links: [
+              { from: 1, to: 2 },
+              { from: 44, to: 33 },
+              { from: 3, to: 44 },
+              { from: 3, to: 21 },
+            ],
+          },
+          {
+            type: UPDATE_TILE,
+            position: 44,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        selectedTileId: ENTITIES.BLOCK.id,
+        tiles: newTiles,
+        editedSinceLastSave: true,
+        links: [{ from: 1, to: 2 }, { from: 3, to: 21 }],
+      });
+    });
   });
 
   describe('RESET_GRID', () => {
@@ -68,6 +110,7 @@ describe('The level editor reducer', () => {
             tiles: newTiles,
             selectedTileId: ENTITIES.BLOCK.id,
             editedSinceLastSave: true,
+            links: [{ to: 3, from: 2 }],
           },
           {
             type: RESET_GRID,
@@ -119,6 +162,7 @@ describe('The level editor reducer', () => {
         tiles: testLevels[1].tiles,
         stars: testLevels[1].stars,
         editedSinceLastSave: false,
+        links: testLevels[1].links,
       });
     });
   });
@@ -128,10 +172,12 @@ describe('The level editor reducer', () => {
       expect(
         reducer(initialState, {
           type: START_DRAG,
+          linkFromTilePos: 4,
         }),
       ).toEqual({
         ...initialState,
         dragging: true,
+        linkFromTilePos: 4,
       });
     });
   });
@@ -143,15 +189,14 @@ describe('The level editor reducer', () => {
           {
             ...initialState,
             dragging: true,
+            linkFromTilePos: 2,
+            linkToTilePos: 4,
           },
           {
             type: STOP_DRAG,
           },
         ),
-      ).toEqual({
-        ...initialState,
-        dragging: false,
-      });
+      ).toEqual(initialState);
     });
   });
 
@@ -253,6 +298,42 @@ describe('The level editor reducer', () => {
         ...initialState,
         stars: [1, MAX_MOVES, MAX_MOVES],
         editedSinceLastSave: true,
+      });
+    });
+  });
+
+  describe('SET_LINK_TO_TILE_POS', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(initialState, {
+          type: SET_LINK_TO_TILE_POS,
+          position: 4,
+        }),
+      ).toEqual({
+        ...initialState,
+        linkToTilePos: 4,
+      });
+    });
+  });
+
+  describe('CREATE_LINK', () => {
+    it('Handles the action correctly', () => {
+      expect(
+        reducer(
+          {
+            ...initialState,
+            linkFromTilePos: 2,
+            linkToTilePos: 3,
+          },
+          {
+            type: CREATE_LINK,
+          },
+        ),
+      ).toEqual({
+        ...initialState,
+        linkFromTilePos: 2,
+        linkToTilePos: 3,
+        links: [{ from: 2, to: 3 }],
       });
     });
   });

@@ -429,8 +429,16 @@ export default [
   {
     id: '50',
     entity: {
-      entityId: ENTITIES.BOMB.id,
+      entityId: ENTITIES.CRUSHER.id,
     },
-    name: 'Bomb',
+    name: 'Crusher',
+  },
+  {
+    id: '51',
+    entity: {
+      entityId: ENTITIES.TELEPORTER.id,
+      linkable: true,
+    },
+    name: 'Teleporter',
   },
 ];

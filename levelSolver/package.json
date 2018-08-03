@@ -14,10 +14,14 @@
   "dependencies": {
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "gravnic-game": "^2.0.2",
+    "gravnic-game": "^2.1.0",
     "mongoose": "^5.1.4",
     "morgan": "^1.9.0",
     "winston": "^2.4.2"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

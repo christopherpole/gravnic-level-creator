@@ -409,6 +409,7 @@ export default [
     ],
     stars: [1, 2, 3],
     position: 1,
+    links: [{ from: 1, to: 2 }],
   },
   {
     id: '2',
@@ -818,6 +819,7 @@ export default [
     ],
     stars: [1, 2, 3],
     position: 2,
+    links: [],
   },
   {
     id: '3',
@@ -1227,5 +1229,6 @@ export default [
     ],
     stars: [1, 2, 3],
     position: 3,
+    links: [{ from: 1, to: 2 }, { from: 3, to: 5 }],
   },
 ];
