@@ -4,10 +4,19 @@ import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   transition: background ${props => props.moveSpeed}ms linear;
-  background: ${props => (props.moved ? '#ccc' : '#f1af48')};
   height: 100%;
   width: 100%;
-  border: 4px solid brown;
+  background: brown;
+
+  &:before {
+    background: ${props => (props.moved ? '#ccc' : '#f1af48')};
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    bottom: 10%;
+    right: 10%;
+  }
 `;
 
 const CrateTile = ({ moved, moveSpeed }) => <Wrapper moveSpeed={moveSpeed} moved={moved} />;

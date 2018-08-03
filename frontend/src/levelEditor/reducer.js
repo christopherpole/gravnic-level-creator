@@ -2,18 +2,30 @@ import availableTiles from 'config/tiles';
 import { SAVE_LEVEL, LOAD_LEVEL_CONFIRMED } from 'levelManager/actions';
 import { createNewLevel } from 'utils';
 import { MIN_MOVES, MAX_MOVES } from 'config/settings';
-import { UPDATE_TILE, SELECT_TILE, RESET_GRID, START_DRAG, STOP_DRAG, SET_STARS } from './actions';
+import {
+  UPDATE_TILE,
+  SELECT_TILE,
+  RESET_GRID,
+  START_DRAG,
+  STOP_DRAG,
+  SET_STARS,
+  SET_LINK_TO_TILE_POS,
+  CREATE_LINK,
+} from './actions';
 
 const newLevel = createNewLevel();
 
 export const initialState = {
   previewing: false,
   dragging: false,
-  selectedTileId: '1',
+  linkFromTilePos: null,
+  linkToTilePos: null,
+  selectedTileId: availableTiles[0].id,
   availableTiles,
   tiles: newLevel.tiles,
   stars: newLevel.stars,
   editedSinceLastSave: false,
+  links: [],
 };
 
 export default function levelEditorReducer(state = initialState, action) {
@@ -32,10 +44,15 @@ export default function levelEditorReducer(state = initialState, action) {
         selectedTileId: state.selectedTileId,
       };
 
+      const newLinks = state.links.filter(
+        link => link.from !== action.position && link.to !== action.position,
+      );
+
       return {
         ...state,
         tiles: newTiles,
         editedSinceLastSave: true,
+        links: newLinks,
       };
     }
 
@@ -44,6 +61,7 @@ export default function levelEditorReducer(state = initialState, action) {
         ...state,
         tiles: initialState.tiles,
         editedSinceLastSave: false,
+        links: initialState.links,
       };
     }
 
@@ -60,6 +78,7 @@ export default function levelEditorReducer(state = initialState, action) {
         tiles: action.level.tiles,
         stars: action.level.stars,
         editedSinceLastSave: false,
+        links: action.level.links,
       };
     }
 
@@ -67,13 +86,36 @@ export default function levelEditorReducer(state = initialState, action) {
       return {
         ...state,
         dragging: true,
+        linkFromTilePos: action.linkFromTilePos,
       };
     }
 
     case STOP_DRAG: {
+      const links = [...state.links];
+
       return {
         ...state,
         dragging: false,
+        linkFromTilePos: null,
+        linkToTilePos: null,
+        links,
+      };
+    }
+
+    case SET_LINK_TO_TILE_POS: {
+      return {
+        ...state,
+        dragging: false,
+        linkToTilePos: action.position,
+      };
+    }
+
+    case CREATE_LINK: {
+      return {
+        ...state,
+        linkFromTilePos: state.linkFromTilePos,
+        linkToTilePos: state.linkToTilePos,
+        links: [...state.links, { from: state.linkFromTilePos, to: state.linkToTilePos }],
       };
     }
 

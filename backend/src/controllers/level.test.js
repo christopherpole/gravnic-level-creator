@@ -25,6 +25,7 @@ const testLevels = [
     position: 2,
     solution: false,
     maxMoves: 3,
+    links: [{ from: 2, to: 4 }, { from: 2, to: 5 }],
   },
 ];
 
@@ -60,6 +61,7 @@ describe('/levels', () => {
           expect(res.body.stars).toEqual(testLevels[0].stars);
           expect(res.body.position).toEqual(testLevels[0].position);
           expect(res.body.solution).toEqual(['UP', 'DOWN']);
+          expect(res.body.links).toEqual([]);
         });
 
       await request(server)
@@ -72,6 +74,7 @@ describe('/levels', () => {
           expect(res.body.tiles.length).toBe(100);
           expect(res.body.stars).toEqual(testLevels[1].stars);
           expect(res.body.position).toEqual(testLevels[1].position);
+          expect(res.body.links).toEqual(testLevels[1].links);
         });
 
       done();
@@ -95,6 +98,7 @@ describe('/levels', () => {
           expect(res.body[1].tiles.length).toBe(100);
           expect(res.body[1].stars).toEqual(testLevels[1].stars);
           expect(res.body[1].position).toEqual(testLevels[1].position);
+          expect(res.body[1].links).toEqual(testLevels[1].links);
         }));
 
     it('Can find a single level by ID', () =>
@@ -108,6 +112,7 @@ describe('/levels', () => {
           expect(res.body.position).toEqual(testLevels[1].position);
           expect(res.body.solution).toBe(false);
           expect(res.body.maxMoves).toBe(3);
+          expect(res.body.links).toEqual(testLevels[1].links);
         }));
 
     it('Returns a 404 error if the record is not found', () =>
@@ -133,6 +138,7 @@ describe('/levels', () => {
           expect(res.body.stars).toEqual(testLevels[1].stars);
           expect(res.body.position).toEqual(testLevels[1].position);
           expect(res.body.solution).toEqual(['LEFT']);
+          expect(res.body.links).toEqual(testLevels[1].links);
         }));
 
     it('Can update multiple levels', () =>
@@ -164,6 +170,7 @@ describe('/levels', () => {
           expect(res.body[1].stars).toEqual(testLevels[1].stars);
           expect(res.body[1].position).toEqual(testLevels[1].position);
           expect(res.body[1].solution).toEqual(['DOWN']);
+          expect(res.body[1].links).toEqual(testLevels[1].links);
         }));
 
     it('Returns a 404 error if the record is not found', () =>

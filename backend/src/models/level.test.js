@@ -14,6 +14,7 @@ describe('Level()', () => {
       position: 11,
       solution: ['UP'],
       maxMoves: 5,
+      links: [{ from: 1, to: 2 }, { from: 2, to: 3 }],
     });
   });
 
@@ -51,5 +52,6 @@ describe('Level()', () => {
     expect(testLevelJson.__v).toBe(undefined);
     expect(testLevelJson.solution).toEqual(['UP']);
     expect(testLevelJson.maxMoves).toEqual(5);
+    expect(testLevelJson.links).toEqual([{ from: 1, to: 2 }, { from: 2, to: 3 }]);
   });
 });

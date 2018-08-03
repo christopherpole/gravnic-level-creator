@@ -26,6 +26,14 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
         isCurrent={true}
         isSelected={true}
         key="1"
+        links={
+          Array [
+            Object {
+              "from": 1,
+              "to": 2,
+            },
+          ]
+        }
         name="Test level 1"
         position={1}
         renamingValue="New name"
@@ -456,6 +464,7 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
         isCurrent={false}
         isSelected={false}
         key="2"
+        links={Array []}
         name="Test level 2"
         position={2}
         renamingValue={null}
@@ -885,6 +894,18 @@ exports[`<LevelsList /> Matches the current snapshot if a level is being renamed
         isCurrent={false}
         isSelected={false}
         key="3"
+        links={
+          Array [
+            Object {
+              "from": 1,
+              "to": 2,
+            },
+            Object {
+              "from": 3,
+              "to": 5,
+            },
+          ]
+        }
         name="Test level 3"
         position={3}
         renamingValue={null}
@@ -1334,6 +1355,14 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
         isCurrent={true}
         isSelected={true}
         key="1"
+        links={
+          Array [
+            Object {
+              "from": 1,
+              "to": 2,
+            },
+          ]
+        }
         name="Test level 1"
         position={1}
         renamingValue={null}
@@ -1764,6 +1793,7 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
         isCurrent={false}
         isSelected={false}
         key="2"
+        links={Array []}
         name="Test level 2"
         position={2}
         renamingValue={null}
@@ -2193,6 +2223,18 @@ exports[`<LevelsList /> Matches the current snapshot if a level is selected 1`] 
         isCurrent={false}
         isSelected={false}
         key="3"
+        links={
+          Array [
+            Object {
+              "from": 1,
+              "to": 2,
+            },
+            Object {
+              "from": 3,
+              "to": 5,
+            },
+          ]
+        }
         name="Test level 3"
         position={3}
         renamingValue={null}
@@ -2642,6 +2684,14 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
         isCurrent={true}
         isSelected={true}
         key="1"
+        links={
+          Array [
+            Object {
+              "from": 1,
+              "to": 2,
+            },
+          ]
+        }
         name="Test level 1"
         position={1}
         renamingValue={null}
@@ -3072,6 +3122,7 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
         isCurrent={false}
         isSelected={false}
         key="2"
+        links={Array []}
         name="Test level 2"
         position={2}
         renamingValue={null}
@@ -3501,6 +3552,18 @@ exports[`<LevelsList /> Matches the current snapshot if a level is the current l
         isCurrent={false}
         isSelected={false}
         key="3"
+        links={
+          Array [
+            Object {
+              "from": 1,
+              "to": 2,
+            },
+            Object {
+              "from": 3,
+              "to": 5,
+            },
+          ]
+        }
         name="Test level 3"
         position={3}
         renamingValue={null}
@@ -3974,6 +4037,14 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
         isCurrent={true}
         isSelected={true}
         key="1"
+        links={
+          Array [
+            Object {
+              "from": 1,
+              "to": 2,
+            },
+          ]
+        }
         name="Test level 1"
         position={1}
         renamingValue={null}
@@ -4404,6 +4475,7 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
         isCurrent={false}
         isSelected={false}
         key="2"
+        links={Array []}
         name="Test level 2"
         position={2}
         renamingValue={null}
@@ -4833,6 +4905,18 @@ exports[`<LevelsList /> Matches the current snapshot with levels 1`] = `
         isCurrent={false}
         isSelected={false}
         key="3"
+        links={
+          Array [
+            Object {
+              "from": 1,
+              "to": 2,
+            },
+            Object {
+              "from": 3,
+              "to": 5,
+            },
+          ]
+        }
         name="Test level 3"
         position={3}
         renamingValue={null}

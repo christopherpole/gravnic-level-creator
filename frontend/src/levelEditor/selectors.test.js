@@ -5,6 +5,9 @@ import {
   getLevelEditorButtonDisabledStates,
   convertTileDataToGravnicGameStateString,
   getEntityForTileId,
+  getLinkCoords,
+  getTilesWithDarkenedStates,
+  isLinkingMode,
 } from './selectors';
 
 describe('getLevelEditorButtonDisabledStates()', () => {
@@ -58,6 +61,7 @@ describe('convertTileDataToGravnicGameStateString()', () => {
       levelEditor: {
         tiles: testLevels[0],
         availableTiles: levelEditorInitialState.availableTiles,
+        links: [],
       },
     };
   });
@@ -67,7 +71,11 @@ describe('convertTileDataToGravnicGameStateString()', () => {
 
     expect(gameStateString).toBe(
       JSON.stringify(
-        convertEditorTilesToGameState(state.levelEditor.tiles, state.levelEditor.availableTiles),
+        convertEditorTilesToGameState(
+          state.levelEditor.tiles,
+          state.levelEditor.availableTiles,
+          state.levelEditor.links,
+        ),
       ),
     );
   });
@@ -107,5 +115,139 @@ describe('getEntityForTileId()', () => {
     const entity = getEntityForTileId(state, state.levelEditor.availableTiles[1].id);
 
     expect(entity).toBe(state.levelEditor.availableTiles[1].entity);
+  });
+});
+
+describe('getLinkPositions()', () => {
+  let state;
+
+  beforeEach(() => {
+    state = {
+      levelEditor: {
+        links: [{ from: 1, to: 2 }, { from: 3, to: 4 }, { from: 3, to: 5 }],
+        linkFromTilePos: 2,
+        linkToTilePos: 5,
+      },
+    };
+  });
+
+  it('Formats the links correctly when there are no links and no tiles are being linked', () => {
+    const linkPositions = getLinkCoords({
+      ...state,
+      levelEditor: { ...state.levelEditor, links: [], linkFromTilePos: null, linkToTilePos: null },
+    });
+
+    expect(linkPositions).toEqual([]);
+  });
+
+  it('Formats the links correctly', () => {
+    const expectedLinkPositions = [
+      { x1: '15%', x2: '25%', y1: '5%', y2: '5%' },
+      { x1: '35%', x2: '45%', y1: '5%', y2: '5%' },
+      { x1: '35%', x2: '55%', y1: '5%', y2: '5%' },
+      { x1: '25%', x2: '55%', y1: '5%', y2: '5%' },
+    ];
+    const linkPositions = getLinkCoords(state);
+
+    expect(linkPositions).toEqual(expectedLinkPositions);
+  });
+});
+
+describe('getTilesWithDarkenedStates()', () => {
+  let state;
+
+  beforeEach(() => {
+    state = {
+      levelEditor: {
+        availableTiles: [
+          {
+            id: '1',
+            entity: {
+              entityId: 'NONE',
+            },
+          },
+          {
+            id: '2',
+            entity: {
+              entityId: 'TELEPORTER',
+              linkable: true,
+            },
+          },
+          {
+            id: '3',
+            entity: {
+              entityId: 'BLOCK',
+            },
+          },
+        ],
+        tiles: [
+          { selectedTileId: '2', position: 0 },
+          { selectedTileId: '1', position: 1 },
+          { selectedTileId: '3', position: 2 },
+          { selectedTileId: '2', position: 3 },
+          { selectedTileId: '2', position: 4 },
+        ],
+        linkFromTilePos: null,
+        linkToTilePos: null,
+      },
+    };
+  });
+
+  it('Returns the tiles with the correct darkened states if not linking from any tile', () => {
+    const tilesWithDarkenedStates = getTilesWithDarkenedStates(state);
+
+    expect(tilesWithDarkenedStates).toEqual(
+      state.levelEditor.tiles.map(tile => ({ ...tile, darkened: false })),
+    );
+  });
+
+  it('Returns the tiles with the correct darkened states if linking to the same tile', () => {
+    const tilesWithDarkenedStates = getTilesWithDarkenedStates({
+      ...state,
+      levelEditor: { ...state.levelEditor, linkFromTilePos: 0, linkToTilePos: 0 },
+    });
+
+    expect(tilesWithDarkenedStates).toEqual(
+      state.levelEditor.tiles.map(tile => ({ ...tile, darkened: false })),
+    );
+  });
+
+  it('Returns the tiles with the correct darkened states if linking', () => {
+    const tilesWithDarkenedStates = getTilesWithDarkenedStates({
+      ...state,
+      levelEditor: { ...state.levelEditor, linkFromTilePos: 0, linkToTilePos: 3 },
+    });
+
+    expect(tilesWithDarkenedStates).toEqual(
+      state.levelEditor.tiles.map(tile => ({ ...tile, darkened: tile.selectedTileId !== '2' })),
+    );
+  });
+});
+
+describe('isLinkingMode()', () => {
+  let state;
+
+  beforeEach(() => {
+    state = {
+      levelEditor: {
+        linkFromTilePos: null,
+        linkToTilePos: null,
+      },
+    };
+  });
+
+  it('Returns false if not dragging from a tile', () => {
+    const linkingMode = isLinkingMode(state);
+
+    expect(linkingMode).toBe(false);
+  });
+
+  it('Returns false if dragging to own tile', () => {
+    const linkingMode = isLinkingMode({
+      ...state,
+      levelEditor: { ...state.levelEditor, linkFromTilePos: 3, linkToTilePos: 3 },
+    });
+
+    expect(linkingMode).toBe(false);
   });
 });

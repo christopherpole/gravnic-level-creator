@@ -3,6 +3,7 @@ import dovenv from 'dotenv';
 import {
   getComputedStyleProperty,
   getNoOfElementsWithStyle,
+  getNoOfElements,
   isDisplayed,
   getStarsValues,
 } from '../testUtils';
@@ -12,7 +13,7 @@ dovenv.config();
 const debugMode = false;
 
 //  Set the timeout. Good for when using slowMo for debugging
-jest.setTimeout(debugMode ? 10000 : 5000);
+jest.setTimeout(debugMode ? 20000 : 10000);
 
 describe('The level editor', () => {
   let browser;
@@ -189,4 +190,174 @@ describe('The level editor', () => {
 
   //  @TODO
   it('Allows the user to export the level');
+
+  it('Allows the user to create links between linkable tiles', async done => {
+    const { mouse } = page;
+    await page.click('#btn-reset');
+
+    //  Create a simple level with two teleporters
+    await page.click('#tile-selector .tile:nth-child(51)');
+    await page.click('#editor-grid .tile:nth-child(54)');
+    await page.click('#editor-grid .tile:nth-child(56)');
+    await page.click('#tile-selector .tile:nth-child(2)');
+    await page.click('#editor-grid .tile:nth-child(53)');
+    await page.click('#editor-grid .tile:nth-child(57)');
+    await page.click('#tile-selector .tile:nth-child(4)');
+    await page.click('#editor-grid .tile:nth-child(52)');
+    await page.click('#editor-grid .tile:nth-child(58)');
+
+    //  Get the start/end coords for the two teleporters
+    const startingTile = await page.$('#editor-grid .tile:nth-child(54)');
+    const finishingTile = await page.$('#editor-grid .tile:nth-child(56)');
+    const startingTilePos = await startingTile.boundingBox();
+    const finishingTilePos = await finishingTile.boundingBox();
+
+    //  Drag the start dragging from the starting tile
+    await mouse.move(startingTilePos.x + 10, startingTilePos.y + 10);
+    await mouse.down();
+
+    //  Ensure that no tiles have the darkened out state just yet
+    let nonTeleporterOpacity = await getComputedStyleProperty(
+      page,
+      'opacity',
+      '#editor-grid .tile:nth-child(1)',
+      ':after',
+    );
+    expect(nonTeleporterOpacity).toBe('1');
+    let teleporterOpacity = await getComputedStyleProperty(
+      page,
+      'opacity',
+      '#editor-grid .tile:nth-child(54)',
+      ':after',
+    );
+    expect(teleporterOpacity).toBe('1');
+
+    //  Drag to the end tile
+    await mouse.move(finishingTilePos.x + 10, finishingTilePos.y + 10, { steps: 5 });
+
+    //  Ensure the any non-linkable tiles are darkened
+    nonTeleporterOpacity = await getComputedStyleProperty(
+      page,
+      'opacity',
+      '#editor-grid .tile:nth-child(1)',
+      ':after',
+    );
+    expect(nonTeleporterOpacity).toBe('0.5');
+    teleporterOpacity = await getComputedStyleProperty(
+      page,
+      'opacity',
+      '#editor-grid .tile:nth-child(54)',
+      ':after',
+    );
+    expect(teleporterOpacity).toBe('1');
+
+    //  Check that a link has been created
+    let noOfLinks = await getNoOfElements(page, 'svg line');
+    expect(noOfLinks).toBe(1);
+
+    //  Stop dragging
+    await mouse.up();
+
+    //  Ensure that non-linkable tiles are no longer darkened
+    nonTeleporterOpacity = await getComputedStyleProperty(
+      page,
+      'opacity',
+      '#editor-grid .tile:nth-child(1)',
+      ':after',
+    );
+    expect(nonTeleporterOpacity).toBe('1');
+
+    //  Ensure that the link still remains but is slightly faded
+    noOfLinks = await getNoOfElements(page, 'svg line');
+    expect(noOfLinks).toBe(1);
+    const lineOpacity = await getComputedStyleProperty(page, 'opacity', '#link-display');
+    expect(lineOpacity).toBe('0.5');
+
+    done();
+  });
+
+  it('Does not allow a user to create the same link twice', async done => {
+    const { mouse } = page;
+
+    //  Get the start/end coords for the two teleporters
+    const startingTile = await page.$('#editor-grid .tile:nth-child(56)');
+    const finishingTile = await page.$('#editor-grid .tile:nth-child(54)');
+    const startingTilePos = await startingTile.boundingBox();
+    const finishingTilePos = await finishingTile.boundingBox();
+
+    //  Try and create a new link over the existing one in the other direction
+    await mouse.move(startingTilePos.x + 10, startingTilePos.y + 10);
+    await mouse.down();
+    await mouse.move(finishingTilePos.x + 10, finishingTilePos.y + 10, { steps: 5 });
+    await mouse.up();
+
+    //  Ensure that there is still only one link
+    const noOfLinks = await getNoOfElements(page, 'svg line');
+    expect(noOfLinks).toBe(1);
+
+    done();
+  });
+
+  it('Removes all links from a tile that gets updated', async done => {
+    //  Overwrite one of the teleporters with another teleporter
+    await page.click('#tile-selector .tile:nth-child(51)');
+    await page.click('#editor-grid .tile:nth-child(54)');
+
+    //  Ensure that all links have been removed
+    const noOfLinks = await getNoOfElements(page, 'svg line');
+    expect(noOfLinks).toBe(0);
+
+    done();
+  });
+
+  it('Does not allow a user to create a link to a non-linkable tile', async done => {
+    const { mouse } = page;
+
+    //  Get the start/end coords for the two teleporters
+    const startingTile = await page.$('#editor-grid .tile:nth-child(54)');
+    const finishingTile = await page.$('#editor-grid .tile:nth-child(55)');
+    const startingTilePos = await startingTile.boundingBox();
+    const finishingTilePos = await finishingTile.boundingBox();
+
+    //  Try and create a new link over the existing one in the other direction
+    await mouse.move(startingTilePos.x + 10, startingTilePos.y + 10);
+    await mouse.down();
+    await mouse.move(finishingTilePos.x + 10, finishingTilePos.y + 10, { steps: 5 });
+    await mouse.up();
+
+    //  Ensure that there are no links
+    const noOfLinks = await getNoOfElements(page, 'svg line');
+    expect(noOfLinks).toBe(0);
+
+    done();
+  });
+
+  it('Removes all links when resetting a level', async done => {
+    const { mouse } = page;
+
+    //  Get the start/end coords for the two teleporters
+    const startingTile = await page.$('#editor-grid .tile:nth-child(54)');
+    const finishingTile = await page.$('#editor-grid .tile:nth-child(56)');
+    const startingTilePos = await startingTile.boundingBox();
+    const finishingTilePos = await finishingTile.boundingBox();
+
+    //  Try and create a new link over the existing one in the other direction
+    await mouse.move(startingTilePos.x + 10, startingTilePos.y + 10);
+    await mouse.down();
+    await mouse.move(finishingTilePos.x + 10, finishingTilePos.y + 10, { steps: 5 });
+    await mouse.up();
+
+    //  Ensure that there is one link
+    let noOfLinks = await getNoOfElements(page, 'svg line');
+    expect(noOfLinks).toBe(1);
+
+    //  Reset the editor tiles
+    await page.click('#btn-reset');
+
+    //  Ensure that there are no links
+    noOfLinks = await getNoOfElements(page, 'svg line');
+    expect(noOfLinks).toBe(0);
+
+    done();
+  });
 });

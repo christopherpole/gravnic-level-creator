@@ -433,4 +433,12 @@ export default [
     },
     name: 'Crusher',
   },
+  {
+    id: '51',
+    entity: {
+      entityId: ENTITIES.TELEPORTER.id,
+      linkable: true,
+    },
+    name: 'Teleporter',
+  },
 ];

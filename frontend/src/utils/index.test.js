@@ -76,7 +76,7 @@ describe('convertEditorTilesToGameState()', () => {
     ]);
   });
 
-  it('Returns the current game state for a multiple blocks', () => {
+  it('Returns the current game state for multiple blocks', () => {
     const gameState = convertEditorTilesToGameState(
       [
         ...testTiles.slice(0, 12),
@@ -124,6 +124,85 @@ describe('convertEditorTilesToGameState()', () => {
           movableEntity: null,
           staticEntity: { entityId: ENTITIES.FLOOR.id, id: 3 },
         },
+      ],
+    ];
+
+    expect(gameState).toEqual(expectedGameState);
+  });
+
+  it('Returns the current game state for multiple blocks and links', () => {
+    const links = [{ from: 12, to: 21 }, { from: 41, to: 37 }];
+    const teleporterTileId = tiles.find(tile => tile.entity.entityId === ENTITIES.TELEPORTER.id).id;
+
+    const gameState = convertEditorTilesToGameState(
+      [
+        ...testTiles.slice(0, 12),
+        {
+          position: 12,
+          selectedTileId: teleporterTileId,
+        },
+        ...testTiles.slice(13, 21),
+        {
+          position: 21,
+          selectedTileId: teleporterTileId,
+        },
+        ...testTiles.slice(22, 37),
+        {
+          position: 37,
+          selectedTileId: teleporterTileId,
+        },
+        ...testTiles.slice(38, 41),
+        {
+          position: 41,
+          selectedTileId: teleporterTileId,
+        },
+        ...testTiles.slice(42, 44),
+        {
+          position: 44,
+          selectedTileId: teleporterTileId,
+        },
+        ...testTiles.slice(45),
+      ],
+      tiles,
+      links,
+    );
+
+    const expectedGameState = [
+      [
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: { entityId: 'TELEPORTER', id: 1, linkedEntityId: 2 } },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+      ],
+      [
+        { movableEntity: null, staticEntity: { entityId: 'TELEPORTER', id: 2, linkedEntityId: 1 } },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+      ],
+      [
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: { entityId: 'TELEPORTER', id: 3, linkedEntityId: 4 } },
+      ],
+      [
+        { movableEntity: null, staticEntity: { entityId: 'TELEPORTER', id: 4, linkedEntityId: 3 } },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: { entityId: 'TELEPORTER', id: 5 } },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
+        { movableEntity: null, staticEntity: null },
       ],
     ];
 

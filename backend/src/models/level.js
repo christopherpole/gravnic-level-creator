@@ -16,6 +16,20 @@ TileSchema.set('toJSON', {
   },
 });
 
+//  Links schema
+const LinkSchema = new mongoose.Schema({
+  from: { type: Number, required: true },
+  to: { type: Number, required: true },
+});
+
+LinkSchema.set('toJSON', {
+  transform: (doc, ret) => {
+    const rtn = { ...ret };
+    delete rtn._id;
+    return rtn;
+  },
+});
+
 //  Level schema
 const LevelSchema = new mongoose.Schema({
   name: {
@@ -41,6 +55,10 @@ const LevelSchema = new mongoose.Schema({
   maxMoves: {
     type: Number,
     default: undefined,
+  },
+  links: {
+    type: [LinkSchema],
+    default: [],
   },
 });
 
