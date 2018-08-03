@@ -36,6 +36,7 @@ describe('The level preview actions', () => {
         levelEditor: {
           tiles: testLevels[0].tiles,
           availableTiles,
+          links: [],
         },
       });
 
@@ -45,7 +46,7 @@ describe('The level preview actions', () => {
       expect(
         dispatchSpy.calledWith({
           type: PREVIEW_LEVEL,
-          gameState: convertEditorTilesToGameState(testLevels[0].tiles, availableTiles),
+          gameState: convertEditorTilesToGameState(testLevels[0].tiles, availableTiles, []),
         }),
       ).toBe(true);
     });
