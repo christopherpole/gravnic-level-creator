@@ -19,6 +19,7 @@ describe('solveLevel()', () => {
     const getState = () => ({
       levelEditor: {
         tiles: testLevels[0].tiles,
+        links: [],
         availableTiles,
       },
     });
@@ -29,7 +30,7 @@ describe('solveLevel()', () => {
     expect(
       dispatchSpy.calledWith({
         type: SOLVE_LEVEL,
-        gameState: convertEditorTilesToGameState(testLevels[0].tiles, availableTiles),
+        gameState: convertEditorTilesToGameState(testLevels[0].tiles, availableTiles, []),
       }),
     ).toBe(true);
   });
