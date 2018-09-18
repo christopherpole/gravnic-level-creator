@@ -59,7 +59,7 @@ jobs:
           command: cd frontend && yarn lint
       - run:
           name: Run tests
-          command: cd frontend && yarn test
+          command: cd frontend && yarn test --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
@@ -110,7 +110,7 @@ jobs:
             sudo apt-get install mongodb-server
       - run:
           name: Run tests
-          command: cd backend && yarn test --forceExit
+          command: cd backend && yarn test --forceExit --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
@@ -145,7 +145,7 @@ jobs:
             sudo apt-get install mongodb-server
       - run:
           name: Run tests
-          command: cd levelSolver && yarn test --forceExit
+          command: cd levelSolver && yarn test --forceExit --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - persist_to_workspace:
           root: ~/gravnic-level-creator
           paths:
@@ -179,6 +179,10 @@ jobs:
             docker push registry.heroku.com/$HEROKU_BACKEND_APP_NAME/web:latest
             docker build --rm=false -t registry.heroku.com/$HEROKU_LEVEL_SOLVER_APP_NAME/web levelSolver/
             docker push registry.heroku.com/$HEROKU_LEVEL_SOLVER_APP_NAME/web:latest
+
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN
 
 workflows:
   version: 2

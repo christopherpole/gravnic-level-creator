@@ -1,6 +1,6 @@
 # Gravnic Level Creator
 
-[![CircleCI](https://circleci.com/gh/christopherpole/gravnic-level-creator/tree/master.svg?style=shield&circle-token=d519026a32dd609284eaa21668cc5a7beb34819f)](https://circleci.com/gh/christopherpole/gravnic-level-creator/tree/master)
+[![CircleCI](https://circleci.com/gh/christopherpole/gravnic-level-creator/tree/master.svg?style=shield&circle-token=d519026a32dd609284eaa21668cc5a7beb34819f)](https://circleci.com/gh/christopherpole/gravnic-level-creator/tree/master) [![Coverage Status](https://coveralls.io/repos/github/christopherpole/gravnic-level-creator/badge.svg?branch=master)](https://coveralls.io/github/christopherpole/gravnic-level-creator?branch=master)
 
 A React/Redux web app that allows users to create, manage, export, play and automatically solve "Gravnic" levels.
 
