@@ -16,7 +16,7 @@ TODO
 
 ## Demo
 
-A live demo is available [here](http://gravnic.chrispole.com).
+A live demo is available [here](http://gravnic.chrispole.com). Level saving/solving might not work as using the free Heroku plan which means the services will take about 30 seconds to "wake up". Open the failed network requests in a seperate tab if you want to see these working.
 
 ## Roadmap
 
